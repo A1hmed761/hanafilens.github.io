@@ -3,31 +3,62 @@
 <head>
   <title>Articles – Hanafi Lens</title>
   <style>
-    body { margin: 0; background-color: #ffe69c; color: #145943; 'Segoe UI', sans-serif; } 
-    header {
-      background-color: #145943; /* medium dark green */
-      padding: 20px;
-      text-align: center;
-    }
+    /* Responsive layout improvements */
+body {
+  margin: 0;
+  background-color: #ffe69c;
+  color: #145943;
+  font-family: 'Segoe UI', sans-serif;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 2em;
-      color: #ffe69c; /* skin/yellow */
-    }
-    
-   nav {
-      text-align: center;
-      background-color: #104133;
-      padding: 10px;
-    }
+/* Article card container */
+main div[style*="display: flex"] {
+  justify-content: center;
+}
 
-    nav a {
-      color: #ffdfa6;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
+/* Make cards responsive */
+.card {
+  width: 100%;
+  max-width: 300px;
+  background-color: #0c3b2e;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Ensure footer is styled */
+footer {
+  text-align: center;
+  background-color: #145943;
+  color: #ffe69c;
+  padding: 15px;
+  margin-top: 40px;
+  font-size: 14px;
+}
+
+/* Mobile styles */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.5em;
+  }
+
+  nav {
+    padding: 10px 5px;
+  }
+
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+
+  main h2 {
+    text-align: center;
+  }
+
+  main div[style*="display: flex"] {
+    flex-direction: column;
+    align-items: center;
+  }
+}
   </style>
 </head>
 <body>
@@ -47,7 +78,7 @@
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px;">
 
-  <div style="width: 300px; background-color: #0c3b2e; border-radius: 8px; overflow: hidden;">
+  <div class="card">
     <a href="#" style="text-decoration: none; color: #fffbe6;">
       <img src="https://via.placeholder.com/300x180.png?text=Hanafi+Scholars" alt="Why Hanafi " style="width: 100%;">
       <div style="padding: 10px;">
@@ -57,7 +88,7 @@
     </a>
   </div>
 
-  <div style="width: 300px; background-color: #0c3b2e; border-radius: 8px; overflow: hidden;">
+  <div class="card">
     <a href="#" style="text-decoration: none; color: #fffbe6;">
       <img src="https://via.placeholder.com/300x180.png?text=Qiyas+in+Fiqh" alt="Qiyas in Hanafi Fiqh" style="width: 100%;">
       <div style="padding: 10px;">
@@ -67,7 +98,7 @@
     </a>
   </div>
 
-  <div style="width: 300px; background-color: #0c3b2e; border-radius: 8px; overflow: hidden;">
+  <div class="card">
   <a href="taharat.html" style="text-decoration: none; color: #fffbe6;">
     <img src="images/arabic.png" alt="Masail of Taharat" style="width: 100%;">
     <div style="padding: 10px;">
