@@ -63,11 +63,20 @@
     }
 
     @media (max-width: 600px) {
-      nav a {
-        display: block;
-        margin: 10px 0;
-      }
-    }
+  nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 6px 8px;
+  }
+}
+
   </style>
 </head>
 <body>
