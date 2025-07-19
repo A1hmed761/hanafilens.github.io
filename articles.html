@@ -40,12 +40,21 @@
       font-weight: bold;
     }
 
-   @media (max-width: 600px) {
-      nav a {
-        display: block;
-        margin: 10px 0;
-      }
-    }
+   nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  color: #ffdfa6;
+}
+
+nav a[style] {
+  background-color: #ffe69c;
+  color: #0c3b2e;
+}
   </style>
 </head>
 <body>
