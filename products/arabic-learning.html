@@ -84,15 +84,20 @@ h2 { margin-top: 100px; }
 
 
 
-/* Grid */
-
 .grid {
+
   display: grid;
-  /* 'auto-fit' is usually better than 'auto-fill' for centering */
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--grid-min)), 1fr));
+
+  grid-template-columns: repeat(auto-fill, minmax(var(--grid-min), 1fr));
+
   gap: var(--gap);
-  justify-content: center; /* Center the cards */
+
+  justify-items: center;
+
   width: 100%;
+
+  max-width: 1400px;
+
 }
 
 
@@ -280,7 +285,10 @@ figcaption {
   transform: translateX(0);
 
 }
+  
+@media (max-width: 480px) {
 
+  body { padding: 16px; }
 
   .sidebar { width: 260px; transform: translateX(260px); }
 
