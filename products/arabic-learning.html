@@ -18,34 +18,6 @@
 
 <style>
 
-:root {
-
-  --grid-min: 300px;
-
-  --gap: 40px;
-
-  --emoji-size: 120px;
-
-  --card-width: 300px;
-
-  --card-height: 220px;
-
-  --radius: 12px;
-
-  --caption-padding: 10px;
-
-  --caption-font: 1.3rem;
-
-  --caption-radius: 12px;
-
-}
-
-
-
-* { box-sizing: border-box; }
-
-
-
 body {
 
   margin: 0;
@@ -85,20 +57,13 @@ h2 { margin-top: 100px; }
 
 
 .grid {
-
-  display: grid;
-
-  grid-template-columns: repeat(auto-fill, minmax(var(--grid-min), 1fr));
-
-  gap: var(--gap);
-
-  justify-items: center;
-
-  width: 100%;
-
-  max-width: 1400px;
-
-}
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      justify-items: center;
+      width: 100%;
+      max-width: 1400px;
+    }
 
 
 
@@ -126,34 +91,24 @@ figure.card {
 
 
 
-.emoji, .thumb {
+.emoji {
+      font-size: 120px;
+      background: white;
+      width: 300px;
+      height: 220px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
 
-  font-size: var(--emoji-size);
-
-  background: white;
-
-  width: var(--card-width);
-
-  height: var(--card-height);
-
-  border-radius: var(--radius);
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-
-}
-
-
-
-.thumb {
-
-  object-fit: cover;
-
+    img.thumb {
+background: white;
+width: 300px;
+height: 220px;
+object-fit: cover;
+border-radius: 12px;
 }
 
 
@@ -164,13 +119,13 @@ figcaption {
 
   background: white;
 
-  padding: var(--caption-padding) 0;
+  padding: 10px 0;
 
   width: 100%;
 
-  border-radius: 0 0 var(--caption-radius) var(--caption-radius);
+  border-radius: 0 0 12px 12px;
 
-  font-size: var(--caption-font);
+  font-size: 1.3rem;
 
   font-weight: 700;
 
@@ -368,13 +323,15 @@ figcaption {
 }
 
 figcaption.back {
-  /* This ensures it uses the variables from our Javascript presets */
-  width: var(--card-width) !important;
-  height: var(--back-height, 328.4px) !important;
+  width: 300px !important;
+  height: 328.4px !important;
   
-  /* Resetting margin to align with where the emoji/image was */
-  margin-top: 0 !important; 
-  border-radius: var(--radius) !important;
+  /* Optional: Ensures content doesn't spill out if there's too much text */
+  overflow-y: auto; 
+  
+  /* Keeps the card centered if the front and back sizes differ */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 </style>
@@ -1286,54 +1243,6 @@ figcaption.back {
 
 
 <script>
-
-/* --- Presets --- */
-
-const presets = {
-4:{gridMin:"300px",gap:"40px",emoji:"120px",width:"300px",height:"220px",radius:"12px",capPad:"10px",capFont:"1.3rem",capRadius:"12px"},
-
-  5:{gridMin:"240px",gap:"32px",emoji:"96px",width:"240px",height:"176px",radius:"10px",capPad:"8px",capFont:"1.05rem",capRadius:"10px"},
-
-  6:{gridMin:"200px",gap:"27px",emoji:"80px",width:"200px",height:"147px",radius:"8px",capPad:"7px",capFont:"1rem",capRadius:"8px"}
-
-};
-
-
-
-/* --- Row size selector --- */
-
-const rowSelector = document.getElementById("rowSelector");
-
-rowSelector.addEventListener("change", () => {
-
-  const p = presets[rowSelector.value];
-
-  const r = document.documentElement.style;
-
-
-
-  r.setProperty("--grid-min", p.gridMin);
-
-  r.setProperty("--gap", p.gap);
-
-  r.setProperty("--emoji-size", p.emoji);
-
-  r.setProperty("--card-width", p.width);
-
-  r.setProperty("--card-height", p.height);
-
-  r.setProperty("--radius", p.radius);
-
-  r.setProperty("--caption-padding", p.capPad);
-
-  r.setProperty("--caption-font", p.capFont);
-
-  r.setProperty("--caption-radius", p.capRadius);
-
-});
-
-
-
 /* --- Sidebar Toggle --- */
 
 document.getElementById('toggleSidebar').onclick = () => {
