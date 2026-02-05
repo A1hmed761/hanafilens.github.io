@@ -37,6 +37,8 @@
   --caption-font: 1.3rem;
 
   --caption-radius: 12px;
+  
+  --back-height: 328.4px; /* Set the default here */
 
 }
 
@@ -44,7 +46,11 @@
 
 * { box-sizing: border-box; }
 
-
+.emoji, .thumb, figcaption.back {
+  /* This ensures the card never exceeds the screen width */
+  max-width: 95vw; 
+  width: var(--card-width) !important;
+}
 
 body {
 
@@ -87,19 +93,12 @@ h2 { margin-top: 100px; }
 /* Grid */
 
 .grid {
-
   display: grid;
-
-  grid-template-columns: repeat(auto-fill, minmax(var(--grid-min), 1fr));
-
+  /* 'auto-fit' is usually better than 'auto-fill' for centering */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--grid-min)), 1fr));
   gap: var(--gap);
-
-  justify-items: center;
-
+  justify-content: center; /* Center the cards */
   width: 100%;
-
-  max-width: 1400px;
-
 }
 
 
@@ -291,11 +290,16 @@ figcaption {
 
 
 @media (max-width: 480px) {
-
-  body { padding: 16px; }
-
-  .sidebar { width: 260px; transform: translateX(260px); }
-
+  body { 
+    padding: 10px; /* Reduced from 40px */
+  }
+  .grid {
+    gap: 15px; /* Smaller gap so cards fit better */
+  }
+  .sidebar { 
+    width: 260px; 
+    transform: translateX(260px); 
+  }
 }
 
 
@@ -390,7 +394,62 @@ figcaption.back {
 <body>
 
 
+<!-- Sidebar Toggle Button -->
 
+<div class="toggle-btn" id="toggleSidebar">☰</div>
+
+
+
+<aside class="sidebar" id="sidebar" aria-hidden="true">
+
+  <h3>⚙️ Display settings</h3>
+
+  <label for="rowSelector">عدد الصفوف (حجم البطاقة):</label>
+
+  <select id="rowSelector" aria-label="Choose card size">
+  <option value="4">4 — الافتراضي</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+</select>
+
+  <h3>⚙️ Card Display Options</h3>
+
+<div class="card-options">
+
+  <label><input type="checkbox" class="toggle-field" data-field="ar" checked> Arabic</label><br>
+
+  <label><input type="checkbox" class="toggle-field" data-field="emoji" checked> Image / Emoji</label><br>
+
+  <label><input type="checkbox" class="toggle-field" data-field="en" checked> English meaning</label><br>
+
+  <label><input type="checkbox" class="toggle-field" data-field="plural" checked> Plural</label><br>
+
+  <label><input type="checkbox" class="toggle-field" data-field="sentences" checked> Sentences</label><br>
+
+</div>
+
+
+
+<div class="back-options">
+
+  <label><input type="checkbox" class="toggle-field" data-field="emoji" checked> Emoji</label><br>
+
+  <label><input type="checkbox" class="toggle-field" data-field="ar" checked> Arabic</label><br>
+
+  <label><input type="checkbox" class="toggle-field" data-field="en" checked> English Meaning</label><br>
+
+  <label><input type="checkbox" class="toggle-field" data-field="plural" checked> Plural</label><br>
+
+  <label><input type="checkbox" class="toggle-field" data-field="sentences" checked> Sentences</label><br>
+
+</div>
+
+<div class="buttons">
+  <button id="btn-urd">Toggle Urdu / English</button>
+  <button id="btn-per">Toggle Persian / Arabic</button>
+</div>
+
+</aside>
 
 
 <div class="content">
