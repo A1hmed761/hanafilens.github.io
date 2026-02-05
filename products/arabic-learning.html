@@ -37,8 +37,6 @@
   --caption-font: 1.3rem;
 
   --caption-radius: 12px;
-  
-  --back-height: 328.4px; /* Set the default here */
 
 }
 
@@ -46,11 +44,7 @@
 
 * { box-sizing: border-box; }
 
-.emoji, .thumb, figcaption.back {
-  /* This ensures the card never exceeds the screen width */
-  max-width: 95vw; 
-  width: var(--card-width) !important;
-}
+
 
 body {
 
@@ -66,7 +60,7 @@ body {
 
   align-items: center;
 
-  padding: 20px;
+  padding: 40px;
 
   min-height: 100vh;
 
@@ -93,12 +87,19 @@ h2 { margin-top: 100px; }
 /* Grid */
 
 .grid {
+
   display: grid;
-  /* 'auto-fit' is usually better than 'auto-fill' for centering */
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--grid-min)), 1fr));
+
+  grid-template-columns: repeat(auto-fill, minmax(var(300px, 1fr));
+
   gap: var(--gap);
-  justify-content: center; /* Center the cards */
+
+  justify-items: center;
+
   width: 100%;
+
+  max-width: 1400px;
+
 }
 
 
@@ -290,16 +291,11 @@ figcaption {
 
 
 @media (max-width: 480px) {
-  body { 
-    padding: 10px; /* Reduced from 40px */
-  }
-  .grid {
-    gap: 15px; /* Smaller gap so cards fit better */
-  }
-  .sidebar { 
-    width: 260px; 
-    transform: translateX(260px); 
-  }
+
+  body { padding: 16px; }
+
+  .sidebar { width: 260px; transform: translateX(260px); }
+
 }
 
 
@@ -394,6 +390,7 @@ figcaption.back {
 <body>
 
 
+
 <!-- Sidebar Toggle Button -->
 
 <div class="toggle-btn" id="toggleSidebar">☰</div>
@@ -450,6 +447,7 @@ figcaption.back {
 </div>
 
 </aside>
+
 
 
 <div class="content">
@@ -1296,42 +1294,12 @@ figcaption.back {
 /* --- Presets --- */
 
 const presets = {
-  4: {
-    gridMin: "300px",
-    gap: "40px",
-    emoji: "120px",
-    width: "300px",
-    height: "220px",      // Front image height
-    backHeight: "328.4px", // Your requested Back height
-    radius: "12px",
-    capPad: "10px",
-    capFont: "1.3rem",
-    capRadius: "12px"
-  },
-  5: {
-    gridMin: "240px",
-    gap: "32px",
-    emoji: "96px",
-    width: "240px",
-    height: "176px",      // Front image height
-    backHeight: "264.5px", // Your requested Back height
-    radius: "10px",
-    capPad: "8px",
-    capFont: "1.05rem",
-    capRadius: "10px"
-  },
-  6: {
-    gridMin: "200px",
-    gap: "27px",
-    emoji: "80px",
-    width: "200px",
-    height: "147px",      // Front image height
-    backHeight: "230.2px", // Your requested Back height
-    radius: "8px",
-    capPad: "7px",
-    capFont: "1rem",
-    capRadius: "8px"
-  }
+4:{gridMin:"300px",gap:"40px",emoji:"120px",width:"300px",height:"220px",radius:"12px",capPad:"10px",capFont:"1.3rem",capRadius:"12px"},
+
+  5:{gridMin:"240px",gap:"32px",emoji:"96px",width:"240px",height:"176px",radius:"10px",capPad:"8px",capFont:"1.05rem",capRadius:"10px"},
+
+  6:{gridMin:"200px",gap:"27px",emoji:"80px",width:"200px",height:"147px",radius:"8px",capPad:"7px",capFont:"1rem",capRadius:"8px"}
+
 };
 
 
@@ -1341,19 +1309,31 @@ const presets = {
 const rowSelector = document.getElementById("rowSelector");
 
 rowSelector.addEventListener("change", () => {
+
   const p = presets[rowSelector.value];
+
   const r = document.documentElement.style;
 
+
+
   r.setProperty("--grid-min", p.gridMin);
+
   r.setProperty("--gap", p.gap);
+
   r.setProperty("--emoji-size", p.emoji);
+
   r.setProperty("--card-width", p.width);
+
   r.setProperty("--card-height", p.height);
-  r.setProperty("--back-height", p.backHeight); // <--- Add this line
+
   r.setProperty("--radius", p.radius);
+
   r.setProperty("--caption-padding", p.capPad);
+
   r.setProperty("--caption-font", p.capFont);
+
   r.setProperty("--caption-radius", p.capRadius);
+
 });
 
 
