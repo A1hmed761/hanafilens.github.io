@@ -1,4 +1,4 @@
- <!doctype html>
+  <!doctype html>
 
 <html lang="ar" dir="rtl">
 
@@ -60,7 +60,7 @@ body {
 
   align-items: center;
 
-  padding: 2px;
+  padding: 0px;
 }
 
 
@@ -1272,51 +1272,104 @@ figcaption.back {
 </section>
 <script>
 
-/* --- Presets --- */
+/* ------------------------------
+   Compute Dynamic Presets
+------------------------------ */
+function computeDynamicPresets() {
+  // Base preset (4)
+  const base = {
+    gridMin: 300,
+    gap: 40,
+    emoji: 120,
+    width: 300,
+    height: 220,
+    radius: 12,
+    capPad: 10,
+    capFont: 1.3,
+    capRadius: 12
+  };
 
-const presets = {
-4:{gridMin:"300px",gap:"40px",emoji:"120px",width:"300px",height:"220px",radius:"12px",capPad:"10px",capFont:"1.3rem",capRadius:"12px"},
+  const deviceWidth = window.innerWidth;
 
-  5:{gridMin:"240px",gap:"32px",emoji:"96px",width:"240px",height:"176px",radius:"10px",capPad:"8px",capFont:"1.05rem",capRadius:"10px"},
+  // Autofill columns using preset 4
+  let baseCols = Math.floor((deviceWidth + base.gap) / (base.gridMin));
+  if (baseCols < 1) baseCols = 1;
 
-  6:{gridMin:"200px",gap:"27px",emoji:"80px",width:"200px",height:"147px",radius:"8px",capPad:"7px",capFont:"1rem",capRadius:"8px"}
+  function makePreset(extraCards) {
+    const newCols = baseCols + extraCards;
 
-};
+    // Subtract gaps from total width before dividing
+    const totalGap = base.gap * (newCols - 1);
+    const newGridMin = (deviceWidth - totalGap) / newCols;
 
+    const factor = newGridMin / base.gridMin;
 
+    return {
+      gridMin: newGridMin + "px",
+      gap: (base.gap * factor) + "px",
+      emoji: (base.emoji * factor) + "px",
+      width: newGridMin + "px",
+      height: (base.height * factor) + "px",
+      radius: (base.radius * factor) + "px",
+      capPad: (base.capPad * factor) + "px",
+      capFont: (base.capFont * factor) + "rem",
+      capRadius: (base.capRadius * factor) + "px"
+    };
+  }
 
-/* --- Row size selector --- */
+  return {
+    4: {
+      gridMin: base.gridMin + "px",
+      gap: base.gap + "px",
+      emoji: base.emoji + "px",
+      width: base.width + "px",
+      height: base.height + "px",
+      radius: base.radius + "px",
+      capPad: base.capPad + "px",
+      capFont: base.capFont + "rem",
+      capRadius: base.capRadius + "px"
+    },
+    5: makePreset(1),
+    6: makePreset(2)
+  };
+}
+
+/* ------------------------------
+   Row Selector Change
+------------------------------ */
+let presets = computeDynamicPresets();
 
 const rowSelector = document.getElementById("rowSelector");
 
 rowSelector.addEventListener("change", () => {
+  // Recompute presets on every change (screen resize also updates correctly)
+  presets = computeDynamicPresets();
 
   const p = presets[rowSelector.value];
-
   const r = document.documentElement.style;
 
-
-
   r.setProperty("--grid-min", p.gridMin);
-
   r.setProperty("--gap", p.gap);
-
   r.setProperty("--emoji-size", p.emoji);
-
   r.setProperty("--card-width", p.width);
-
   r.setProperty("--card-height", p.height);
-
   r.setProperty("--radius", p.radius);
-
   r.setProperty("--caption-padding", p.capPad);
-
   r.setProperty("--caption-font", p.capFont);
-
   r.setProperty("--caption-radius", p.capRadius);
-
 });
 
+
+
+/* ------------------------------
+   Sidebar Toggle
+------------------------------ */
+
+document.getElementById('toggleSidebar').onclick = () => {
+  const sidebar = document.getElementById('sidebar');
+  const open = sidebar.classList.toggle('open');
+  sidebar.setAttribute('aria-hidden', (!open).toString());
+};
 
 
 /* --- Sidebar Toggle --- */
