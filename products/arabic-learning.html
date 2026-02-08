@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+  <!DOCTYPE html>
 
 <html dir="rtl" lang="ar">
 <head>
@@ -27,6 +27,8 @@
   --caption-font: 1.3rem;
 
   --caption-radius: 12px;
+
+  --back-height: 300px; /* default temporary value */
 
 }
 
@@ -357,16 +359,11 @@ figcaption {
 }
 
 figcaption.back {
-  width: 300px !important;
-  height: 328.4px !important;
-  
-  /* Optional: Ensures content doesn't spill out if there's too much text */
-  overflow-y: auto; 
-  
-  /* Keeps the card centered if the front and back sizes differ */
-  margin-left: auto;
-  margin-right: auto;
+  width: var(--card-width);
+  height: var(--back-height);
+  overflow-y: auto;
 }
+
 
 
 </style>
@@ -405,7 +402,7 @@ figcaption.back {
 <h1>General Home &amp; Rooms</h1>
 <section aria-label="General Home &amp; Rooms" class="grid">
 <figure class="card">
-<div class="emoji">🚪</div>
+<img class="thumb" src="images/bedroom.png"/>
 <figcaption class="front">
 <div class="ar">غُرْفَة</div>
 <div class="per">اتاق</div>
@@ -2347,19 +2344,21 @@ function computeDynamicPresets() {
 
   const deviceWidth = window.innerWidth;
 
+  // Read actual padding (even when changed by media queries)
   const bodyStyle = window.getComputedStyle(document.body);
-const bodyPadding = parseFloat(bodyStyle.paddingLeft) + parseFloat(bodyStyle.paddingRight);
+  const bodyPadding = parseFloat(bodyStyle.paddingLeft) + parseFloat(bodyStyle.paddingRight);
 
-// Autofill columns using preset 4
-let baseCols = Math.floor((deviceWidth - bodyPadding + base.gap) / (base.gridMin));
-if (baseCols < 1) baseCols = 1;
-
+  // Autofill columns using preset 4
+  let baseCols = Math.floor((deviceWidth - bodyPadding + base.gap) / base.gridMin);
+  if (baseCols < 1) baseCols = 1;
 
   function makePreset(extraCards) {
     const newCols = baseCols + extraCards;
 
-    // Subtract gaps from total width before dividing
+    // Total gap width
     const totalGap = base.gap * (newCols - 1);
+
+    // New card width
     const newGridMin = (deviceWidth - bodyPadding - totalGap) / newCols;
 
     const factor = newGridMin / base.gridMin;
@@ -2394,6 +2393,26 @@ if (baseCols < 1) baseCols = 1;
   };
 }
 
+
+/* ------------------------------
+   Update Back Height
+------------------------------ */
+function updateBackHeight() {
+  const sampleFront = document.querySelector(".card .front");
+  if (!sampleFront) return;
+
+  const emojiHeight = parseFloat(
+    getComputedStyle(document.documentElement).getPropertyValue("--card-height")
+  );
+
+  const captionHeight = sampleFront.offsetHeight;
+
+  const total = emojiHeight + captionHeight;
+
+  document.documentElement.style.setProperty("--back-height", total + "px");
+}
+
+
 /* ------------------------------
    Row Selector Change
 ------------------------------ */
@@ -2402,7 +2421,6 @@ let presets = computeDynamicPresets();
 const rowSelector = document.getElementById("rowSelector");
 
 rowSelector.addEventListener("change", () => {
-  // Recompute presets on every change (screen resize also updates correctly)
   presets = computeDynamicPresets();
 
   const p = presets[rowSelector.value];
@@ -2417,7 +2435,23 @@ rowSelector.addEventListener("change", () => {
   r.setProperty("--caption-padding", p.capPad);
   r.setProperty("--caption-font", p.capFont);
   r.setProperty("--caption-radius", p.capRadius);
+
+  updateBackHeight(); // Update back height after changing presets
 });
+
+
+/* Update back height on first load */
+window.addEventListener("load", updateBackHeight);
+
+
+/* ------------------------------
+   Sidebar Toggle
+------------------------------ */
+document.getElementById('toggleSidebar').onclick = () => {
+  const sidebar = document.getElementById('sidebar');
+  const open = sidebar.classList.toggle('open');
+  sidebar.setAttribute('aria-hidden', (!open).toString());
+};
 
 
 
@@ -2430,20 +2464,6 @@ document.getElementById('toggleSidebar').onclick = () => {
   const open = sidebar.classList.toggle('open');
   sidebar.setAttribute('aria-hidden', (!open).toString());
 };
-
-
-/* --- Sidebar Toggle --- */
-
-document.getElementById('toggleSidebar').onclick = () => {
-
-  const sidebar = document.getElementById('sidebar');
-
-  const open = sidebar.classList.toggle('open');
-
-  sidebar.setAttribute('aria-hidden', (!open).toString());
-
-};
-
 
 
 /* ============================================================
