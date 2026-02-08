@@ -1,21 +1,11 @@
-  <!doctype html>
+ <!DOCTYPE html>
 
-<html lang="ar" dir="rtl">
-
+<html dir="rtl" lang="ar">
 <head>
-
-<meta charset="utf-8" />
-
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>مفردات الأثاث — Furniture Vocabulary</title>
-
-
-
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-
-
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
 <style>
 
 :root {
@@ -60,7 +50,7 @@ body {
 
   align-items: center;
 
-  padding: 0px;
+  padding: 5px;
 }
 
 
@@ -286,6 +276,9 @@ figcaption {
 }
 
 
+@media (max-width: 480px) {
+
+  body { padding: 16px; }
   .sidebar { width: 50px; transform: translateX(260px); }
 
 }
@@ -364,911 +357,1974 @@ figcaption {
 }
 
 figcaption.back {
-  /* This ensures it uses the variables from our Javascript presets */
-  width: var(--card-width) !important;
-  height: var(--back-height, 328.4px) !important;
+  width: 300px !important;
+  height: 328.4px !important;
   
-  /* Resetting margin to align with where the emoji/image was */
-  margin-top: 0 !important; 
-  border-radius: var(--radius) !important;
+  /* Optional: Ensures content doesn't spill out if there's too much text */
+  overflow-y: auto; 
+  
+  /* Keeps the card centered if the front and back sizes differ */
+  margin-left: auto;
+  margin-right: auto;
 }
 
+
 </style>
-
 </head>
-
-
-
 <body>
-
-
-
 <!-- Sidebar Toggle Button -->
-
 <div class="toggle-btn" id="toggleSidebar">☰</div>
-
-
-
-<aside class="sidebar" id="sidebar" aria-hidden="true">
-
-  <h3>⚙️ Display settings</h3>
-
-  <label for="rowSelector">عدد الصفوف (حجم البطاقة):</label>
-
-  <select id="rowSelector" aria-label="Choose card size">
-  <option value="4">4 — الافتراضي</option>
-  <option value="5">5</option>
-  <option value="6">6</option>
+<aside aria-hidden="true" class="sidebar" id="sidebar">
+<h3>⚙️ Display settings</h3>
+<label for="rowSelector">عدد الصفوف (حجم البطاقة):</label>
+<select aria-label="Choose card size" id="rowSelector">
+<option value="4">4 — الافتراضي</option>
+<option value="5">5</option>
+<option value="6">6</option>
 </select>
-
-  <h3>⚙️ Card Display Options</h3>
-
+<h3>⚙️ Card Display Options</h3>
 <div class="card-options">
-
-  <label><input type="checkbox" class="toggle-field" data-field="ar" checked> Arabic</label><br>
-
-  <label><input type="checkbox" class="toggle-field" data-field="emoji" checked> Image / Emoji</label><br>
-
-  <label><input type="checkbox" class="toggle-field" data-field="en" checked> English meaning</label><br>
-
-  <label><input type="checkbox" class="toggle-field" data-field="plural" checked> Plural</label><br>
-
-  <label><input type="checkbox" class="toggle-field" data-field="sentences" checked> Sentences</label><br>
-
+<label><input checked="" class="toggle-field" data-field="ar" type="checkbox"/> Arabic</label><br/>
+<label><input checked="" class="toggle-field" data-field="emoji" type="checkbox"/> Image / Emoji</label><br/>
+<label><input checked="" class="toggle-field" data-field="en" type="checkbox"/> English meaning</label><br/>
+<label><input checked="" class="toggle-field" data-field="plural" type="checkbox"/> Plural</label><br/>
+<label><input checked="" class="toggle-field" data-field="sentences" type="checkbox"/> Sentences</label><br/>
 </div>
-
-
-
 <div class="back-options">
-
-  <label><input type="checkbox" class="toggle-field" data-field="emoji" checked> Emoji</label><br>
-
-  <label><input type="checkbox" class="toggle-field" data-field="ar" checked> Arabic</label><br>
-
-  <label><input type="checkbox" class="toggle-field" data-field="en" checked> English Meaning</label><br>
-
-  <label><input type="checkbox" class="toggle-field" data-field="plural" checked> Plural</label><br>
-
-  <label><input type="checkbox" class="toggle-field" data-field="sentences" checked> Sentences</label><br>
-
+<label><input checked="" class="toggle-field" data-field="emoji" type="checkbox"/> Emoji</label><br/>
+<label><input checked="" class="toggle-field" data-field="ar" type="checkbox"/> Arabic</label><br/>
+<label><input checked="" class="toggle-field" data-field="en" type="checkbox"/> English Meaning</label><br/>
+<label><input checked="" class="toggle-field" data-field="plural" type="checkbox"/> Plural</label><br/>
+<label><input checked="" class="toggle-field" data-field="sentences" type="checkbox"/> Sentences</label><br/>
 </div>
-
 <div class="buttons">
-  <button id="btn-urd">Toggle Urdu / English</button>
-  <button id="btn-per">Toggle Persian / Arabic</button>
+<button id="btn-urd">Toggle Urdu / English</button>
+<button id="btn-per">Toggle Persian / Arabic</button>
 </div>
-
 </aside>
-
-  <h1>General Home & Rooms</h1>
-
-
-
-  <!-- FIRST GRID -->
-
-  <section class="grid" aria-label="General Home & Rooms">
-
-    <figure class="card">
-
-        <div class="emoji">🏠</div>
-
-        <figcaption class="front">
-
-            <div class="ar">غُرْفَة</div>
-
-            <div class="en">Room / Bedroom</div>
-
-            <div class="per">Plural: غُرَف</div>
-
-            <div class="urd">
-
-                <p>1. هٰذِهِ غُرْفَتِي.</p>
-
-                <p>2. الغُرْفَةُ كَبِيرَةٌ.</p>
-
-            </div>
-
-        </figcaption>
-
-        <figcaption class="back">
-
-            <div class="ar">غُرْفَة</div>
-
-            <div class="en">Room / Bedroom</div>
-
-            <div class="plural">Plural: غُرَف</div>
-
-            <div class="sentences">
-
-                <p>Translation 1: This is my room.</p>
-            </div>
-
-        </figcaption>
-
-    </figure>
-
-
-
-    <figure class="card">
-
-        <img class="thumb" src="images/apartment.png"/>
-
-        <figcaption class="front">
-
-            <div class="ar">شَقَّة</div>
-
-            <div class="en">Apartment</div>
-
-            <div class="plural">Plural: شقق</div>
-
-            <div class="sentences">
-
-                <p>1. هٰذِهِ شَقَّة جَدِيدَة.</p>
-
-                <p>2. شَقَّتِي فِي الطَّابِقِ الْخَامِسِ.</p>
-
-            </div>
-
-        </figcaption>
-
-        <img class="thumb thumb-alt" src="images/apartment.png"/>
-
-        <figcaption class="back">
-
-            <div class="ar">شَقَّة</div>
-
-            <div class="en">Apartment</div>
-
-            <div class="plural">Plural: شقق</div>
-
-            <div class="sentences">
-
-                <p>Translation 1: This is a new apartment.</p>
-
-                <p>Translation 2: My apartment is on the fifth floor.</p>
-
-            </div>
-
-        </figcaption>
-
-    </figure>
-
-
-
-    <figure class="card">
-
-        <img class="thumb" src="images/bedroom.png"/>
-
-        <figcaption class="front">
-
-            <div class="ar">غُرْفَة نَوْم</div>
-
-            <div class="en">Bedroom</div>
-
-            <div class="plural">Plural: غُرَف نَوْم</div>
-
-            <div class="sentences">
-
-                <p>1. غُرْفَةُ النَّوْمِ مُرِيحَةٌ.</p>
-
-                <p>2. أَنَامُ فِي غُرْفَةِ النَّوْمِ.</p>
-
-            </div>
-
-        </figcaption>
-
-        <img class="thumb thumb-alt" src="images/bedroom.png"/>
-
-        <figcaption class="back">
-
-            <div class="ar">غُرْفَة نَوْم</div>
-
-            <div class="en">Bedroom</div>
-
-            <div class="plural">Plural: غُرَف نَوْم</div>
-
-            <div class="sentences">
-
-                <p>Translation 1: The bedroom is comfortable.</p>
-
-                <p>Translation 2: I sleep in the bedroom.</p>
-
-            </div>
-
-        </figcaption>
-
-    </figure>
-
-
-
-    <figure class="card">
-
-        <img class="thumb" src="images/livingroom - Copy.png"/>
-
-        <figcaption class="front">
-
-            <div class="ar">غُرْفَة جُلُوس</div>
-
-            <div class="en">Living room</div>
-
-            <div class="plural">Plural: غُرَف جُلُوس</div>
-
-            <div class="sentences">
-
-                <p>1. هٰذِهِ غُرْفَةُ الْجُلُوسِ.</p>
-
-                <p>2. الْعَائِلَةُ تَجْلِسُ فِي غُرْفَةِ الْجُلُوسِ.</p>
-
-            </div>
-
-        </figcaption>
-
-        <img class="thumb thumb-alt" src="images/livingroom - Copy.png"/>
-
-        <figcaption class="back">
-
-            <div class="ar">غُرْفَة جُلُوس</div>
-
-            <div class="en">Living room</div>
-
-            <div class="plural">Plural: غُرَف جُلُوس</div>
-
-            <div class="sentences">
-
-                <p>Translation 1: This is the living room.</p>
-
-                <p>Translation 2: The family sits in the living room.</p>
-
-            </div>
-
-        </figcaption>
-
-    </figure>
-
-
-
-    <figure class="card">
-
-        <img class="thumb" src="images/kitchen.png"/>
-
-        <figcaption class="front">
-
-            <div class="ar">مَطْبَخ</div>
-
-            <div class="en">Kitchen</div>
-
-            <div class="plural">Plural: مَطَابِخ</div>
-
-            <div class="sentences">
-
-                <p>1. أُمِّي تَطْبَخُ فِي الْمَطْبَخِ.</p>
-
-                <p>2. الْمَطْبَخُ نَظِيفٌ.</p>
-
-            </div>
-
-        </figcaption>
-
-        <img class="thumb thumb-alt" src="images/kitchen.png"/>
-
-        <figcaption class="back">
-
-            <div class="ar">مَطْبَخ</div>
-
-            <div class="en">Kitchen</div>
-
-            <div class="plural">Plural: مَطَابِخ</div>
-
-            <div class="sentences">
-
-                <p>Translation 1: My mother cooks in the kitchen.</p>
-
-                <p>Translation 2: The kitchen is clean.</p>
-
-            </div>
-
-        </figcaption>
-
-    </figure>
-
-
-
-    <figure class="card">
-
-        <img class="thumb" src="images/bathroom2.png"/>
-
-        <figcaption class="front">
-
-            <div class="ar">حَمَّام</div>
-
-            <div class="en">Bathroom</div>
-
-            <div class="plural">Plural: حَمَّامَات</div>
-
-            <div class="sentences">
-
-                <p>1. أَنَا فِي الْحَمَّامِ.</p>
-
-                <p>2. الْحَمَّامُ صَغِيرٌ.</p>
-
-            </div>
-
-        </figcaption>
-
-        <img class="thumb thumb-alt" src="images/bathroom2.png"/>
-
-        <figcaption class="back">
-
-            <div class="ar">حَمَّام</div>
-
-            <div class="en">Bathroom</div>
-
-            <div class="plural">Plural: حَمَّامَات</div>
-
-            <div class="sentences">
-
-                <p>Translation 1: I am in the bathroom.</p>
-
-                <p>Translation 2: The bathroom is small.</p>
-
-            </div>
-
-        </figcaption>
-
-    </figure>
-
-
-
-    <figure class="card">
-
-        <img class="thumb" src="images/hallway.png"/>
-
-        <figcaption class="front">
-
-            <div class="ar">مَمَرّ</div>
-
-            <div class="en">Hallway / Corridor</div>
-
-            <div class="plural">Plural: مَمَرَّات</div>
-
-            <div class="sentences">
-
-                <p>1. الْمَمَرُّ طَوِيلٌ.</p>
-
-                <p>2. أَمْشِي فِي الْمَمَرِّ.</p>
-
-            </div>
-
-        </figcaption>
-
-        <img class="thumb thumb-alt" src="images/hallway.png"/>
-
-        <figcaption class="back">
-
-            <div class="ar">مَمَرّ</div>
-
-            <div class="en">Hallway / Corridor</div>
-
-            <div class="plural">Plural: مَمَرَّات</div>
-
-            <div class="sentences">
-
-                <p>Translation 1: The hallway is long.</p>
-
-                <p>Translation 2: I walk in the hallway.</p>
-
-            </div>
-
-        </figcaption>
-
-    </figure>
-
-
-
-    <figure class="card">
-
-        <img class="thumb" src="images/roof.png"/>
-
-        <figcaption class="front">
-
-            <div class="ar">سَطْح</div>
-
-            <div class="en">Roof / Terrace</div>
-
-            <div class="plural">Plural: سُطُوح</div>
-
-            <div class="sentences">
-
-                <p>1. أَجْلِسُ عَلَى السَّطْحِ.</p>
-
-                <p>2. السَّطْحُ جَمِيلٌ.</p>
-
-            </div>
-
-        </figcaption>
-
-        <img class="thumb thumb-alt" src="images/roof.png"/>
-
-        <figcaption class="back">
-
-            <div class="ar">سَطْح</div>
-
-            <div class="en">Roof / Terrace</div>
-
-            <div class="plural">Plural: سُطُوح</div>
-
-            <div class="sentences">
-
-                <p>Translation 1: I sit on the roof.</p>
-
-                <p>Translation 2: The roof is beautiful.</p>
-
-            </div>
-
-        </figcaption>
-
-    </figure>
-
-
-
-    <figure class="card">
-
-        <img class="thumb" src="images/garden.png"/>
-
-        <figcaption class="front">
-
-            <div class="ar">حَدِيقَة</div>
-
-            <div class="en">Garden</div>
-
-            <div class="plural">Plural: حَدَائِق</div>
-
-            <div class="sentences">
-
-                <p>1. عِنْدِي حَدِيقَة كَبِيرَة.</p>
-
-                <p>2. الْأَطْفَالُ يَلْعَبُونَ فِي الْحَدِيقَةِ.</p>
-
-            </div>
-
-        </figcaption>
-
-        <img class="thumb thumb-alt" src="images/garden.png"/>
-
-        <figcaption class="back">
-
-            <div class="ar">حَدِيقَة</div>
-
-            <div class="en">Garden</div>
-
-            <div class="plural">Plural: حَدَائِق</div>
-
-            <div class="sentences">
-
-                <p>Translation 1: I have a big garden.</p>
-
-                <p>Translation 2: The children play in the garden.</p>
-
-            </div>
-
-        </figcaption>
-
-    </figure>
-
-
-
-    <figure class="card">
-
-        <div class="emoji">🚪</div>
-
-        <figcaption class="front">
-
-            <div class="ar">بَاب</div>
-
-            <div class="en">Door</div>
-
-            <div class="plural">Plural: أَبْوَاب</div>
-
-            <div class="sentences">
-
-                <p>1. الْبَابُ مَفْتُوحٌ.</p>
-
-                <p>2. أَغْلِقِ الْبَابَ.</p>
-
-            </div>
-
-        </figcaption>
-
-        <div class="emoji emoji-alt">🚪</div>
-
-        <figcaption class="back">
-
-            <div class="ar">بَاب</div>
-
-            <div class="en">Door</div>
-
-            <div class="plural">Plural: أَبْوَاب</div>
-
-            <div class="sentences">
-
-                <p>Translation 1: The door is open.</p>
-
-                <p>Translation 2: Close the door.</p>
-
-            </div>
-
-        </figcaption>
-
-    </figure>
-
-
-
-    <figure class="card">
-
-        <div class="emoji">🪟</div>
-
-        <figcaption class="front">
-
-            <div class="ar">نَافِذَة</div>
-
-            <div class="en">Window</div>
-
-            <div class="plural">Plural: نَوَافِذ</div>
-
-            <div class="sentences">
-
-                <p>1. النَّافِذَةُ كَبِيرَةٌ.</p>
-
-                <p>2. أَفْتَحُ النَّافِذَةَ.</p>
-
-            </div>
-
-        </figcaption>
-
-        <div class="emoji emoji-alt">🪟</div>
-
-        <figcaption class="back">
-
-            <div class="ar">نَافِذَة</div>
-
-            <div class="en">Window</div>
-
-            <div class="plural">Plural: نَوَافِذ</div>
-
-            <div class="sentences">
-
-                <p>Translation 1: The window is big.</p>
-
-                <p>Translation 2: I open the window.</p>
-
-            </div>
-
-        </figcaption>
-
-    </figure>
-
-
-
-    <figure class="card">
-
-        <div class="emoji">🧱</div>
-
-        <figcaption class="front">
-
-            <div class="ar">جِدَار</div>
-
-            <div class="en">Wall</div>
-
-            <div class="plural">Plural: جُدْرَان</div>
-
-            <div class="sentences">
-
-                <p>1. الْجِدَارُ أَبْيَضُ.</p>
-
-                <p>2. أَعْلَقْتُ صُورَةً عَلَى الْجِدَارِ.</p>
-
-            </div>
-
-        </figcaption>
-
-        <div class="emoji emoji-alt">🧱</div>
-
-        <figcaption class="back">
-
-            <div class="ar">جِدَار</div>
-
-            <div class="en">Wall</div>
-
-            <div class="plural">Plural: جُدْرَان</div>
-
-            <div class="sentences">
-
-                <p>Translation 1: The wall is white.</p>
-
-                <p>Translation 2: I hung a picture on the wall.</p>
-
-            </div>
-
-        </figcaption>
-
-    </figure>
-
-
-
-    <figure class="card">
-
-        <img class="thumb" src="images/ceiling.png"/>
-
-        <figcaption class="front">
-
-            <div class="ar">سَقْف</div>
-
-            <div class="en">Ceiling</div>
-
-            <div class="plural">Plural: سُقُوف</div>
-
-            <div class="sentences">
-
-                <p>1. السَّقْفُ عَالٍ.</p>
-
-                <p>2. الْمِصْبَاحُ مُعَلَّقٌ فِي السَّقْفِ.</p>
-
-            </div>
-
-        </figcaption>
-
-        <img class="thumb thumb-alt" src="images/ceiling.png"/>
-
-        <figcaption class="back">
-
-            <div class="ar">سَقْف</div>
-
-            <div class="en">Ceiling</div>
-
-            <div class="plural">Plural: سُقُوف</div>
-
-            <div class="sentences">
-
-                <p>Translation 1: The ceiling is high.</p>
-
-                <p>Translation 2: The lamp is hanging from the ceiling.</p>
-
-            </div>
-
-        </figcaption>
-
-    </figure>
-
-
-
-    <figure class="card">
-
-        <img class="thumb" src="images/floor.png"/>
-
-        <figcaption class="front">
-
-            <div class="ar">أَرْض</div>
-
-            <div class="en">Floor / Ground</div>
-
-            <div class="plural">Plural: أَرَاضٍ</div>
-
-            <div class="sentences">
-
-                <p>1. الْأَرْضُ نَظِيفَةٌ.</p>
-
-                <p>2. اِجْلِسْ عَلَى الْأَرْضِ.</p>
-
-            </div>
-
-        </figcaption>
-
-        <img class="thumb thumb-alt" src="images/floor.png"/>
-
-        <figcaption class="back">
-
-            <div class="ar">أَرْض</div>
-
-            <div class="en">Floor / Ground</div>
-
-            <div class="plural">Plural: أَرَاضٍ</div>
-
-            <div class="sentences">
-
-                <p>Translation 1: The floor is clean.</p>
-
-                <p>Translation 2: Sit on the floor.</p>
-
-            </div>
-
-        </figcaption>
-
-    </figure>
-
-
-
-    <figure class="card">
-
-        <div class="emoji">🪜</div>
-
-        <figcaption class="front">
-
-            <div class="ar">دَرَج</div>
-
-            <div class="en">Stairs / Steps</div>
-
-            <div class="plural">Plural: أَدْرَاج</div>
-
-            <div class="sentences">
-
-                <p>1. أَصْعَدُ الدَّرَجَ.</p>
-
-                <p>2. الدَّرَجُ قَدِيمٌ.</p>
-
-            </div>
-
-        </figcaption>
-
-        <div class="emoji emoji-alt">🪜</div>
-
-        <figcaption class="back">
-
-            <div class="ar">دَرَج</div>
-
-            <div class="en">Stairs / Steps</div>
-
-            <div class="plural">Plural: أَدْرَاج</div>
-
-            <div class="sentences">
-
-                <p>Translation 1: I go up the stairs.</p>
-
-                <p>Translation 2: The stairs are old.</p>
-
-            </div>
-
-        </figcaption>
-
-    </figure>
-
-
-
-    <figure class="card">
-
-        <img class="thumb" src="images/elevator.png"/>
-
-        <figcaption class="front">
-
-            <div class="ar">مِصْعَد</div>
-
-            <div class="en">Elevator</div>
-
-            <div class="plural">Plural: مَصَاعِد</div>
-
-            <div class="sentences">
-
-                <p>1. أَنْتَظِرُ الْمِصْعَدَ.</p>
-
-                <p>2. الْمِصْعَدُ مُعَطَّلٌ.</p>
-
-            </div>
-
-        </figcaption>
-
-        <img class="thumb thumb-alt" src="images/elevator.png"/>
-
-        <figcaption class="back">
-
-            <div class="ar">مِصْعَد</div>
-
-            <div class="en">Elevator</div>
-
-            <div class="plural">Plural: مَصَاعِد</div>
-
-            <div class="sentences">
-
-                <p>Translation 1: I am waiting for the elevator.</p>
-
-                <p>Translation 2: The elevator is out of order.</p>
-
-            </div>
-
-        </figcaption>
-
-    </figure>
-
-
-
-    <figure class="card">
-
-        <img class="thumb" src="images/balcony.png"/>
-
-        <figcaption class="front">
-
-            <div class="ar">شُرْفَة</div>
-
-            <div class="en">Balcony</div>
-
-            <div class="plural">Plural: شُرَف</div>
-
-            <div class="sentences">
-
-                <p>1. الشُّرْفَةُ مُطِلَّةٌ عَلَى الْبَحْرِ.</p>
-
-                <p>2. أَشْرَبُ الْقَهْوَةَ فِي الشُّرْفَةِ.</p>
-
-            </div>
-
-        </figcaption>
-
-        <img class="thumb thumb-alt" src="images/balcony.png"/>
-
-        <figcaption class="back">
-
-            <div class="ar">شُرْفَة</div>
-
-            <div class="en">Balcony</div>
-
-            <div class="plural">Plural: شُرَف</div>
-
-            <div class="sentences">
-
-                <p>Translation 1: The balcony overlooks the sea.</p>
-
-                <p>Translation 2: I drink coffee on the balcony.</p>
-
-            </div>
-
-        </figcaption>
-
-    </figure>
-
-
-
-    <figure class="card">
-
-        <img class="thumb" src="images/yard.png"/>
-
-        <figcaption class="front">
-
-            <div class="ar">فِنَاء</div>
-
-            <div class="en">Yard / Courtyard</div>
-
-            <div class="plural">Plural: أَفْنِيَة</div>
-
-            <div class="sentences">
-
-                <p>1. الْبَيْتُ لَهُ فِنَاء كَبِير.</p>
-
-                <p>2. نَلْعَبُ فِي الْفِنَاءِ.</p>
-
-            </div>
-
-        </figcaption>
-
-        <img class="thumb thumb-alt" src="images/yard.png"/>
-
-        <figcaption class="back">
-
-            <div class="ar">فِنَاء</div>
-
-            <div class="en">Yard / Courtyard</div>
-
-            <div class="plural">Plural: أَفْنِيَة</div>
-
-            <div class="sentences">
-
-                <p>Translation 1: The house has a large yard.</p>
-
-                <p>Translation 2: We play in the yard.</p>
-
-            </div>
-
-        </figcaption>
-
-    </figure>
-
+<h1>General Home &amp; Rooms</h1>
+<section aria-label="General Home &amp; Rooms" class="grid">
+<figure class="card">
+<img class="thumb" src="images/bedroom.png"/>
+<figcaption class="front">
+<div class="ar">غُرْفَة</div>
+<div class="per">اتاق</div>
+<div class="en">Room</div>
+<div class="urd">کمرہ</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">غُرْفَة</div>
+<div class="per">اتاق</div>
+<div class="ar plural">غُرَف:Plural</div>
+<div class="per plural">اتاق‌ها:Plural</div>
+<div class="ar sentence1">أَيُّ غُرْفَةٍ هِيَ غُرْفَتُكَ؟</div>
+<div class="per sentence1">کدام اتاق مال توست؟</div>
+<div class="en sentence1">Which room is yours?</div>
+<div class="urd sentence1">تمہارا کمرہ کون سا ہے؟</div>
+<div class="ar sentence2">هِيَ تُنَظِّفُ الغُرْفَةَ.</div>
+<div class="per sentence2">او اتاق را تمیز می‌کند.</div>
+<div class="en sentence2">She is cleaning the room.</div>
+<div class="urd sentence2">وہ کمرہ صاف کر رہی ہے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/bedroom.png"/>
+<figcaption class="front">
+<div class="ar">غُرْفَة نَوْم</div>
+<div class="per">اتاق خواب</div>
+<div class="en">Bedroom</div>
+<div class="urd">سونے کا کمرہ</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">غُرْفَة نَوْم</div>
+<div class="per">اتاق خواب</div>
+<div class="ar plural">غُرَف نَوْم:Plural</div>
+<div class="per plural">اتاق‌خواب‌ها:Plural</div>
+<div class="ar sentence1">غُرْفَةُ نَوْمِي أَخِيرًا هَادِئَةٌ.</div>
+<div class="per sentence1">اتاق خواب من بالاخره آرام است.</div>
+<div class="en sentence1">My bedroom is finally quiet.</div>
+<div class="urd sentence1">میرا بیڈروم آخرکار پرسکون ہے۔</div>
+<div class="ar sentence2">نِمْتُ فِي غُرْفَةِ النَّوْمِ.</div>
+<div class="per sentence2">من در اتاق خواب خوابیدم.</div>
+<div class="en sentence2">I slept in the bedroom.</div>
+<div class="urd sentence2">میں بیڈ روم میں سویا۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/livingroom - Copy.png"/>
+<figcaption class="front">
+<div class="ar">غُرْفَة جُلُوس</div>
+<div class="per">اتاق نشیمن</div>
+<div class="en">Living room</div>
+<div class="urd">بیٹھک</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">غُرْفَة جُلُوس</div>
+<div class="per">اتاق نشیمن</div>
+<div class="ar plural">غُرَف جُلُوس:Plural</div>
+<div class="per plural">اتاق نشیمن‌ها:Plural</div>
+<div class="ar sentence1">هُنَاكَ ثَلَاثُ وُسَائِدَ فِي غُرْفَةِ الْجُلُوسِ.</div>
+<div class="per sentence1">سه بالش در اتاق نشیمن است.</div>
+<div class="en sentence1">.There are three pillows in the living room</div>
+<div class="urd sentence1">لیونگ روم میں تین تکیے ہیں۔</div>
+<div class="ar sentence2">نَجْلِسُ فِي غُرْفَةِ المَعِيشَةِ كُلَّ مَسَاءٍ.</div>
+<div class="per sentence2">ما هر عصر در اتاق نشیمن می‌نشینیم.</div>
+<div class="en sentence2">We sit in the living room every evening.</div>
+<div class="urd sentence2">ہم ہر شام ڈرائنگ روم میں بیٹھتے ہیں۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/kitchen.png"/>
+<figcaption class="front">
+<div class="ar">مَطْبَخ</div>
+<div class="per">آشپزخانه</div>
+<div class="en">Kitchen</div>
+<div class="urd">باورچی خانہ</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مَطْبَخ</div>
+<div class="per">آشپزخانه</div>
+<div class="ar plural">مَطَابِخ:Plural</div>
+<div class="per plural">آشپزخانه‌ها:Plural</div>
+<div class="ar sentence1">الْمَطْبَخُ مَلِيءٌ بِرَوَائِحِ شَهِيَّةٍ.</div>
+<div class="per sentence1">آشپزخانه پر از بوی خوشمزه است.</div>
+<div class="en sentence1">The kitchen is full of yummy smells.</div>
+<div class="urd sentence1">کچن خوشبودار مہک سے بھرا ہے۔</div>
+<div class="ar sentence2">الأُمُّ تَطْبُخُ فِي المَطْبَخِ.</div>
+<div class="per sentence2">مادر در آشپزخانه آشپزی می‌کند.</div>
+<div class="en sentence2">Mom is cooking in the kitchen.</div>
+<div class="urd sentence2">امی کچن میں کھانا پکا رہی ہیں۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/bathroom2.png"/>
+<figcaption class="front">
+<div class="ar">حَمَّام</div>
+<div class="per">حمام</div>
+<div class="en">Bathroom</div>
+<div class="urd">غسل خانہ</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">حَمَّام</div>
+<div class="per">حمام</div>
+<div class="ar plural">حَمَّامَات:Plural</div>
+<div class="per plural">حمام‌ها:Plural</div>
+<div class="ar sentence1">هَلِ الْحَمَّامُ فِي الْأَعْلَى أَمِ الْأَسْفَلِ؟</div>
+<div class="per sentence1">حمام بالا است یا پایین؟</div>
+<div class="en sentence1">Is the bathroom upstairs or downstairs?</div>
+<div class="urd sentence1">باتھ روم اوپر ہے یا نیچے؟</div>
+<div class="ar sentence2">غَسَلَ يَدَيْهِ فِي الحَمَّامِ.</div>
+<div class="per sentence2">او دست‌هایش را در حمام شست.</div>
+<div class="en sentence2">He washed his hands in the bathroom.</div>
+<div class="urd sentence2">اس نے باتھ روم میں ہاتھ دھوئے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/hallway.png"/>
+<figcaption class="front">
+<div class="ar">مَمَرّ</div>
+<div class="per">راهرو</div>
+<div class="en">Corridor</div>
+<div class="urd">راہداری</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مَمَرّ</div>
+<div class="per">راهرو</div>
+<div class="ar plural">مَمَرَّات:Plural</div>
+<div class="per plural">راهروها:Plural</div>
+<div class="ar sentence1">الْمَمَرُّ مُظْلِمٌ جِدًّا اللَّيْلَةَ.</div>
+<div class="per sentence1">راهرو امشب خیلی تاریک است.</div>
+<div class="en sentence1">The corridor is very dark tonight.</div>
+<div class="urd sentence1">آج رات راہداری بہت اندھیری ہے۔</div>
+<div class="ar sentence2">تَمْشِي عَبْرَ المَمَرِّ.</div>
+<div class="per sentence2">او از راهرو عبور می‌کند.</div>
+<div class="en sentence2">She walks through the corridor.</div>
+<div class="urd sentence2">وہ راہداری سے گزرتی ہے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/roof.png"/>
+<figcaption class="front">
+<div class="ar">سَطْح</div>
+<div class="per">چھت</div>
+<div class="en">Roof</div>
+<div class="urd">چھت</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">سَطْح</div>
+<div class="per">چھت</div>
+<div class="ar plural">سُطُوح:Plural</div>
+<div class="per plural">پشت‌بام‌ها:Plural</div>
+<div class="ar sentence1">هُنَاكَ قِطَّةٌ عَلَى السَّطْحِ.</div>
+<div class="per sentence1">یک گربه روی پشت‌بام است.</div>
+<div class="en sentence1">There is a cat on the roof.</div>
+<div class="urd sentence1">چھت پر ایک بلی ہے۔</div>
+<div class="ar sentence2">يُغَطِّي السَّقْفُ البَيْتَ.</div>
+<div class="per sentence2">سقف خانه را می‌پوشاند.</div>
+<div class="en sentence2">The roof covers the house.</div>
+<div class="urd sentence2">چھت گھر کو ڈھانپتی ہے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/garden.png"/>
+<figcaption class="front">
+<div class="ar">حَدِيقَة</div>
+<div class="per">باغچه</div>
+<div class="en">Garden</div>
+<div class="urd">باغ</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">حَدِيقَة</div>
+<div class="per">باغچه</div>
+<div class="ar plural">حَدَائِق:Plural</div>
+<div class="per plural">باغچه‌ها:Plural</div>
+<div class="ar sentence1">الْحَدِيقَةُ جَمِيلَةٌ تَحْتَ الشَّمْسِ.</div>
+<div class="per sentence1">باغ در آفتاب زیباست.</div>
+<div class="en sentence1">The garden is beautiful in the sun.</div>
+<div class="urd sentence1">باغ دھوپ میں خوبصورت ہے۔</div>
+<div class="ar sentence2">يَلْعَبُ الأَطْفَالُ فِي الحَدِيقَةِ.</div>
+<div class="per sentence2">کودکان در باغ بازی می‌کنند.</div>
+<div class="en sentence2">Children are playing in the garden.</div>
+<div class="urd sentence2">بچے باغ میں کھیل رہے ہیں۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🚪</div>
+<figcaption class="front">
+<div class="ar">بَاب</div>
+<div class="per">در</div>
+<div class="en">Door</div>
+<div class="urd">دروازہ</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">بَاب</div>
+<div class="per">در</div>
+<div class="ar plural">أَبْوَاب:Plural</div>
+<div class="per plural">درها:Plural</div>
+<div class="ar sentence1">الْبَابُ مَفْتُوحٌ عَلَى مِصْرَاعَيْهِ.</div>
+<div class="per sentence1">در کاملاً باز است.</div>
+<div class="en sentence1">The door is wide open.</div>
+<div class="urd sentence1">دروازہ پورا کھلا ہے۔</div>
+<div class="ar sentence2">فَتَحَ البَابَ.</div>
+<div class="per sentence2">او در را باز کرد.</div>
+<div class="en sentence2">He opened the door.</div>
+<div class="urd sentence2">اس نے دروازہ کھولا۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🪟</div>
+<figcaption class="front">
+<div class="ar">نَافِذَة</div>
+<div class="per">پنجره</div>
+<div class="en">Window</div>
+<div class="urd">کھڑکی</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">نَافِذَة</div>
+<div class="per">پنجره</div>
+<div class="ar plural">نَوَافِذ:Plural</div>
+<div class="per plural">پنجره‌ها:Plural</div>
+<div class="ar sentence1">لِمَاذَا النَّافِذَةُ مُتَّسِخَةٌ هَكَذَا؟</div>
+<div class="per sentence1">چرا پنجره این‌قدر کثیف است؟</div>
+<div class="en sentence1">Why is the window so dirty?</div>
+<div class="urd sentence1">کھڑکی اتنی گندی کیوں ہے؟</div>
+<div class="ar sentence2">سَتَفْتَحُ النَّافِذَةَ.</div>
+<div class="per sentence2">او پنجره را باز خواهد کرد.</div>
+<div class="en sentence2">She will open the window.</div>
+<div class="urd sentence2">وہ کھڑکی کھولے گی۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🧱</div>
+<figcaption class="front">
+<div class="ar">جِدَار</div>
+<div class="per">دیوار</div>
+<div class="en">Wall</div>
+<div class="urd">دیوار</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">جِدَار</div>
+<div class="per">دیوار</div>
+<div class="ar plural">جُدْرَان:Plural</div>
+<div class="per plural">دیوارها:Plural</div>
+<div class="ar sentence1">هُنَاكَ صُوَرٌ كَثِيرَةٌ عَلَى الْجِدَارِ.</div>
+<div class="per sentence1">عکس‌های زیادی روی دیوار است.</div>
+<div class="en sentence1">There are many pictures on the wall.</div>
+<div class="urd sentence1">دیوار پر بہت سی تصویریں ہیں۔</div>
+<div class="ar sentence2">طَلَوْا الجِدَارَ.</div>
+<div class="per sentence2">آن‌ها دیوار را رنگ کردند.</div>
+<div class="en sentence2">They painted the wall.</div>
+<div class="urd sentence2">انہوں نے دیوار رنگی۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/ceiling.png"/>
+<figcaption class="front">
+<div class="ar">سَقْف</div>
+<div class="per">سقف</div>
+<div class="en">Ceiling</div>
+<div class="urd">چھت</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">سَقْف</div>
+<div class="per">سقف</div>
+<div class="ar plural">سُقُوف:Plural</div>
+<div class="per plural">سقف‌ها:Plural</div>
+<div class="ar sentence1">السَّقْفُ مُرْتَفِعٌ جِدًّا هُنَا.</div>
+<div class="per sentence1">سقف اینجا خیلی بلند است.</div>
+<div class="en sentence1">The ceiling is very high in here.</div>
+<div class="urd sentence1">یہاں چھت بہت اونچی ہے۔</div>
+<div class="ar sentence2">يَتَدَلَّى الضَّوْءُ مِنَ السَّقْفِ.</div>
+<div class="per sentence2">چراغ از سقف آویزان است.</div>
+<div class="en sentence2">The light is hanging from the ceiling.</div>
+<div class="urd sentence2">روشنی چھت سے لٹک رہی ہے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/floor.png"/>
+<figcaption class="front">
+<div class="ar">أَرْض</div>
+<div class="per">زمین</div>
+<div class="en">Floor</div>
+<div class="urd">فرش</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">أَرْض</div>
+<div class="per">زمین</div>
+<div class="ar plural">أَرَاضٍ:Plural</div>
+<div class="per plural">زمین‌ها:Plural</div>
+<div class="ar sentence1">الْأَرْضُ بَارِدَةٌ عَلَى قَدَمَيَّ.</div>
+<div class="per sentence1">زمین زیر پایم سرد است.</div>
+<div class="en sentence1">The floor is quite cold on my feet.</div>
+<div class="urd sentence1">فرش میرے پاؤں کو بہت ٹھنڈی لگ رہی ہے۔</div>
+<div class="ar sentence2">أَكْنُسُ الأَرْضَ.</div>
+<div class="per sentence2">من کف را جارو می‌کنم.</div>
+<div class="en sentence2">I am sweeping the floor.</div>
+<div class="urd sentence2">میں فرش صاف کر رہا ہوں۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🪜</div>
+<figcaption class="front">
+<div class="ar">دَرَج</div>
+<div class="per">پله</div>
+<div class="en">Stairs</div>
+<div class="urd">سیڑھیاں</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">دَرَج</div>
+<div class="per">پله</div>
+<div class="ar plural">دَرَجَات:Plural</div>
+<div class="per plural">پله‌ها:Plural</div>
+<div class="ar sentence1">هَلِ الدَّرَجُ آمِنٌ؟</div>
+<div class="per sentence1">پله‌ها امن هستند؟</div>
+<div class="en sentence1">Are the stairs safe?</div>
+<div class="urd sentence1">کیا سیڑھیاں محفوظ ہیں؟</div>
+<div class="ar sentence2">صَعِدَ الدَّرَجَ.</div>
+<div class="per sentence2">او از پله‌ها بالا رفت.</div>
+<div class="en sentence2">He climbed the stairs.</div>
+<div class="urd sentence2">وہ سیڑھیاں چڑھا۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/elevator.png"/>
+<figcaption class="front">
+<div class="ar">مِصْعَد</div>
+<div class="per">آسانسور</div>
+<div class="en">Elevator</div>
+<div class="urd">لفٹ</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مِصْعَد</div>
+<div class="per">آسانسور</div>
+<div class="ar plural">مَصَاعِد:Plural</div>
+<div class="per plural">آسانسورها:Plural</div>
+<div class="ar sentence1">الْمِصْعَدُ مُعَطَّلٌ.</div>
+<div class="per sentence1">آسانسور خراب است.</div>
+<div class="en sentence1">The elevator is out of order.</div>
+<div class="urd sentence1">لفٹ خراب ہے۔</div>
+<div class="ar sentence2">نَسْتَخْدِمُ المِصْعَدَ كُلَّ يَوْمٍ.</div>
+<div class="per sentence2">ما هر روز از آسانسور استفاده می‌کنیم.</div>
+<div class="en sentence2">We use the elevator every day.</div>
+<div class="urd sentence2">ہم روز لفٹ استعمال کرتے ہیں۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/balcony.png"/>
+<figcaption class="front">
+<div class="ar">شُرْفَة</div>
+<div class="per">بالکن</div>
+<div class="en">Balcony</div>
+<div class="urd">بالکونی</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">شُرْفَة</div>
+<div class="per">بالکن</div>
+<div class="ar plural">شُرَف:Plural</div>
+<div class="per plural">بالکن‌ها:Plural</div>
+<div class="ar sentence1">هُنَاكَ مَنْظَرٌ رَائِعٌ مِنَ الشُّرْفَةِ.</div>
+<div class="per sentence1">از بالکن منظرهٔ عالی هست.</div>
+<div class="en sentence1">There is a great view from the balcony.</div>
+<div class="urd sentence1">بالکونی سے بہت اچھا منظر ہے۔</div>
+<div class="ar sentence2">تَقِفُ عَلَى الشُّرْفَةِ.</div>
+<div class="per sentence2">او روی بالکن ایستاده است.</div>
+<div class="en sentence2">She is standing on the balcony.</div>
+<div class="urd sentence2">وہ بالکونی میں کھڑی ہے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/yard.png"/>
+<figcaption class="front">
+<div class="ar">فِنَاء</div>
+<div class="per">حیاط</div>
+<div class="en">Courtyard</div>
+<div class="urd">صحن</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">فِنَاء</div>
+<div class="per">حیاط</div>
+<div class="ar plural">أَفْنِيَة:Plural</div>
+<div class="per plural">حیاط‌ها:Plural</div>
+<div class="ar sentence1">الْفَنَاءُ وَاسِعٌ جِدًّا.</div>
+<div class="per sentence1">حیاط خیلی بزرگ است.</div>
+<div class="en sentence1">The courtyard is very large.</div>
+<div class="urd sentence1">صحن بہت بڑا ہے۔</div>
+<div class="ar sentence2">لَعِبَ الأَطْفَالُ فِي الفِنَاءِ.</div>
+<div class="per sentence2">کودکان در حیاط بازی کردند.</div>
+<div class="en sentence2">The children played in the courtyard.</div>
+<div class="urd sentence2">بچوں نے صحن میں کھیلا۔</div>
+</figcaption>
+</figure>
+</section>
+<h2>🪑 Furniture (الأثاث)</h2>
+<section class="grid">
+<figure class="card">
+<div class="emoji">🪑</div>
+<figcaption class="front">
+<div class="ar">كُرْسِيّ</div>
+<div class="per">صندلی</div>
+<div class="en">Chair</div>
+<div class="urd">کرسی</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">كُرْسِيّ</div>
+<div class="per">صندلی</div>
+<div class="ar plural">كَرَاسِيّ:Plural</div>
+<div class="per plural">صندلی‌ها:Plural</div>
+<div class="ar sentence1">هَذَا الْكُرْسِيُّ قَاسٍ جِدًّا.</div>
+<div class="per sentence1">این صندلی خیلی سفت است.</div>
+<div class="en sentence1">This chair is too hard.</div>
+<div class="urd sentence1">یہ کرسی بہت سخت ہے۔</div>
+<div class="ar sentence2">أَجْلِسُ عَلَى الكُرْسِيِّ.</div>
+<div class="per sentence2">من روی صندلی می‌نشینم.</div>
+<div class="en sentence2">I sit on the chair.</div>
+<div class="urd sentence2">میں کرسی پر بیٹھتا ہوں۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/table.png"/>
+<figcaption class="front">
+<div class="ar">طَاوِلَة</div>
+<div class="per">میز</div>
+<div class="en">Table</div>
+<div class="urd">میز</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">طَاوِلَة</div>
+<div class="per">میز</div>
+<div class="ar plural">طَاوِلَات:Plural</div>
+<div class="per plural">میزها:Plural</div>
+<div class="ar sentence1">هَلِ الطَّاوِلَةُ جَاهِزَةٌ لِلْعَشَاءِ؟</div>
+<div class="per sentence1">میز برای شام آماده است؟</div>
+<div class="en sentence1">Is the table ready for dinner?</div>
+<div class="urd sentence1">کیا میز کھانے کے لیے تیار ہے؟</div>
+<div class="ar sentence2">أَكَلْنَا عَلَى الطَّاوِلَةِ.</div>
+<div class="per sentence2">ما سر میز غذا خوردیم.</div>
+<div class="en sentence2">We ate at the table.</div>
+<div class="urd sentence2">ہم نے میز پر کھانا کھایا۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🛏️</div>
+<figcaption class="front">
+<div class="ar">سَرِير</div>
+<div class="per">تخت</div>
+<div class="en">Bed</div>
+<div class="urd">بستر</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">سَرِير</div>
+<div class="per">تخت</div>
+<div class="ar plural">أَسِرَّة:Plural</div>
+<div class="per plural">تخت‌ها:Plural</div>
+<div class="ar sentence1">سَرِيرِي دَافِئٌ جِدًّا.</div>
+<div class="per sentence1">تخت من خیلی گرم است.</div>
+<div class="en sentence1">My bed is so warm.</div>
+<div class="urd sentence1">میرا بستر بہت گرم ہے۔</div>
+<div class="ar sentence2">يَنَامُ عَلَى السَّرِيرِ.</div>
+<div class="per sentence2">او روی تخت می‌خوابد.</div>
+<div class="en sentence2">He sleeps on the bed.</div>
+<div class="urd sentence2">وہ بستر پر سوتا ہے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🛋️</div>
+<figcaption class="front">
+<div class="ar">أَرِيكَة</div>
+<div class="per">کاناپه</div>
+<div class="en">Sofa</div>
+<div class="urd">صوفہ</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">أَرِيكَة</div>
+<div class="per">کاناپه</div>
+<div class="ar plural">أَرَائِك:Plural</div>
+<div class="per plural">کاناپه‌ها:Plural</div>
+<div class="ar sentence1">هُنَاكَ جِهَازُ تَحَكُّمٍ تَحْتَ الْأَرِيكَةِ.</div>
+<div class="per sentence1">یک ریموت زیر مبل است.</div>
+<div class="en sentence1">There is a remote under the sofa.</div>
+<div class="urd sentence1">صوفے کے نیچے ریموٹ ہے۔</div>
+<div class="ar sentence2">تَسْتَرِيحُ عَلَى الأَرِيكَةِ.</div>
+<div class="per sentence2">او روی مبل استراحت می‌کند.</div>
+<div class="en sentence2">She relaxes on the sofa.</div>
+<div class="urd sentence2">وہ صوفے پر آرام کرتی ہے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/wardrobe.png"/>
+<figcaption class="front">
+<div class="ar">خِزَانَة</div>
+<div class="per">کمد</div>
+<div class="en">Cupboard</div>
+<div class="urd">الماری</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">خِزَانَة</div>
+<div class="per">کمد</div>
+<div class="ar plural">خَزَائِن:Plural</div>
+<div class="per plural">کمدها:Plural</div>
+<div class="ar sentence1">الْخِزَانَةُ فَارِغَةٌ.</div>
+<div class="per sentence1">کمد خالی است.</div>
+<div class="en sentence1">The cupboard is empty.</div>
+<div class="urd sentence1">الماری خالی ہے۔</div>
+<div class="ar sentence2">يَضَعُونَ الأَوَانِيَّ فِي الخِزَانَةِ.</div>
+<div class="per sentence2">آن‌ها ظرف‌ها را در کابینت می‌گذارند.</div>
+<div class="en sentence2">They keep dishes in the cupboard.</div>
+<div class="urd sentence2">وہ برتن الماری میں رکھتے ہیں۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/shelf2.png"/>
+<figcaption class="front">
+<div class="ar">رَفّ</div>
+<div class="per">قفسه</div>
+<div class="en">Shelf</div>
+<div class="urd">شیلف</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">رَفّ</div>
+<div class="per">قفسه</div>
+<div class="ar plural">رُفُوف:Plural</div>
+<div class="per plural">قفسه‌ها:Plural</div>
+<div class="ar sentence1">الْرَّفُّ الْعُلْوِيُّ عَالٍ جِدًّا عَلَيَّ.</div>
+<div class="per sentence1">قفسهٔ بالایی برای من خیلی بلند است.</div>
+<div class="en sentence1">The top shelf is too high for me.</div>
+<div class="urd sentence1">اوپر والا شیلف میرے لیے بہت اونچا ہے۔</div>
+<div class="ar sentence2">أَضَعُ الكُتُبَ عَلَى الرَّفِّ.</div>
+<div class="per sentence2">من کتاب‌ها را روی قفسه می‌گذارم.</div>
+<div class="en sentence2">I put the books on the shelf.</div>
+<div class="urd sentence2">میں کتابیں شیلف پر رکھتا ہوں۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🪞</div>
+<figcaption class="front">
+<div class="ar">مِرْآة</div>
+<div class="per">آینه</div>
+<div class="en">Mirror</div>
+<div class="urd">آئینہ</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مِرْآة</div>
+<div class="per">آینه</div>
+<div class="ar plural">مَرَايَا:Plural</div>
+<div class="per plural">آینه‌ها:Plural</div>
+<div class="ar sentence1">هَلْ هَذَا أَنَا فِي الْمِرْآةِ؟</div>
+<div class="per sentence1">آن خودم در آینه هستم؟</div>
+<div class="en sentence1">Is that me in the mirror?</div>
+<div class="urd sentence1">کیا وہ آئینے میں میں ہوں؟</div>
+<div class="ar sentence2">نَظَرَ فِي المِرْآةِ.</div>
+<div class="per sentence2">او در آینه نگاه کرد.</div>
+<div class="en sentence2">He looked in the mirror.</div>
+<div class="urd sentence2">اس نے آئینے میں دیکھا۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/carpet.png"/>
+<figcaption class="front">
+<div class="ar">سَجَّادَة</div>
+<div class="per"></div>
+<div class="en"></div>
+<div class="urd"></div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">سَجَّادَة</div>
+<div class="per"></div>
+<div class="ar plural"> :Plural</div>
+<div class="per plural"> :Plural</div>
+<div class="ar sentence1"></div>
+<div class="per sentence1"></div>
+<div class="en sentence1"></div>
+<div class="urd sentence1"></div>
+<div class="ar sentence2"></div>
+<div class="per sentence2"></div>
+<div class="en sentence2"></div>
+<div class="urd sentence2"></div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/pillow.png"/>
+<figcaption class="front">
+<div class="ar">وِسَادَة</div>
+<div class="per">بالش</div>
+<div class="en">Pillow</div>
+<div class="urd">تکیہ</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">وِسَادَة</div>
+<div class="per">بالش</div>
+<div class="ar plural">وِسَادَات:Plural</div>
+<div class="per plural">بالش‌ها:Plural</div>
+<div class="ar sentence1">وِسَادَتِي تَحْتَ اللِّحَافِ.</div>
+<div class="per sentence1">بالشم زیر پتو است.</div>
+<div class="en sentence1">My pillow is under the blanket.</div>
+<div class="urd sentence1">میرا تکیہ کمبل کے نیچے ہے۔</div>
+<div class="ar sentence2">أَنَامُ مَعَ وِسَادَةٍ.</div>
+<div class="per sentence2">من با بالش می‌خوابم.</div>
+<div class="en sentence2">I sleep with a pillow.</div>
+<div class="urd sentence2">میں تکیے کے ساتھ سوتا ہوں۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/blanket.png"/>
+<figcaption class="front">
+<div class="ar">لِحَاف</div>
+<div class="per">لحاف</div>
+<div class="en">Blanket</div>
+<div class="urd">لحاف</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">لِحَاف</div>
+<div class="per">لحاف</div>
+<div class="ar plural">لُحُف:Plural</div>
+<div class="per plural">لحاف‌ها:Plural</div>
+<div class="ar sentence1">اللِّحَافُ أَزْرَقُ وَنَاعِمٌ.</div>
+<div class="per sentence1">پتو آبی و کرکی است.</div>
+<div class="en sentence1">The blanket is blue and fuzzy.</div>
+<div class="urd sentence1">کمبل نیلا اور ملائم ہے۔</div>
+<div class="ar sentence2">تَنَامُ مَعَ وِسَادَةٍ.</div>
+<div class="per sentence2">او با بالش می‌خوابد.</div>
+<div class="en sentence2">She sleeps with a pillow.</div>
+<div class="urd sentence2">وہ تکیے کے ساتھ سوتی ہے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/mattress.png"/>
+<figcaption class="front">
+<div class="ar">مَرْتَبَة</div>
+<div class="per">تشک</div>
+<div class="en">Mattress</div>
+<div class="urd">گدا</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مَرْتَبَة</div>
+<div class="per">تشک</div>
+<div class="ar plural">مَرَاتِب:Plural</div>
+<div class="per plural">تشک‌ها:Plural</div>
+<div class="ar sentence1">هَذِهِ الْمَرْتَبَةُ مُرِنَةٌ جِدًّا.</div>
+<div class="per sentence1">این تشک خیلی فنری است.</div>
+<div class="en sentence1">This mattress is very bouncy.</div>
+<div class="urd sentence1">یہ گدا بہت اچھلنے والا ہے۔</div>
+<div class="ar sentence2">غَطَّيْتُ نَفْسِي بِبِطَّانِيَةٍ.</div>
+<div class="per sentence2">من خودم را با پتو پوشاندم.</div>
+<div class="en sentence2">I covered myself with a blanket.</div>
+<div class="urd sentence2">میں نے خود کو کمبل سے ڈھانپا۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/bedsheet.png"/>
+<figcaption class="front">
+<div class="ar">مَفْرَش</div>
+<div class="per">بستر</div>
+<div class="en">Bedding</div>
+<div class="urd">بستر</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مَفْرَش</div>
+<div class="per">بستر</div>
+<div class="ar plural">مَفَارِش:Plural</div>
+<div class="per plural">رختخواب‌ها:Plural</div>
+<div class="ar sentence1"></div>
+<div class="per sentence1"></div>
+<div class="en sentence1">Bedding</div>
+<div class="urd sentence1">بستر</div>
+<div class="ar sentence2"></div>
+<div class="per sentence2"></div>
+<div class="en sentence2"></div>
+<div class="urd sentence2"></div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/curtain.png"/>
+<figcaption class="front">
+<div class="ar">سِتَارَة</div>
+<div class="per">پرده</div>
+<div class="en">Curtain</div>
+<div class="urd">پردہ</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">سِتَارَة</div>
+<div class="per">پرده</div>
+<div class="ar plural">سِتَائِر:Plural</div>
+<div class="per plural">پرده‌ها:Plural</div>
+<div class="ar sentence1">السِّتَارَةُ ثَقِيلَةٌ وَدَاكِنَةٌ.</div>
+<div class="per sentence1">پرده سنگین و تیره است.</div>
+<div class="en sentence1">The curtain is heavy and dark.</div>
+<div class="urd sentence1">پردہ بھاری اور گہرا ہے۔</div>
+<div class="ar sentence2">أَغْلَقَ السِّتَارَ.</div>
+<div class="per sentence2">او پرده را بست.</div>
+<div class="en sentence2">He closed the curtain.</div>
+<div class="urd sentence2">اس نے پردہ بند کیا۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">💡</div>
+<figcaption class="front">
+<div class="ar">مِصْبَاح</div>
+<div class="per">چراغ</div>
+<div class="en">Lamp</div>
+<div class="urd">لیمپ</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مِصْبَاح</div>
+<div class="per">چراغ</div>
+<div class="ar plural">مَصَابِيح:Plural</div>
+<div class="per plural">چراغ‌ها:Plural</div>
+<div class="ar sentence1">الْمِصْبَاحُ عَلَى الْمَكْتَبِ.</div>
+<div class="per sentence1">چراغ روی میز است.</div>
+<div class="en sentence1">The lamp is on the desk.</div>
+<div class="urd sentence1">لیمپ میز پر ہے۔</div>
+<div class="ar sentence2">شَغَّلَتِ المِصْبَاحَ.</div>
+<div class="per sentence2">او چراغ را روشن کرد.</div>
+<div class="en sentence2">She turned on the lamp.</div>
+<div class="urd sentence2">اس نے لیمپ جلایا۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/chandelier.png"/>
+<figcaption class="front">
+<div class="ar">ثُرَيَّا</div>
+<div class="per">لوستر</div>
+<div class="en">Chandelier</div>
+<div class="urd">فانوس</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">ثُرَيَّا</div>
+<div class="per">لوستر</div>
+<div class="ar plural">ثُرَيَّات:Plural</div>
+<div class="per plural">لوسترها:Plural</div>
+<div class="ar sentence1">تِلْكَ الثُّرَيَا فَاخِرَةٌ جِدًّا.</div>
+<div class="per sentence1">آن لوستر خیلی شیک است.</div>
+<div class="en sentence1">That chandelier is very fancy.</div>
+<div class="urd sentence1">وہ فانوس بہت شاندار ہے۔</div>
+<div class="ar sentence2">تُضِيءُ الثُّرَيَّا الغُرْفَةَ.</div>
+<div class="per sentence2">لوستر اتاق را روشن می‌کند.</div>
+<div class="en sentence2">The chandelier lights the room.</div>
+<div class="urd sentence2">فانوس کمرے کو روشن کرتا ہے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/desk.png"/>
+<figcaption class="front">
+<div class="ar">مَكْتَب</div>
+<div class="per">میزتحریر</div>
+<div class="en">Desk</div>
+<div class="urd">میز</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مَكْتَب</div>
+<div class="per">میزتحریر</div>
+<div class="ar plural">مَكَاتِب:Plural</div>
+<div class="per plural">میزتحریرها:Plural</div>
+<div class="ar sentence1">هُنَاكَ قَلَمُ رَصَاصٍ عَلَى الْمَكْتَبِ.</div>
+<div class="per sentence1">یک مداد روی میز است.</div>
+<div class="en sentence1">There is a pencil on the desk.</div>
+<div class="urd sentence1">میز پر پنسل ہے۔</div>
+<div class="ar sentence2">أَدْرُسُ عَلَى مَكْتَبِي.</div>
+<div class="per sentence2">من پشت میزم درس می‌خوانم.</div>
+<div class="en sentence2">I am studying at my desk.</div>
+<div class="urd sentence2">میں اپنی میز پر پڑھ رہا ہوں۔</div>
+</figcaption>
+</figure>
+</section>
+<h2>🧰 Household Items</h2>
+<section class="grid">
+<figure class="card">
+<div class="emoji">⏰</div>
+<figcaption class="front">
+<div class="ar">سَاعَة</div>
+<div class="per">ساعت</div>
+<div class="en">Clock</div>
+<div class="urd">گھڑی</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">سَاعَة</div>
+<div class="per">ساعت</div>
+<div class="ar plural">سَاعَات:Plural</div>
+<div class="per plural">ساعت‌ها:Plural</div>
+<div class="ar sentence1">هَلِ السَّاعَةُ صَحِيحَةٌ؟</div>
+<div class="per sentence1">ساعت درست است؟</div>
+<div class="en sentence1">Is the clock correct?</div>
+<div class="urd sentence1">کیا گھڑی ٹھیک ہے؟</div>
+<div class="ar sentence2">تَفَقَّدَ السَّاعَةَ.</div>
+<div class="per sentence2">او ساعت را بررسی کرد.</div>
+<div class="en sentence2">He checked the clock.</div>
+<div class="urd sentence2">اس نے گھڑی دیکھی۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">📅</div>
+<figcaption class="front">
+<div class="ar">تَقْوِيم</div>
+<div class="per">تقویم</div>
+<div class="en">Calendar</div>
+<div class="urd">کیلنڈر</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">تَقْوِيم</div>
+<div class="per">تقویم</div>
+<div class="ar plural">تَقَاوِيم:Plural</div>
+<div class="per plural">تقویم‌ها:Plural</div>
+<div class="ar sentence1">التَّقْوِيمُ عَلَى الثَّلَّاجَةِ.</div>
+<div class="per sentence1">تقویم روی یخچال است.</div>
+<div class="en sentence1">The calendar is on the fridge.</div>
+<div class="urd sentence1">کیلنڈر فریج پر ہے۔</div>
+<div class="ar sentence2">عَلَّمَتِ التَّارِيخَ عَلَى التَّقْوِيمِ.</div>
+<div class="per sentence2">او تاریخ را در تقویم علامت زد.</div>
+<div class="en sentence2">She marked the date on the calendar.</div>
+<div class="urd sentence2">اس نے کیلنڈر پر تاریخ نشان لگایا۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🔑</div>
+<figcaption class="front">
+<div class="ar">مِفْتَاح</div>
+<div class="per">کلید</div>
+<div class="en">Key</div>
+<div class="urd">چابی</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مِفْتَاح</div>
+<div class="per">کلید</div>
+<div class="ar plural">مَفَاتِيح:Plural</div>
+<div class="per plural">کلیدها:Plural</div>
+<div class="ar sentence1">الْمِفْتَاحُ فِي الْقِلْقِلَةِ.</div>
+<div class="per sentence1">کلید در قفل است.</div>
+<div class="en sentence1">The key is in the lock.</div>
+<div class="urd sentence1">چابی تالے میں ہے۔</div>
+<div class="ar sentence2">أَفْتَحُ البَابَ بِمِفْتَاحٍ.</div>
+<div class="per sentence2">من در را با کلید باز می‌کنم.</div>
+<div class="en sentence2">I open the door with a key.</div>
+<div class="urd sentence2">میں چابی سے دروازہ کھولتا ہوں۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">📱</div>
+<figcaption class="front">
+<div class="ar">هَاتِف</div>
+<div class="per">تلفن</div>
+<div class="en">Phone</div>
+<div class="urd">فون</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">هَاتِف</div>
+<div class="per">تلفن</div>
+<div class="ar plural">هَوَاتِف:Plural</div>
+<div class="per plural">تلفن‌ها:Plural</div>
+<div class="ar sentence1">أَيْنَ هَاتِفِي؟</div>
+<div class="per sentence1">گوشی من کجاست؟</div>
+<div class="en sentence1">Where is my phone?</div>
+<div class="urd sentence1">میرا فون کہاں ہے؟</div>
+<div class="ar sentence2">سَيَتَّصِلُونَ بِصَدِيقِهِمْ بِالهَاتِفِ.</div>
+<div class="per sentence2">آن‌ها با دوستشان تلفنی تماس خواهند گرفت.</div>
+<div class="en sentence2">They will call their friend o</div>
+<div class="urd sentence2">وہ فون پر اپنے دوست کو کال کریں گے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/ceiling-fan.png"/>
+<figcaption class="front">
+<div class="ar">مِرْوَحَة</div>
+<div class="per">پنکه</div>
+<div class="en">Fan</div>
+<div class="urd">پنکھا</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مِرْوَحَة</div>
+<div class="per">پنکه</div>
+<div class="ar plural">مَرَاوِح:Plural</div>
+<div class="per plural">پنکه‌ها:Plural</div>
+<div class="ar sentence1">المِرْوَحَةُ صَاخِبَةٌ جِدًّا اللَّيْلَةَ.</div>
+<div class="per sentence1">پنکه امشب خیلی پرصدا است.</div>
+<div class="en sentence1">The fan is very loud tonight.</div>
+<div class="urd sentence1">پنکه امشب خیلی پرصدا است.</div>
+<div class="ar sentence2">تُبَرِّدُ المِرْوَحَةُ الغُرْفَةَ.</div>
+<div class="per sentence2">پنکه اتاق را خنک می‌کند.</div>
+<div class="en sentence2">The fan cools the room.</div>
+<div class="urd sentence2">پنکھا کمرہ ٹھنڈا کرتا ہے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/heater.png"/>
+<figcaption class="front">
+<div class="ar">مِدْفَأَة</div>
+<div class="per">بخاری</div>
+<div class="en">Heater</div>
+<div class="urd">ہیٹر</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مِدْفَأَة</div>
+<div class="per">بخاری</div>
+<div class="ar plural">مِدْفَآت:Plural</div>
+<div class="per plural">بخاری‌ها:Plural</div>
+<div class="ar sentence1">السَّخَّانُ سَاخِنٌ عِنْدَ اللَّمْسِ.</div>
+<div class="per sentence1">بخاری به لمس داغ است.</div>
+<div class="en sentence1">The heater is hot to the touch.</div>
+<div class="urd sentence1">بخاری به لمس داغ است.</div>
+<div class="ar sentence2">دَفَّأَ المُدَفِّئُ الغُرْفَةَ.</div>
+<div class="per sentence2">بخاری اتاق را گرم کرد.</div>
+<div class="en sentence2">The heater warmed the room.</div>
+<div class="urd sentence2">ہیٹر نے کمرہ گرم کیا۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/air-conditioner.png"/>
+<figcaption class="front">
+<div class="ar">مُكَيِّف</div>
+<div class="per">کولر</div>
+<div class="en">Air conditioner</div>
+<div class="urd">اے سی</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مُكَيِّف</div>
+<div class="per">کولر</div>
+<div class="ar plural">مُكَيِّفَات:Plural</div>
+<div class="per plural">کولرها:Plural</div>
+<div class="ar sentence1">مُكَيِّفُ الْهَوَاءِ بَارِدٌ جِدًّا.</div>
+<div class="per sentence1">کولر خیلی سرد است.</div>
+<div class="en sentence1">The air conditioner is very cold.</div>
+<div class="urd sentence1">کولر خیلی سرد است.</div>
+<div class="ar sentence2">نُشَغِّلُ مُكَيِّفَ الهَوَاءِ.</div>
+<div class="per sentence2">ما کولر را روشن می‌کنیم.</div>
+<div class="en sentence2">We turn on the air conditioner.</div>
+<div class="urd sentence2">ہم ایئر کنڈیشنر چلاتے ہیں۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">💡</div>
+<figcaption class="front">
+<div class="ar">مِصْبَاح كَهْرَبَائِي</div>
+<div class="per">چراغ برقی</div>
+<div class="en">Electric bulb</div>
+<div class="urd">بلب</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مِصْبَاح كَهْرَبَائِي</div>
+<div class="per">چراغ برقی</div>
+<div class="ar plural">مَصَابِيح كَهْرَبَائِيَّة:Plural</div>
+<div class="per plural">لامپ‌های برقی:Plural</div>
+<div class="ar sentence1">الْمِصْبَاحُ الْكَهْرَبَائِيُّ سَاطِعٌ جِدًّا.</div>
+<div class="per sentence1">لامپ برق خیلی روشن است.</div>
+<div class="en sentence1">The electric bulb is very bright.</div>
+<div class="urd sentence1">لامپ برق خیلی روشن است.</div>
+<div class="ar sentence2">يُضِيءُ المِصْبَاحُ الغُرْفَةَ.</div>
+<div class="per sentence2">لامپ اتاق را روشن می‌کند.</div>
+<div class="en sentence2">The bulb lights the room.</div>
+<div class="urd sentence2">بلب کمرہ روشن کرتا ہے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🧺</div>
+<figcaption class="front">
+<div class="ar">سَلَّة</div>
+<div class="per">سبد</div>
+<div class="en">Basket</div>
+<div class="urd">ٹوکری</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">سَلَّة</div>
+<div class="per">سبد</div>
+<div class="ar plural">سِلَال:Plural</div>
+<div class="per plural">سبدها:Plural</div>
+<div class="ar sentence1">هُنَاكَ تُفَّاحٌ فِي السَّلَّةِ.</div>
+<div class="per sentence1">در سبد سیب هست.</div>
+<div class="en sentence1">There are apples in the basket.</div>
+<div class="urd sentence1">در سبد سیب هست.</div>
+<div class="ar sentence2">حَمَلْتُ الفَوَاكِهَ فِي السَّلَّةِ.</div>
+<div class="per sentence2">من میوه‌ها را در سبد حمل کردم.</div>
+<div class="en sentence2">I carried fruits in the basket.</div>
+<div class="urd sentence2">میں نے پھل ٹوکری میں اٹھائے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">📦</div>
+<figcaption class="front">
+<div class="ar">صُنْدُوق</div>
+<div class="per">صندوق</div>
+<div class="en">Box</div>
+<div class="urd">صندوق</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">صُنْدُوق</div>
+<div class="per">صندوق</div>
+<div class="ar plural">صَنَادِيق:Plural</div>
+<div class="per plural">صندوق‌ها:Plural</div>
+<div class="ar sentence1">هَذَا الصُّنْدُوقُ ثَقِيلٌ جِدًّا بِالنِّسْبَةِ لِي.</div>
+<div class="per sentence1">این جعبه برای من خیلی سنگین است.</div>
+<div class="en sentence1">This box is too heavy for me.</div>
+<div class="urd sentence1">این جعبه برای من خیلی سنگین است.</div>
+<div class="ar sentence2">تَضَعُ الأَلْعَابَ فِي الصُّنْدُوقِ.</div>
+<div class="per sentence2">او اسباب‌بازی‌ها را در جعبه می‌گذارد.</div>
+<div class="en sentence2">She puts toys in the box.</div>
+<div class="urd sentence2">وہ کھلونے ڈبے میں رکھتی ہے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🏺</div>
+<figcaption class="front">
+<div class="ar">مِزْهَرِيَّة</div>
+<div class="per">گلدان</div>
+<div class="en">Vase</div>
+<div class="urd">گلدان</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مِزْهَرِيَّة</div>
+<div class="per">گلدان</div>
+<div class="ar plural">مِزْهَرِيَّات:Plural</div>
+<div class="per plural">گلدان‌ها:Plural</div>
+<div class="ar sentence1">الْمُزَهَرِيَّةُ لِلزُّهُورِ.</div>
+<div class="per sentence1">گلدان برای گل‌ها است.</div>
+<div class="en sentence1">The vase is for the flowers.</div>
+<div class="urd sentence1">گلدان برای گل‌ها است.</div>
+<div class="ar sentence2">وَضَعَ الزُّهُورَ فِي المِزْهَرِيَّةِ.</div>
+<div class="per sentence2">او گل‌ها را در گلدان گذاشت.</div>
+<div class="en sentence2">He put flowers in the vase.</div>
+<div class="urd sentence2">اس نے پھول گلدان میں رکھے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🖼️</div>
+<figcaption class="front">
+<div class="ar">صُورَة</div>
+<div class="per">تصویر</div>
+<div class="en">Picture</div>
+<div class="urd">تصویر</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">صُورَة</div>
+<div class="per">تصویر</div>
+<div class="ar plural">صُوَر:Plural</div>
+<div class="per plural">تصویرها:Plural</div>
+<div class="ar sentence1">تِلْكَ الصُّورَةُ لِعَائِلَتِي.</div>
+<div class="per sentence1">آن تصویر متعلق به خانواده من است.</div>
+<div class="en sentence1">That picture is of my family.</div>
+<div class="urd sentence1">آن تصویر متعلق به خانواده من است.</div>
+<div class="ar sentence2">يُعَلِّقُونَ الصُّورَةَ.</div>
+<div class="per sentence2">آن‌ها تصویر را آویزان می‌کنند.</div>
+<div class="en sentence2">They hang the picture.</div>
+<div class="urd sentence2">وہ تصویر لٹکاتے ہیں۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🖼️</div>
+<figcaption class="front">
+<div class="ar">لَوْحَة</div>
+<div class="per">تابلو</div>
+<div class="en">Painting</div>
+<div class="urd">پینٹنگ</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">لَوْحَة</div>
+<div class="per">تابلو</div>
+<div class="ar plural">لَوْحَات:Plural</div>
+<div class="per plural">تابلوها:Plural</div>
+<div class="ar sentence1">اللَّوْحَةُ مُلَوَّنَةٌ.</div>
+<div class="per sentence1">نقاشی رنگارنگ است.</div>
+<div class="en sentence1">The painting is colorful.</div>
+<div class="urd sentence1">نقاشی رنگارنگ است.</div>
+<div class="ar sentence2">هِيَ تَرْسُمُ لَوْحَةً.</div>
+<div class="per sentence2">او در حال نقاشی است.</div>
+<div class="en sentence2">She is painting a picture.</div>
+<div class="urd sentence2">وہ ایک تصویر بنا رہی ہے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/handle.png"/>
+<figcaption class="front">
+<div class="ar">مِقْبَض</div>
+<div class="per">دستگیره</div>
+<div class="en">Handle</div>
+<div class="urd">ہینڈل</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مِقْبَض</div>
+<div class="per">دستگیره</div>
+<div class="ar plural">مَقَابِض:Plural</div>
+<div class="per plural">دستگیره‌ها:Plural</div>
+<div class="ar sentence1">الْمِقْبَضُ بَارِدٌ وَفِضِّيٌّ.</div>
+<div class="per sentence1">دسته سرد و نقره‌ای است.</div>
+<div class="en sentence1">The handle is cold and silver.</div>
+<div class="urd sentence1">دسته سرد و نقره‌ای است.</div>
+<div class="ar sentence2">سَحَبَ المِقْبَضَ.</div>
+<div class="per sentence2">او دستگیره را کشید.</div>
+<div class="en sentence2">He pulled the handle.</div>
+<div class="urd sentence2">اس نے ہینڈل کھینچا۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🔘</div>
+<figcaption class="front">
+<div class="ar">زِرّ</div>
+<div class="per">بٹن</div>
+<div class="en">Button</div>
+<div class="urd">بٹن</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">زِرّ</div>
+<div class="per">بٹن</div>
+<div class="ar plural">أَزْرَار:Plural</div>
+<div class="per plural">دکمه‌ها:Plural</div>
+<div class="ar sentence1">هُنَاكَ زِرٌّ أَحْمَرُ عَلَى الْحَائِطِ.</div>
+<div class="per sentence1">روی دیوار دکمه قرمز است.</div>
+<div class="en sentence1">There is a red button on the wall.</div>
+<div class="urd sentence1">روی دیوار دکمه قرمز است.</div>
+<div class="ar sentence2">أَضْغَطُ الزِّرَّ.</div>
+<div class="per sentence2">من دکمه را فشار می‌دهم.</div>
+<div class="en sentence2">I press the button.</div>
+<div class="urd sentence2">میں بٹن دباتا ہوں۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🔒</div>
+<figcaption class="front">
+<div class="ar">قُفْل</div>
+<div class="per">قفل</div>
+<div class="en">Lock</div>
+<div class="urd">تالا</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">قُفْل</div>
+<div class="per">قفل</div>
+<div class="ar plural">أَقْفَال:Plural</div>
+<div class="per plural">قفل‌ها:Plural</div>
+<div class="ar sentence1">الْقِلْقِلَةُ قَوِيَّةٌ جِدًّا.</div>
+<div class="per sentence1">قفل خیلی محکم است.</div>
+<div class="en sentence1">The lock is very strong.</div>
+<div class="urd sentence1">قفل خیلی محکم است.</div>
+<div class="ar sentence2">أَغْلَقَتِ البَابَ.</div>
+<div class="per sentence2">او در را قفل کرد.</div>
+<div class="en sentence2">She locked the door.</div>
+<div class="urd sentence2">اس نے دروازہ بند کیا۔</div>
+</figcaption>
+</figure>
+</section>
+<h2>🍽️ Kitchen Objects</h2>
+<section class="grid">
+<figure class="card">
+<img class="thumb" src="images/refrigerator.png"/>
+<figcaption class="front">
+<div class="ar">ثَلَّاجَة</div>
+<div class="per">یخچال</div>
+<div class="en">Refrigerator</div>
+<div class="urd">فریج</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">ثَلَّاجَة</div>
+<div class="per">یخچال</div>
+<div class="ar plural">ثَلَّاجَات:Plural</div>
+<div class="per plural">یخچال‌ها:Plural</div>
+<div class="ar sentence1">الثَّلَّاجَةُ مُمتَلِئَةٌ بِالْحَلِيبِ.</div>
+<div class="per sentence1">یخچال پر از شیر است.</div>
+<div class="en sentence1">The refrigerator is full of milk.</div>
+<div class="urd sentence1">یخچال پر از شیر است.</div>
+<div class="ar sentence2">نُخَزِّنُ الطَّعَامَ فِي الثَّلَّاجَةِ.</div>
+<div class="per sentence2">ما غذا را در یخچال نگه می‌داریم.</div>
+<div class="en sentence2">We store food in the refrigerator.</div>
+<div class="urd sentence2">ہم کھانا فریج میں رکھتے ہیں۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/oven.png"/>
+<figcaption class="front">
+<div class="ar">فُرْن</div>
+<div class="per">فر</div>
+<div class="en">Oven</div>
+<div class="urd">اوون</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">فُرْن</div>
+<div class="per">فر</div>
+<div class="ar plural">أَفْرَان:Plural</div>
+<div class="per plural">فرها:Plural</div>
+<div class="ar sentence1">هَلِ الْفُرْنُ لَا يَزَالُ سَاخِنًا؟</div>
+<div class="per sentence1">آیا فر در حال حاضر هنوز داغ است؟</div>
+<div class="en sentence1">Is the oven still hot?</div>
+<div class="urd sentence1">آیا فر در حال حاضر هنوز داغ است؟</div>
+<div class="ar sentence2">الأُمُّ تَخْبِزُ فِي الفُرْنِ.</div>
+<div class="per sentence2">مادر در فر نان می‌پزد.</div>
+<div class="en sentence2">Mom is baking in the oven.</div>
+<div class="urd sentence2">امی اوون میں بیک کر رہی ہیں۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/stove.png"/>
+<figcaption class="front">
+<div class="ar">مَوْقِد</div>
+<div class="per">چولہا</div>
+<div class="en">Stove</div>
+<div class="urd">چولہا</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مَوْقِد</div>
+<div class="per">چولہا</div>
+<div class="ar plural">مَوَاقِد:Plural</div>
+<div class="per plural">اجاق‌ها:Plural</div>
+<div class="ar sentence1">الْمَوْقِدُ مُتَّسِخٌ.</div>
+<div class="per sentence1">اجاق کثیف است.</div>
+<div class="en sentence1">The stove is dirty.</div>
+<div class="urd sentence1">اجاق کثیف است.</div>
+<div class="ar sentence2">تَطْبُخُ عَلَى المَوْقِدِ.</div>
+<div class="per sentence2">او روی اجاق غذا می‌پزد.</div>
+<div class="en sentence2">She cooks on the stove.</div>
+<div class="urd sentence2">وہ چولہے پر کھانا پکاتی ہے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/pot.png"/>
+<figcaption class="front">
+<div class="ar">قِدْر</div>
+<div class="per">دیگ</div>
+<div class="en">Pot</div>
+<div class="urd">دیگ</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">قِدْر</div>
+<div class="per">دیگ</div>
+<div class="ar plural">قُدُور:Plural</div>
+<div class="per plural">قابلمه‌ها:Plural</div>
+<div class="ar sentence1">هُنَاكَ حِسَاءٌ فِي الْقِدْرِ.</div>
+<div class="per sentence1">در قابلمه سوپ هست.</div>
+<div class="en sentence1">There is soup in the pot.</div>
+<div class="urd sentence1">در قابلمه سوپ هست.</div>
+<div class="ar sentence2">يَطْبُخُ الحَسَاءُ فِي القِدْرِ.</div>
+<div class="per sentence2">سوپ در قابلمه می‌پزد.</div>
+<div class="en sentence2">Soup is cooking in the pot.</div>
+<div class="urd sentence2">سوپ برتن میں پک رہا ہے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🍳</div>
+<figcaption class="front">
+<div class="ar">مِقْلَاة</div>
+<div class="per">ماهیتابه</div>
+<div class="en">Frying pan</div>
+<div class="urd">فرائنگ پین</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مِقْلَاة</div>
+<div class="per">ماهیتابه</div>
+<div class="ar plural">مَقَالِي:Plural</div>
+<div class="per plural">ماهیتابه‌ها:Plural</div>
+<div class="ar sentence1">الْمِقْلَاةُ عَلَى الطَّاوِلَةِ.</div>
+<div class="per sentence1">ماهیتابه روی کانتر است.</div>
+<div class="en sentence1">The frying pan is on the counter.</div>
+<div class="urd sentence1">ماهیتابه روی کانتر است.</div>
+<div class="ar sentence2">قَلَيْتُ البَيْضَ فِي المِقْلَاةِ.</div>
+<div class="per sentence2">من تخم‌مرغ را در ماهیتابه سرخ کردم.</div>
+<div class="en sentence2">I fried eggs in the pan.</div>
+<div class="urd sentence2">میں نے انڈے فرائنگ پین میں تلے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🍽️</div>
+<figcaption class="front">
+<div class="ar">صَحْن</div>
+<div class="per">بشقاب</div>
+<div class="en">Plate</div>
+<div class="urd">پلیٹ</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">صَحْن</div>
+<div class="per">بشقاب</div>
+<div class="ar plural">صُحُون:Plural</div>
+<div class="per plural">بشقاب‌ها:Plural</div>
+<div class="ar sentence1">هَلْ طَبَقُكَ نَظِيفٌ؟</div>
+<div class="per sentence1">آیا بشقابت تمیز است؟</div>
+<div class="en sentence1">Is your plate clean?</div>
+<div class="urd sentence1">آیا بشقابت تمیز است؟</div>
+<div class="ar sentence2">يَأْكُلُ الطَّعَامَ مِنَ الصَّحْنِ.</div>
+<div class="per sentence2">او غذا را از بشقاب می‌خورد.</div>
+<div class="en sentence2">He eats food from the plate.</div>
+<div class="urd sentence2">وہ پلیٹ سے کھانا کھاتا ہے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/mug.png"/>
+<figcaption class="front">
+<div class="ar">كُوب</div>
+<div class="per">لیوان</div>
+<div class="en">Cup</div>
+<div class="urd">کپ</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">كُوب</div>
+<div class="per">لیوان</div>
+<div class="ar plural">أَكْوَاب:Plural</div>
+<div class="per plural">لیوان‌ها:Plural</div>
+<div class="ar sentence1">هُنَاكَ عَصِيرٌ فِي كُوبِي.</div>
+<div class="per sentence1">در فنجان من آبمیوه هست.</div>
+<div class="en sentence1">There is juice in my cup.</div>
+<div class="urd sentence1">در فنجان من آبمیوه هست.</div>
+<div class="ar sentence2">أَشْرَبُ المَاءَ مِنَ الكُوبِ.</div>
+<div class="per sentence2">من آب را از لیوان می‌نوشم.</div>
+<div class="en sentence2">I drink water from the cup.</div>
+<div class="urd sentence2">میں کپ سے پانی پیتا ہوں۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">☕</div>
+<figcaption class="front">
+<div class="ar">فِنْجَان</div>
+<div class="per">پیاله</div>
+<div class="en">Mug</div>
+<div class="urd">پیالی</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">فِنْجَان</div>
+<div class="per">پیاله</div>
+<div class="ar plural">فَنَاجِين:Plural</div>
+<div class="per plural">فنجان‌ها:Plural</div>
+<div class="ar sentence1">كُوبِي مُمتَلِئٌ بِالْكُوكُو.</div>
+<div class="per sentence1">ماگ من پر از کاکائو است.</div>
+<div class="en sentence1">My mug is full of cocoa.</div>
+<div class="urd sentence1">ماگ من پر از کاکائو است.</div>
+<div class="ar sentence2">شَرِبَتِ الشَّايَ مِنَ الكُوبِ.</div>
+<div class="per sentence2">او چای را از ماگ نوشید.</div>
+<div class="en sentence2">She drank tea from the mug.</div>
+<div class="urd sentence2">اس نے مگ سے چائے پی۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🥄</div>
+<figcaption class="front">
+<div class="ar">مِلْعَقَة</div>
+<div class="per">قاشق</div>
+<div class="en">Spoon</div>
+<div class="urd">چمچ</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مِلْعَقَة</div>
+<div class="per">قاشق</div>
+<div class="ar plural">مَلَاعِق:Plural</div>
+<div class="per plural">قاشق‌ها:Plural</div>
+<div class="ar sentence1">الْمِلْعَقَةُ فِي الْوِعَاءِ.</div>
+<div class="per sentence1">قاشق در کاسه است.</div>
+<div class="en sentence1">The spoon is in the bowl.</div>
+<div class="urd sentence1">قاشق در کاسه است.</div>
+<div class="ar sentence2">نَأْكُلُ الحَسَاءَ بِالمِلْعَقَةِ.</div>
+<div class="per sentence2">ما سوپ را با قاشق می‌خوریم.</div>
+<div class="en sentence2">We eat soup with a spoon.</div>
+<div class="urd sentence2">ہم چمچ سے سوپ کھاتے ہیں۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🍴</div>
+<figcaption class="front">
+<div class="ar">شَوْكَة</div>
+<div class="per">چنگال</div>
+<div class="en">Fork</div>
+<div class="urd">کانٹا</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">شَوْكَة</div>
+<div class="per">چنگال</div>
+<div class="ar plural">شَوَاك:Plural</div>
+<div class="per plural">چنگال‌ها:Plural</div>
+<div class="ar sentence1">لَا يُوجَدُ شَوْكَةٌ عَلَى الطَّاوِلَةِ.</div>
+<div class="per sentence1">هیچ چنگالی روی میز نیست.</div>
+<div class="en sentence1">There is no fork on the table.</div>
+<div class="urd sentence1">هیچ چنگالی روی میز نیست.</div>
+<div class="ar sentence2">يَأْكُلُونَ بِالشَّوْكَةِ.</div>
+<div class="per sentence2">آن‌ها با چنگال غذا می‌خورند.</div>
+<div class="en sentence2">They eat with a fork.</div>
+<div class="urd sentence2">وہ کانٹے سے کھاتے ہیں۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🔪</div>
+<figcaption class="front">
+<div class="ar">سِكِّين</div>
+<div class="per">چاقو</div>
+<div class="en">Knife</div>
+<div class="urd">چاقو</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">سِكِّين</div>
+<div class="per">چاقو</div>
+<div class="ar plural">سَكَاكِين:Plural</div>
+<div class="per plural">چاقوها:Plural</div>
+<div class="ar sentence1">السِّكِّينُ حَادٌّ جِدًّا.</div>
+<div class="per sentence1">چاقو خیلی تیز است.</div>
+<div class="en sentence1">The knife is very sharp.</div>
+<div class="urd sentence1">چاقو خیلی تیز است.</div>
+<div class="ar sentence2">أَقْطَعُ الفَاكِهَةَ بِالسِّكِّينِ.</div>
+<div class="per sentence2">من میوه را با چاقو می‌برم.</div>
+<div class="en sentence2">I cut fruit with a knife.</div>
+<div class="urd sentence2">میں چھری سے پھل کاٹتا ہوں۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🫖</div>
+<figcaption class="front">
+<div class="ar">إِبْرِيق</div>
+<div class="per">ابریق</div>
+<div class="en">Kettle</div>
+<div class="urd">کیتلی</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">إِبْرِيق</div>
+<div class="per">ابریق</div>
+<div class="ar plural">أَبَارِيق:Plural</div>
+<div class="per plural">قوری‌ها:Plural</div>
+<div class="ar sentence1">الْغِلَايَةُ عَلَى الصَّنْصِيَّةِ.</div>
+<div class="per sentence1">کتری روی سینی است.</div>
+<div class="en sentence1">The kettle is on the tray.</div>
+<div class="urd sentence1">کتری روی سینی است.</div>
+<div class="ar sentence2">يَغْلِي المَاءُ فِي الغَلَّايَةِ.</div>
+<div class="per sentence2">آب در کتری می‌جوشد.</div>
+<div class="en sentence2">Water boils in the kettle.</div>
+<div class="urd sentence2">کیتلی میں پانی ابلتا ہے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🫖</div>
+<figcaption class="front">
+<div class="ar">غَلَّاية</div>
+<div class="per">کیتلی</div>
+<div class="en">Boiler</div>
+<div class="urd">اُبالنے والا</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">غَلَّاية</div>
+<div class="per">کیتلی</div>
+<div class="ar plural">غَلَّايَات:Plural</div>
+<div class="per plural">کتری‌ها:Plural</div>
+<div class="ar sentence1">الْغِلَايَةُ فِي الْقَبْوِ.</div>
+<div class="per sentence1">دیگ در زیرزمین است.</div>
+<div class="en sentence1">The boiler is in the basement.</div>
+<div class="urd sentence1">دیگ در زیرزمین است.</div>
+<div class="ar sentence2">يُسَخِّنُ المِرْجَلُ المَاءَ.</div>
+<div class="per sentence2">دیگ آب را گرم می‌کند.</div>
+<div class="en sentence2">The boiler heats water.</div>
+<div class="urd sentence2">بوائلر پانی گرم کرتا ہے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🍾</div>
+<figcaption class="front">
+<div class="ar">زُجَاجَة</div>
+<div class="per">بطری</div>
+<div class="en">Bottle</div>
+<div class="urd">بوتل</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">زُجَاجَة</div>
+<div class="per">بطری</div>
+<div class="ar plural">زُجَاجَات:Plural</div>
+<div class="per plural">بطری‌ها:Plural</div>
+<div class="ar sentence1">هَذِهِ الزُّجَاجَةُ لِلْمَاءِ.</div>
+<div class="per sentence1">این بطری برای آب است.</div>
+<div class="en sentence1">This bottle is for water.</div>
+<div class="urd sentence1">این بطری برای آب است.</div>
+<div class="ar sentence2">يَشْرَبُ مِنَ الزُّجَاجَةِ.</div>
+<div class="per sentence2">او از بطری می‌نوشد.</div>
+<div class="en sentence2">He drinks from the bottle.</div>
+<div class="urd sentence2">وہ بوتل سے پیتا ہے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/sink.png"/>
+<figcaption class="front">
+<div class="ar">مَغْسَلَة</div>
+<div class="per">سنک</div>
+<div class="en">Sink</div>
+<div class="urd">سنک</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مَغْسَلَة</div>
+<div class="per">سنک</div>
+<div class="ar plural">مَغَاسِل:Plural</div>
+<div class="per plural">سینک‌ها:Plural</div>
+<div class="ar sentence1">هَلْ هُنَاكَ صَابُونٌ بِجَانِبِ الْحَوْضِ؟</div>
+<div class="per sentence1">آیا صابون کنار سینک هست؟</div>
+<div class="en sentence1">Is there soap near the sink?</div>
+<div class="urd sentence1">آیا صابون کنار سینک هست؟</div>
+<div class="ar sentence2">يَجْرِي المَاءُ فِي الحَوْضِ.</div>
+<div class="per sentence2">آب در سینک جریان دارد.</div>
+<div class="en sentence2">Water runs in the sink.</div>
+<div class="urd sentence2">سنک میں پانی بہتا ہے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🧻</div>
+<figcaption class="front">
+<div class="ar">مَنَادِيل</div>
+<div class="per">دستمال</div>
+<div class="en">Tissues</div>
+<div class="urd">ٹشو</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مَنَادِيل</div>
+<div class="per">دستمال</div>
+<div class="ar plural">مَنَادِيل:Plural</div>
+<div class="per plural">دستمال‌ها:Plural</div>
+<div class="ar sentence1">الْمَنَادِيلُ نَاعِمَةٌ.</div>
+<div class="per sentence1">دستمال‌ها نرم هستند.</div>
+<div class="en sentence1">The tissues are soft.</div>
+<div class="urd sentence1">دستمال‌ها نرم هستند.</div>
+<div class="ar sentence2">مَسَحْتُ يَدَيَّ بِالمَنَادِيلِ.</div>
+<div class="per sentence2">من دست‌هایم را با دستمال پاک کردم.</div>
+<div class="en sentence2">I wiped my hands with tissues.</div>
+<div class="urd sentence2">میں نے ٹشو سے ہاتھ صاف کیے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/towel.png"/>
+<figcaption class="front">
+<div class="ar">مِنْشَفَة</div>
+<div class="per">حوله</div>
+<div class="en">Towel</div>
+<div class="urd">تولیہ</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مِنْشَفَة</div>
+<div class="per">حوله</div>
+<div class="ar plural">مَنَاشِف:Plural</div>
+<div class="per plural">حوله‌ها:Plural</div>
+<div class="ar sentence1">مِنْشَفَةٌ جَدِيدَةٌ عَلَى الْرَّفِّ.</div>
+<div class="per sentence1">حوله تازه روی قفسه است.</div>
+<div class="en sentence1">A fresh towel is on the rack.</div>
+<div class="urd sentence1">حوله تازه روی قفسه است.</div>
+<div class="ar sentence2">تُعَلِّقُ المِنْشَفَةَ.</div>
+<div class="per sentence2">او حوله را آویزان می‌کند.</div>
+<div class="en sentence2">She hangs the towel.</div>
+<div class="urd sentence2">وہ تولیہ لٹکاتی ہے۔</div>
+</figcaption>
+</figure>
+</section>
+<h2>🍽️ 🚿 Bathroom &amp; Cleaning</h2>
+<section class="grid">
+<figure class="card">
+<img class="thumb" src="images/sink.png"/>
+<figcaption class="front">
+<div class="ar">مَغْسَلَة</div>
+<div class="per">سنک</div>
+<div class="en">Sink</div>
+<div class="urd">سنک</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مَغْسَلَة</div>
+<div class="per">سنک</div>
+<div class="ar plural">مَغَاسِل:Plural</div>
+<div class="per plural">سینک‌ها:Plural</div>
+<div class="ar sentence1">هَلْ هُنَاكَ صَابُونٌ بِجَانِبِ الْحَوْضِ؟</div>
+<div class="per sentence1">آیا صابون کنار سینک هست؟</div>
+<div class="en sentence1">Is there soap near the sink?</div>
+<div class="urd sentence1">آیا صابون کنار سینک هست؟</div>
+<div class="ar sentence2">يَجْرِي المَاءُ فِي الحَوْضِ.</div>
+<div class="per sentence2">آب در سینک جریان دارد.</div>
+<div class="en sentence2">Water runs in the sink.</div>
+<div class="urd sentence2">سنک میں پانی بہتا ہے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🚽</div>
+<figcaption class="front">
+<div class="ar">مِرْحَاض</div>
+<div class="per">بیت الخلاء</div>
+<div class="en">Toilet</div>
+<div class="urd">بیت الخلا</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مِرْحَاض</div>
+<div class="per">بیت الخلاء</div>
+<div class="ar plural">مَرَاحِيض:Plural</div>
+<div class="per plural">توالت‌ها:Plural</div>
+<div class="ar sentence1">الْمَرْحَاضُ فِي الْغُرْفَةِ الصَّغِيرَةِ.</div>
+<div class="per sentence1">توالت در اتاق کوچک است.</div>
+<div class="en sentence1">The toilet is in the small room.</div>
+<div class="urd sentence1">توالت در اتاق کوچک است.</div>
+<div class="ar sentence2">يَسْتَخْدِمُ المِرْحَاضَ.</div>
+<div class="per sentence2">او از توالت استفاده می‌کند.</div>
+<div class="en sentence2">He uses the toilet.</div>
+<div class="urd sentence2">وہ ٹوائلٹ استعمال کرتا ہے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🚿</div>
+<figcaption class="front">
+<div class="ar">دُوش</div>
+<div class="per">دوش</div>
+<div class="en">Shower</div>
+<div class="urd">شاور</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">دُوش</div>
+<div class="per">دوش</div>
+<div class="ar plural">دُوشَات:Plural</div>
+<div class="per plural">دوش‌ها:Plural</div>
+<div class="ar sentence1">هَلِ الدُّشُّ دَافِئٌ بَعْدَ؟</div>
+<div class="per sentence1">آیا دوش هنوز گرم است؟</div>
+<div class="en sentence1">Is the shower warm yet?</div>
+<div class="urd sentence1">آیا دوش هنوز گرم است؟</div>
+<div class="ar sentence2">أَخَذَتْ دُشًّا.</div>
+<div class="per sentence2">او دوش گرفت.</div>
+<div class="en sentence2">She took a shower.</div>
+<div class="urd sentence2">اس نے شاور لیا۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🧼</div>
+<figcaption class="front">
+<div class="ar">صَابُون</div>
+<div class="per">صابون</div>
+<div class="en">Soap</div>
+<div class="urd">صابن</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">صَابُون</div>
+<div class="per">صابون</div>
+<div class="ar plural">صَابُونَات:Plural</div>
+<div class="per plural">صابون‌ها:Plural</div>
+<div class="ar sentence1">الصَّابُونُ وَرْدِيٌّ وَرَغَوِيٌّ.</div>
+<div class="per sentence1">صابون صورتی و کف‌آلود است.</div>
+<div class="en sentence1">The soap is pink and bubbly.</div>
+<div class="urd sentence1">صابون صورتی و کف‌آلود است.</div>
+<div class="ar sentence2">أَغْسِلُ يَدَيَّ بِالصَّابُونِ.</div>
+<div class="per sentence2">من دست‌هایم را با صابون می‌شویم.</div>
+<div class="en sentence2">I wash my hands with soap.</div>
+<div class="urd sentence2">میں صابن سے ہاتھ دھوتا ہوں۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🧴</div>
+<figcaption class="front">
+<div class="ar">شَامْبُو</div>
+<div class="per">شامپو</div>
+<div class="en">Shampoo</div>
+<div class="urd">شیمپو</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">شَامْبُو</div>
+<div class="per">شامپو</div>
+<div class="ar plural">شَامْبُوهَات:Plural</div>
+<div class="per plural">شامپوها:Plural</div>
+<div class="ar sentence1">لَا يُوجَدُ شَامْبُو فِي الزُّجَاجَةِ.</div>
+<div class="per sentence1">در بطری شامپو نیست.</div>
+<div class="en sentence1">There is no shampoo in the bottle.</div>
+<div class="urd sentence1">در بطری شامپو نیست.</div>
+<div class="ar sentence2">تَغْسِلُ شَعْرَهَا بِالشَّامْبُو.</div>
+<div class="per sentence2">او موهایش را با شامپو می‌شوید.</div>
+<div class="en sentence2">She washes her hair with shampoo.</div>
+<div class="urd sentence2">وہ شیمپو سے بال دھوتی ہے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🪥</div>
+<figcaption class="front">
+<div class="ar">مَعْجُون أَسْنَان</div>
+<div class="per">خمیردندان</div>
+<div class="en">Toothpaste</div>
+<div class="urd">ٹوتھ پیسٹ</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مَعْجُون أَسْنَان</div>
+<div class="per">خمیردندان</div>
+<div class="ar plural">مَعَاجِين أَسْنَان:Plural</div>
+<div class="per plural">خمیردندان‌ها:Plural</div>
+<div class="ar sentence1">مَعْجُونُ الْأَسْنَانِ مُنْعِشٌ بِالنَّعْنَاعِ.</div>
+<div class="per sentence1">خمیر دندان طعم نعنا دارد.</div>
+<div class="en sentence1">The toothpaste is minty.</div>
+<div class="urd sentence1">خمیر دندان طعم نعنا دارد.</div>
+<div class="ar sentence2">أُنَظِّفُ أَسْنَانِي بِمَعْجُونِ الأَسْنَانِ.</div>
+<div class="per sentence2">من دندان‌هایم را با خمیر دندان تمیز می‌کنم.</div>
+<div class="en sentence2">I brush my teeth with toothpaste.</div>
+<div class="urd sentence2">میں ٹوتھ پیسٹ سے دانت صاف کرتا ہوں۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🪥</div>
+<figcaption class="front">
+<div class="ar">فُرْشَاة أَسْنَان</div>
+<div class="per">مسواک</div>
+<div class="en">Toothbrush</div>
+<div class="urd">ٹوتھ برش</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">فُرْشَاة أَسْنَان</div>
+<div class="per">مسواک</div>
+<div class="ar plural">فُرَش أَسْنَان:Plural</div>
+<div class="per plural">مسواک‌ها:Plural</div>
+<div class="ar sentence1">فُرْشَاةُ أَسْنَانِي فِي الْكُوبِ.</div>
+<div class="per sentence1">مسواک من در فنجان است.</div>
+<div class="en sentence1">My toothbrush is in the cup.</div>
+<div class="urd sentence1">مسواک من در فنجان است.</div>
+<div class="ar sentence2">يُنَظِّفُ أَسْنَانَهُ بِفُرْشَاةِ الأَسْنَانِ.</div>
+<div class="per sentence2">او دندان‌هایش را با مسواک تمیز می‌کند.</div>
+<div class="en sentence2">He brushes his teeth with a toothbrush.</div>
+<div class="urd sentence2">وہ ٹوتھ برش سے دانت صاف کرتا ہے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/towel.png"/>
+<figcaption class="front">
+<div class="ar">مِنْشَفَة</div>
+<div class="per">حوله</div>
+<div class="en">Towel</div>
+<div class="urd">تولیہ</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مِنْشَفَة</div>
+<div class="per">حوله</div>
+<div class="ar plural">مَنَاشِف:Plural</div>
+<div class="per plural">حوله‌ها:Plural</div>
+<div class="ar sentence1">مِنْشَفَةٌ جَدِيدَةٌ عَلَى الْرَّفِّ.</div>
+<div class="per sentence1">حوله تازه روی قفسه است.</div>
+<div class="en sentence1">A fresh towel is on the rack.</div>
+<div class="urd sentence1">حوله تازه روی قفسه است.</div>
+<div class="ar sentence2">تُعَلِّقُ المِنْشَفَةَ.</div>
+<div class="per sentence2">او حوله را آویزان می‌کند.</div>
+<div class="en sentence2">She hangs the towel.</div>
+<div class="urd sentence2">وہ تولیہ لٹکاتی ہے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🪞</div>
+<figcaption class="front">
+<div class="ar">مِرْآة الحَمَّام</div>
+<div class="per">آینه حمام</div>
+<div class="en">Bathroom mirror</div>
+<div class="urd">غسل خانے کا آئینہ</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مِرْآة الحَمَّام</div>
+<div class="per">آینه حمام</div>
+<div class="ar plural">مَرَايَا الحَمَّام:Plural</div>
+<div class="per plural">آینه‌های حمام:Plural</div>
+<div class="ar sentence1">مِرْآةُ الْحَمَّامِ صَافِيَةٌ.</div>
+<div class="per sentence1">آینه حمام شفاف است.</div>
+<div class="en sentence1">The bathroom mirror is clear.</div>
+<div class="urd sentence1">آینه حمام شفاف است.</div>
+<div class="ar sentence2">أَنْظُرُ فِي مِرْآةِ الحَمَّامِ.</div>
+<div class="per sentence2">من در آینه حمام نگاه می‌کنم.</div>
+<div class="en sentence2">I look in the bathroom mirror.</div>
+<div class="urd sentence2">میں باتھ روم کے آئینے میں دیکھتا ہوں۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🗑️</div>
+<figcaption class="front">
+<div class="ar">سَلَّة قُمَامَة</div>
+<div class="per">سطل زباله</div>
+<div class="en">Trash can</div>
+<div class="urd">کوڑے دان</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">سَلَّة قُمَامَة</div>
+<div class="per">سطل زباله</div>
+<div class="ar plural">سِلَال قُمَامَة:Plural</div>
+<div class="per plural">سطل‌های زباله:Plural</div>
+<div class="ar sentence1">سَلَّةُ الْمُهْمَلَاتِ بِجَانِبِ الْمَكْتَبِ.</div>
+<div class="per sentence1">سطل زباله کنار میز است.</div>
+<div class="en sentence1">The trash can is by the desk.</div>
+<div class="urd sentence1">سطل زباله کنار میز است.</div>
+<div class="ar sentence2">يَرْمُونَ القُمَامَةَ فِي سَلَّةِ المُهْمَلَاتِ.</div>
+<div class="per sentence2">آن‌ها زباله را در سطل می‌اندازند.</div>
+<div class="en sentence2">They throw trash in the trash can.</div>
+<div class="urd sentence2">وہ کوڑا دان میں کچرا ڈالتے ہیں۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/detergent.png"/>
+<figcaption class="front">
+<div class="ar">مَسْحُوق غَسِيل</div>
+<div class="per">پودر لباسشویی</div>
+<div class="en">Detergent</div>
+<div class="urd">واشنگ پاؤڈر</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مَسْحُوق غَسِيل</div>
+<div class="per">پودر لباسشویی</div>
+<div class="ar plural">مَسَاحِيق غَسِيل:Plural</div>
+<div class="per plural">پودرهای شوینده:Plural</div>
+<div class="ar sentence1">الْمُنَظِّفُ لِلْغَسِيلِ.</div>
+<div class="per sentence1">ماده شوینده برای لباسشویی است.</div>
+<div class="en sentence1">The detergent is for the laundry.</div>
+<div class="urd sentence1">ماده شوینده برای لباسشویی است.</div>
+<div class="ar sentence2">الأُمُّ تَغْسِلُ المَلَابِسَ بِالمُنَظِّفِ.</div>
+<div class="per sentence2">مادر لباس‌ها را با شوینده می‌شوید.</div>
+<div class="en sentence2">Mom washes clothes with detergent.</div>
+<div class="urd sentence2">امی ڈیٹرجنٹ سے کپڑے دھوتی ہیں۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🧹</div>
+<figcaption class="front">
+<div class="ar">مَكْنَسَة</div>
+<div class="per">جاروبرقی</div>
+<div class="en">Vacuum cleaner</div>
+<div class="urd">ویکیوم</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مَكْنَسَة</div>
+<div class="per">جاروبرقی</div>
+<div class="ar plural">مَكَانِس:Plural</div>
+<div class="per plural">جاروبرقی‌ها:Plural</div>
+<div class="ar sentence1">الْمِكْنَسَةُ الْكَهْرَبَائِيَّةُ صَاخِبَةٌ جِدًّا.</div>
+<div class="per sentence1">جاروبرقی خیلی پرصدا است.</div>
+<div class="en sentence1">The vacuum cleaner is very loud.</div>
+<div class="urd sentence1">جاروبرقی خیلی پرصدا است.</div>
+<div class="ar sentence2">نَظَّفَ الأَرْضَ بِهِ.</div>
+<div class="per sentence2">او کف را با آن تمیز کرد.</div>
+<div class="en sentence2">He cleaned the floor with it.</div>
+<div class="urd sentence2">اس نے اس سے فرش صاف کیا۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/wiper.png"/>
+<figcaption class="front">
+<div class="ar">مِمْسَحَة</div>
+<div class="per">پوچا</div>
+<div class="en">Mop</div>
+<div class="urd">پوچا</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مِمْسَحَة</div>
+<div class="per">پوچا</div>
+<div class="ar plural">مَمَاسِح:Plural</div>
+<div class="per plural">تی‌ها:Plural</div>
+<div class="ar sentence1">الْمِمْسَحَةُ فِي الزَّاوِيَةِ.</div>
+<div class="per sentence1">تی در گوشه است.</div>
+<div class="en sentence1">The mop is in the corner.</div>
+<div class="urd sentence1">تی در گوشه است.</div>
+<div class="ar sentence2">نَمْسَحُ الأَرْضَ.</div>
+<div class="per sentence2">ما زمین را تی می‌کشیم.</div>
+<div class="en sentence2">We mop the floor.</div>
+<div class="urd sentence2">ہم فرش پونچھتے ہیں۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🪣</div>
+<figcaption class="front">
+<div class="ar">دَلْو</div>
+<div class="per">سطل</div>
+<div class="en">Bucket</div>
+<div class="urd">بالٹی</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">دَلْو</div>
+<div class="per">سطل</div>
+<div class="ar plural">دِلَاء:Plural</div>
+<div class="per plural">سطل‌ها:Plural</div>
+<div class="ar sentence1">الدَّلْوُ مُمتَلِئٌ بِالْمَاءِ وَالصَّابُونِ.</div>
+<div class="per sentence1">سطل پر از آب صابونی است.</div>
+<div class="en sentence1">The bucket is full of soapy water.</div>
+<div class="urd sentence1">سطل پر از آب صابونی است.</div>
+<div class="ar sentence2">مَلَأَتِ الدَّلْوَ بِالمَاءِ.</div>
+<div class="per sentence2">او سطل را از آب پر کرد.</div>
+<div class="en sentence2">She filled the bucket with water.</div>
+<div class="urd sentence2">اس نے بالٹی پانی سے بھری۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🧽</div>
+<figcaption class="front">
+<div class="ar">إِسْفَنْجَة</div>
+<div class="per">اسفنج</div>
+<div class="en">Sponge</div>
+<div class="urd">اسفنج</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">إِسْفَنْجَة</div>
+<div class="per">اسفنج</div>
+<div class="ar plural">إِسْفَنْجَات:Plural</div>
+<div class="per plural">اسفنج‌ها:Plural</div>
+<div class="ar sentence1">الإِسْفِنْجَةُ صَفْرَاءُ وَرَطْبَةٌ.</div>
+<div class="per sentence1">اسفنج زرد و مرطوب است.</div>
+<div class="en sentence1">The sponge is yellow and wet.</div>
+<div class="urd sentence1">اسفنج زرد و مرطوب است.</div>
+<div class="ar sentence2">أَفْرُكُ بِالإِسْفِنْجَةِ.</div>
+<div class="per sentence2">من با اسفنج می‌سابم.</div>
+<div class="en sentence2">I scrub with the sponge.</div>
+<div class="urd sentence2">میں سپنج سے رگڑتا ہوں۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<div class="emoji">🪮</div>
+<figcaption class="front">
+<div class="ar">فُرْشَاة</div>
+<div class="per">برس</div>
+<div class="en">Brush</div>
+<div class="urd">برش</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">فُرْشَاة</div>
+<div class="per">برس</div>
+<div class="ar plural">فُرَش:Plural</div>
+<div class="per plural">برس‌ها:Plural</div>
+<div class="ar sentence1">فُرْشَاتِي لِشَعْرِي.</div>
+<div class="per sentence1">برس من برای موهایم است.</div>
+<div class="en sentence1">My brush is for my hair.</div>
+<div class="urd sentence1">برس من برای موهایم است.</div>
+<div class="ar sentence2">يُنَظِّفُ السَّجَّادَ بِالفُرْشَاةِ.</div>
+<div class="per sentence2">او فرش را برس می‌کشد.</div>
+<div class="en sentence2">He brushes the carpet.</div>
+<div class="urd sentence2">وہ قالین برش کرتا ہے۔</div>
+</figcaption>
+</figure>
+<figure class="card">
+<img class="thumb" src="images/iron.png"/>
+<figcaption class="front">
+<div class="ar">مِكْوَاة</div>
+<div class="per">اتو</div>
+<div class="en">Iron</div>
+<div class="urd">استری</div>
+</figcaption>
+<figcaption class="back">
+<div class="ar">مِكْوَاة</div>
+<div class="per">اتو</div>
+<div class="ar plural">مَكَاوٍ:Plural</div>
+<div class="per plural">اتوها:Plural</div>
+<div class="ar sentence1">الْمِكْوَاةُ خَطِيرَةٌ وَسَاخِنَةٌ.</div>
+<div class="per sentence1">اتو خطرناک و داغ است.</div>
+<div class="en sentence1">The iron is dangerous and hot.</div>
+<div class="urd sentence1">اتو خطرناک و داغ است.</div>
+<div class="ar sentence2">كَوَتِ الأُمُّ المَلَابِسَ.</div>
+<div class="per sentence2">مادر لباس‌ها را اتو کرد.</div>
+<div class="en sentence2">Mom ironed the clothes.</div>
+<div class="urd sentence2">امی نے کپڑوں پر استری کی۔</div>
+</figcaption>
+</figure>
 </section>
 <script>
 
@@ -1291,9 +2347,13 @@ function computeDynamicPresets() {
 
   const deviceWidth = window.innerWidth;
 
-  // Autofill columns using preset 4
-  let baseCols = Math.floor((deviceWidth + base.gap) / (base.gridMin));
-  if (baseCols < 1) baseCols = 1;
+  const bodyStyle = window.getComputedStyle(document.body);
+const bodyPadding = parseFloat(bodyStyle.paddingLeft) + parseFloat(bodyStyle.paddingRight);
+
+// Autofill columns using preset 4
+let baseCols = Math.floor((deviceWidth - bodyPadding + base.gap) / (base.gridMin));
+if (baseCols < 1) baseCols = 1;
+
 
   function makePreset(extraCards) {
     const newCols = baseCols + extraCards;
@@ -1587,9 +2647,5 @@ document.getElementById('btn-per').addEventListener('click', () => {
   document.body.classList.toggle('show-per');
 });
 </script>
-
-
-
 </body>
-
 </html>
