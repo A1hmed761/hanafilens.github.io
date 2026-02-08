@@ -405,7 +405,7 @@ figcaption.back {
 <h1>General Home &amp; Rooms</h1>
 <section aria-label="General Home &amp; Rooms" class="grid">
 <figure class="card">
-<img class="thumb" src="images/bedroom.png"/>
+<div class="emoji">🚪</div>
 <figcaption class="front">
 <div class="ar">غُرْفَة</div>
 <div class="per">اتاق</div>
@@ -2351,7 +2351,7 @@ function computeDynamicPresets() {
 const bodyPadding = parseFloat(bodyStyle.paddingLeft) + parseFloat(bodyStyle.paddingRight);
 
 // Autofill columns using preset 4
-let baseCols = Math.floor((deviceWidth + bodyPadding + base.gap) / (base.gridMin));
+let baseCols = Math.floor((deviceWidth - bodyPadding + base.gap) / (base.gridMin));
 if (baseCols < 1) baseCols = 1;
 
 
@@ -2360,7 +2360,7 @@ if (baseCols < 1) baseCols = 1;
 
     // Subtract gaps from total width before dividing
     const totalGap = base.gap * (newCols - 1);
-    const newGridMin = (deviceWidth - totalGap) / newCols;
+    const newGridMin = (deviceWidth - bodyPadding - totalGap) / newCols;
 
     const factor = newGridMin / base.gridMin;
 
