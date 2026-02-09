@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+   <!DOCTYPE html>
 
 <html dir="rtl" lang="ar">
 <head>
@@ -38,7 +38,7 @@
   /* Text Sizes */
   --font-base: 1rem;
   --font-plural: 1.7rem;
-  --font-label: 1.7rem;
+  --font-label: 1.3rem;
   --font-small: 0.825rem;
 
   /* Spacing & Borders */
@@ -229,7 +229,7 @@ figcaption.back {
   font-size: var(--font-plural);
   font-weight: bold;
   border-bottom: var(--plural-border-width) solid #eee;
-  margin-bottom: var(--plural-padding-bottom);
+  margin-bottom: var(--plural-margin-bottom);
   padding-bottom: var(--plural-padding-bottom);
 }
 
@@ -2420,7 +2420,7 @@ function computeDynamicPresets() {
     // NEW FONT & SPACING VALUES
     fontBase: 1,               // rem
     fontPlural: 1.7,             // rem
-    fontLabel: 1.7,            // em
+    fontLabel: 1.3,            // em
     fontSmall: 0.825,          // rem
 
     pluralMarginBottom: 30,
@@ -2531,6 +2531,11 @@ const rowSelector = document.getElementById("rowSelector");
 rowSelector.addEventListener("change", () => {
   presets = computeDynamicPresets();
 
+  // Reset all flipped cards when row changes
+  document.querySelectorAll(".card").forEach(card => {
+    card.classList.remove("show-back", "flipping");
+  });
+
   const p = presets[rowSelector.value];
   const r = document.documentElement.style;
 
@@ -2545,17 +2550,16 @@ rowSelector.addEventListener("change", () => {
   r.setProperty("--caption-radius", p.capRadius);
 
   r.setProperty("--font-base", p.fontBase);
-r.setProperty("--font-plural", p.fontPlural);
-r.setProperty("--font-label", p.fontLabel);
-r.setProperty("--font-small", p.fontSmall);
+  r.setProperty("--font-plural", p.fontPlural);
+  r.setProperty("--font-label", p.fontLabel);
+  r.setProperty("--font-small", p.fontSmall);
 
-r.setProperty("--plural-margin-bottom", p.pluralMarginBottom);
-r.setProperty("--plural-padding-bottom", p.pluralPaddingBottom);
-r.setProperty("--plural-border-width", p.pluralBorderWidth);
-r.setProperty("--sentence-margin-top", p.sentenceMarginTop);
+  r.setProperty("--plural-margin-bottom", p.pluralMarginBottom);
+  r.setProperty("--plural-padding-bottom", p.pluralPaddingBottom);
+  r.setProperty("--plural-border-width", p.pluralBorderWidth);
+  r.setProperty("--sentence-margin-top", p.sentenceMarginTop);
 
-
-  updateBackHeight(); // Update back height after changing presets
+  updateBackHeight(); // Update back after rows change
 });
 
 
