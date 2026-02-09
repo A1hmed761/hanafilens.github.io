@@ -6,7 +6,12 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>مفردات الأثاث — Furniture Vocabulary</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+
 <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
 
 :root {
 
@@ -22,14 +27,25 @@
 
   --radius: 12px;
 
-  --caption-padding: 10px;
+  --caption-padding: 20px;
 
-  --caption-font: 1.3rem;
+  --caption-font: 2rem;
 
   --caption-radius: 12px;
 
   --back-height: 300px; /* default temporary value */
 
+  /* Text Sizes */
+  --font-base: 1rem;
+  --font-plural: 1.7rem;
+  --font-label: 1.3rem;
+  --font-small: 0.825rem;
+
+  /* Spacing & Borders */
+  --plural-margin-bottom: 30px;
+  --plural-padding-bottom: 15px;
+  --plural-border-width: 3px;
+  --sentence-margin-top: 4px;
 }
 
 
@@ -42,7 +58,7 @@ body {
 
   margin: 0;
 
-  font-family: 'Cairo', sans-serif;
+  font-family: 'Vazirmatn', sans-serif;
 
   background: #f6f7fb;
 
@@ -187,14 +203,79 @@ figcaption {
   display: block; /* Visible by default */
 }
 
+figcaption.back {
+  width: var(--card-width);
+  height: var(--back-height);
+  overflow-y: auto;
+
+  
+  font-size: var(--font-base);
+  display: flex;
+  flex-direction: column;
+  
+  /* 1. Start from the very top */
+  justify-content: center; 
+
+  /* 2. Stretch items to fill the width (better for text alignment) */
+  align-items: stretch; 
+  
+  gap: var(--back-gap);
+  padding: var(--back-padding);
+
+}
+
+.plural {
+  margin-top: var(--plural-padding-bottom);
+  font-size: var(--font-plural);
+  font-weight: bold;
+  border-bottom: var(--plural-border-width) solid #eee;
+  margin-bottom: var(--plural-margin-bottom);
+  padding-bottom: var(--plural-padding-bottom);
+}
+
+.plural .label {
+  font-size: var(--font-small); /* Makes it smaller than the main text */
+  color: #888;      /* Lightens the color so it's less distracting */
+  font-weight: normal;
+}
+
+
+/* Styling the text weight and size for all sentences */
+.sentence1, .sentence2 {
+  font-size: var(--font-label);
+  font-weight: normal;
+
+}
+
+/* Adding space specifically after the last line of the first example */
+/* and the last line of the second example */
+.urd.sentence1, .en.sentence1 {
+  margin-bottom: var(--plural-padding-bottom);
+}
+
 /* Hide Urdu and Persian by default */
 .urd, .per {
   display: none;
-  font-size: 1rem;
+  font-size: var(--font-base);
   font-weight: 400;
   color: #666;
-  margin-top: 4px;
+  margin-top: var(--sentence-margin-top);
 }
+
+.en {
+  font-size: var(--font-small);   /* Smaller font size */
+  font-weight: 400;   /* Thinner weight */
+  color: #666;        /* Optional: grey color to create hierarchy */
+  font-family: 'sans-serif'; /* Optional: different font if desired */
+}
+
+.urd {
+  font-size: var(--font-base);   /* Smaller font size */
+  font-weight: 400;   /* Thinner weight */
+  color: #666;        /* Optional: grey color to create hierarchy */
+  font-family: 'Vazirmatn', sans-serif; /* Optional: different font if desired */
+}
+
 
 /* --- Toggle Button 1: Urdu replaces English --- */
 .show-urd .urd { display: block; }
@@ -203,7 +284,7 @@ figcaption {
 /* --- Toggle Button 2: Persian replaces Arabic --- */
 .show-per .per { 
   display: block; 
-  font-size: 1.3rem; /* Matches original Arabic size */
+  font-size: var(--font-base) /* Matches original Arabic size */
   font-weight: 700;
   color: #000;      /* Matches original Arabic color */
 }
@@ -358,14 +439,9 @@ figcaption {
   transform: scaleX(0);
 }
 
-figcaption.back {
-  width: var(--card-width);
-  height: var(--back-height);
-  overflow-y: auto;
-}
 
 
-
+ 
 </style>
 </head>
 <body>
@@ -412,8 +488,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">غُرْفَة</div>
 <div class="per">اتاق</div>
-<div class="ar plural">غُرَف:Plural</div>
-<div class="per plural">اتاق‌ها:Plural</div>
+<div class="ar plural">غُرَف <span class="label">:Plural</span></div>
+<div class="per plural">اتاق‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">أَيُّ غُرْفَةٍ هِيَ غُرْفَتُكَ؟</div>
 <div class="per sentence1">کدام اتاق مال توست؟</div>
 <div class="en sentence1">Which room is yours?</div>
@@ -435,8 +511,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">غُرْفَة نَوْم</div>
 <div class="per">اتاق خواب</div>
-<div class="ar plural">غُرَف نَوْم:Plural</div>
-<div class="per plural">اتاق‌خواب‌ها:Plural</div>
+<div class="ar plural">غُرَف نَوْم <span class="label">:Plural</span></div>
+<div class="per plural">اتاق‌خواب‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">غُرْفَةُ نَوْمِي أَخِيرًا هَادِئَةٌ.</div>
 <div class="per sentence1">اتاق خواب من بالاخره آرام است.</div>
 <div class="en sentence1">My bedroom is finally quiet.</div>
@@ -458,8 +534,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">غُرْفَة جُلُوس</div>
 <div class="per">اتاق نشیمن</div>
-<div class="ar plural">غُرَف جُلُوس:Plural</div>
-<div class="per plural">اتاق نشیمن‌ها:Plural</div>
+<div class="ar plural">غُرَف جُلُوس <span class="label">:Plural</span></div>
+<div class="per plural">اتاق نشیمن‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">هُنَاكَ ثَلَاثُ وُسَائِدَ فِي غُرْفَةِ الْجُلُوسِ.</div>
 <div class="per sentence1">سه بالش در اتاق نشیمن است.</div>
 <div class="en sentence1">.There are three pillows in the living room</div>
@@ -481,8 +557,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مَطْبَخ</div>
 <div class="per">آشپزخانه</div>
-<div class="ar plural">مَطَابِخ:Plural</div>
-<div class="per plural">آشپزخانه‌ها:Plural</div>
+<div class="ar plural">مَطَابِخ <span class="label">:Plural</span></div>
+<div class="per plural">آشپزخانه‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الْمَطْبَخُ مَلِيءٌ بِرَوَائِحِ شَهِيَّةٍ.</div>
 <div class="per sentence1">آشپزخانه پر از بوی خوشمزه است.</div>
 <div class="en sentence1">The kitchen is full of yummy smells.</div>
@@ -504,8 +580,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">حَمَّام</div>
 <div class="per">حمام</div>
-<div class="ar plural">حَمَّامَات:Plural</div>
-<div class="per plural">حمام‌ها:Plural</div>
+<div class="ar plural">حَمَّامَات <span class="label">:Plural</span></div>
+<div class="per plural">حمام‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">هَلِ الْحَمَّامُ فِي الْأَعْلَى أَمِ الْأَسْفَلِ؟</div>
 <div class="per sentence1">حمام بالا است یا پایین؟</div>
 <div class="en sentence1">Is the bathroom upstairs or downstairs?</div>
@@ -527,8 +603,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مَمَرّ</div>
 <div class="per">راهرو</div>
-<div class="ar plural">مَمَرَّات:Plural</div>
-<div class="per plural">راهروها:Plural</div>
+<div class="ar plural">مَمَرَّات <span class="label">:Plural</span></div>
+<div class="per plural">راهروها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الْمَمَرُّ مُظْلِمٌ جِدًّا اللَّيْلَةَ.</div>
 <div class="per sentence1">راهرو امشب خیلی تاریک است.</div>
 <div class="en sentence1">The corridor is very dark tonight.</div>
@@ -550,8 +626,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">سَطْح</div>
 <div class="per">چھت</div>
-<div class="ar plural">سُطُوح:Plural</div>
-<div class="per plural">پشت‌بام‌ها:Plural</div>
+<div class="ar plural">سُطُوح <span class="label">:Plural</span></div>
+<div class="per plural">پشت‌بام‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">هُنَاكَ قِطَّةٌ عَلَى السَّطْحِ.</div>
 <div class="per sentence1">یک گربه روی پشت‌بام است.</div>
 <div class="en sentence1">There is a cat on the roof.</div>
@@ -573,8 +649,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">حَدِيقَة</div>
 <div class="per">باغچه</div>
-<div class="ar plural">حَدَائِق:Plural</div>
-<div class="per plural">باغچه‌ها:Plural</div>
+<div class="ar plural">حَدَائِق <span class="label">:Plural</span></div>
+<div class="per plural">باغچه‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الْحَدِيقَةُ جَمِيلَةٌ تَحْتَ الشَّمْسِ.</div>
 <div class="per sentence1">باغ در آفتاب زیباست.</div>
 <div class="en sentence1">The garden is beautiful in the sun.</div>
@@ -596,8 +672,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">بَاب</div>
 <div class="per">در</div>
-<div class="ar plural">أَبْوَاب:Plural</div>
-<div class="per plural">درها:Plural</div>
+<div class="ar plural">أَبْوَاب <span class="label">:Plural</span></div>
+<div class="per plural">درها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الْبَابُ مَفْتُوحٌ عَلَى مِصْرَاعَيْهِ.</div>
 <div class="per sentence1">در کاملاً باز است.</div>
 <div class="en sentence1">The door is wide open.</div>
@@ -619,8 +695,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">نَافِذَة</div>
 <div class="per">پنجره</div>
-<div class="ar plural">نَوَافِذ:Plural</div>
-<div class="per plural">پنجره‌ها:Plural</div>
+<div class="ar plural">نَوَافِذ <span class="label">:Plural</span></div>
+<div class="per plural">پنجره‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">لِمَاذَا النَّافِذَةُ مُتَّسِخَةٌ هَكَذَا؟</div>
 <div class="per sentence1">چرا پنجره این‌قدر کثیف است؟</div>
 <div class="en sentence1">Why is the window so dirty?</div>
@@ -642,8 +718,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">جِدَار</div>
 <div class="per">دیوار</div>
-<div class="ar plural">جُدْرَان:Plural</div>
-<div class="per plural">دیوارها:Plural</div>
+<div class="ar plural">جُدْرَان <span class="label">:Plural</span></div>
+<div class="per plural">دیوارها <span class="label">:Plural</span></div>
 <div class="ar sentence1">هُنَاكَ صُوَرٌ كَثِيرَةٌ عَلَى الْجِدَارِ.</div>
 <div class="per sentence1">عکس‌های زیادی روی دیوار است.</div>
 <div class="en sentence1">There are many pictures on the wall.</div>
@@ -665,8 +741,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">سَقْف</div>
 <div class="per">سقف</div>
-<div class="ar plural">سُقُوف:Plural</div>
-<div class="per plural">سقف‌ها:Plural</div>
+<div class="ar plural">سُقُوف <span class="label">:Plural</span></div>
+<div class="per plural">سقف‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">السَّقْفُ مُرْتَفِعٌ جِدًّا هُنَا.</div>
 <div class="per sentence1">سقف اینجا خیلی بلند است.</div>
 <div class="en sentence1">The ceiling is very high in here.</div>
@@ -688,8 +764,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">أَرْض</div>
 <div class="per">زمین</div>
-<div class="ar plural">أَرَاضٍ:Plural</div>
-<div class="per plural">زمین‌ها:Plural</div>
+<div class="ar plural">أَرَاضٍ <span class="label">:Plural</span></div>
+<div class="per plural">زمین‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الْأَرْضُ بَارِدَةٌ عَلَى قَدَمَيَّ.</div>
 <div class="per sentence1">زمین زیر پایم سرد است.</div>
 <div class="en sentence1">The floor is quite cold on my feet.</div>
@@ -711,8 +787,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">دَرَج</div>
 <div class="per">پله</div>
-<div class="ar plural">دَرَجَات:Plural</div>
-<div class="per plural">پله‌ها:Plural</div>
+<div class="ar plural">دَرَجَات <span class="label">:Plural</span></div>
+<div class="per plural">پله‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">هَلِ الدَّرَجُ آمِنٌ؟</div>
 <div class="per sentence1">پله‌ها امن هستند؟</div>
 <div class="en sentence1">Are the stairs safe?</div>
@@ -734,8 +810,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مِصْعَد</div>
 <div class="per">آسانسور</div>
-<div class="ar plural">مَصَاعِد:Plural</div>
-<div class="per plural">آسانسورها:Plural</div>
+<div class="ar plural">مَصَاعِد <span class="label">:Plural</span></div>
+<div class="per plural">آسانسورها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الْمِصْعَدُ مُعَطَّلٌ.</div>
 <div class="per sentence1">آسانسور خراب است.</div>
 <div class="en sentence1">The elevator is out of order.</div>
@@ -757,8 +833,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">شُرْفَة</div>
 <div class="per">بالکن</div>
-<div class="ar plural">شُرَف:Plural</div>
-<div class="per plural">بالکن‌ها:Plural</div>
+<div class="ar plural">شُرَف <span class="label">:Plural</span></div>
+<div class="per plural">بالکن‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">هُنَاكَ مَنْظَرٌ رَائِعٌ مِنَ الشُّرْفَةِ.</div>
 <div class="per sentence1">از بالکن منظرهٔ عالی هست.</div>
 <div class="en sentence1">There is a great view from the balcony.</div>
@@ -780,8 +856,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">فِنَاء</div>
 <div class="per">حیاط</div>
-<div class="ar plural">أَفْنِيَة:Plural</div>
-<div class="per plural">حیاط‌ها:Plural</div>
+<div class="ar plural">أَفْنِيَة <span class="label">:Plural</span></div>
+<div class="per plural">حیاط‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الْفَنَاءُ وَاسِعٌ جِدًّا.</div>
 <div class="per sentence1">حیاط خیلی بزرگ است.</div>
 <div class="en sentence1">The courtyard is very large.</div>
@@ -806,8 +882,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">كُرْسِيّ</div>
 <div class="per">صندلی</div>
-<div class="ar plural">كَرَاسِيّ:Plural</div>
-<div class="per plural">صندلی‌ها:Plural</div>
+<div class="ar plural">كَرَاسِيّ <span class="label">:Plural</span></div>
+<div class="per plural">صندلی‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">هَذَا الْكُرْسِيُّ قَاسٍ جِدًّا.</div>
 <div class="per sentence1">این صندلی خیلی سفت است.</div>
 <div class="en sentence1">This chair is too hard.</div>
@@ -829,8 +905,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">طَاوِلَة</div>
 <div class="per">میز</div>
-<div class="ar plural">طَاوِلَات:Plural</div>
-<div class="per plural">میزها:Plural</div>
+<div class="ar plural">طَاوِلَات <span class="label">:Plural</span></div>
+<div class="per plural">میزها <span class="label">:Plural</span></div>
 <div class="ar sentence1">هَلِ الطَّاوِلَةُ جَاهِزَةٌ لِلْعَشَاءِ؟</div>
 <div class="per sentence1">میز برای شام آماده است؟</div>
 <div class="en sentence1">Is the table ready for dinner?</div>
@@ -852,8 +928,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">سَرِير</div>
 <div class="per">تخت</div>
-<div class="ar plural">أَسِرَّة:Plural</div>
-<div class="per plural">تخت‌ها:Plural</div>
+<div class="ar plural">أَسِرَّة <span class="label">:Plural</span></div>
+<div class="per plural">تخت‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">سَرِيرِي دَافِئٌ جِدًّا.</div>
 <div class="per sentence1">تخت من خیلی گرم است.</div>
 <div class="en sentence1">My bed is so warm.</div>
@@ -875,8 +951,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">أَرِيكَة</div>
 <div class="per">کاناپه</div>
-<div class="ar plural">أَرَائِك:Plural</div>
-<div class="per plural">کاناپه‌ها:Plural</div>
+<div class="ar plural">أَرَائِك <span class="label">:Plural</span></div>
+<div class="per plural">کاناپه‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">هُنَاكَ جِهَازُ تَحَكُّمٍ تَحْتَ الْأَرِيكَةِ.</div>
 <div class="per sentence1">یک ریموت زیر مبل است.</div>
 <div class="en sentence1">There is a remote under the sofa.</div>
@@ -898,8 +974,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">خِزَانَة</div>
 <div class="per">کمد</div>
-<div class="ar plural">خَزَائِن:Plural</div>
-<div class="per plural">کمدها:Plural</div>
+<div class="ar plural">خَزَائِن <span class="label">:Plural</span></div>
+<div class="per plural">کمدها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الْخِزَانَةُ فَارِغَةٌ.</div>
 <div class="per sentence1">کمد خالی است.</div>
 <div class="en sentence1">The cupboard is empty.</div>
@@ -921,8 +997,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">رَفّ</div>
 <div class="per">قفسه</div>
-<div class="ar plural">رُفُوف:Plural</div>
-<div class="per plural">قفسه‌ها:Plural</div>
+<div class="ar plural">رُفُوف <span class="label">:Plural</span></div>
+<div class="per plural">قفسه‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الْرَّفُّ الْعُلْوِيُّ عَالٍ جِدًّا عَلَيَّ.</div>
 <div class="per sentence1">قفسهٔ بالایی برای من خیلی بلند است.</div>
 <div class="en sentence1">The top shelf is too high for me.</div>
@@ -944,8 +1020,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مِرْآة</div>
 <div class="per">آینه</div>
-<div class="ar plural">مَرَايَا:Plural</div>
-<div class="per plural">آینه‌ها:Plural</div>
+<div class="ar plural">مَرَايَا <span class="label">:Plural</span></div>
+<div class="per plural">آینه‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">هَلْ هَذَا أَنَا فِي الْمِرْآةِ؟</div>
 <div class="per sentence1">آن خودم در آینه هستم؟</div>
 <div class="en sentence1">Is that me in the mirror?</div>
@@ -967,8 +1043,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">سَجَّادَة</div>
 <div class="per"></div>
-<div class="ar plural"> :Plural</div>
-<div class="per plural"> :Plural</div>
+<div class="ar plural">  <span class="label">:Plural</span></div>
+<div class="per plural">  <span class="label">:Plural</span></div>
 <div class="ar sentence1"></div>
 <div class="per sentence1"></div>
 <div class="en sentence1"></div>
@@ -990,8 +1066,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">وِسَادَة</div>
 <div class="per">بالش</div>
-<div class="ar plural">وِسَادَات:Plural</div>
-<div class="per plural">بالش‌ها:Plural</div>
+<div class="ar plural">وِسَادَات <span class="label">:Plural</span></div>
+<div class="per plural">بالش‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">وِسَادَتِي تَحْتَ اللِّحَافِ.</div>
 <div class="per sentence1">بالشم زیر پتو است.</div>
 <div class="en sentence1">My pillow is under the blanket.</div>
@@ -1013,8 +1089,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">لِحَاف</div>
 <div class="per">لحاف</div>
-<div class="ar plural">لُحُف:Plural</div>
-<div class="per plural">لحاف‌ها:Plural</div>
+<div class="ar plural">لُحُف <span class="label">:Plural</span></div>
+<div class="per plural">لحاف‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">اللِّحَافُ أَزْرَقُ وَنَاعِمٌ.</div>
 <div class="per sentence1">پتو آبی و کرکی است.</div>
 <div class="en sentence1">The blanket is blue and fuzzy.</div>
@@ -1036,8 +1112,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مَرْتَبَة</div>
 <div class="per">تشک</div>
-<div class="ar plural">مَرَاتِب:Plural</div>
-<div class="per plural">تشک‌ها:Plural</div>
+<div class="ar plural">مَرَاتِب <span class="label">:Plural</span></div>
+<div class="per plural">تشک‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">هَذِهِ الْمَرْتَبَةُ مُرِنَةٌ جِدًّا.</div>
 <div class="per sentence1">این تشک خیلی فنری است.</div>
 <div class="en sentence1">This mattress is very bouncy.</div>
@@ -1059,8 +1135,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مَفْرَش</div>
 <div class="per">بستر</div>
-<div class="ar plural">مَفَارِش:Plural</div>
-<div class="per plural">رختخواب‌ها:Plural</div>
+<div class="ar plural">مَفَارِش <span class="label">:Plural</span></div>
+<div class="per plural">رختخواب‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1"></div>
 <div class="per sentence1"></div>
 <div class="en sentence1">Bedding</div>
@@ -1082,8 +1158,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">سِتَارَة</div>
 <div class="per">پرده</div>
-<div class="ar plural">سِتَائِر:Plural</div>
-<div class="per plural">پرده‌ها:Plural</div>
+<div class="ar plural">سِتَائِر <span class="label">:Plural</span></div>
+<div class="per plural">پرده‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">السِّتَارَةُ ثَقِيلَةٌ وَدَاكِنَةٌ.</div>
 <div class="per sentence1">پرده سنگین و تیره است.</div>
 <div class="en sentence1">The curtain is heavy and dark.</div>
@@ -1105,8 +1181,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مِصْبَاح</div>
 <div class="per">چراغ</div>
-<div class="ar plural">مَصَابِيح:Plural</div>
-<div class="per plural">چراغ‌ها:Plural</div>
+<div class="ar plural">مَصَابِيح <span class="label">:Plural</span></div>
+<div class="per plural">چراغ‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الْمِصْبَاحُ عَلَى الْمَكْتَبِ.</div>
 <div class="per sentence1">چراغ روی میز است.</div>
 <div class="en sentence1">The lamp is on the desk.</div>
@@ -1128,8 +1204,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">ثُرَيَّا</div>
 <div class="per">لوستر</div>
-<div class="ar plural">ثُرَيَّات:Plural</div>
-<div class="per plural">لوسترها:Plural</div>
+<div class="ar plural">ثُرَيَّات <span class="label">:Plural</span></div>
+<div class="per plural">لوسترها <span class="label">:Plural</span></div>
 <div class="ar sentence1">تِلْكَ الثُّرَيَا فَاخِرَةٌ جِدًّا.</div>
 <div class="per sentence1">آن لوستر خیلی شیک است.</div>
 <div class="en sentence1">That chandelier is very fancy.</div>
@@ -1151,8 +1227,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مَكْتَب</div>
 <div class="per">میزتحریر</div>
-<div class="ar plural">مَكَاتِب:Plural</div>
-<div class="per plural">میزتحریرها:Plural</div>
+<div class="ar plural">مَكَاتِب <span class="label">:Plural</span></div>
+<div class="per plural">میزتحریرها <span class="label">:Plural</span></div>
 <div class="ar sentence1">هُنَاكَ قَلَمُ رَصَاصٍ عَلَى الْمَكْتَبِ.</div>
 <div class="per sentence1">یک مداد روی میز است.</div>
 <div class="en sentence1">There is a pencil on the desk.</div>
@@ -1177,8 +1253,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">سَاعَة</div>
 <div class="per">ساعت</div>
-<div class="ar plural">سَاعَات:Plural</div>
-<div class="per plural">ساعت‌ها:Plural</div>
+<div class="ar plural">سَاعَات <span class="label">:Plural</span></div>
+<div class="per plural">ساعت‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">هَلِ السَّاعَةُ صَحِيحَةٌ؟</div>
 <div class="per sentence1">ساعت درست است؟</div>
 <div class="en sentence1">Is the clock correct?</div>
@@ -1200,8 +1276,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">تَقْوِيم</div>
 <div class="per">تقویم</div>
-<div class="ar plural">تَقَاوِيم:Plural</div>
-<div class="per plural">تقویم‌ها:Plural</div>
+<div class="ar plural">تَقَاوِيم <span class="label">:Plural</span></div>
+<div class="per plural">تقویم‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">التَّقْوِيمُ عَلَى الثَّلَّاجَةِ.</div>
 <div class="per sentence1">تقویم روی یخچال است.</div>
 <div class="en sentence1">The calendar is on the fridge.</div>
@@ -1223,8 +1299,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مِفْتَاح</div>
 <div class="per">کلید</div>
-<div class="ar plural">مَفَاتِيح:Plural</div>
-<div class="per plural">کلیدها:Plural</div>
+<div class="ar plural">مَفَاتِيح <span class="label">:Plural</span></div>
+<div class="per plural">کلیدها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الْمِفْتَاحُ فِي الْقِلْقِلَةِ.</div>
 <div class="per sentence1">کلید در قفل است.</div>
 <div class="en sentence1">The key is in the lock.</div>
@@ -1246,8 +1322,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">هَاتِف</div>
 <div class="per">تلفن</div>
-<div class="ar plural">هَوَاتِف:Plural</div>
-<div class="per plural">تلفن‌ها:Plural</div>
+<div class="ar plural">هَوَاتِف <span class="label">:Plural</span></div>
+<div class="per plural">تلفن‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">أَيْنَ هَاتِفِي؟</div>
 <div class="per sentence1">گوشی من کجاست؟</div>
 <div class="en sentence1">Where is my phone?</div>
@@ -1269,8 +1345,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مِرْوَحَة</div>
 <div class="per">پنکه</div>
-<div class="ar plural">مَرَاوِح:Plural</div>
-<div class="per plural">پنکه‌ها:Plural</div>
+<div class="ar plural">مَرَاوِح <span class="label">:Plural</span></div>
+<div class="per plural">پنکه‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">المِرْوَحَةُ صَاخِبَةٌ جِدًّا اللَّيْلَةَ.</div>
 <div class="per sentence1">پنکه امشب خیلی پرصدا است.</div>
 <div class="en sentence1">The fan is very loud tonight.</div>
@@ -1292,8 +1368,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مِدْفَأَة</div>
 <div class="per">بخاری</div>
-<div class="ar plural">مِدْفَآت:Plural</div>
-<div class="per plural">بخاری‌ها:Plural</div>
+<div class="ar plural">مِدْفَآت <span class="label">:Plural</span></div>
+<div class="per plural">بخاری‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">السَّخَّانُ سَاخِنٌ عِنْدَ اللَّمْسِ.</div>
 <div class="per sentence1">بخاری به لمس داغ است.</div>
 <div class="en sentence1">The heater is hot to the touch.</div>
@@ -1315,8 +1391,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مُكَيِّف</div>
 <div class="per">کولر</div>
-<div class="ar plural">مُكَيِّفَات:Plural</div>
-<div class="per plural">کولرها:Plural</div>
+<div class="ar plural">مُكَيِّفَات <span class="label">:Plural</span></div>
+<div class="per plural">کولرها <span class="label">:Plural</span></div>
 <div class="ar sentence1">مُكَيِّفُ الْهَوَاءِ بَارِدٌ جِدًّا.</div>
 <div class="per sentence1">کولر خیلی سرد است.</div>
 <div class="en sentence1">The air conditioner is very cold.</div>
@@ -1338,8 +1414,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مِصْبَاح كَهْرَبَائِي</div>
 <div class="per">چراغ برقی</div>
-<div class="ar plural">مَصَابِيح كَهْرَبَائِيَّة:Plural</div>
-<div class="per plural">لامپ‌های برقی:Plural</div>
+<div class="ar plural">مَصَابِيح كَهْرَبَائِيَّة <span class="label">:Plural</span></div>
+<div class="per plural">لامپ‌های برقی <span class="label">:Plural</span></div>
 <div class="ar sentence1">الْمِصْبَاحُ الْكَهْرَبَائِيُّ سَاطِعٌ جِدًّا.</div>
 <div class="per sentence1">لامپ برق خیلی روشن است.</div>
 <div class="en sentence1">The electric bulb is very bright.</div>
@@ -1361,8 +1437,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">سَلَّة</div>
 <div class="per">سبد</div>
-<div class="ar plural">سِلَال:Plural</div>
-<div class="per plural">سبدها:Plural</div>
+<div class="ar plural">سِلَال <span class="label">:Plural</span></div>
+<div class="per plural">سبدها <span class="label">:Plural</span></div>
 <div class="ar sentence1">هُنَاكَ تُفَّاحٌ فِي السَّلَّةِ.</div>
 <div class="per sentence1">در سبد سیب هست.</div>
 <div class="en sentence1">There are apples in the basket.</div>
@@ -1384,8 +1460,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">صُنْدُوق</div>
 <div class="per">صندوق</div>
-<div class="ar plural">صَنَادِيق:Plural</div>
-<div class="per plural">صندوق‌ها:Plural</div>
+<div class="ar plural">صَنَادِيق <span class="label">:Plural</span></div>
+<div class="per plural">صندوق‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">هَذَا الصُّنْدُوقُ ثَقِيلٌ جِدًّا بِالنِّسْبَةِ لِي.</div>
 <div class="per sentence1">این جعبه برای من خیلی سنگین است.</div>
 <div class="en sentence1">This box is too heavy for me.</div>
@@ -1407,8 +1483,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مِزْهَرِيَّة</div>
 <div class="per">گلدان</div>
-<div class="ar plural">مِزْهَرِيَّات:Plural</div>
-<div class="per plural">گلدان‌ها:Plural</div>
+<div class="ar plural">مِزْهَرِيَّات <span class="label">:Plural</span></div>
+<div class="per plural">گلدان‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الْمُزَهَرِيَّةُ لِلزُّهُورِ.</div>
 <div class="per sentence1">گلدان برای گل‌ها است.</div>
 <div class="en sentence1">The vase is for the flowers.</div>
@@ -1430,8 +1506,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">صُورَة</div>
 <div class="per">تصویر</div>
-<div class="ar plural">صُوَر:Plural</div>
-<div class="per plural">تصویرها:Plural</div>
+<div class="ar plural">صُوَر <span class="label">:Plural</span></div>
+<div class="per plural">تصویرها <span class="label">:Plural</span></div>
 <div class="ar sentence1">تِلْكَ الصُّورَةُ لِعَائِلَتِي.</div>
 <div class="per sentence1">آن تصویر متعلق به خانواده من است.</div>
 <div class="en sentence1">That picture is of my family.</div>
@@ -1453,8 +1529,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">لَوْحَة</div>
 <div class="per">تابلو</div>
-<div class="ar plural">لَوْحَات:Plural</div>
-<div class="per plural">تابلوها:Plural</div>
+<div class="ar plural">لَوْحَات <span class="label">:Plural</span></div>
+<div class="per plural">تابلوها <span class="label">:Plural</span></div>
 <div class="ar sentence1">اللَّوْحَةُ مُلَوَّنَةٌ.</div>
 <div class="per sentence1">نقاشی رنگارنگ است.</div>
 <div class="en sentence1">The painting is colorful.</div>
@@ -1476,8 +1552,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مِقْبَض</div>
 <div class="per">دستگیره</div>
-<div class="ar plural">مَقَابِض:Plural</div>
-<div class="per plural">دستگیره‌ها:Plural</div>
+<div class="ar plural">مَقَابِض <span class="label">:Plural</span></div>
+<div class="per plural">دستگیره‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الْمِقْبَضُ بَارِدٌ وَفِضِّيٌّ.</div>
 <div class="per sentence1">دسته سرد و نقره‌ای است.</div>
 <div class="en sentence1">The handle is cold and silver.</div>
@@ -1499,8 +1575,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">زِرّ</div>
 <div class="per">بٹن</div>
-<div class="ar plural">أَزْرَار:Plural</div>
-<div class="per plural">دکمه‌ها:Plural</div>
+<div class="ar plural">أَزْرَار <span class="label">:Plural</span></div>
+<div class="per plural">دکمه‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">هُنَاكَ زِرٌّ أَحْمَرُ عَلَى الْحَائِطِ.</div>
 <div class="per sentence1">روی دیوار دکمه قرمز است.</div>
 <div class="en sentence1">There is a red button on the wall.</div>
@@ -1522,8 +1598,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">قُفْل</div>
 <div class="per">قفل</div>
-<div class="ar plural">أَقْفَال:Plural</div>
-<div class="per plural">قفل‌ها:Plural</div>
+<div class="ar plural">أَقْفَال <span class="label">:Plural</span></div>
+<div class="per plural">قفل‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الْقِلْقِلَةُ قَوِيَّةٌ جِدًّا.</div>
 <div class="per sentence1">قفل خیلی محکم است.</div>
 <div class="en sentence1">The lock is very strong.</div>
@@ -1548,8 +1624,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">ثَلَّاجَة</div>
 <div class="per">یخچال</div>
-<div class="ar plural">ثَلَّاجَات:Plural</div>
-<div class="per plural">یخچال‌ها:Plural</div>
+<div class="ar plural">ثَلَّاجَات <span class="label">:Plural</span></div>
+<div class="per plural">یخچال‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الثَّلَّاجَةُ مُمتَلِئَةٌ بِالْحَلِيبِ.</div>
 <div class="per sentence1">یخچال پر از شیر است.</div>
 <div class="en sentence1">The refrigerator is full of milk.</div>
@@ -1571,8 +1647,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">فُرْن</div>
 <div class="per">فر</div>
-<div class="ar plural">أَفْرَان:Plural</div>
-<div class="per plural">فرها:Plural</div>
+<div class="ar plural">أَفْرَان <span class="label">:Plural</span></div>
+<div class="per plural">فرها <span class="label">:Plural</span></div>
 <div class="ar sentence1">هَلِ الْفُرْنُ لَا يَزَالُ سَاخِنًا؟</div>
 <div class="per sentence1">آیا فر در حال حاضر هنوز داغ است؟</div>
 <div class="en sentence1">Is the oven still hot?</div>
@@ -1594,8 +1670,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مَوْقِد</div>
 <div class="per">چولہا</div>
-<div class="ar plural">مَوَاقِد:Plural</div>
-<div class="per plural">اجاق‌ها:Plural</div>
+<div class="ar plural">مَوَاقِد <span class="label">:Plural</span></div>
+<div class="per plural">اجاق‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الْمَوْقِدُ مُتَّسِخٌ.</div>
 <div class="per sentence1">اجاق کثیف است.</div>
 <div class="en sentence1">The stove is dirty.</div>
@@ -1617,8 +1693,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">قِدْر</div>
 <div class="per">دیگ</div>
-<div class="ar plural">قُدُور:Plural</div>
-<div class="per plural">قابلمه‌ها:Plural</div>
+<div class="ar plural">قُدُور <span class="label">:Plural</span></div>
+<div class="per plural">قابلمه‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">هُنَاكَ حِسَاءٌ فِي الْقِدْرِ.</div>
 <div class="per sentence1">در قابلمه سوپ هست.</div>
 <div class="en sentence1">There is soup in the pot.</div>
@@ -1640,8 +1716,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مِقْلَاة</div>
 <div class="per">ماهیتابه</div>
-<div class="ar plural">مَقَالِي:Plural</div>
-<div class="per plural">ماهیتابه‌ها:Plural</div>
+<div class="ar plural">مَقَالِي <span class="label">:Plural</span></div>
+<div class="per plural">ماهیتابه‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الْمِقْلَاةُ عَلَى الطَّاوِلَةِ.</div>
 <div class="per sentence1">ماهیتابه روی کانتر است.</div>
 <div class="en sentence1">The frying pan is on the counter.</div>
@@ -1663,8 +1739,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">صَحْن</div>
 <div class="per">بشقاب</div>
-<div class="ar plural">صُحُون:Plural</div>
-<div class="per plural">بشقاب‌ها:Plural</div>
+<div class="ar plural">صُحُون <span class="label">:Plural</span></div>
+<div class="per plural">بشقاب‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">هَلْ طَبَقُكَ نَظِيفٌ؟</div>
 <div class="per sentence1">آیا بشقابت تمیز است؟</div>
 <div class="en sentence1">Is your plate clean?</div>
@@ -1686,8 +1762,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">كُوب</div>
 <div class="per">لیوان</div>
-<div class="ar plural">أَكْوَاب:Plural</div>
-<div class="per plural">لیوان‌ها:Plural</div>
+<div class="ar plural">أَكْوَاب <span class="label">:Plural</span></div>
+<div class="per plural">لیوان‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">هُنَاكَ عَصِيرٌ فِي كُوبِي.</div>
 <div class="per sentence1">در فنجان من آبمیوه هست.</div>
 <div class="en sentence1">There is juice in my cup.</div>
@@ -1709,8 +1785,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">فِنْجَان</div>
 <div class="per">پیاله</div>
-<div class="ar plural">فَنَاجِين:Plural</div>
-<div class="per plural">فنجان‌ها:Plural</div>
+<div class="ar plural">فَنَاجِين <span class="label">:Plural</span></div>
+<div class="per plural">فنجان‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">كُوبِي مُمتَلِئٌ بِالْكُوكُو.</div>
 <div class="per sentence1">ماگ من پر از کاکائو است.</div>
 <div class="en sentence1">My mug is full of cocoa.</div>
@@ -1732,8 +1808,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مِلْعَقَة</div>
 <div class="per">قاشق</div>
-<div class="ar plural">مَلَاعِق:Plural</div>
-<div class="per plural">قاشق‌ها:Plural</div>
+<div class="ar plural">مَلَاعِق <span class="label">:Plural</span></div>
+<div class="per plural">قاشق‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الْمِلْعَقَةُ فِي الْوِعَاءِ.</div>
 <div class="per sentence1">قاشق در کاسه است.</div>
 <div class="en sentence1">The spoon is in the bowl.</div>
@@ -1755,8 +1831,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">شَوْكَة</div>
 <div class="per">چنگال</div>
-<div class="ar plural">شَوَاك:Plural</div>
-<div class="per plural">چنگال‌ها:Plural</div>
+<div class="ar plural">شَوَاك <span class="label">:Plural</span></div>
+<div class="per plural">چنگال‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">لَا يُوجَدُ شَوْكَةٌ عَلَى الطَّاوِلَةِ.</div>
 <div class="per sentence1">هیچ چنگالی روی میز نیست.</div>
 <div class="en sentence1">There is no fork on the table.</div>
@@ -1778,8 +1854,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">سِكِّين</div>
 <div class="per">چاقو</div>
-<div class="ar plural">سَكَاكِين:Plural</div>
-<div class="per plural">چاقوها:Plural</div>
+<div class="ar plural">سَكَاكِين <span class="label">:Plural</span></div>
+<div class="per plural">چاقوها <span class="label">:Plural</span></div>
 <div class="ar sentence1">السِّكِّينُ حَادٌّ جِدًّا.</div>
 <div class="per sentence1">چاقو خیلی تیز است.</div>
 <div class="en sentence1">The knife is very sharp.</div>
@@ -1801,8 +1877,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">إِبْرِيق</div>
 <div class="per">ابریق</div>
-<div class="ar plural">أَبَارِيق:Plural</div>
-<div class="per plural">قوری‌ها:Plural</div>
+<div class="ar plural">أَبَارِيق <span class="label">:Plural</span></div>
+<div class="per plural">قوری‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الْغِلَايَةُ عَلَى الصَّنْصِيَّةِ.</div>
 <div class="per sentence1">کتری روی سینی است.</div>
 <div class="en sentence1">The kettle is on the tray.</div>
@@ -1824,8 +1900,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">غَلَّاية</div>
 <div class="per">کیتلی</div>
-<div class="ar plural">غَلَّايَات:Plural</div>
-<div class="per plural">کتری‌ها:Plural</div>
+<div class="ar plural">غَلَّايَات <span class="label">:Plural</span></div>
+<div class="per plural">کتری‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الْغِلَايَةُ فِي الْقَبْوِ.</div>
 <div class="per sentence1">دیگ در زیرزمین است.</div>
 <div class="en sentence1">The boiler is in the basement.</div>
@@ -1847,8 +1923,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">زُجَاجَة</div>
 <div class="per">بطری</div>
-<div class="ar plural">زُجَاجَات:Plural</div>
-<div class="per plural">بطری‌ها:Plural</div>
+<div class="ar plural">زُجَاجَات <span class="label">:Plural</span></div>
+<div class="per plural">بطری‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">هَذِهِ الزُّجَاجَةُ لِلْمَاءِ.</div>
 <div class="per sentence1">این بطری برای آب است.</div>
 <div class="en sentence1">This bottle is for water.</div>
@@ -1870,8 +1946,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مَغْسَلَة</div>
 <div class="per">سنک</div>
-<div class="ar plural">مَغَاسِل:Plural</div>
-<div class="per plural">سینک‌ها:Plural</div>
+<div class="ar plural">مَغَاسِل <span class="label">:Plural</span></div>
+<div class="per plural">سینک‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">هَلْ هُنَاكَ صَابُونٌ بِجَانِبِ الْحَوْضِ؟</div>
 <div class="per sentence1">آیا صابون کنار سینک هست؟</div>
 <div class="en sentence1">Is there soap near the sink?</div>
@@ -1893,8 +1969,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مَنَادِيل</div>
 <div class="per">دستمال</div>
-<div class="ar plural">مَنَادِيل:Plural</div>
-<div class="per plural">دستمال‌ها:Plural</div>
+<div class="ar plural">مَنَادِيل <span class="label">:Plural</span></div>
+<div class="per plural">دستمال‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الْمَنَادِيلُ نَاعِمَةٌ.</div>
 <div class="per sentence1">دستمال‌ها نرم هستند.</div>
 <div class="en sentence1">The tissues are soft.</div>
@@ -1916,8 +1992,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مِنْشَفَة</div>
 <div class="per">حوله</div>
-<div class="ar plural">مَنَاشِف:Plural</div>
-<div class="per plural">حوله‌ها:Plural</div>
+<div class="ar plural">مَنَاشِف <span class="label">:Plural</span></div>
+<div class="per plural">حوله‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">مِنْشَفَةٌ جَدِيدَةٌ عَلَى الْرَّفِّ.</div>
 <div class="per sentence1">حوله تازه روی قفسه است.</div>
 <div class="en sentence1">A fresh towel is on the rack.</div>
@@ -1942,8 +2018,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مَغْسَلَة</div>
 <div class="per">سنک</div>
-<div class="ar plural">مَغَاسِل:Plural</div>
-<div class="per plural">سینک‌ها:Plural</div>
+<div class="ar plural">مَغَاسِل <span class="label">:Plural</span></div>
+<div class="per plural">سینک‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">هَلْ هُنَاكَ صَابُونٌ بِجَانِبِ الْحَوْضِ؟</div>
 <div class="per sentence1">آیا صابون کنار سینک هست؟</div>
 <div class="en sentence1">Is there soap near the sink?</div>
@@ -1965,8 +2041,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مِرْحَاض</div>
 <div class="per">بیت الخلاء</div>
-<div class="ar plural">مَرَاحِيض:Plural</div>
-<div class="per plural">توالت‌ها:Plural</div>
+<div class="ar plural">مَرَاحِيض <span class="label">:Plural</span></div>
+<div class="per plural">توالت‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الْمَرْحَاضُ فِي الْغُرْفَةِ الصَّغِيرَةِ.</div>
 <div class="per sentence1">توالت در اتاق کوچک است.</div>
 <div class="en sentence1">The toilet is in the small room.</div>
@@ -1988,8 +2064,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">دُوش</div>
 <div class="per">دوش</div>
-<div class="ar plural">دُوشَات:Plural</div>
-<div class="per plural">دوش‌ها:Plural</div>
+<div class="ar plural">دُوشَات <span class="label">:Plural</span></div>
+<div class="per plural">دوش‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">هَلِ الدُّشُّ دَافِئٌ بَعْدَ؟</div>
 <div class="per sentence1">آیا دوش هنوز گرم است؟</div>
 <div class="en sentence1">Is the shower warm yet?</div>
@@ -2011,8 +2087,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">صَابُون</div>
 <div class="per">صابون</div>
-<div class="ar plural">صَابُونَات:Plural</div>
-<div class="per plural">صابون‌ها:Plural</div>
+<div class="ar plural">صَابُونَات <span class="label">:Plural</span></div>
+<div class="per plural">صابون‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الصَّابُونُ وَرْدِيٌّ وَرَغَوِيٌّ.</div>
 <div class="per sentence1">صابون صورتی و کف‌آلود است.</div>
 <div class="en sentence1">The soap is pink and bubbly.</div>
@@ -2034,8 +2110,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">شَامْبُو</div>
 <div class="per">شامپو</div>
-<div class="ar plural">شَامْبُوهَات:Plural</div>
-<div class="per plural">شامپوها:Plural</div>
+<div class="ar plural">شَامْبُوهَات <span class="label">:Plural</span></div>
+<div class="per plural">شامپوها <span class="label">:Plural</span></div>
 <div class="ar sentence1">لَا يُوجَدُ شَامْبُو فِي الزُّجَاجَةِ.</div>
 <div class="per sentence1">در بطری شامپو نیست.</div>
 <div class="en sentence1">There is no shampoo in the bottle.</div>
@@ -2057,8 +2133,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مَعْجُون أَسْنَان</div>
 <div class="per">خمیردندان</div>
-<div class="ar plural">مَعَاجِين أَسْنَان:Plural</div>
-<div class="per plural">خمیردندان‌ها:Plural</div>
+<div class="ar plural">مَعَاجِين أَسْنَان <span class="label">:Plural</span></div>
+<div class="per plural">خمیردندان‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">مَعْجُونُ الْأَسْنَانِ مُنْعِشٌ بِالنَّعْنَاعِ.</div>
 <div class="per sentence1">خمیر دندان طعم نعنا دارد.</div>
 <div class="en sentence1">The toothpaste is minty.</div>
@@ -2080,8 +2156,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">فُرْشَاة أَسْنَان</div>
 <div class="per">مسواک</div>
-<div class="ar plural">فُرَش أَسْنَان:Plural</div>
-<div class="per plural">مسواک‌ها:Plural</div>
+<div class="ar plural">فُرَش أَسْنَان <span class="label">:Plural</span></div>
+<div class="per plural">مسواک‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">فُرْشَاةُ أَسْنَانِي فِي الْكُوبِ.</div>
 <div class="per sentence1">مسواک من در فنجان است.</div>
 <div class="en sentence1">My toothbrush is in the cup.</div>
@@ -2103,8 +2179,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مِنْشَفَة</div>
 <div class="per">حوله</div>
-<div class="ar plural">مَنَاشِف:Plural</div>
-<div class="per plural">حوله‌ها:Plural</div>
+<div class="ar plural">مَنَاشِف <span class="label">:Plural</span></div>
+<div class="per plural">حوله‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">مِنْشَفَةٌ جَدِيدَةٌ عَلَى الْرَّفِّ.</div>
 <div class="per sentence1">حوله تازه روی قفسه است.</div>
 <div class="en sentence1">A fresh towel is on the rack.</div>
@@ -2126,8 +2202,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مِرْآة الحَمَّام</div>
 <div class="per">آینه حمام</div>
-<div class="ar plural">مَرَايَا الحَمَّام:Plural</div>
-<div class="per plural">آینه‌های حمام:Plural</div>
+<div class="ar plural">مَرَايَا الحَمَّام <span class="label">:Plural</span></div>
+<div class="per plural">آینه‌های حمام <span class="label">:Plural</span></div>
 <div class="ar sentence1">مِرْآةُ الْحَمَّامِ صَافِيَةٌ.</div>
 <div class="per sentence1">آینه حمام شفاف است.</div>
 <div class="en sentence1">The bathroom mirror is clear.</div>
@@ -2149,8 +2225,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">سَلَّة قُمَامَة</div>
 <div class="per">سطل زباله</div>
-<div class="ar plural">سِلَال قُمَامَة:Plural</div>
-<div class="per plural">سطل‌های زباله:Plural</div>
+<div class="ar plural">سِلَال قُمَامَة <span class="label">:Plural</span></div>
+<div class="per plural">سطل‌های زباله <span class="label">:Plural</span></div>
 <div class="ar sentence1">سَلَّةُ الْمُهْمَلَاتِ بِجَانِبِ الْمَكْتَبِ.</div>
 <div class="per sentence1">سطل زباله کنار میز است.</div>
 <div class="en sentence1">The trash can is by the desk.</div>
@@ -2172,8 +2248,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مَسْحُوق غَسِيل</div>
 <div class="per">پودر لباسشویی</div>
-<div class="ar plural">مَسَاحِيق غَسِيل:Plural</div>
-<div class="per plural">پودرهای شوینده:Plural</div>
+<div class="ar plural">مَسَاحِيق غَسِيل <span class="label">:Plural</span></div>
+<div class="per plural">پودرهای شوینده <span class="label">:Plural</span></div>
 <div class="ar sentence1">الْمُنَظِّفُ لِلْغَسِيلِ.</div>
 <div class="per sentence1">ماده شوینده برای لباسشویی است.</div>
 <div class="en sentence1">The detergent is for the laundry.</div>
@@ -2195,8 +2271,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مَكْنَسَة</div>
 <div class="per">جاروبرقی</div>
-<div class="ar plural">مَكَانِس:Plural</div>
-<div class="per plural">جاروبرقی‌ها:Plural</div>
+<div class="ar plural">مَكَانِس <span class="label">:Plural</span></div>
+<div class="per plural">جاروبرقی‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الْمِكْنَسَةُ الْكَهْرَبَائِيَّةُ صَاخِبَةٌ جِدًّا.</div>
 <div class="per sentence1">جاروبرقی خیلی پرصدا است.</div>
 <div class="en sentence1">The vacuum cleaner is very loud.</div>
@@ -2218,8 +2294,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مِمْسَحَة</div>
 <div class="per">پوچا</div>
-<div class="ar plural">مَمَاسِح:Plural</div>
-<div class="per plural">تی‌ها:Plural</div>
+<div class="ar plural">مَمَاسِح <span class="label">:Plural</span></div>
+<div class="per plural">تی‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الْمِمْسَحَةُ فِي الزَّاوِيَةِ.</div>
 <div class="per sentence1">تی در گوشه است.</div>
 <div class="en sentence1">The mop is in the corner.</div>
@@ -2241,8 +2317,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">دَلْو</div>
 <div class="per">سطل</div>
-<div class="ar plural">دِلَاء:Plural</div>
-<div class="per plural">سطل‌ها:Plural</div>
+<div class="ar plural">دِلَاء <span class="label">:Plural</span></div>
+<div class="per plural">سطل‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الدَّلْوُ مُمتَلِئٌ بِالْمَاءِ وَالصَّابُونِ.</div>
 <div class="per sentence1">سطل پر از آب صابونی است.</div>
 <div class="en sentence1">The bucket is full of soapy water.</div>
@@ -2264,8 +2340,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">إِسْفَنْجَة</div>
 <div class="per">اسفنج</div>
-<div class="ar plural">إِسْفَنْجَات:Plural</div>
-<div class="per plural">اسفنج‌ها:Plural</div>
+<div class="ar plural">إِسْفَنْجَات <span class="label">:Plural</span></div>
+<div class="per plural">اسفنج‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الإِسْفِنْجَةُ صَفْرَاءُ وَرَطْبَةٌ.</div>
 <div class="per sentence1">اسفنج زرد و مرطوب است.</div>
 <div class="en sentence1">The sponge is yellow and wet.</div>
@@ -2287,8 +2363,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">فُرْشَاة</div>
 <div class="per">برس</div>
-<div class="ar plural">فُرَش:Plural</div>
-<div class="per plural">برس‌ها:Plural</div>
+<div class="ar plural">فُرَش <span class="label">:Plural</span></div>
+<div class="per plural">برس‌ها <span class="label">:Plural</span></div>
 <div class="ar sentence1">فُرْشَاتِي لِشَعْرِي.</div>
 <div class="per sentence1">برس من برای موهایم است.</div>
 <div class="en sentence1">My brush is for my hair.</div>
@@ -2310,8 +2386,8 @@ figcaption.back {
 <figcaption class="back">
 <div class="ar">مِكْوَاة</div>
 <div class="per">اتو</div>
-<div class="ar plural">مَكَاوٍ:Plural</div>
-<div class="per plural">اتوها:Plural</div>
+<div class="ar plural">مَكَاوٍ <span class="label">:Plural</span></div>
+<div class="per plural">اتوها <span class="label">:Plural</span></div>
 <div class="ar sentence1">الْمِكْوَاةُ خَطِيرَةٌ وَسَاخِنَةٌ.</div>
 <div class="per sentence1">اتو خطرناک و داغ است.</div>
 <div class="en sentence1">The iron is dangerous and hot.</div>
@@ -2337,9 +2413,20 @@ function computeDynamicPresets() {
     width: 300,
     height: 220,
     radius: 12,
-    capPad: 10,
-    capFont: 1.3,
-    capRadius: 12
+    capPad: 20,
+    capFont: 2,
+    capRadius: 12,
+
+    // NEW FONT & SPACING VALUES
+    fontBase: 1,               // rem
+    fontPlural: 1.7,             // rem
+    fontLabel: 1.3,            // em
+    fontSmall: 0.825,          // rem
+
+    pluralMarginBottom: 30,
+    pluralPaddingBottom: 15,
+    pluralBorderWidth: 3,
+    sentenceMarginTop: 4
   };
 
   const deviceWidth = window.innerWidth;
@@ -2372,7 +2459,18 @@ function computeDynamicPresets() {
       radius: (base.radius * factor) + "px",
       capPad: (base.capPad * factor) + "px",
       capFont: (base.capFont * factor) + "rem",
-      capRadius: (base.capRadius * factor) + "px"
+      capRadius: (base.capRadius * factor) + "px",
+
+      // NEW DYNAMIC VALUES
+      fontBase: (base.fontBase * factor) + "rem",
+      fontPlural: (base.fontPlural * factor) + "rem",
+      fontLabel: (base.fontLabel * factor) + "em", 
+      fontSmall: (base.fontSmall * factor) + "rem",
+
+      pluralMarginBottom: (base.pluralMarginBottom * factor) + "px",
+      pluralPaddingBottom: (base.pluralPaddingBottom * factor) + "px",
+      pluralBorderWidth: (base.pluralBorderWidth * factor) + "px",
+      sentenceMarginTop: (base.sentenceMarginTop * factor) + "px"
     };
   }
 
@@ -2386,7 +2484,17 @@ function computeDynamicPresets() {
       radius: base.radius + "px",
       capPad: base.capPad + "px",
       capFont: base.capFont + "rem",
-      capRadius: base.capRadius + "px"
+      capRadius: base.capRadius + "px",
+
+      fontBase: base.fontBase + "rem",
+      fontPlural: base.fontPlural + "rem",
+      fontLabel: base.fontLabel + "em",
+      fontSmall: base.fontSmall + "rem",
+
+      pluralMarginBottom: base.pluralMarginBottom + "px",
+      pluralPaddingBottom: base.pluralPaddingBottom + "px",
+      pluralBorderWidth: base.pluralBorderWidth + "px",
+      sentenceMarginTop: base.sentenceMarginTop + "px"
     },
     5: makePreset(1),
     6: makePreset(2)
@@ -2435,6 +2543,17 @@ rowSelector.addEventListener("change", () => {
   r.setProperty("--caption-padding", p.capPad);
   r.setProperty("--caption-font", p.capFont);
   r.setProperty("--caption-radius", p.capRadius);
+
+  r.setProperty("--font-base", p.fontBase);
+r.setProperty("--font-plural", p.fontPlural);
+r.setProperty("--font-label", p.fontLabel);
+r.setProperty("--font-small", p.fontSmall);
+
+r.setProperty("--plural-margin-bottom", p.pluralMarginBottom);
+r.setProperty("--plural-padding-bottom", p.pluralPaddingBottom);
+r.setProperty("--plural-border-width", p.pluralBorderWidth);
+r.setProperty("--sentence-margin-top", p.sentenceMarginTop);
+
 
   updateBackHeight(); // Update back height after changing presets
 });
