@@ -101,12 +101,13 @@
       }
     }
   </style>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
   <script>
-    // ==== Firebase Config ====
     const firebaseConfig = {
       apiKey: "AIzaSyDPu5kkhRugeFb9XaJ-vsSH3wbzpK5TS9U",
       authDomain: "noun-a42d5.firebaseapp.com",
@@ -116,7 +117,6 @@
       appId: "1:1082712137091:web:25a3efbe474646c79eeab6",
       measurementId: "G-13NZGDFDDV"
     };
-
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
     const firestore = firebase.firestore();
@@ -199,47 +199,70 @@
         <div class="count">80–100 words</div>
       </div>
     </a>
-
-     <a href="login.html" class="card" data-paid="false">
-      <div class="emoji">🧰</div>
-      <div class="text">
-        <span>Login</span>
-        <div class="count">80–100 words</div>
-      </div>
-    </a>
   </div>
 
-  <!-- ===== Protect Paid Links ===== -->
+  <!-- ===== Paid Link Protection + Magic Link Login ===== -->
   <script>
-    auth.onAuthStateChanged(async (user) => {
-      const paidLinks = document.querySelectorAll('a.card[data-paid="true"]');
+    async function handlePaidClick(e, link) {
+      e.preventDefault(); // prevent immediate navigation
+      const user = auth.currentUser;
 
       if (!user) {
-        // Not logged in → block clicks
-        paidLinks.forEach(link => {
-          link.addEventListener('click', e => {
-            e.preventDefault();
-            alert("Please log in to access this page.");
-          });
-        });
-        return;
+        // Step 1: ask email
+        const email = prompt("Enter your email to access this page:");
+        if (!email) return;
+
+        // Step 2: send magic link
+        const actionCodeSettings = {
+          url: window.location.href, // redirect back to this page
+          handleCodeInApp: true
+        };
+
+        try {
+          await auth.sendSignInLinkToEmail(email, actionCodeSettings);
+          window.localStorage.setItem('emailForSignIn', email);
+          alert("Magic link sent! Check your email to access paid pages.");
+          return;
+        } catch (err) {
+          console.error(err);
+          alert("Error sending link. Check console.");
+          return;
+        }
       }
 
-      // Check Firestore if user has paid or full access
+      // User is logged in → check Firestore
       const doc = await firestore.collection('users').doc(user.uid).get();
       const data = doc.exists ? doc.data() : null;
 
-      if (!data || (!data.isPaid && !data.fullAccess)) {
-        // User did not pay → block clicks
-        paidLinks.forEach(link => {
-          link.addEventListener('click', e => {
-            e.preventDefault();
-            alert("Your subscription is inactive. Please pay to access this content.");
-          });
-        });
+      if (data && (data.isPaid || data.fullAccess)) {
+        // Access allowed → open link
+        window.location.href = link.href;
+      } else {
+        alert("Access denied. Please pay to access this content.");
       }
-      // Else: paid user → links are clickable
+    }
+
+    // Attach event listeners to all paid links
+    const paidLinks = document.querySelectorAll('a.card[data-paid="true"]');
+    paidLinks.forEach(link => {
+      link.addEventListener('click', (e) => handlePaidClick(e, link));
     });
+
+    // Complete magic link login if user clicked email
+    if (auth.isSignInWithEmailLink(window.location.href)) {
+      let email = window.localStorage.getItem('emailForSignIn');
+      if (!email) email = prompt("Please enter your email for confirmation");
+
+      auth.signInWithEmailLink(email, window.location.href)
+        .then(result => {
+          window.localStorage.removeItem('emailForSignIn');
+          alert("Logged in successfully! You can now access all paid pages.");
+        })
+        .catch(err => {
+          console.error(err);
+          alert("Login failed. Check console.");
+        });
+    }
   </script>
 </body>
 </html>
