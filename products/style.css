@@ -450,7 +450,7 @@ button {
 @media (max-width: 300px) {
 
   body { padding: 16px; }
-  .sidebar { width: 50px; transform: translateX(50px); }
+  .sidebar { width: 10px; transform: translateX(100px); }
 
 }
 
@@ -536,4 +536,5 @@ button {
   font-family: 'GoogleEmoji';
 
 }
+
 
