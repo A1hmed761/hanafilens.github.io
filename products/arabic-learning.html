@@ -101,12 +101,33 @@
       }
     }
   </style>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+  <script>
+    // ==== Firebase Config ====
+    const firebaseConfig = {
+      apiKey: "AIzaSyDPu5kkhRugeFb9XaJ-vsSH3wbzpK5TS9U",
+      authDomain: "noun-a42d5.firebaseapp.com",
+      projectId: "noun-a42d5",
+      storageBucket: "noun-a42d5.firebasestorage.app",
+      messagingSenderId: "1082712137091",
+      appId: "1:1082712137091:web:25a3efbe474646c79eeab6",
+      measurementId: "G-13NZGDFDDV"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const firestore = firebase.firestore();
+  </script>
 </head>
 <body>
   <h1>Vocabulary Categories</h1>
 
   <div class="container">
-    <a href="home1.html" class="card">
+    <!-- Free page -->
+    <a href="home1.html" class="card" data-paid="false">
       <div class="emoji">🏠</div>
       <div class="text">
         <span>Home & Furniture</span>
@@ -114,7 +135,8 @@
       </div>
     </a>
 
-    <a href="cloth_updated.html" class="card">
+    <!-- Paid pages -->
+    <a href="cloth_updated.html" class="card" data-paid="true">
       <div class="emoji">👕</div>
       <div class="text">
         <span>Clothes & Accessories</span>
@@ -122,7 +144,7 @@
       </div>
     </a>
 
-    <a href="school_updated.html" class="card">
+    <a href="school_updated.html" class="card" data-paid="true">
       <div class="emoji">🏫</div>
       <div class="text">
         <span>School & Objects</span>
@@ -130,7 +152,7 @@
       </div>
     </a>
 
-    <a href="food_updated.html" class="card">
+    <a href="food_updated.html" class="card" data-paid="true">
       <div class="emoji">🍞</div>
       <div class="text">
         <span>Food & Drink</span>
@@ -138,7 +160,7 @@
       </div>
     </a>
 
-    <a href="animals_updated.html" class="card">
+    <a href="animals_updated.html" class="card" data-paid="true">
       <div class="emoji">🐕</div>
       <div class="text">
         <span>Animals</span>
@@ -146,7 +168,7 @@
       </div>
     </a>
 
-    <a href="nature_updated.html" class="card">
+    <a href="nature_updated.html" class="card" data-paid="true">
       <div class="emoji">🌿</div>
       <div class="text">
         <span>Nature & Environment</span>
@@ -154,7 +176,7 @@
       </div>
     </a>
 
-    <a href="Transportation_updated.html" class="card">
+    <a href="Transportation_updated.html" class="card" data-paid="true">
       <div class="emoji">🚗</div>
       <div class="text">
         <span>Transport & Vehicles</span>
@@ -162,7 +184,7 @@
       </div>
     </a>
 
-    <a href="places_updated.html" class="card">
+    <a href="places_updated.html" class="card" data-paid="true">
       <div class="emoji">🏙️</div>
       <div class="text">
         <span>Places & Buildings</span>
@@ -170,7 +192,7 @@
       </div>
     </a>
 
-    <a href="tools_updated.html" class="card">
+    <a href="tools_updated.html" class="card" data-paid="true">
       <div class="emoji">🧰</div>
       <div class="text">
         <span>Tools & Common Objects</span>
@@ -178,5 +200,38 @@
       </div>
     </a>
   </div>
+
+  <!-- ===== Protect Paid Links ===== -->
+  <script>
+    auth.onAuthStateChanged(async (user) => {
+      const paidLinks = document.querySelectorAll('a.card[data-paid="true"]');
+
+      if (!user) {
+        // Not logged in → block clicks
+        paidLinks.forEach(link => {
+          link.addEventListener('click', e => {
+            e.preventDefault();
+            alert("Please log in to access this page.");
+          });
+        });
+        return;
+      }
+
+      // Check Firestore if user has paid or full access
+      const doc = await firestore.collection('users').doc(user.uid).get();
+      const data = doc.exists ? doc.data() : null;
+
+      if (!data || (!data.isPaid && !data.fullAccess)) {
+        // User did not pay → block clicks
+        paidLinks.forEach(link => {
+          link.addEventListener('click', e => {
+            e.preventDefault();
+            alert("Your subscription is inactive. Please pay to access this content.");
+          });
+        });
+      }
+      // Else: paid user → links are clickable
+    });
+  </script>
 </body>
 </html>
