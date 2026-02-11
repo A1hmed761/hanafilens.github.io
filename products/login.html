@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Hanafilens</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 50px; text-align: center; }
+    input { padding: 10px; width: 250px; margin-bottom: 10px; }
+    button { padding: 10px 20px; }
+  </style>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDPu5kkhRugeFb9XaJ-vsSH3wbzpK5TS9U",
+      authDomain: "noun-a42d5.firebaseapp.com",
+      projectId: "noun-a42d5",
+      storageBucket: "noun-a42d5.firebasestorage.app",
+      messagingSenderId: "1082712137091",
+      appId: "1:1082712137091:web:25a3efbe474646c79eeab6",
+      measurementId: "G-13NZGDFDDV"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+  </script>
+</head>
+<body>
+  <h1>Login with Email</h1>
+  <input type="email" id="email" placeholder="Enter your email" required>
+  <br>
+  <button id="sendLink">Send Login Link</button>
+
+  <script>
+    document.getElementById('sendLink').addEventListener('click', () => {
+      const email = document.getElementById('email').value;
+      if (!email) { alert("Please enter your email."); return; }
+
+      const actionCodeSettings = {
+        url: window.location.origin + '/products/arabic-learning.html', // redirect after login
+        handleCodeInApp: true
+      };
+
+      auth.sendSignInLinkToEmail(email, actionCodeSettings)
+        .then(() => {
+          window.localStorage.setItem('emailForSignIn', email);
+          alert("Login link sent! Check your email to continue.");
+        })
+        .catch(err => {
+          console.error(err);
+          alert("Error sending login link. Check console.");
+        });
+    });
+
+    // Complete login if user clicked the link
+    if (auth.isSignInWithEmailLink(window.location.href)) {
+      let email = window.localStorage.getItem('emailForSignIn');
+      if (!email) email = prompt("Please enter your email for confirmation");
+
+      auth.signInWithEmailLink(email, window.location.href)
+        .then((result) => {
+          window.localStorage.removeItem('emailForSignIn');
+          alert("Logged in successfully!");
+          window.location.href = "/products/arabic-learning.html"; // redirect to main page
+        })
+        .catch(err => {
+          console.error(err);
+          alert("Error logging in. Check console.");
+        });
+    }
+  </script>
+</body>
+</html>
