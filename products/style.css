@@ -1,0 +1,537 @@
+@import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
+
+:root {
+
+  --grid-min: 300px;
+
+  --gap: 40px;
+
+  --emoji-size: 120px;
+
+  --card-width: 300px;
+
+  --card-height: 220px;
+
+  --radius: 12px;
+
+  --caption-padding: 20px;
+
+  --caption-font: 2rem;
+
+  --caption-radius: 12px;
+
+  --back-height: 300px; /* default temporary value */
+
+  /* Text Sizes */
+  --font-base: 1rem;
+  --font-plural: 1.7rem;
+  --font-label: 1.3rem;
+  --font-small: 0.825rem;
+
+  /* Spacing & Borders */
+  --plural-margin-bottom: 30px;
+  --plural-padding-bottom: 15px;
+  --plural-border-width: 3px;
+  --sentence-margin-top: 4px;
+}
+
+
+
+* { box-sizing: border-box; }
+
+
+
+body {
+
+  margin: 0;
+
+  font-family: 'Vazirmatn', sans-serif;
+
+  background: #f6f7fb;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  padding: 5px;
+}
+
+
+
+h1, h2 {
+
+  font-size: 2rem;
+
+  margin-bottom: 30px;
+
+  text-align: center;
+
+}
+
+
+
+h2 { margin-top: 100px; }
+
+h4 {
+
+  margin-bottom: 30px;
+  border-bottom: 3px solid #eee;
+  padding-bottom: 20px;
+
+}
+
+
+/* Grid */
+
+.grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(var(--grid-min), 1fr));
+
+  gap: var(--gap);
+
+  justify-items: center;
+
+  width: 100%;
+
+  max-width: 1400px;
+
+}
+
+
+
+/* Cards */
+
+figure.card {
+
+  background: none;
+
+  border: none;
+
+  box-shadow: none;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+
+  margin: 0;
+
+}
+
+
+
+.emoji, .thumb {
+
+  font-size: var(--emoji-size);
+
+  background: white;
+
+  width: var(--card-width);
+
+  height: var(--card-height);
+
+  border-radius: var(--radius);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+
+}
+
+
+
+.thumb {
+
+  object-fit: cover;
+
+}
+
+
+
+figcaption {
+
+  margin-top: 10px;
+
+  background: white;
+
+  padding: var(--caption-padding) 0;
+
+  width: 100%;
+
+  border-radius: 0 0 var(--caption-radius) var(--caption-radius);
+
+  font-size: var(--caption-font);
+
+  font-weight: 700;
+
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  text-align: center;
+
+  box-sizing: border-box;
+
+}
+
+
+/* Base Arabic Style */
+.ar {
+  display: block; /* Visible by default */
+}
+
+figcaption.back {
+  width: var(--card-width);
+  height: var(--back-height);
+  overflow-y: auto;
+
+  
+  font-size: var(--font-label);
+  display: flex;
+  flex-direction: column;
+  
+  /* 1. Start from the very top */
+  justify-content: center; 
+
+  /* 2. Stretch items to fill the width (better for text alignment) */
+  align-items: stretch; 
+  
+  gap: var(--back-gap);
+  padding: var(--back-padding);
+
+}
+
+.plural {
+  margin-top: var(--plural-padding-bottom);
+  font-size: var(--font-plural);
+  font-weight: bold;
+  border-bottom: var(--plural-border-width) solid #eee;
+  margin-bottom: var(--plural-margin-bottom);
+  padding-bottom: var(--plural-padding-bottom);
+}
+
+.plural .label {
+  font-size: var(--font-small); /* Makes it smaller than the main text */
+  color: #888;      /* Lightens the color so it's less distracting */
+  font-weight: normal;
+}
+
+
+
+/* Adding space specifically after the last line of the first example */
+/* and the last line of the second example */
+.urd.sentence1, .en.sentence1 {
+  margin-bottom: var(--plural-padding-bottom);
+}
+
+/* Hide Urdu and Persian by default */
+.urd, .per {
+  display: none;
+  font-size: var(--font-base);
+  font-weight: 400;
+  color: #666;
+  margin-top: var(--sentence-margin-top);
+}
+
+.en {
+  font-size: var(--font-small);   /* Smaller font size */
+  font-weight: 400;   /* Thinner weight */
+  color: #666;        /* Optional: grey color to create hierarchy */
+  font-family: 'sans-serif'; /* Optional: different font if desired */
+}
+
+.urd {
+  font-size: var(--font-base);   /* Smaller font size */
+  font-weight: 400;   /* Thinner weight */
+  color: #666;        /* Optional: grey color to create hierarchy */
+  font-family: 'Vazirmatn', sans-serif; /* Optional: different font if desired */
+}
+
+
+/* --- Toggle Button 1: Urdu replaces English --- */
+.show-urd .urd { display: block; }
+.show-urd .en  { display: none; }
+
+/* --- Toggle Button 2: Persian replaces Arabic --- */
+.show-per .per { 
+  display: block; 
+  font-size: var(--font-base) /* Matches original Arabic size */
+  font-weight: 700;
+  color: #000;      /* Matches original Arabic color */
+}
+.show-per .ar { display: none; }
+
+/* Horizontal layout for both language groups */
+.lang-row {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 30px;
+  border-bottom: 3px solid #eee;
+  padding-bottom: 20px;
+}
+
+/* The double-sided arrow */
+.double-arrow {
+  font-size: 22px;
+  font-weight: bold;
+  color: #444;
+  user-select: none;
+}
+
+/* Ensure lang groups stay vertically stacked internally */
+.lang-group {
+  display: flex;
+  flex-direction: column;
+  width: 140px;
+  
+}
+
+/* Buttons */
+.main-btn, .sub-btn {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #aaa;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 6px;
+  text-align: left;
+}
+
+.main-btn {
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sub-btn {
+  display: none;
+  margin-top: 4px;
+  background: #f7f7f7;
+}
+
+.main-btn.open + .sub-btn {
+  display: block;
+}
+
+.arrow {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.row-selector-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 30px;
+  border-bottom: 3px solid #eee;
+  padding-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+    margin-top: 5px;
+
+  background: white;
+
+  padding: 5px 0;
+
+  width: 100%;
+
+  border-radius: 0 0 10px 10px;
+
+  font-size: 1rem;
+
+  font-weight: 300;
+
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+
+/* Sidebar Toggle */
+
+.toggle-btn {
+
+  position: fixed;
+
+  font-family: 'Inter', sans-serif;
+
+  right: 20px;
+
+  top: 20px;
+
+  background: #4a4a4a;
+
+  color: white;
+
+  padding: 10px 15px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-size: 1rem;
+
+  z-index: 999;
+
+}
+
+
+/* Sidebar */
+
+.sidebar {
+
+  position: fixed;
+
+  top: 0;
+
+  right: 0;
+
+  width: 320px;
+
+  height: 100vh;
+
+  background: #fff;
+
+  box-shadow: -6px 0 18px rgba(0,0,0,0.08);
+
+  padding: 24px;
+
+  transform: translateX(320px);
+
+  transition: transform 0.28s ease;
+
+  z-index: 998;
+
+  overflow-y: auto;
+
+
+  direction: ltr;
+
+}
+
+
+
+.sidebar.open {
+
+  transform: translateX(0);
+
+}
+
+
+@media (max-width: 480px) {
+
+  body { padding: 16px; }
+  .sidebar { width: 50px; transform: translateX(260px); }
+
+}
+
+
+
+/* ===========================================================
+
+   FRONT/BACK FLIP SYSTEM (NEW)
+
+   =========================================================== */
+
+
+
+/* Default state: show front, hide back side */
+
+.card .back,
+
+.card .emoji-alt,
+
+.card .thumb-alt {
+
+  display: none;
+
+}
+
+
+
+/* When card is flipped to show the BACK */
+
+.card.show-back .front,
+
+.card.show-back .emoji,
+
+.card.show-back .thumb {
+
+  display: none;
+
+}
+
+
+
+.card.show-back .back {
+
+  display: flex;
+
+}
+
+
+
+.card.show-back .emoji-alt {
+
+  display: flex;
+
+}
+
+
+
+.card.show-back .thumb-alt {
+
+  display: block;
+
+}
+
+.card * {
+  pointer-events: none;
+}
+
+.card {
+  transition: transform 0.4s ease;
+  transform-style: preserve-3d;
+}
+
+.card.flipping {
+  transform: scaleX(0);
+}
+
+@font-face {
+  font-family: 'GoogleEmoji';
+  src: url('fonts/NotoColorEmoji.ttf') format('truetype');
+}
+
+.emoji {
+  font-family: 'GoogleEmoji';
+}
