@@ -326,7 +326,10 @@ document.getElementById('payModal').addEventListener('click', function(e){
 </script>
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-  import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+  import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } 
+    from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+  import { getFirestore, doc, getDoc } 
+    from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyDPu5kkhRugeFb9XaJ-vsSH3wbzpK5TS9U",
@@ -340,24 +343,73 @@ document.getElementById('payModal').addEventListener('click', function(e){
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
+  const db = getFirestore(app);
   const provider = new GoogleAuthProvider();
 
-  // When button is clicked:
+  const loginStatus = document.getElementById("loginStatus");
+
+  // LOGIN BUTTON
   document.querySelector(".login-btn").addEventListener("click", () => {
     signInWithPopup(auth, provider)
-      .then(result => {
-        const user = result.user;
-        console.log("Logged in:", user);
+      .catch(err => alert("Login failed: " + err.message));
+  });
 
-        // Show premium content
-        document.querySelector(".premium-content").style.display = "block";
-        document.querySelector(".login-section").style.display = "none";
-      })
-      .catch(error => {
-        console.log(error);
+  // LOGIN STATE HANDLER
+  onAuthStateChanged(auth, async (user) => {
+    if (!user) {
+      loginStatus.style.display = "none";
+      return;
+    }
+
+    // Show logged-in email on screen
+    loginStatus.style.display = "block";
+    loginStatus.innerHTML = `Logged in as <b>${user.email}</b>`;
+
+    // Check Firestore for paid status
+    const ref = doc(db, "Users", user.uid);
+    const snap = await getDoc(ref);
+
+    if (!snap.exists()) {
+      loginStatus.innerHTML += "<br><span style='color:red'>Not paid</span>";
+      return;
+    }
+
+    const data = snap.data();
+
+    if (data.isPaid === true || data.fullAccess === true) {
+      loginStatus.innerHTML += "<br><span style='color:green'>Full access</span>";
+
+      // unlock locked cards
+      document.querySelectorAll(".card.locked").forEach(card => {
+        card.classList.remove("locked");
+        card.style.cursor = "pointer";
+        card.addEventListener("click", () => {
+          window.location.href = card.dataset.link;
+        });
       });
+
+      // close modal automatically
+      document.getElementById("payModal").style.display = "none";
+      document.body.classList.remove("modal-open");
+
+    } else {
+      loginStatus.innerHTML += "<br><span style='color:red'>Not paid</span>";
+    }
   });
 </script>
+
+
+  <div id="loginStatus" style="
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background: #fff;
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  font-size: 0.9rem;
+  display: none;">
+</div>
 
 </body>
 </html>
