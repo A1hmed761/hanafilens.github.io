@@ -1,4 +1,4 @@
-  <!doctype html>
+ <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -101,112 +101,108 @@
       }
     }
 
-.card.locked {
-  position: relative;
-  opacity: 0.85;
-  cursor: not-allowed;
-}
+    .card.locked {
+      position: relative;
+      opacity: 0.85;
+      cursor: not-allowed;
+    }
 
-.card.locked::after {
-  content: "🔒";
-  position: absolute;
-  right: 70px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 3rem;
-}
+    .card.locked::after {
+      content: "🔒";
+      position: absolute;
+      right: 70px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 3rem;
+    }
 
-/* BLUR WHEN MODAL OPEN */
-body.modal-open *:not(.modal):not(.modal *) {
-  filter: blur(6px);
-  pointer-events: none;
-}
+    body.modal-open *:not(.modal):not(.modal *) {
+      filter: blur(6px);
+      pointer-events: none;
+    }
 
-/* MODAL BASE */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.45);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-}
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.45);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
 
-/* POPUP BOX */
-.modal-content {
-  background: #fff;
-  width: 90%;
-  max-width: 420px;
-  border-radius: 16px;
-  padding: 25px;
-  text-align: center;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}
+    .modal-content {
+      background: #fff;
+      width: 90%;
+      max-width: 420px;
+      border-radius: 16px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
 
-/* PRICE SECTION */
-.price {
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: #222;
-}
-.per {
-  font-size: 1rem;
-  color: #666;
-  margin-top: -5px;
-}
+    .price {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #222;
+    }
 
-/* BUTTONS */
-.pay-btn {
-  width: 100%;
-  padding: 14px;
-  background: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  margin: 18px 0;
-  font-size: 1.2rem;
-  cursor: pointer;
-}
+    .per {
+      font-size: 1rem;
+      color: #666;
+      margin-top: -5px;
+    }
 
-.login-btn {
-  width: 100%;
-  padding: 12px;
-  background: #eee;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  font-size: 1.1rem;
-  margin-top: 10px;
-  cursor: pointer;
-}
+    .pay-btn, .login-btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin: 10px 0;
+    }
 
-.already {
-  font-size: 0.8rem;
-  color: #666;
-  margin-top: 6px;
-}
+    .pay-btn { background: #007bff; color: #fff; }
+    .login-btn { background: #eee; border: 1px solid #ccc; }
 
-/* BENEFITS LIST */
-.benefits {
-  text-align: left;
-  margin: 15px 0;
-  color: #444;
-  line-height: 1.5;
-}
+    .already {
+      font-size: 0.8rem;
+      color: #666;
+      margin-top: 6px;
+    }
+
+    .benefits {
+      text-align: left;
+      margin: 15px 0;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    #loginStatus {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      background: #fff;
+      padding: 10px 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      font-size: 0.9rem;
+      display: none;
+    }
 
   </style>
 </head>
 <body>
 
+<h1>Vocabulary Categories</h1>
 
-  <h1>Vocabulary Categories</h1>
-<!-- MODAL OVERLAY -->
+<!-- MODAL -->
 <div id="payModal" class="modal">
   <div class="modal-content">
-    
     <div class="price-box">
       <div class="price">Rs 300</div>
       <div class="per">PKR / month</div>
@@ -223,112 +219,93 @@ body.modal-open *:not(.modal):not(.modal *) {
 
     <button class="login-btn">LOGIN from Google Account</button>
     <div class="already">if already paid</div>
-
   </div>
 </div>
 
-  <div class="container">
-    <a href="home1.html" class="card">
-      <div class="emoji">🏠</div>
-      <div class="text">
-        <span>Home & Furniture</span>
-        <div class="count">80–100 words</div>
-      </div>
-    </a>
+<!-- CARDS -->
+<div class="container">
+  <a href="home1.html" class="card">
+    <div class="emoji">🏠</div>
+    <div class="text">
+      <span>Home & Furniture</span>
+      <div class="count">80–100 words</div>
+    </div>
+  </a>
 
-    <a href="cloth_updated.html" class="card">
-      <div class="emoji">👕</div>
-      <div class="text">
-        <span>Clothes & Accessories</span>
-        <div class="count">60–80 words</div>
-      </div>
-    </a>
+  <a href="cloth_updated.html" class="card">
+    <div class="emoji">👕</div>
+    <div class="text">
+      <span>Clothes & Accessories</span>
+      <div class="count">60–80 words</div>
+    </div>
+  </a>
 
-    <a href="#" data-link="school_updated.html" class="card locked">
+  <!-- Locked cards -->
+  <a href="#" data-link="school_updated.html" class="card locked">
+    <div class="emoji">🏫</div>
+    <div class="text">
+      <span>School & Objects</span>
+      <div class="count">60–70 words</div>
+    </div>
+  </a>
 
-      <div class="emoji">🏫</div>
-      <div class="text">
-        <span>School & Objects</span>
-        <div class="count">60–70 words</div>
-      </div>
-    </a>
+  <a href="#" data-link="food_updated.html" class="card locked">
+    <div class="emoji">🍞</div>
+    <div class="text">
+      <span>Food & Drink</span>
+      <div class="count">100–120 words</div>
+    </div>
+  </a>
 
-    <a href="#" data-link="food_updated.html" class="card locked">
+  <a href="#" data-link="animals_updated.html" class="card locked">
+    <div class="emoji">🐕</div>
+    <div class="text">
+      <span>Animals</span>
+      <div class="count">100–120 words</div>
+    </div>
+  </a>
 
-      <div class="emoji">🍞</div>
-      <div class="text">
-        <span>Food & Drink</span>
-        <div class="count">100–120 words</div>
-      </div>
-    </a>
+  <a href="#" data-link="nature_updated.html" class="card locked">
+    <div class="emoji">🌿</div>
+    <div class="text">
+      <span>Nature & Environment</span>
+      <div class="count">80–100 words</div>
+    </div>
+  </a>
 
-    <a href="#" data-link="animals_updated.html" class="card locked">
+  <a href="#" data-link="transportation_updated.html" class="card locked">
+    <div class="emoji">🚗</div>
+    <div class="text">
+      <span>Transport & Vehicles</span>
+      <div class="count">60–80 words</div>
+    </div>
+  </a>
 
-      <div class="emoji">🐕</div>
-      <div class="text">
-        <span>Animals</span>
-        <div class="count">100–120 words</div>
-      </div>
-    </a>
+  <a href="#" data-link="places_updated.html" class="card locked">
+    <div class="emoji">🏙️</div>
+    <div class="text">
+      <span>Places & Buildings</span>
+      <div class="count">80–100 words</div>
+    </div>
+  </a>
 
-    <a href="#" data-link="nature_updated.html" class="card locked">
+  <a href="#" data-link="tools_updated.html" class="card locked">
+    <div class="emoji">🧰</div>
+    <div class="text">
+      <span>Tools & Common Objects</span>
+      <div class="count">80–100 words</div>
+    </div>
+  </a>
+</div>
 
-      <div class="emoji">🌿</div>
-      <div class="text">
-        <span>Nature & Environment</span>
-        <div class="count">80–100 words</div>
-      </div>
-    </a>
+<!-- LOGIN STATUS -->
+<div id="loginStatus"></div>
 
-    <a href="#" data-link="transportation_updated.html" class="card locked">
-
-      <div class="emoji">🚗</div>
-      <div class="text">
-        <span>Transport & Vehicles</span>
-        <div class="count">60–80 words</div>
-      </div>
-    </a>
-
-   <a href="#" data-link="places_updated.html" class="card locked">
-
-      <div class="emoji">🏙️</div>
-      <div class="text">
-        <span>Places & Buildings</span>
-        <div class="count">80–100 words</div>
-      </div>
-    </a>
-
-    <a href="#" data-link="tools_updated.html" class="card locked">
-      <div class="emoji">🧰</div>
-      <div class="text">
-        <span>Tools & Common Objects</span>
-        <div class="count">80–100 words</div>
-      </div>
-    </a>
-  </div>
-
-<script>
-document.querySelectorAll('.card.locked').forEach(card => {
-  card.addEventListener('click', function(e){
-    e.preventDefault();
-    document.getElementById('payModal').style.display = 'flex';
-    document.body.classList.add('modal-open');
-  });
-});
-
-// Close modal on outside click
-document.getElementById('payModal').addEventListener('click', function(e){
-  if(e.target === this){
-    this.style.display = 'none';
-    document.body.classList.remove('modal-open');
-  }
-});
-</script>
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
   import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } 
     from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-  import { getFirestore, doc, getDoc } 
+  import { getFirestore, collection, query, where, getDocs } 
     from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
   const firebaseConfig = {
@@ -347,6 +324,7 @@ document.getElementById('payModal').addEventListener('click', function(e){
   const provider = new GoogleAuthProvider();
 
   const loginStatus = document.getElementById("loginStatus");
+  const payModal = document.getElementById("payModal");
 
   // LOGIN BUTTON
   document.querySelector(".login-btn").addEventListener("click", () => {
@@ -354,62 +332,73 @@ document.getElementById('payModal').addEventListener('click', function(e){
       .catch(err => alert("Login failed: " + err.message));
   });
 
-  // LOGIN STATE HANDLER
+  // HANDLE LOGIN STATE
   onAuthStateChanged(auth, async (user) => {
     if (!user) {
       loginStatus.style.display = "none";
       return;
     }
 
-    // Show logged-in email on screen
     loginStatus.style.display = "block";
     loginStatus.innerHTML = `Logged in as <b>${user.email}</b>`;
 
-    // Check Firestore for paid status
-    const ref = doc(db, "Users", user.uid);
-    const snap = await getDoc(ref);
+    // Query Firestore by email
+    const usersRef = collection(db, "Users");
+    const q = query(usersRef, where("email", "==", user.email));
+    const querySnapshot = await getDocs(q);
 
-    if (!snap.exists()) {
+    if (querySnapshot.empty) {
       loginStatus.innerHTML += "<br><span style='color:red'>Not paid</span>";
       return;
     }
 
-    const data = snap.data();
+    const data = querySnapshot.docs[0].data();
 
     if (data.isPaid === true || data.fullAccess === true) {
       loginStatus.innerHTML += "<br><span style='color:green'>Full access</span>";
 
-      // unlock locked cards
+      // Unlock cards
       document.querySelectorAll(".card.locked").forEach(card => {
         card.classList.remove("locked");
         card.style.cursor = "pointer";
-        card.addEventListener("click", () => {
-          window.location.href = card.dataset.link;
+
+        // Remove existing click listener to prevent duplicates
+        const newCard = card.cloneNode(true);
+        card.replaceWith(newCard);
+
+        newCard.addEventListener("click", () => {
+          window.location.href = newCard.dataset.link;
         });
       });
 
-      // close modal automatically
-      document.getElementById("payModal").style.display = "none";
+      // Close modal
+      payModal.style.display = "none";
       document.body.classList.remove("modal-open");
 
+      // Hide login button in modal
+      document.querySelector(".login-btn").style.display = "none";
     } else {
       loginStatus.innerHTML += "<br><span style='color:red'>Not paid</span>";
     }
   });
+
+  // SHOW MODAL ON LOCKED CARD CLICK
+  document.querySelectorAll(".card.locked").forEach(card => {
+    card.addEventListener("click", (e) => {
+      e.preventDefault();
+      payModal.style.display = "flex";
+      document.body.classList.add("modal-open");
+    });
+  });
+
+  // CLOSE MODAL ON OUTSIDE CLICK
+  payModal.addEventListener("click", (e) => {
+    if (e.target === payModal) {
+      payModal.style.display = "none";
+      document.body.classList.remove("modal-open");
+    }
+  });
 </script>
-
-
-  <div id="loginStatus" style="
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  background: #fff;
-  padding: 10px 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  font-size: 0.9rem;
-  display: none;">
-</div>
 
 </body>
 </html>
