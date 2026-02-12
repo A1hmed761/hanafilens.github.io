@@ -41,10 +41,52 @@ body.modal-open *:not(.modal):not(.modal *) { filter:blur(6px); pointer-events:n
 </style>
 </head>
 <body>
+
+<h1>Vocabulary Categories</h1>
+
+<!-- MODAL -->
+<div id="payModal" class="modal">
+  <div class="modal-content">
+    <div class="price-box">
+      <div class="price">Rs 300</div>
+      <div class="per">PKR / month</div>
+    </div>
+
+    <div id="loginAlert"></div> <!-- ALERT HERE -->
+
+    <button class="pay-btn">Pay</button>
+
+    <ul class="benefits">
+      <li>Unlock all the Vocabulary Categories.</li>
+      <li>Access both Arabic and Persian.</li>
+      <li>Access to the Plurals and Sentences of all the words.</li>
+      <li>Access to the under developing Verbs and upcoming Adjectives vocabulary at this price for now.</li>
+    </ul>
+
+    <button class="login-btn">LOGIN from Google Account</button>
+    <div class="already">if already paid</div>
+  </div>
+</div>
+
+<div class="container">
+  <a href="home1.html" class="card"><div class="emoji">🏠</div><div class="text"><span>Home & Furniture</span><div class="count">80–100 words</div></div></a>
+  <a href="cloth_updated.html" class="card"><div class="emoji">👕</div><div class="text"><span>Clothes & Accessories</span><div class="count">60–80 words</div></div></a>
+
+  <!-- Locked Cards -->
+  <a href="#" data-link="school_updated.html" class="card locked"><div class="emoji">🏫</div><div class="text"><span>School & Objects</span><div class="count">60–70 words</div></div></a>
+  <a href="#" data-link="food_updated.html" class="card locked"><div class="emoji">🍞</div><div class="text"><span>Food & Drink</span><div class="count">100–120 words</div></div></a>
+  <a href="#" data-link="animals_updated.html" class="card locked"><div class="emoji">🐕</div><div class="text"><span>Animals</span><div class="count">100–120 words</div></div></a>
+  <a href="#" data-link="nature_updated.html" class="card locked"><div class="emoji">🌿</div><div class="text"><span>Nature & Environment</span><div class="count">80–100 words</div></div></a>
+  <a href="#" data-link="transportation_updated.html" class="card locked"><div class="emoji">🚗</div><div class="text"><span>Transport & Vehicles</span><div class="count">60–80 words</div></div></a>
+  <a href="#" data-link="places_updated.html" class="card locked"><div class="emoji">🏙️</div><div class="text"><span>Places & Buildings</span><div class="count">80–100 words</div></div></a>
+  <a href="#" data-link="tools_updated.html" class="card locked"><div class="emoji">🧰</div><div class="text"><span>Tools & Common Objects</span><div class="count">80–100 words</div></div></a>
+</div>
+
+<div id="loginStatus"></div>
+
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDPu5kkhRugeFb9XaJ-vsSH3wbzpK5TS9U",
@@ -58,90 +100,65 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const db = getFirestore(app);
 const provider = new GoogleAuthProvider();
 
+const allowedEmails = ["ahmedshahqr@gmail.com"];
 let isPaidAccount = false;
 const loginAlert = document.getElementById("loginAlert");
 const payModal = document.getElementById("payModal");
 
-// 1. LOGIN FUNCTION
+// LOGIN
 document.querySelector(".login-btn").addEventListener("click", async () => {
   try {
     await signInWithPopup(auth, provider);
   } catch (err) {
-    console.error("Login error:", err);
     alert("Login failed: " + err.message);
   }
 });
 
-// 2. AUTH STATE & UNLOCK LOGIC
-onAuthStateChanged(auth, async (user) => {
-  if (!user) {
-    console.log("No user logged in.");
-    return;
-  }
+// AUTH STATE
+onAuthStateChanged(auth, (user) => {
+  if (!user) return;
 
   const email = user.email;
   document.getElementById("loginStatus").style.display = "block";
   document.getElementById("loginStatus").innerHTML = `Logged in as <b>${email}</b>`;
 
-  // Firestore check
-  try {
-    const usersRef = collection(db, "users");
-    const q = query(usersRef, where("email", "==", email));
-    const snapshot = await getDocs(q);
+  if (allowedEmails.includes(email)) {
+    isPaidAccount = true;
+    loginAlert.textContent = "✅ Logged in & paid!";
+    loginAlert.className = "paid";
 
-    if (!snapshot.empty) {
-      const data = snapshot.docs[0].data();
-      console.log("User Data Found:", data);
+    // Unlock cards
+    document.querySelectorAll(".card[data-link]").forEach(card => {
+      card.classList.remove("locked");
+      card.href = card.getAttribute("data-link");
+      card.style.cursor = "pointer";
+    });
 
-      if (data.isPaid === true || data.fullAccess === true) {
-        isPaidAccount = true;
-        unlockContent();
-      } else {
-        loginAlert.textContent = "❌ This account is not paid";
-        loginAlert.className = "not-paid";
-      }
-    } else {
-      console.log("No matching user document found for:", email);
-      loginAlert.textContent = "❌ Email not found in database";
-      loginAlert.className = "not-paid";
-    }
-  } catch (error) {
-    console.error("Firestore Error:", error);
+    // Hide modal
+    payModal.style.display = "none";
+    document.body.classList.remove("modal-open");
+
+  } else {
+    isPaidAccount = false;
+    loginAlert.textContent = "❌ This account is not allowed";
+    loginAlert.className = "not-paid";
   }
 });
 
-function unlockContent() {
-  loginAlert.textContent = "✅ Access Granted!";
-  loginAlert.className = "paid";
-  
-  // Hide modal
-  payModal.style.display = "none";
-  document.body.classList.remove("modal-open");
-
-  // Unlock cards
-  document.querySelectorAll(".card[data-link]").forEach(card => {
-    card.classList.remove("locked");
-    card.href = card.getAttribute("data-link"); // Set the real link
-    card.style.cursor = "pointer";
-  });
-}
-
-// 3. HANDLE CLICKS ON LOCKED CARDS
+// LOCKED CARD CLICK
 document.querySelectorAll(".card").forEach(card => {
   card.addEventListener("click", (e) => {
-    // If it still has the locked class, prevent navigation and show modal
-    if (card.classList.contains("locked")) {
+    if (card.classList.contains("locked") && !isPaidAccount) {
       e.preventDefault();
-      payModal.style.display = 'flex';
-      document.body.classList.add('modal-open');
+      payModal.style.display = "flex";
+      document.body.classList.add("modal-open");
     }
   });
 });
 
-// Close modal on outside click
+// CLOSE MODAL
 payModal.addEventListener("click", (e) => {
   if (e.target === payModal) {
     payModal.style.display = "none";
@@ -149,6 +166,6 @@ payModal.addEventListener("click", (e) => {
   }
 });
 </script>
+
 </body>
 </html>
-
