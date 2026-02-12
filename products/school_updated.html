@@ -11,6 +11,23 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <script>
+auth.onAuthStateChanged(async (user) => {
+  if (!user) {
+    window.location.href = "/products/arabic-learning.html"; // redirect to main page
+    return;
+  }
+
+  const doc = await firestore.collection('users').doc(user.uid).get();
+  const userData = doc.exists ? doc.data() : null;
+
+  if (!userData || (!userData.isPaid && !userData.fullAccess)) {
+    alert("You do not have access to this page. Please log in or pay.");
+    window.location.href = "/products/arabic-learning.html";
+  }
+});
+</script>
+
 <!-- Sidebar Toggle Button -->
 <div class="toggle-btn" id="toggleSidebar">☰</div>
 <aside aria-hidden="true" class="sidebar" id="sidebar">
@@ -327,3 +344,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
