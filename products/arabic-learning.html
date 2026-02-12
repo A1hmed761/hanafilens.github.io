@@ -1,4 +1,4 @@
-   <!doctype html>
+  <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -13,13 +13,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 40px 20px;
+      padding: 15px;
       min-height: 100vh;
     }
 
     h1 {
       font-size: 2.4rem;
-      margin-bottom: 40px;
+      margin-bottom: 4px;
       color: #222;
       text-align: center;
       font-weight: 700;
@@ -42,7 +42,7 @@
       justify-content: space-between;
       width: 100%;
       padding: 16px 24px;
-      margin: 12px 0;
+      margin: 8px 0;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.05);
       text-decoration: none;
@@ -100,14 +100,135 @@
         margin-bottom: 10px;
       }
     }
+
+.card.locked {
+  position: relative;
+  opacity: 0.85;
+  cursor: not-allowed;
+}
+
+.card.locked::after {
+  content: "🔒";
+  position: absolute;
+  right: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+}
+
+/* BLUR WHEN MODAL OPEN */
+body.modal-open *:not(.modal):not(.modal *) {
+  filter: blur(6px);
+  pointer-events: none;
+}
+
+/* MODAL BASE */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* POPUP BOX */
+.modal-content {
+  background: #fff;
+  width: 90%;
+  max-width: 420px;
+  border-radius: 16px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* PRICE SECTION */
+.price {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #222;
+}
+.per {
+  font-size: 1rem;
+  color: #666;
+  margin-top: -5px;
+}
+
+/* BUTTONS */
+.pay-btn {
+  width: 100%;
+  padding: 14px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  margin: 18px 0;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.already {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 6px;
+}
+
+/* BENEFITS LIST */
+.benefits {
+  text-align: left;
+  margin: 15px 0;
+  color: #444;
+  line-height: 1.5;
+}
+
   </style>
 </head>
 <body>
+
+
   <h1>Vocabulary Categories</h1>
+<!-- MODAL OVERLAY -->
+<div id="payModal" class="modal">
+  <div class="modal-content">
+    
+    <div class="price-box">
+      <div class="price">Rs 300</div>
+      <div class="per">PKR / month</div>
+    </div>
+
+    <button class="pay-btn">Pay</button>
+
+    <ul class="benefits">
+      <li>Unlock all the Vocabulary Categories.</li>
+      <li>Access both Arabic and Persian.</li>
+      <li>Access to the Plurals and Sentences of all the words.</li>
+      <li>Access to the under developing Verbs and upcoming Adjectives vocabulary at this price for now.</li>
+    </ul>
+
+    <button class="login-btn">LOGIN from Google Account</button>
+    <div class="already">if already paid</div>
+
+  </div>
+</div>
 
   <div class="container">
-    <!-- Free page -->
-    <a href="home1.html" class="card" data-paid="false">
+    <a href="home1.html" class="card">
       <div class="emoji">🏠</div>
       <div class="text">
         <span>Home & Furniture</span>
@@ -115,8 +236,7 @@
       </div>
     </a>
 
-    <!-- Paid pages -->
-    <a href="cloth_updated.html" class="card" data-paid="true">
+    <a href="cloth_updated.html" class="card">
       <div class="emoji">👕</div>
       <div class="text">
         <span>Clothes & Accessories</span>
@@ -124,7 +244,8 @@
       </div>
     </a>
 
-    <a href="school_updated.html" class="card" data-paid="true">
+    <a href="#" data-link="school_updated.html" class="card locked">
+
       <div class="emoji">🏫</div>
       <div class="text">
         <span>School & Objects</span>
@@ -132,7 +253,8 @@
       </div>
     </a>
 
-    <a href="food_updated.html" class="card" data-paid="true">
+    <a href="#" data-link="food_updated.html" class="card locked">
+
       <div class="emoji">🍞</div>
       <div class="text">
         <span>Food & Drink</span>
@@ -140,7 +262,8 @@
       </div>
     </a>
 
-    <a href="animals_updated.html" class="card" data-paid="true">
+    <a href="#" data-link="animals_updated.html" class="card locked">
+
       <div class="emoji">🐕</div>
       <div class="text">
         <span>Animals</span>
@@ -148,7 +271,8 @@
       </div>
     </a>
 
-    <a href="nature_updated.html" class="card" data-paid="true">
+    <a href="#" data-link="nature_updated.html" class="card locked">
+
       <div class="emoji">🌿</div>
       <div class="text">
         <span>Nature & Environment</span>
@@ -156,7 +280,8 @@
       </div>
     </a>
 
-    <a href="Transportation_updated.html" class="card" data-paid="true">
+    <a href="#" data-link="transportation_updated.html" class="card locked">
+
       <div class="emoji">🚗</div>
       <div class="text">
         <span>Transport & Vehicles</span>
@@ -164,7 +289,8 @@
       </div>
     </a>
 
-    <a href="places_updated.html" class="card" data-paid="true">
+   <a href="#" data-link="places_updated.html" class="card locked">
+
       <div class="emoji">🏙️</div>
       <div class="text">
         <span>Places & Buildings</span>
@@ -172,7 +298,7 @@
       </div>
     </a>
 
-    <a href="tools_updated.html" class="card" data-paid="true">
+    <a href="#" data-link="tools_updated.html" class="card locked">
       <div class="emoji">🧰</div>
       <div class="text">
         <span>Tools & Common Objects</span>
@@ -180,5 +306,85 @@
       </div>
     </a>
   </div>
+
+<script>
+document.querySelectorAll('.card.locked').forEach(card => {
+  card.addEventListener('click', function(e){
+    e.preventDefault();
+    document.getElementById('payModal').style.display = 'flex';
+    document.body.classList.add('modal-open');
+  });
+});
+
+// Close modal on outside click
+document.getElementById('payModal').addEventListener('click', function(e){
+  if(e.target === this){
+    this.style.display = 'none';
+    document.body.classList.remove('modal-open');
+  }
+});
+</script>
+<script type="module">
+  import { initializeApp } 
+    from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+
+  import { 
+    getAuth, GoogleAuthProvider, 
+    signInWithPopup, onAuthStateChanged 
+  } 
+  from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+
+  // Your Firebase Config
+  const firebaseConfig = {
+    apiKey: "AIzaSyDPu5kkhRugeFb9XaJ-vsSH3wbzpK5TS9U",
+    authDomain: "noun-a42d5.firebaseapp.com",
+    projectId: "noun-a42d5",
+    storageBucket: "noun-a42d5.firebasestorage.app",
+    messagingSenderId: "1082712137091",
+    appId: "1:1082712137091:web:25a3efbe474646c79eeab6",
+    measurementId: "G-13NZGDFDDV"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+
+  // Google Login Button in your modal
+  document.querySelector(".login-btn").addEventListener("click", function () {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const email = result.user.email;
+        console.log("Logged in:", email);
+
+        alert("Login successful!");
+
+        // Close popup
+        document.getElementById("payModal").style.display = "none";
+        document.body.classList.remove("modal-open");
+
+        // Unlock pages
+        document.querySelectorAll(".card.locked").forEach(card => {
+          card.classList.remove("locked");
+          card.href = card.getAttribute("data-link");
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("Login failed");
+      });
+  });
+
+  // Persist login (stay logged in)
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // Unlock pages after reload
+      document.querySelectorAll('.card.locked').forEach(card => {
+        card.classList.remove("locked");
+        card.href = card.getAttribute("data-link");
+      });
+    }
+  });
+</script>
+
 </body>
 </html>
