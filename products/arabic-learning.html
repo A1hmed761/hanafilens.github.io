@@ -84,7 +84,7 @@ body.modal-open *:not(.modal):not(.modal *) { filter:blur(6px); pointer-events:n
 
 <div id="loginStatus"></div>
 
-  <script type="module">
+<script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
@@ -102,64 +102,50 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
+// Allowed emails
 const allowedEmails = ["ahmedshahqr@gmail.com"];
 let isPaidAccount = false;
-const loginAlert = document.getElementById("loginAlert");
+
 const payModal = document.getElementById("payModal");
 
-// LOGIN
+// LOGIN BUTTON
 document.querySelector(".login-btn").addEventListener("click", async () => {
   try {
     await signInWithPopup(auth, provider);
-  } catch (err) {
-    alert("Login failed: " + err.message);
-  }
+  } catch(err) { alert("Login failed: "+err.message); }
 });
 
 // AUTH STATE
 onAuthStateChanged(auth, (user) => {
   if (!user) return;
-
-  const email = user.email;
-  document.getElementById("loginStatus").style.display = "block";
-  document.getElementById("loginStatus").innerHTML = `Logged in as <b>${email}</b>`;
-
-  if (allowedEmails.includes(email)) {
+  if (allowedEmails.includes(user.email)) {
     isPaidAccount = true;
-    loginAlert.textContent = "✅ Logged in & paid!";
-    loginAlert.className = "paid";
 
     // Unlock cards
     document.querySelectorAll(".card[data-link]").forEach(card => {
       card.classList.remove("locked");
       card.href = card.getAttribute("data-link");
-      card.style.cursor = "pointer";
     });
 
     // Hide modal
     payModal.style.display = "none";
     document.body.classList.remove("modal-open");
-
-  } else {
-    isPaidAccount = false;
-    loginAlert.textContent = "❌ This account is not allowed";
-    loginAlert.className = "not-paid";
   }
 });
 
-// LOCKED CARD CLICK
-document.querySelectorAll(".card").forEach(card => {
-  card.addEventListener("click", (e) => {
-    if (card.classList.contains("locked") && !isPaidAccount) {
+// LOCKED CARDS CLICK
+document.querySelectorAll(".card.locked").forEach(card => {
+  card.addEventListener("click", e => {
+    if (!isPaidAccount) {
       e.preventDefault();
-      payModal.style.display = "flex";
-      document.body.classList.add("modal-open");
+      payModal.style.display = 'flex';
+      document.body.classList.add('modal-open');
     }
   });
 });
 
-// CLOSE MODAL
-payModal.addEventListener("click", (e) => {
+// Close modal on outside click
+payModal.addEventListener("click", e => {
   if (e.target === payModal) {
     payModal.style.display = "none";
     document.body.classList.remove("modal-open");
