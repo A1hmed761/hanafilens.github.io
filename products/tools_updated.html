@@ -1,1036 +1,0 @@
-<!DOCTYPE html>
-
-<html dir="rtl" lang="ar">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>مفردات الأثاث — Furniture Vocabulary</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
-
-<style>
-
-@import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
-
-:root {
-
-  --grid-min: 300px;
-
-  --gap: 40px;
-
-  --emoji-size: 120px;
-
-  --card-width: 300px;
-
-  --card-height: 220px;
-
-  --radius: 12px;
-
-  --caption-padding: 20px;
-
-  --caption-font: 2rem;
-
-  --caption-radius: 12px;
-
-  --back-height: 300px; /* default temporary value */
-
-  /* Text Sizes */
-  --font-base: 1rem;
-  --font-plural: 1.7rem;
-  --font-label: 1.3rem;
-  --font-small: 0.825rem;
-
-  /* Spacing & Borders */
-  --plural-margin-bottom: 30px;
-  --plural-padding-bottom: 15px;
-  --plural-border-width: 3px;
-  --sentence-margin-top: 4px;
-}
-
-
-
-* { box-sizing: border-box; }
-
-
-
-body {
-
-  margin: 0;
-
-  font-family: 'Vazirmatn', sans-serif;
-
-  background: #f6f7fb;
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  padding: 5px;
-}
-
-
-
-h1, h2 {
-
-  font-size: 2rem;
-
-  margin-bottom: 30px;
-
-  text-align: center;
-
-}
-
-
-
-h2 { margin-top: 100px; }
-
-
-
-/* Grid */
-
-.grid {
-
-  display: grid;
-
-  grid-template-columns: repeat(auto-fill, minmax(var(--grid-min), 1fr));
-
-  gap: var(--gap);
-
-  justify-items: center;
-
-  width: 100%;
-
-  max-width: 1400px;
-
-}
-
-
-
-/* Cards */
-
-figure.card {
-
-  background: none;
-
-  border: none;
-
-  box-shadow: none;
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  text-align: center;
-
-  margin: 0;
-
-}
-
-
-
-.emoji, .thumb {
-
-  font-size: var(--emoji-size);
-
-  background: white;
-
-  width: var(--card-width);
-
-  height: var(--card-height);
-
-  border-radius: var(--radius);
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-
-}
-
-
-
-.thumb {
-
-  object-fit: cover;
-
-}
-
-
-
-figcaption {
-
-  margin-top: 10px;
-
-  background: white;
-
-  padding: var(--caption-padding) 0;
-
-  width: 100%;
-
-  border-radius: 0 0 var(--caption-radius) var(--caption-radius);
-
-  font-size: var(--caption-font);
-
-  font-weight: 700;
-
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: center;
-
-  align-items: center;
-
-  text-align: center;
-
-  box-sizing: border-box;
-
-}
-
-
-/* Base Arabic Style */
-.ar {
-  display: block; /* Visible by default */
-}
-
-figcaption.back {
-  width: var(--card-width);
-  height: var(--back-height);
-  overflow-y: auto;
-
-  
-  font-size: var(--font-label);
-  display: flex;
-  flex-direction: column;
-  
-  /* 1. Start from the very top */
-  justify-content: center; 
-
-  /* 2. Stretch items to fill the width (better for text alignment) */
-  align-items: stretch; 
-  
-  gap: var(--back-gap);
-  padding: var(--back-padding);
-
-}
-
-.plural {
-  margin-top: var(--plural-padding-bottom);
-  font-size: var(--font-plural);
-  font-weight: bold;
-  border-bottom: var(--plural-border-width) solid #eee;
-  margin-bottom: var(--plural-margin-bottom);
-  padding-bottom: var(--plural-padding-bottom);
-}
-
-.plural .label {
-  font-size: var(--font-small); /* Makes it smaller than the main text */
-  color: #888;      /* Lightens the color so it's less distracting */
-  font-weight: normal;
-}
-
-.arb.sentence1, .per.sentence1 {
-  font-size: var(--font-small);
-}
-
-/* Adding space specifically after the last line of the first example */
-/* and the last line of the second example */
-.urd.sentence1, .en.sentence1 {
-  margin-bottom: var(--plural-padding-bottom);
-}
-
-/* Hide Urdu and Persian by default */
-.urd, .per {
-  display: none;
-  font-size: var(--font-base);
-  font-weight: 400;
-  color: #666;
-  margin-top: var(--sentence-margin-top);
-}
-
-.en {
-  font-size: var(--font-small);   /* Smaller font size */
-  font-weight: 400;   /* Thinner weight */
-  color: #666;        /* Optional: grey color to create hierarchy */
-  font-family: 'sans-serif'; /* Optional: different font if desired */
-}
-
-.urd {
-  font-size: var(--font-base);   /* Smaller font size */
-  font-weight: 400;   /* Thinner weight */
-  color: #666;        /* Optional: grey color to create hierarchy */
-  font-family: 'Vazirmatn', sans-serif; /* Optional: different font if desired */
-}
-
-
-/* --- Toggle Button 1: Urdu replaces English --- */
-.show-urd .urd { display: block; }
-.show-urd .en  { display: none; }
-
-/* --- Toggle Button 2: Persian replaces Arabic --- */
-.show-per .per { 
-  display: block; 
-  font-size: var(--font-base) /* Matches original Arabic size */
-  font-weight: 700;
-  color: #000;      /* Matches original Arabic color */
-}
-.show-per .ar { display: none; }
-
-
-/* Sidebar Toggle */
-
-.toggle-btn {
-
-  position: fixed;
-
-  right: 20px;
-
-  top: 20px;
-
-  background: #4a4a4a;
-
-  color: white;
-
-  padding: 10px 15px;
-
-  border-radius: 8px;
-
-  cursor: pointer;
-
-  font-size: 1rem;
-
-  z-index: 999;
-
-}
-
-
-/* Sidebar */
-
-.sidebar {
-
-  position: fixed;
-
-  top: 0;
-
-  right: 0;
-
-  width: 320px;
-
-  height: 100vh;
-
-  background: #fff;
-
-  box-shadow: -6px 0 18px rgba(0,0,0,0.08);
-
-  padding: 24px;
-
-  transform: translateX(320px);
-
-  transition: transform 0.28s ease;
-
-  z-index: 998;
-
-  overflow-y: auto;
-
-  direction: rtl;
-
-}
-
-
-
-.sidebar.open {
-
-  transform: translateX(0);
-
-}
-
-
-@media (max-width: 480px) {
-
-  body { padding: 16px; }
-  .sidebar { width: 50px; transform: translateX(260px); }
-
-}
-
-
-
-/* ===========================================================
-
-   FRONT/BACK FLIP SYSTEM (NEW)
-
-   =========================================================== */
-
-
-
-/* Default state: show front, hide back side */
-
-.card .back,
-
-.card .emoji-alt,
-
-.card .thumb-alt {
-
-  display: none;
-
-}
-
-
-
-/* When card is flipped to show the BACK */
-
-.card.show-back .front,
-
-.card.show-back .emoji,
-
-.card.show-back .thumb {
-
-  display: none;
-
-}
-
-
-
-.card.show-back .back {
-
-  display: flex;
-
-}
-
-
-
-.card.show-back .emoji-alt {
-
-  display: flex;
-
-}
-
-
-
-.card.show-back .thumb-alt {
-
-  display: block;
-
-}
-
-.card * {
-  pointer-events: none;
-}
-
-.card {
-  transition: transform 0.4s ease;
-  transform-style: preserve-3d;
-}
-
-.card.flipping {
-  transform: scaleX(0);
-}
-
-@font-face {
-  font-family: 'GoogleEmoji';
-  src: url('fonts/NotoColorEmoji.ttf') format('truetype');
-}
-
-.emoji {
-  font-family: 'GoogleEmoji';
-}
-
- 
-</style>
-</head>
-<body>
-<!-- Sidebar Toggle Button -->
-<div class="toggle-btn" id="toggleSidebar">☰</div>
-<aside aria-hidden="true" class="sidebar" id="sidebar">
-<h3>⚙️ Display settings</h3>
-<label for="rowSelector">عدد الصفوف (حجم البطاقة):</label>
-<select aria-label="Choose card size" id="rowSelector">
-<option value="4">4 — الافتراضي</option>
-<option value="5">5</option>
-<option value="6">6</option>
-</select>
-
-<div class="buttons">
-<button id="btn-urd">Toggle Urdu / English</button>
-<button id="btn-per">Toggle Persian / Arabic</button>
-</div>
-</aside>
-<h1>🛠 أَدَوَاتٌ يَدَوِيَّةٌ شَائِعَة (Common Hand Tools)</h1>
-<section class="grid">
-<figure class="card">
-<div class="emoji">🔨</div>
-<figcaption class="front"><div class="ar">مِطْرَقَةٌ</div><div class="per">چکش</div><div class="en">Hammer</div><div class="urd">ہتھوڑا</div></figcaption><figcaption class="back"><div class="ar">مِطْرَقَةٌ</div><div class="per">چکش</div><div class="ar plural">مِطَارِقٌ<span class="label">:Plural</span></div><div class="per plural">چکش‌ها<span class="label">:Plural</span></div><div class="ar sentence1">ضَرَبَ المِسْمَارَ بِمِطْرَقَةٍ</div><div class="per sentence1">او میخ را با چکش زد.</div><div class="en sentence1">He hit the nail with a hammer.</div><div class="urd sentence1">اُس نے کیل کو ہتھوڑے سے مارا۔</div><div class="ar sentence2">سَقَطَ المِطْرَقُ مِنَ الرَّفِّ</div><div class="per sentence2">چکش از قفسه افتاد.</div><div class="en sentence2">The hammer fell from the shelf.</div><div class="urd sentence2">ہتھوڑا شیلف سے گر گیا۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/nail.png"/>
-<figcaption class="front"><div class="ar">مِسْمَارٌ</div><div class="per">میخ</div><div class="en">Nail</div><div class="urd">کیل</div></figcaption><figcaption class="back"><div class="ar">مِسْمَارٌ</div><div class="per">میخ</div><div class="ar plural">مَسَامِيرُ<span class="label">:Plural</span></div><div class="per plural">میخ‌ها<span class="label">:Plural</span></div><div class="ar sentence1">اِنْثَنَى المِسْمَارُ</div><div class="per sentence1">میخ خم شد.</div><div class="en sentence1">The nail was bent.</div><div class="urd sentence1">کیل موڑ گیا۔</div><div class="ar sentence2">دَقَّتِ المِسْمَارَ فِي الحَائِطِ</div><div class="per sentence2">او میخ را به دیوار زد.</div><div class="en sentence2">She hammered the nail into the wall.</div><div class="urd sentence2">اُس نے کیل کو دیوار میں ٹھوک دیا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🔩</div>
-<figcaption class="front"><div class="ar">مِرْوَحَةٌ / مِسْمَار لُولَبِيٌّ</div><div class="per">پیچ</div><div class="en">Screw</div><div class="urd">پیچ</div></figcaption><figcaption class="back"><div class="ar">مِرْوَحَةٌ / مِسْمَار لُولَبِيٌّ</div><div class="per">پیچ</div><div class="ar plural">مَرَاوِح / مَسَامِير لُولَبِيَّةٌ<span class="label">:Plural</span></div><div class="per plural">پیچ و مهره‌ها<span class="label">:Plural</span></div><div class="ar sentence1">المِرْبَطُ فَتَاحٌ</div><div class="per sentence1">پیچ شل است.</div><div class="en sentence1">The screw is loose.</div><div class="urd sentence1">پیچ ڈھیلا ہے۔</div><div class="ar sentence2">شَدَّ المِسْمَارَ بِمِفَكَّةٍ</div><div class="per sentence2">او پیچ را با پیچ‌گوشتی سفت کرد.</div><div class="en sentence2">He tightened the screw with a screwdriver.</div><div class="urd sentence2">اُس نے پیچ کو اسکرو ڈرائیور سے کس لیا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🪛</div>
-<figcaption class="front"><div class="ar">مِفَكٌّ</div><div class="per">پیچ‌گوشتی</div><div class="en">Screwdriver</div><div class="urd">پیچ کس</div></figcaption><figcaption class="back"><div class="ar">مِفَكٌّ</div><div class="per">پیچ‌گوشتی</div><div class="ar plural">مَفَاكُّ<span class="label">:Plural</span></div><div class="per plural">پیچ‌گوشتی‌ها<span class="label">:Plural</span></div><div class="ar sentence1">اسْتَخْدَمَتْ مِفَكَّةً لِتَصْلِيحِ الخِزَانَةِ</div><div class="per sentence1">او برای تعمیر کابینت از پیچ‌گوشتی استفاده کرد.</div><div class="en sentence1">She used a screwdriver to fix the cabinet.</div><div class="urd sentence1">اُس نے کیبنٹ ٹھیک کرنے کے لیے پیچ کس استعمال کیا۔</div><div class="ar sentence2">انْزَلَقَتِ المِفَكَّةُ مِنْ يَدِهِ</div><div class="per sentence2">پیچ‌گوشتی از دستش لیز خورد.</div><div class="en sentence2">The screwdriver slipped from his hand.</div><div class="urd sentence2">اسکرو ڈرائیور اُس کے ہاتھ سے پھسل گیا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🔧</div>
-<figcaption class="front"><div class="ar">رَفْعَةٌ / مِفْتَاح رَفْعَةٍ</div><div class="per">آچار</div><div class="en">Wrench</div><div class="urd">رنچ / آچار</div></figcaption><figcaption class="back"><div class="ar">رَفْعَةٌ / مِفْتَاح رَفْعَةٍ</div><div class="per">آچار</div><div class="ar plural">رَفَعَات / مَفَاتِيح رَفْعَةٍ<span class="label">:Plural</span></div><div class="per plural">آچارها / ابزار بازکن‌ها<span class="label">:Plural</span></div><div class="ar sentence1">ضَبَطَ أَنْبُوبَ المِصْرَفِ بِمَفْتَاحٍ</div><div class="per sentence1">او لوله را با آچار تنظیم کرد.</div><div class="en sentence1">He adjusted the pipe with a wrench.</div><div class="urd sentence1">اُس نے پائپ کو رنچ سے ایڈجسٹ کیا۔</div><div class="ar sentence2">المِفْتَاحُ فِي صُنْدُوقِ الأَدَوَاتِ</div><div class="per sentence2">آچار در جعبه ابزار است.</div><div class="en sentence2">The wrench is in the toolbox.</div><div class="urd sentence2">رنچ ٹول باکس میں ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/pilers.png"/>
-<figcaption class="front"><div class="ar">كَمَّاشٌ</div><div class="per">انبر</div><div class="en">Pliers</div><div class="urd">پائیرز / پلاس</div></figcaption><figcaption class="back"><div class="ar">كَمَّاشٌ</div><div class="per">انبر</div><div class="ar plural">كَمَّاشَاتٌ<span class="label">:Plural</span></div><div class="per plural">انبرها<span class="label">:Plural</span></div><div class="ar sentence1">تُسْتَخْدَمُ الزَّرَادِيَّةُ لِتَمْسِيكِ الأَشْيَاءِ الصَّغِيرَةِ</div><div class="per sentence1">انبردست برای نگه داشتن اشیاء کوچک استفاده می‌شود.</div><div class="en sentence1">Pliers are used to hold small objects.</div><div class="urd sentence1">پلائیرز چھوٹی اشیاء پکڑنے کے لیے استعمال ہوتے ہیں۔</div><div class="ar sentence2">أَمْسَكَتِ السِّلْكَ بِالزَّرَادِيَّةِ</div><div class="per sentence2">او سیم را با انبردست گرفت.</div><div class="en sentence2">She grabbed the wire with pliers.</div><div class="urd sentence2">اُس نے تار کو پلائیرز سے پکڑا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🪚</div>
-<figcaption class="front"><div class="ar">مِنْشَارٌ</div><div class="per">اره</div><div class="en">Saw</div><div class="urd">آری</div></figcaption><figcaption class="back"><div class="ar">مِنْشَارٌ</div><div class="per">اره</div><div class="ar plural">مَنَاشِيرُ<span class="label">:Plural</span></div><div class="per plural">اره‌ها<span class="label">:Plural</span></div><div class="ar sentence1">قَطَعَ الخَشَبَ بِمِنْشَارٍ</div><div class="per sentence1">او چوب را با اره برید.</div><div class="en sentence1">He cut the wood with a saw.</div><div class="urd sentence1">اُس نے لکڑی کو آری سے کاٹا۔</div><div class="ar sentence2">يَحْتَاجُ المِنْشَارُ لِشَحْذٍ</div><div class="per sentence2">اره نیاز به تیزکاری دارد.</div><div class="en sentence2">The saw needs sharpening.</div><div class="urd sentence2">آری کو تیز کرنے کی ضرورت ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/drill.png"/>
-<figcaption class="front"><div class="ar">مِثْقَابٌ</div><div class="per">دریل</div><div class="en">Drill</div><div class="urd">ڈرل</div></figcaption><figcaption class="back"><div class="ar">مِثْقَابٌ</div><div class="per">دریل</div><div class="ar plural">مَثَاقِبُ<span class="label">:Plural</span></div><div class="per plural">دریل‌ها<span class="label">:Plural</span></div><div class="ar sentence1">حَفَرَ العَامِلُ ثَقْبًا فِي الحَائِطِ</div><div class="per sentence1">کارگر در دیوار سوراخ کرد.</div><div class="en sentence1">The worker drilled a hole in the wall.</div><div class="urd sentence1">مزدور نے دیوار میں سوراخ کیا۔</div><div class="ar sentence2">الحِفَارَةُ ضَرُورِيَّةٌ لِعَمَلِ البِنَاءِ</div><div class="per sentence2">دریل برای کارهای ساختمانی ضروری است.</div><div class="en sentence2">A drill is essential for construction work.</div><div class="urd sentence2">ڈرل تعمیراتی کام کے لیے ضروری ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/chisel.png"/>
-<figcaption class="front"><div class="ar">إزْمَلٌ</div><div class="per">اسکنه / مغار</div><div class="en">Chisel</div><div class="urd">چھینی</div></figcaption><figcaption class="back"><div class="ar">إزْمَلٌ</div><div class="per">اسکنه / مغار</div><div class="ar plural">أَزْمِلَةٌ<span class="label">:Plural</span></div><div class="per plural">اسکنه‌ها<span class="label">:Plural</span></div><div class="ar sentence1">نَحَتَ النَّحَّاتُ التِّمْثَالَ بِإِزْمِلٍ</div><div class="per sentence1">مجسمه‌ساز مجسمه را با مغار تراشید.</div><div class="en sentence1">The sculptor carved the statue with a chisel.</div><div class="urd sentence1">مجسمہ ساز نے مجسمہ چیزل سے تراشا۔</div><div class="ar sentence2">يُمْكِنُ لِلإِزْمِلِ أَنْ يُحْدِثَ قَطْعَاتٍ دَقِيقَةً فِي الخَشَبِ</div><div class="per sentence2">مغار می‌تواند برش‌های دقیق در چوب ایجاد کند.</div><div class="en sentence2">A chisel can make precise cuts in wood.</div><div class="urd sentence2">چیزل لکڑی میں درست کٹ لگا سکتا ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/mallet.png"/>
-<figcaption class="front"><div class="ar">مِطْرَقَة صَغِيرَةٌ</div><div class="per">چکش کوچک</div><div class="en">Mallet / Small Hammer</div><div class="urd">چھوٹا ہتھوڑا</div></figcaption><figcaption class="back"><div class="ar">مِطْرَقَة صَغِيرَةٌ</div><div class="per">چکش کوچک</div><div class="ar plural">مِطَارِق صَغِيرَةٌ<span class="label">:Plural</span></div><div class="per plural">چکش‌های کوچک<span class="label">:Plural</span></div><div class="ar sentence1">نَقَرَ الخَشَبَ بِمِطْرَقَةٍ خَشَبِيَّةٍ</div><div class="per sentence1">او چوب را با پتک زد.</div><div class="en sentence1">He tapped the wood with a mallet.</div><div class="urd sentence1">اُس نے لکڑی کو لکڑی کے ہتھوڑے سے تھپتھپایا۔</div><div class="ar sentence2">المِطْرَقُ الخَشَبِيُّ مَصْنُوعٌ مِنَ المَطَّاطِ</div><div class="per sentence2">پتکک از لاستیک ساخته شده است.</div><div class="en sentence2">The mallet is made of rubber.</div><div class="urd sentence2">مالٹ ربڑ سے بنایا گیا ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🪓</div>
-<figcaption class="front"><div class="ar">فَأْسٌ</div><div class="per">تبر</div><div class="en">Axe</div><div class="urd">کلہاڑی</div></figcaption><figcaption class="back"><div class="ar">فَأْسٌ</div><div class="per">تبر</div><div class="ar plural">فُؤُوسٌ<span class="label">:Plural</span></div><div class="per plural">تبرها<span class="label">:Plural</span></div><div class="ar sentence1">قَطَعَ الحَطَّابُ الخَشَبَ بِفَأْسٍ</div><div class="per sentence1">جنگلبان چوب را با تبر برید.</div><div class="en sentence1">The lumberjack chopped wood with an axe.</div><div class="urd sentence1">لکڑہارا نے لکڑی کو کلہاڑی سے کاٹا۔</div><div class="ar sentence2">القَاطِعُ قَدْ يَكُونُ خَطِيرًا جِدًّا إِذَا أُسْتُخْدِمَ خَطَأً</div><div class="per sentence2">تبر اگر به‌درستی استفاده نشود می‌تواند بسیار خطرناک باشد.</div><div class="en sentence2">An axe can be very dangerous if mishandled.</div><div class="urd sentence2">کلہاڑی غلط استعمال کرنے پر بہت خطرناک ہو سکتی ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/sickle.png"/>
-<figcaption class="front"><div class="ar">مِنْجَلٌ</div><div class="per">داس</div><div class="en">Sickle</div><div class="urd">درانتی / سِکل</div></figcaption><figcaption class="back"><div class="ar">مِنْجَلٌ</div><div class="per">داس</div><div class="ar plural">مَنَاجِلُ<span class="label">:Plural</span></div><div class="per plural">داس‌ها<span class="label">:Plural</span></div><div class="ar sentence1">يَسْتَخْدِمُ الفَلَّاحُونَ المِنْجَلَ لِحَصَادِ الزَّرْعِ</div><div class="per sentence1">کشاورزان برای برداشت محصول از داس استفاده می‌کنند.</div><div class="en sentence1">Farmers use a sickle to cut crops.</div><div class="urd sentence1">کسان فصل کاٹنے کے لیے درانتی استعمال کرتے ہیں۔</div><div class="ar sentence2">المِنْجَلُ حَادٌّ وَمُنْحَنٍ</div><div class="per sentence2">داس تیز و خمیده است.</div><div class="en sentence2">The sickle is sharp and curved.</div><div class="urd sentence2">درانتی تیز اور خمیدہ ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">✂️</div>
-<figcaption class="front"><div class="ar">مِقَصٌّ</div><div class="per">قیچی</div><div class="en">Scissors</div><div class="urd">قینچی</div></figcaption><figcaption class="back"><div class="ar">مِقَصٌّ</div><div class="per">قیچی</div><div class="ar plural">مَقَاصٌّ<span class="label">:Plural</span></div><div class="per plural">قیچی‌ها<span class="label">:Plural</span></div><div class="ar sentence1">قَصَّتِ الوَرَقَةَ بِالمَقَصِّ</div><div class="per sentence1">او کاغذ را با قیچی برید.</div><div class="en sentence1">She cut the paper with scissors.</div><div class="urd sentence1">اُس نے کاغذ کو قینچی سے کاٹا۔</div><div class="ar sentence2">يَجِبُ مُسَايَلَةُ المَقَصِّ بِحِذْرٍ دَائِمًا</div><div class="per sentence2">قیچی باید همیشه با احتیاط استفاده شود.</div><div class="en sentence2">Scissors should always be handled carefully.</div><div class="urd sentence2">قینچی کو ہمیشہ احتیاط سے استعمال کرنا چاہیے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🔪</div>
-<figcaption class="front"><div class="ar">سِكِّينٌ</div><div class="per">چاقو</div><div class="en">Knife</div><div class="urd">چھری / چاقو</div></figcaption><figcaption class="back"><div class="ar">سِكِّينٌ</div><div class="per">چاقو</div><div class="ar plural">سِكَاكِينُ<span class="label">:Plural</span></div><div class="per plural">چاقوها<span class="label">:Plural</span></div><div class="ar sentence1">قَطَعَ الخُبْزَ بِسِكِّينٍ</div><div class="per sentence1">او نان را با چاقو برید.</div><div class="en sentence1">He sliced bread with a knife.</div><div class="urd sentence1">اُس نے روٹی کو چھری سے کاٹا۔</div><div class="ar sentence2">سِكِّينٌ عَلَى مِنْضَدَةِ المَطْبَخِ</div><div class="per sentence2">چاقو روی کانتر آشپزخانه است.</div><div class="en sentence2">A knife is on the kitchen counter.</div><div class="urd sentence2">چھری کچن کاؤنٹر پر ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/blade.png"/>
-<figcaption class="front"><div class="ar">شَفْرَةٌ</div><div class="per">تیغ</div><div class="en">Blade</div><div class="urd">بلیڈ / دھار</div></figcaption><figcaption class="back"><div class="ar">شَفْرَةٌ</div><div class="per">تیغ</div><div class="ar plural">شِفَارَاتٌ<span class="label">:Plural</span></div><div class="per plural">تیغه‌ها<span class="label">:Plural</span></div><div class="ar sentence1">شَفْرَةُ المِنْشَارِ حَادَّةٌ جِدًّا</div><div class="per sentence1">تیغه اره بسیار تیز است.</div><div class="en sentence1">The blade of the saw is very sharp.</div><div class="urd sentence1">آری کی دھار بہت تیز ہے۔</div><div class="ar sentence2">اسْتَبْدَلَ شَفْرَةَ القَاطِعِ</div><div class="per sentence2">او تیغه کاتر را تعویض کرد.</div><div class="en sentence2">He replaced the blade of the cutter.</div><div class="urd sentence2">اُس نے کٹر کی بلیڈ بدل دی۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/metalfile.png"/>
-<figcaption class="front"><div class="ar">مِبْرَد مَعْدَنِيٌّ</div><div class="per">سوهان فلزی</div><div class="en">Metal File</div><div class="urd">دھات کی فائل</div></figcaption><figcaption class="back"><div class="ar">مِبْرَد مَعْدَنِيٌّ</div><div class="per">سوهان فلزی</div><div class="ar plural">مَبَارِد مَعْدَنِيَّةٌ<span class="label">:Plural</span></div><div class="per plural">سوهان‌ها<span class="label">:Plural</span></div><div class="ar sentence1">نَعَّمَ الحُدُودَ بِمِلْمَعَةٍ مِعْدَنِيَّةٍ</div><div class="per sentence1">او لبه‌ها را با سوهان فلزی صاف کرد.</div><div class="en sentence1">He smoothed the edges with a metal file.</div><div class="urd sentence1">اُس نے کناروں کو دھات کی فائل سے ہموار کیا۔</div><div class="ar sentence2">يُسْتَخْدَمُ المِلْمَعُ المَعْدَنِيُّ فِي النِّجَارَةِ</div><div class="per sentence2">سوهان فلزی در نجاری استفاده می‌شود.</div><div class="en sentence2">A metal file is used in carpentry.</div><div class="urd sentence2">دھات کی فائل نجاری میں استعمال ہوتی ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/measuringtape.png"/>
-<figcaption class="front"><div class="ar">شَرِيط قِيَاسٍ</div><div class="per">متر / نوار اندازه گیری</div><div class="en">Measuring Tape</div><div class="urd">پیمائش کی پٹٹی / ٹیپ</div></figcaption><figcaption class="back"><div class="ar">شَرِيط قِيَاسٍ</div><div class="per">متر / نوار اندازه گیری</div><div class="ar plural">أَشْرِطَة قِيَاسٍ<span class="label">:Plural</span></div><div class="per plural">نوار اندازه‌گیری‌ها<span class="label">:Plural</span></div><div class="ar sentence1">قَاسَ الطَّاوِلَةَ بِشَرِيطِ القِيَاسِ</div><div class="per sentence1">او میز را با متر اندازه‌گیری کرد.</div><div class="en sentence1">He measured the table with a measuring tape.</div><div class="urd sentence1">اُس نے میز کو ناپنے والے ٹیپ سے ناپا۔</div><div class="ar sentence2">شَرِيطُ القِيَاسِ طُولُهُ ٥ أَمْتَارٍ</div><div class="per sentence2">متر اندازه‌گیری ۵ متر طول دارد.</div><div class="en sentence2">The measuring tape is 5 meters long.</div><div class="urd sentence2">ناپنے کا ٹیپ 5 میٹر لمبا ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">⚖️</div>
-<figcaption class="front"><div class="ar">مِيزَانٌ</div><div class="per">ترازو</div><div class="en">Scale / Balance</div><div class="urd">ترازو / وزن</div></figcaption><figcaption class="back"><div class="ar">مِيزَانٌ</div><div class="per">ترازو</div><div class="ar plural">مَوَازِينُ<span class="label">:Plural</span></div><div class="per plural">ترازوها<span class="label">:Plural</span></div><div class="ar sentence1">تُظْهِرُ المِقْيَاسُ وَزْنَ الحَقِيبَةِ</div><div class="per sentence1">ترازو وزن کیف را نشان می‌دهد.</div><div class="en sentence1">The scale shows the weight of the bag.</div><div class="urd sentence1">ترازو بیگ کا وزن دکھا رہا ہے۔</div><div class="ar sentence2">التَّوَازُنُ يُسْتَخْدَمُ لِوَزْنِ المُوَادِّ الكِيمِيَائِيَّةِ</div><div class="per sentence2">ترازوی آزمایشگاهی برای وزن کردن مواد شیمیایی استفاده می‌شود.</div><div class="en sentence2">The balance is used to weigh chemicals.</div><div class="urd sentence2">توازن کیمیکلز کے وزن کے لیے استعمال ہوتا ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🧭</div>
-<figcaption class="front"><div class="ar">بُرْجِيّ / فِكّاس</div><div class="per">پرگار / کولیس</div><div class="en">Compass / Calipers</div><div class="urd">کمپاس / کیلیپر</div></figcaption><figcaption class="back"><div class="ar">بُرْجِيّ / فِكّاس</div><div class="per">پرگار / کولیس</div><div class="ar plural">أَبْرِجِيَّة / فِكَاكَاتٌ<span class="label">:Plural</span></div><div class="per plural">آچار فرانسه‌ها / گیره‌ها<span class="label">:Plural</span></div><div class="ar sentence1">قَاسَ القُطْرَ بِالْفِرْجَارِ</div><div class="per sentence1">او قطر را با پرگار اندازه‌گیری کرد.</div><div class="en sentence1">He measured the diameter using a compass.</div><div class="urd sentence1">اُس نے قطر کمپاس سے ناپا۔</div><div class="ar sentence2">يُسَاعِدُ الفِرَاجَةُ فِي قِيَاسِ السُّمُوكِ بِدِقَّةٍ</div><div class="per sentence2">کولیس به اندازه‌گیری ضخامت با دقت کمک می‌کند.</div><div class="en sentence2">Calipers help measure thickness accurately.</div><div class="urd sentence2">کیلیپر موٹائی کو درست ناپنے میں مدد دیتا ہے۔</div></figcaption>
-</figure>
-</section>
-<h2>🏗️ البِنَاءُ وَالإِصْلَاح (Construction &amp; Repair)</h2>
-<section class="grid">
-<figure class="card">
-<img class="thumb" src="images/shovel.png"/>
-<figcaption class="front"><div class="ar">مِجْرَفَةٌ</div><div class="per">بیلچه / بیلچه خاکبرداری</div><div class="en">Shovel / Spade</div><div class="urd">پھاؤ / بیل</div></figcaption><figcaption class="back"><div class="ar">مِجْرَفَةٌ</div><div class="per">بیلچه / بیلچه خاکبرداری</div><div class="ar plural">مَجَارِفُ<span class="label">:Plural</span></div><div class="per plural">بیل‌ها / کلنگ‌ها<span class="label">:Plural</span></div><div class="ar sentence1">حَفَرَ ثَقْبًا بِمِجْرَفَةٍ</div><div class="per sentence1">او با بیل یک سوراخ کند.</div><div class="en sentence1">He dug a hole with a shovel.</div><div class="urd sentence1">اُس نے کھدائی کے لیے بیل استعمال کی۔</div><div class="ar sentence2">المِجْرَفَةُ فِي مَخْزَنِ الحَدِيقَةِ</div><div class="per sentence2">بیل در انباری باغ است.</div><div class="en sentence2">The spade is in the garden shed.</div><div class="urd sentence2">بیل باغ کے شیڈ میں ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🪓</div>
-<figcaption class="front"><div class="ar">فَأْس صَغِيرٌ</div><div class="per">تبر کوچک</div><div class="en">Hatchet</div><div class="urd">ہتھوڑا کلہاڑی / چھوٹا کلہاڑی</div></figcaption><figcaption class="back"><div class="ar">فَأْس صَغِيرٌ</div><div class="per">تبر کوچک</div><div class="ar plural">فُؤُوس صَغِيرَةٌ<span class="label">:Plural</span></div><div class="per plural">تبرهای کوچک<span class="label">:Plural</span></div><div class="ar sentence1">قَطَعَ الفُرُوعَ بِفَأْسٍ صَغِيرٍ</div><div class="per sentence1">او شاخه‌ها را با تبر کوچک برید.</div><div class="en sentence1">He cut branches with a hatchet.</div><div class="urd sentence1">اُس نے شاخیں ٹوٹی کلہاڑی سے کاٹیں۔</div><div class="ar sentence2">الفَأْسُ الصَّغِيرَةُ أَصْغَرُ مِنَ الفَأْسِ</div><div class="per sentence2">تبر کوچک از تبر بزرگ‌تر است.</div><div class="en sentence2">A hatchet is smaller than an axe.</div><div class="urd sentence2">ٹوٹی کلہاڑی کلہاڑی سے چھوٹی ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🚜</div>
-<figcaption class="front"><div class="ar">جَرَّافَة / حَفَّارَةٌ</div><div class="per">بولدوزر / خاک‌بردار</div><div class="en">Bulldozer / Excavator</div><div class="urd">بلڈوزر / کھدائی کی مشین</div></figcaption><figcaption class="back"><div class="ar">جَرَّافَة / حَفَّارَةٌ</div><div class="per">بولدوزر / خاک‌بردار</div><div class="ar plural">جَرَّافَات / حَفَّارَاتٌ<span class="label">:Plural</span></div><div class="per plural">بلدوزرها / بیل مکانیکی‌ها<span class="label">:Plural</span></div><div class="ar sentence1">أَزَالَ الجَرَّافُ الأَرْضَ</div><div class="per sentence1">بولڈوزر زمین صاف کرد.</div><div class="en sentence1">The bulldozer cleared the land.</div><div class="urd sentence1">بلڈوزر نے زمین صاف کی۔</div><div class="ar sentence2">يُسْتَخْدَمُ الحَفَّارُ فِي البِنَاءِ الثَّقِيلِ</div><div class="per sentence2">بیل مکانیکی در ساخت و ساز سنگین استفاده می‌شود.</div><div class="en sentence2">Excavators are used in heavy construction.</div><div class="urd sentence2">ایکسکیویٹر بھاری تعمیرات میں استعمال ہوتے ہیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/sledgehammer.png"/>
-<figcaption class="front"><div class="ar">مِطْرَقَة ثَقِيلَةٌ</div><div class="per">چکش سنگین</div><div class="en">Sledgehammer</div><div class="urd">بھاری ہتھوڑا</div></figcaption><figcaption class="back"><div class="ar">مِطْرَقَة ثَقِيلَةٌ</div><div class="per">چکش سنگین</div><div class="ar plural">مِطَارِق ثَقِيلَةٌ<span class="label">:Plural</span></div><div class="per plural">چکش‌های سنگین<span class="label">:Plural</span></div><div class="ar sentence1">حَطَّمَ الحَائِطَ بِمِطْرَقَةٍ كَبِيرَةٍ</div><div class="per sentence1">او دیوار را با پتک سنگین شکست.</div><div class="en sentence1">He broke the wall with a sledgehammer.</div><div class="urd sentence1">اُس نے دیوار کو بھاری ہتھوڑے سے توڑا۔</div><div class="ar sentence2">المِطْرَقُ الكَبِيرُ ثَقِيلٌ جِدًّا</div><div class="per sentence2">پتک سنگین بسیار است.</div><div class="en sentence2">The sledgehammer is very heavy.</div><div class="urd sentence2">بھاری ہتھوڑا بہت وزنی ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🪣</div>
-<figcaption class="front"><div class="ar">دَلْوٌ</div><div class="per">سطل</div><div class="en">Bucket</div><div class="urd">بالٹی</div></figcaption><figcaption class="back"><div class="ar">دَلْوٌ</div><div class="per">سطل</div><div class="ar plural">دَلَوَاتٌ<span class="label">:Plural</span></div><div class="per plural">سطل‌ها<span class="label">:Plural</span></div><div class="ar sentence1">حَمَلَ المَاءَ فِي دَلْوٍ</div><div class="per sentence1">او آب را در سطل حمل کرد.</div><div class="en sentence1">He carried water in a bucket.</div><div class="urd sentence1">اُس نے پانی بالٹی میں لے جایا۔</div><div class="ar sentence2">الدَّلْوُ مَصْنُوعٌ مِنَ البِلَاسْتِيكِ</div><div class="per sentence2">سطل از پلاستیک ساخته شده است.</div><div class="en sentence2">The bucket is made of plastic.</div><div class="urd sentence2">بالٹی پلاسٹک کی بنی ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🪮</div>
-<figcaption class="front"><div class="ar">فُرْشَاةٌ</div><div class="per">قلم‌مو / فرچه</div><div class="en">Brush</div><div class="urd">برش / برشٹا</div></figcaption><figcaption class="back"><div class="ar">فُرْشَاةٌ</div><div class="per">قلم‌مو / فرچه</div><div class="ar plural">فُرَشٌ<span class="label">:Plural</span></div><div class="per plural">قلم‌موها / برس‌ها<span class="label">:Plural</span></div><div class="ar sentence1">طَلَتِ الحَائِطَ بِفُرْشَاةٍ</div><div class="per sentence1">او دیوار را با قلم‌مو رنگ کرد.</div><div class="en sentence1">She painted the wall with a brush.</div><div class="urd sentence1">اُس نے دیوار کو برش سے رنگ کیا۔</div><div class="ar sentence2">الفُرْشَاةُ لَهَا شَعْرٌ نَاعِمٌ</div><div class="per sentence2">قلم‌مو پرز نرم دارد.</div><div class="en sentence2">The brush has soft bristles.</div><div class="urd sentence2">برش کے بال نرم ہیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🎨</div>
-<figcaption class="front"><div class="ar">طِلَاءٌ</div><div class="per">رنگ</div><div class="en">Paint</div><div class="urd">رنگ</div></figcaption><figcaption class="back"><div class="ar">طِلَاءٌ</div><div class="per">رنگ</div><div class="ar plural">أَطْلِيَةٌ<span class="label">:Plural</span></div><div class="per plural">رنگ‌ها<span class="label">:Plural</span></div><div class="ar sentence1">اشْتَرَى دَهَانَ أزْرَقَ لِلْغُرْفَةِ</div><div class="per sentence1">او رنگ آبی برای اتاق خرید.</div><div class="en sentence1">He bought blue paint for the room.</div><div class="urd sentence1">اُس نے کمرے کے لیے نیلا رنگ خریدا۔</div><div class="ar sentence2">يُمْكِنُ دَهَانُ الدِّهَانِ بِالرُّولَرِ</div><div class="per sentence2">رنگ با غلتک قابل اعمال است.</div><div class="en sentence2">Paint can be applied with a roller.</div><div class="urd sentence2">رولر سے رنگ لگایا جا سکتا ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🎨</div>
-<figcaption class="front"><div class="ar">بَيْتُ الطِّلَاءٍ</div><div class="per">رنگ / نقاشی</div><div class="en">Paint (Colloquial)</div><div class="urd">پینٹ</div></figcaption><figcaption class="back"><div class="ar">بَيْتُ الطِّلَاءٍ</div><div class="per">رنگ / نقاشی</div><div class="ar plural">بُيُوت الطِّلَاءٍ<span class="label">:Plural</span></div><div class="per plural">خانه رنگ‌ها / کارگاه رنگ<span class="label">:Plural</span></div><div class="ar sentence1">رَشَقَتِ الدَّهَانَ عَلَى الحَائِطِ سَرِيعًا</div><div class="per sentence1">او سریع رنگ را روی دیوار زد.</div><div class="en sentence1">She slapped paint on the wall quickly.</div><div class="urd sentence1">اُس نے تیزی سے دیوار پر رنگ لگایا۔</div><div class="ar sentence2">يُحِبُّ الأَطْفَالُ اللَّعِبَ بِالدَّهَانِ</div><div class="per sentence2">بچه‌ها عاشق بازی با رنگ هستند.</div><div class="en sentence2">Kids love playing with paint.</div><div class="urd sentence2">بچے رنگ کے ساتھ کھیلنا پسند کرتے ہیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/roller.png"/>
-<figcaption class="front"><div class="ar">دَوَّار الطِّلَاءٍ</div><div class="per">غلتک رنگ‌آمیزی</div><div class="en">Roller</div><div class="urd">رولر</div></figcaption><figcaption class="back"><div class="ar">دَوَّار الطِّلَاءٍ</div><div class="per">غلتک رنگ‌آمیزی</div><div class="ar plural">دَوَّارَات الطِّلَاءٍ<span class="label">:Plural</span></div><div class="per plural">غلطک‌های رنگ<span class="label">:Plural</span></div><div class="ar sentence1">اسْتَخْدَمَ الرُّولَرَ لِتَغْطِيَةِ الحَائِطِ بِشَكْلٍ مُتَوَازِنٍ</div><div class="per sentence1">او از غلتک برای پوشاندن یکنواخت دیوار استفاده کرد.</div><div class="en sentence1">He used a roller to cover the wall evenly.</div><div class="urd sentence1">اُس نے دیوار کو یکساں رنگ کرنے کے لیے رولر استعمال کیا۔</div><div class="ar sentence2">جَعَلَ الرُّولَرُ الدِّهَانَ أَسْرَعَ</div><div class="per sentence2">غلتک نقاشی را سریع‌تر کرد.</div><div class="en sentence2">The roller made painting faster.</div><div class="urd sentence2">رولر نے رنگ کرنے کا کام تیز کر دیا۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/cement.png"/>
-<figcaption class="front"><div class="ar">سِمَانْتٌ</div><div class="per">سیمان</div><div class="en">Cement</div><div class="urd">سیمنٹ</div></figcaption><figcaption class="back"><div class="ar">سِمَانْتٌ</div><div class="per">سیمان</div><div class="ar plural">سِمَانْتَاتٌ<span class="label">:Plural</span></div><div class="per plural">سیمان‌ها<span class="label">:Plural</span></div><div class="ar sentence1">يُخْلَطُ الإِسْمَانْتُ مَعَ الرَّمْلِ وَالمَاءِ</div><div class="per sentence1">سیمان با ماسه و آب مخلوط می‌شود.</div><div class="en sentence1">Cement is mixed with sand and water.</div><div class="urd sentence1">سیمنٹ ریت اور پانی کے ساتھ ملایا جاتا ہے۔</div><div class="ar sentence2">صَبُّوا الإِسْمَانْتَ لِلأَسَاسِ</div><div class="per sentence2">آنها سیمان را برای پی ریختند.</div><div class="en sentence2">They poured cement for the foundation.</div><div class="urd sentence2">انہوں نے بنیاد کے لیے سیمنٹ ڈالی۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/brick.png"/>
-<figcaption class="front"><div class="ar">طُوبٌ / قَصَعٌ</div><div class="per">آجر</div><div class="en">Brick</div><div class="urd">اینٹ</div></figcaption><figcaption class="back"><div class="ar">طُوبٌ / قَصَعٌ</div><div class="per">آجر</div><div class="ar plural">أَطْوَاب / قِصَعٌ<span class="label">:Plural</span></div><div class="per plural">آجرها<span class="label">:Plural</span></div><div class="ar sentence1">الحَائِطُ مَصْنُوعٌ مِنَ الطُّوبِ الأَحْمَرِ</div><div class="per sentence1">دیوار از آجر قرمز ساخته شده است.</div><div class="en sentence1">The wall is made of red bricks.</div><div class="urd sentence1">دیوار سرخ اینٹوں سے بنی ہے۔</div><div class="ar sentence2">رَتَّبَ القِرِمِيدَ بِعِنَايَةٍ</div><div class="per sentence2">او آجرها را با دقت چید.</div><div class="en sentence2">He stacked the bricks carefully.</div><div class="urd sentence2">اُس نے اینٹیں احتیاط سے رکھیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🪨</div>
-<figcaption class="front"><div class="ar">حَجَرٌ</div><div class="per">سنگ</div><div class="en">Stone</div><div class="urd">پتھر</div></figcaption><figcaption class="back"><div class="ar">حَجَرٌ</div><div class="per">سنگ</div><div class="ar plural">أَحْجَارٌ<span class="label">:Plural</span></div><div class="per plural">سنگ‌ها<span class="label">:Plural</span></div><div class="ar sentence1">اسْتُخْدِمَتِ الحِجَارَةُ لِرَصِّ المَمَرِّ</div><div class="per sentence1">برای سنگ‌فرش مسیر از سنگ استفاده شد.</div><div class="en sentence1">Stones were used to pave the path.</div><div class="urd sentence1">راستہ پخت کرنے کے لیے پتھروں کا استعمال کیا گیا۔</div><div class="ar sentence2">نَحَتَ النَّحَّاتُ تِمْثَالًا مِنَ الحَجَرِ</div><div class="per sentence2">مجسمه‌ساز مجسمه‌ای از سنگ تراشید.</div><div class="en sentence2">The sculptor carved a statue from stone.</div><div class="urd sentence2">مجسمہ ساز نے پتھر سے مجسمہ تراشا۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/sand.png"/>
-<figcaption class="front"><div class="ar">رَمْلٌ</div><div class="per">شن / ماسه</div><div class="en">Sand</div><div class="urd">ریت</div></figcaption><figcaption class="back"><div class="ar">رَمْلٌ</div><div class="per">شن / ماسه</div><div class="ar plural">رِمَالٌ<span class="label">:Plural</span></div><div class="per plural">شن‌ها<span class="label">:Plural</span></div><div class="ar sentence1">الرَّمْلُ ضَرُورِيٌّ لِصُنْعِ الخَرَسَانَةِ</div><div class="per sentence1">ماسه برای ساخت بتن ضروری است.</div><div class="en sentence1">Sand is essential for making concrete.</div><div class="urd sentence1">کنکریٹ بنانے کے لیے ریت ضروری ہے۔</div><div class="ar sentence2">لَعِبَ الأَطْفَالُ فِي الرِّمَالِ</div><div class="per sentence2">بچه‌ها در ماسه بازی کردند.</div><div class="en sentence2">The children played in the sand.</div><div class="urd sentence2">بچے ریت میں کھیل رہے تھے۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/trowel.png"/>
-<figcaption class="front"><div class="ar">مِجْرَفَة صَغِيرَة / مِلْمَعَةٌ</div><div class="per">ماله / ماله کوچک</div><div class="en">Trowel</div><div class="urd">چھوٹا بیلچہ / مِلاؤ</div></figcaption><figcaption class="back"><div class="ar">مِجْرَفَة صَغِيرَة / مِلْمَعَةٌ</div><div class="per">ماله / ماله کوچک</div><div class="ar plural">مَجَارِف صَغِيرَة / مَلْمَعَاتٌ<span class="label">:Plural</span></div><div class="per plural">بیلچه‌ها / کلنگچه‌ها<span class="label">:Plural</span></div><div class="ar sentence1">بَدَأَ بِفَرْشِ المَلْطَ بِمِجْرَفَةٍ</div><div class="per sentence1">او ملات را با ماله پخش کرد.</div><div class="en sentence1">He spread mortar with a trowel.</div><div class="urd sentence1">اُس نے مورٹر کو مِجرا کے ساتھ پھیلایا۔</div><div class="ar sentence2">المِلْمَعَةُ أَدَاةٌ يَدَوِيَّةٌ صَغِيرَةٌ</div><div class="per sentence2">ماله یک ابزار دستی کوچک است.</div><div class="en sentence2">A trowel is a small hand tool.</div><div class="urd sentence2">ٹراویل ایک چھوٹا ہینڈ ٹول ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/pipe.png"/>
-<figcaption class="front"><div class="ar">أَنْبُوبٌ</div><div class="per">لوله</div><div class="en">Pipe</div><div class="urd">پائپ</div></figcaption><figcaption class="back"><div class="ar">أَنْبُوبٌ</div><div class="per">لوله</div><div class="ar plural">أَنْبُوبَاتٌ<span class="label">:Plural</span></div><div class="per plural">لوله‌ها<span class="label">:Plural</span></div><div class="ar sentence1">يَتَدَفَّقُ المَاءُ مِنَ الأَنْبُوبِ</div><div class="per sentence1">آب از لوله جریان دارد.</div><div class="en sentence1">Water flows through the pipe.</div><div class="urd sentence1">پانی پائپ سے بہتا ہے۔</div><div class="ar sentence2">صَلَحَ السَّيَّاسُ أَنْبُوبًا مَكْسُورًا</div><div class="per sentence2">لوله‌کش لوله شکسته را تعمیر کرد.</div><div class="en sentence2">The plumber fixed the broken pipe.</div><div class="urd sentence2">پلمبر نے ٹوٹی پائپ ٹھیک کی۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/hose.png"/>
-<figcaption class="front"><div class="ar">خُرْطُومٌ</div><div class="per">شیلنگ</div><div class="en">Hose</div><div class="urd">نلی / ہوز</div></figcaption><figcaption class="back"><div class="ar">خُرْطُومٌ</div><div class="per">شیلنگ</div><div class="ar plural">خَرَاطِيمُ<span class="label">:Plural</span></div><div class="per plural">شلنگ‌ها<span class="label">:Plural</span></div><div class="ar sentence1">رَوَى الحَدِيقَةَ بِخُرْطُومٍ</div><div class="per sentence1">او باغ را با شلنگ آبیاری کرد.</div><div class="en sentence1">He watered the garden with a hose.</div><div class="urd sentence1">اُس نے باغ کو ہوز سے پانی دیا۔</div><div class="ar sentence2">لُفَّ الخُرْطُومُ بِنِظَافَةٍ بَعْدَ الاِسْتِخْدَامِ</div><div class="per sentence2">شلنگ بعد از استفاده مرتب پیچیده شد.</div><div class="en sentence2">The hose was rolled neatly after use.</div><div class="urd sentence2">ہوز استعمال کے بعد صاف رول کیا گیا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🪜</div>
-<figcaption class="front"><div class="ar">سُلَّمٌ</div><div class="per">نردبان</div><div class="en">Ladder</div><div class="urd">سیڑھی</div></figcaption><figcaption class="back"><div class="ar">سُلَّمٌ</div><div class="per">نردبان</div><div class="ar plural">سُلَّمَاتٌ<span class="label">:Plural</span></div><div class="per plural">نردبان‌ها<span class="label">:Plural</span></div><div class="ar sentence1">صَعِدَ السَّلَّمَ لِتَصْلِيحِ السَّقْفِ</div><div class="per sentence1">او برای تعمیر سقف از نردبان بالا رفت.</div><div class="en sentence1">He climbed the ladder to fix the roof.</div><div class="urd sentence1">اُس نے چھت ٹھیک کرنے کے لیے سیڑھی چڑھی۔</div><div class="ar sentence2">السَّلَّمُ مَصْنُوعٌ مِنَ الألُومِينِيُومِ</div><div class="per sentence2">نردبان از آلومینیوم ساخته شده است.</div><div class="en sentence2">The ladder is made of aluminum.</div><div class="urd sentence2">سیڑھی ایلومینیم سے بنی ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🧵</div>
-<figcaption class="front"><div class="ar">خَيْطٌ</div><div class="per">نخ / ریسمان</div><div class="en">Thread / String</div><div class="urd">دھاگہ / رسی</div></figcaption><figcaption class="back"><div class="ar">خَيْطٌ</div><div class="per">نخ / ریسمان</div><div class="ar plural">خُيُوطٌ<span class="label">:Plural</span></div><div class="per plural">نخ‌ها<span class="label">:Plural</span></div><div class="ar sentence1">رَبَطَت الطَّرْدَ بِخَيْطٍ</div><div class="per sentence1">او بسته را با نخ بست.</div><div class="en sentence1">She tied the parcel with a thread.</div><div class="urd sentence1">اُس نے پارسل کو دھاگے سے باندھا۔</div><div class="ar sentence2">الخَيْطُ قَوِيٌّ جِدًّا</div><div class="per sentence2">نخ بسیار قوی است.</div><div class="en sentence2">The thread is very strong.</div><div class="urd sentence2">دھاگہ بہت مضبوط ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/rope.png"/>
-<figcaption class="front"><div class="ar">حَبْلٌ</div><div class="per">طناب</div><div class="en">Rope</div><div class="urd">رسی</div></figcaption><figcaption class="back"><div class="ar">حَبْلٌ</div><div class="per">طناب</div><div class="ar plural">حِبَالٌ<span class="label">:Plural</span></div><div class="per plural">طناب‌ها<span class="label">:Plural</span></div><div class="ar sentence1">سَحَبَ القَارِبَ بِحَبْلٍ</div><div class="per sentence1">او قایق را با طناب کشید.</div><div class="en sentence1">He pulled the boat with a rope.</div><div class="urd sentence1">اُس نے کشتی کو رسی سے کھینچا۔</div><div class="ar sentence2">تُسْتَخْدَمُ الحِبَالُ لِلصَّعْدِ وَالرَّفْعِ</div><div class="per sentence2">طناب‌ها برای بالا رفتن و بلند کردن استفاده می‌شوند.</div><div class="en sentence2">Ropes are used for climbing and lifting.</div><div class="urd sentence2">رسیوں کو چڑھنے اور اٹھانے کے لیے استعمال کیا جاتا ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">⛓️</div>
-<figcaption class="front"><div class="ar">سِلْسِلَةٌ</div><div class="per">زنجیر</div><div class="en">Chain</div><div class="urd">زنجیر</div></figcaption><figcaption class="back"><div class="ar">سِلْسِلَةٌ</div><div class="per">زنجیر</div><div class="ar plural">سِلْسِلَاتٌ<span class="label">:Plural</span></div><div class="per plural">زنجیرها<span class="label">:Plural</span></div><div class="ar sentence1">البَابُ مُؤَمَّنٌ بِسِلْسِلَةٍ</div><div class="per sentence1">دروازه با زنجیر محکم شده است.</div><div class="en sentence1">The gate is secured with a chain.</div><div class="urd sentence1">دروازہ چین سے محفوظ کیا گیا ہے۔</div><div class="ar sentence2">القُيُودُ قَدْ تَكُونُ ثَقِيلَةً وَقَوِيَّةً</div><div class="per sentence2">زنجیرها می‌توانند سنگین و قوی باشند.</div><div class="en sentence2">Chains can be heavy and strong.</div><div class="urd sentence2">زنجیریں بھاری اور مضبوط ہو سکتی ہیں۔</div></figcaption>
-</figure>
-</section>
-<h2>⚙️ أَدَوَاتٌ مِيكَانِيكِيَّة (Mechanical &amp; Workshop Tools)</h2>
-<section class="grid">
-<figure class="card">
-<img class="thumb" src="images/machine.png"/>
-<figcaption class="front"><div class="ar">آلةٌ</div><div class="per">دستگاه</div><div class="en">Machine</div><div class="urd">مشین</div></figcaption><figcaption class="back"><div class="ar">آلةٌ</div><div class="per">دستگاه</div><div class="ar plural">آلَاتٌ<span class="label">:Plural</span></div><div class="per plural">دستگاه‌ها / ابزارها<span class="label">:Plural</span></div><div class="ar sentence1">تُسْتَخْدَمُ المَاكِينَةُ لِقَصِّ المُعَدَّنَاتِ</div><div class="per sentence1">ماشین برای برش فلز استفاده می‌شود.</div><div class="en sentence1">The machine is used for cutting metal.</div><div class="urd sentence1">یہ مشین دھات کاٹنے کے لیے استعمال ہوتی ہے۔</div><div class="ar sentence2">تُسْرِعُ الآلَاتُ العَمَلَ وَتُسَهِّلُهُ</div><div class="per sentence2">ماشین‌ها کار را سریع‌تر و آسان‌تر می‌کنند.</div><div class="en sentence2">Machines make work faster and easier.</div><div class="urd sentence2">مشینیں کام کو تیز اور آسان بناتی ہیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/engine.png"/>
-<figcaption class="front"><div class="ar">مُحَرِّكٌ</div><div class="per">موتور</div><div class="en">Engine / Motor</div><div class="urd">انجن / موٹر</div></figcaption><figcaption class="back"><div class="ar">مُحَرِّكٌ</div><div class="per">موتور</div><div class="ar plural">مُحَرِّكُونَ / مُحَرِّكَاتٌ<span class="label">:Plural</span></div><div class="per plural">موتور‌ها<span class="label">:Plural</span></div><div class="ar sentence1">تَوَقَّفَ المُحَرِّكُ عَنِ العَمَلِ فَجْأَةً</div><div class="per sentence1">موتور ناگهان از کار ایستاد.</div><div class="en sentence1">The engine stopped working suddenly.</div><div class="urd sentence1">انجن اچانک کام کرنا بند کر گیا۔</div><div class="ar sentence2">تَسْتَخْدِمُ السَّيَّارَاتُ المُحَرِّكَاتِ لِلْحَرَكَةِ</div><div class="per sentence2">خودروها برای حرکت از موتور استفاده می‌کنند.</div><div class="en sentence2">Cars use motors to move.</div><div class="urd sentence2">گاڑیاں حرکت کرنے کے لیے موٹرز استعمال کرتی ہیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/gears.png"/>
-<figcaption class="front"><div class="ar">تَرْسٌ / عُدَد التَّروس</div><div class="per">چرخ دنده</div><div class="en">Gears</div><div class="urd">گئیرز</div></figcaption><figcaption class="back"><div class="ar">تَرْسٌ / عُدَد التَّروس</div><div class="per">چرخ دنده</div><div class="ar plural">تَرَاسٍ / أَعْدَاد التُّرُس<span class="label">:Plural</span></div><div class="per plural">چرخ‌دنده‌ها / دنده‌ها<span class="label">:Plural</span></div><div class="ar sentence1">التَّرْسَاتُ فِي الآلَةِ مُدَهَّنَةٌ جَيِّدًا</div><div class="per sentence1">چرخ‌دنده‌های دستگاه خوب روغن‌کاری شده‌اند.</div><div class="en sentence1">The gears in the machine are well-oiled.</div><div class="urd sentence1">مشین کے گیئرز اچھی طرح چکنا ہیں۔</div><div class="ar sentence2">صَلَحَ التَّرْسَاتِ المَكْسُورَةَ</div><div class="per sentence2">او چرخ‌دنده‌های شکسته را تعمیر کرد.</div><div class="en sentence2">He fixed the broken gears.</div><div class="urd sentence2">اُس نے ٹوٹے ہوئے گیئرز ٹھیک کیے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🔩</div>
-<figcaption class="front"><div class="ar">صَامُولَةٌ</div><div class="per">مهره</div><div class="en">Nut (for a bolt)</div><div class="urd">نٹ</div></figcaption><figcaption class="back"><div class="ar">صَامُولَةٌ</div><div class="per">مهره</div><div class="ar plural">صَامُولَاتٌ<span class="label">:Plural</span></div><div class="per plural">مهره‌ها / پیچ‌ها<span class="label">:Plural</span></div><div class="ar sentence1">شَدَّ المِرْوَحَةَ عَلَى المِسْمَارِ</div><div class="per sentence1">او مهره را روی پیچ سفت کرد.</div><div class="en sentence1">He tightened the nut on the bolt.</div><div class="urd sentence1">اُس نے بولٹ پر نٹ سخت کیا۔</div><div class="ar sentence2">المِسَامِيرُ وَالصَّوَابِيبُ ضَرُورِيَّةٌ فِي البِنَاءِ</div><div class="per sentence2">مهره‌ها و پیچ‌ها در ساختمان ضروری هستند.</div><div class="en sentence2">Nuts and bolts are essential in construction.</div><div class="urd sentence2">نٹ اور بولٹ تعمیرات میں ضروری ہیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/metalwasher.png"/>
-<figcaption class="front"><div class="ar">وَشَرٌ</div><div class="per">واشر</div><div class="en">Washer</div><div class="urd">واشر</div></figcaption><figcaption class="back"><div class="ar">وَشَرٌ</div><div class="per">واشر</div><div class="ar plural">أَوْشِرَةٌ<span class="label">:Plural</span></div><div class="per plural">واشرها<span class="label">:Plural</span></div><div class="ar sentence1">غِسَالَةٌ تَمْنَعُ المُسْمَارَ مِنَ الرَّخْوَةِ</div><div class="per sentence1">واشر مانع شل شدن پیچ می‌شود.</div><div class="en sentence1">A washer prevents the bolt from loosening.</div><div class="urd sentence1">واشر بولٹ کو ڈھیلا ہونے سے روکتا ہے۔</div><div class="ar sentence2">وَضَعَ غِسَالَةً تَحْتَ المِسْمَارِ</div><div class="per sentence2">او واشر را زیر پیچ قرار داد.</div><div class="en sentence2">He placed a washer under the screw.</div><div class="urd sentence2">اُس نے واشر اسکرو کے نیچے رکھا۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/compressor.png"/>
-<figcaption class="front"><div class="ar">ضَاغِطٌ / كُمْبْرِسُور</div><div class="per">کمپرسور</div><div class="en">Compressor</div><div class="urd">کمپریسر</div></figcaption><figcaption class="back"><div class="ar">ضَاغِطٌ / كُمْبْرِسُور</div><div class="per">کمپرسور</div><div class="ar plural">ضَوَاغِط / كُمْبْرِسُورَات<span class="label">:Plural</span></div><div class="per plural">کمپرسورها / فشاردهنده‌ها<span class="label">:Plural</span></div><div class="ar sentence1">يَضَخُّ الضَّاغِطُ الهَوَاءَ فِي الإِطَارَاتِ</div><div class="per sentence1">کمپرسور هوا را به تایرها می‌فرستد.</div><div class="en sentence1">The compressor pumps air into the tires.</div><div class="urd sentence1">کمپریسر ٹائروں میں ہوا بھرتا ہے۔</div><div class="ar sentence2">ضَاغِطُ الهَوَاءِ صَاخِبٌ جِدًّا</div><div class="per sentence2">کمپرسور هوا بسیار پرصدا است.</div><div class="en sentence2">The air compressor is very noisy.</div><div class="urd sentence2">ایئر کمپریسر بہت شور کرتا ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/generator.png"/>
-<figcaption class="front"><div class="ar">مُوَلِّدٌ</div><div class="per">ژنراتور</div><div class="en">Generator</div><div class="urd">جنریٹر</div></figcaption><figcaption class="back"><div class="ar">مُوَلِّدٌ</div><div class="per">ژنراتور</div><div class="ar plural">مُوَلِّدَاتٌ<span class="label">:Plural</span></div><div class="per plural">ژنراتورها<span class="label">:Plural</span></div><div class="ar sentence1">يُوَفِّرُ المُوَلِّدُ الكَهْرَبَاءَ أَثْنَاءَ انْقِطَاعِ الطَّاقَةِ</div><div class="per sentence1">ژنراتور هنگام قطعی برق برق تأمین می‌کند.</div><div class="en sentence1">The generator provides electricity during a power cut.</div><div class="urd sentence1">جنریٹر بجلی کے غائب ہونے پر فراہم کرتا ہے۔</div><div class="ar sentence2">المُوَلِّدُ مُفِيدٌ فِي المَنَاطِقِ البَعِيدَةِ</div><div class="per sentence2">ژنراتور در مناطق دورافتاده مفید است.</div><div class="en sentence2">A generator is useful in remote areas.</div><div class="urd sentence2">دور دراز علاقوں میں جنریٹر مفید ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🌀</div>
-<figcaption class="front"><div class="ar">مِرْوَحَةٌ</div><div class="per">پنکه</div><div class="en">Fan</div><div class="urd">پنکھا</div></figcaption><figcaption class="back"><div class="ar">مِرْوَحَةٌ</div><div class="per">پنکه</div><div class="ar plural">مَرَاوِحُ<span class="label">:Plural</span></div><div class="per plural">پنکه‌ها<span class="label">:Plural</span></div><div class="ar sentence1">يُبْقِي المِرْوَحَةُ الغُرْفَةَ بَارِدَةً</div><div class="per sentence1">پنکه اتاق را خنک نگه می‌دارد.</div><div class="en sentence1">The fan keeps the room cool.</div><div class="urd sentence1">پنکھا کمرے کو ٹھنڈا رکھتا ہے۔</div><div class="ar sentence2">شَغَّلَ المِرْوَحَةَ قَبْلَ النَّوْمِ</div><div class="per sentence2">او قبل از خواب پنکه را روشن کرد.</div><div class="en sentence2">He switched on the fan before sleeping.</div><div class="urd sentence2">اُس نے سونے سے پہلے پنکھا چلایا۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/pump.png"/>
-<figcaption class="front"><div class="ar">مَضَخَّةٌ</div><div class="per">پمپ</div><div class="en">Pump</div><div class="urd">پمپ</div></figcaption><figcaption class="back"><div class="ar">مَضَخَّةٌ</div><div class="per">پمپ</div><div class="ar plural">مَضَخَّاتٌ<span class="label">:Plural</span></div><div class="per plural">پمپ‌ها<span class="label">:Plural</span></div><div class="ar sentence1">تَسْحَبُ المِضَخَّةُ المَاءَ مِنَ البِئْرِ</div><div class="per sentence1">پمپ آب را از چاه می‌کشد.</div><div class="en sentence1">The pump draws water from the well.</div><div class="urd sentence1">پمپ پانی کو کنویں سے کھینچتا ہے۔</div><div class="ar sentence2">صَلَحَ مِضَخَّةَ المَاءِ أَمْسِ</div><div class="per sentence2">او دیروز پمپ آب را تعمیر کرد.</div><div class="en sentence2">He repaired the water pump yesterday.</div><div class="urd sentence2">اُس نے کل پانی کی پمپ ٹھیک کی۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🔌</div>
-<figcaption class="front"><div class="ar">كَبْلٌ</div><div class="per">کابل</div><div class="en">Cable</div><div class="urd">کیبل</div></figcaption><figcaption class="back"><div class="ar">كَبْلٌ</div><div class="per">کابل</div><div class="ar plural">كَوَابِلُ<span class="label">:Plural</span></div><div class="per plural">کابل‌ها<span class="label">:Plural</span></div><div class="ar sentence1">الكَابِلُ مُتَّصِلٌ بِالحَاسُوبِ</div><div class="per sentence1">کابل به کامپیوتر وصل است.</div><div class="en sentence1">The cable is connected to the computer.</div><div class="urd sentence1">کیبل کمپیوٹر سے جُڑی ہوئی ہے۔</div><div class="ar sentence2">تَعَرَّقَ عَلَى الكَابِلِ عَلَى الأَرْضِ</div><div class="per sentence2">او روی کابل روی زمین لغزید.</div><div class="en sentence2">He tripped over the cable on the floor.</div><div class="urd sentence2">اُس کا پاؤں فرش پر کیبل سے ٹھوکر لگا۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/wire.png"/>
-<figcaption class="front"><div class="ar">سِلْكٌ / سِلْك مَعْدَنِيٌّ</div><div class="per">سیم / سیم فلزی</div><div class="en">Wire</div><div class="urd">تار / وائر</div></figcaption><figcaption class="back"><div class="ar">سِلْكٌ / سِلْك مَعْدَنِيٌّ</div><div class="per">سیم / سیم فلزی</div><div class="ar plural">أَسْلَاك / أَسْلَاك مَعْدَنِيَّةٌ<span class="label">:Plural</span></div><div class="per plural">سیم‌ها / کابل‌های فلزی<span class="label">:Plural</span></div><div class="ar sentence1">السِّلْكُ النُّحَاسِيُّ يُوَصِّلُ الكَهْرَبَاءَ جَيِّدًا</div><div class="per sentence1">سیم مسی برق را خوب هدایت می‌کند.</div><div class="en sentence1">Copper wire conducts electricity well.</div><div class="urd sentence1">تانبے کی تار بجلی اچھی طرح پہنچاتی ہے۔</div><div class="ar sentence2">لَفَّ السِّلْكَ حَوْلَ العَمُودِ</div><div class="per sentence2">او سیم را دور تیر پیچید.</div><div class="en sentence2">He wrapped the wire around the pole.</div><div class="urd sentence2">اُس نے تار کو کھمبے کے گرد لپیٹا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🔋</div>
-<figcaption class="front"><div class="ar">بَطَّارِيَّةٌ</div><div class="per">باتری</div><div class="en">Battery</div><div class="urd">بیٹری</div></figcaption><figcaption class="back"><div class="ar">بَطَّارِيَّةٌ</div><div class="per">باتری</div><div class="ar plural">بَطَّارِيَّاتٌ<span class="label">:Plural</span></div><div class="per plural">باتری‌ها<span class="label">:Plural</span></div><div class="ar sentence1">الحَامِلُ يَحْتَاجُ إِلَى شَحْنٍ</div><div class="per sentence1">باتری نیاز به شارژ دارد.</div><div class="en sentence1">The battery needs to be charged.</div><div class="urd sentence1">بیٹری کو چارج کرنے کی ضرورت ہے۔</div><div class="ar sentence2">تُوَفِّرُ البَطَّارِيَّاتُ الطَّاقَةَ لِكَثِيرٍ مِنَ الأَجْهِزَةِ الإِلِكْتُرُونِيَّةِ</div><div class="per sentence2">باتری‌ها انرژی بسیاری از دستگاه‌های الکترونیکی را تأمین می‌کنند.</div><div class="en sentence2">Batteries power many electronic devices.</div><div class="urd sentence2">بیٹریاں کئی الیکٹرانک آلات کو بجلی فراہم کرتی ہیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">💡</div>
-<figcaption class="front"><div class="ar">مِصْبَاحٌ / لَمْبَةٌ</div><div class="per">لامپ</div><div class="en">Lamp / Bulb</div><div class="urd">لیمپ / بلب</div></figcaption><figcaption class="back"><div class="ar">مِصْبَاحٌ / لَمْبَةٌ</div><div class="per">لامپ</div><div class="ar plural">مَصَابِيحُ<span class="label">:Plural</span></div><div class="per plural">لامپ‌ها<span class="label">:Plural</span></div><div class="ar sentence1">تُضِيءُ اللَّمْبَةُ الغُرْفَةَ</div><div class="per sentence1">لامپ اتاق را روشن می‌کند.</div><div class="en sentence1">The lamp lights up the room.</div><div class="urd sentence1">لیمپ کمرے کو روشن کرتا ہے۔</div><div class="ar sentence2">احْتَرَقَتِ الْمِصْبَاحَةُ اللَّيْلَةَ المَاضِيَةَ</div><div class="per sentence2">لامپ دیشب سوخت.</div><div class="en sentence2">The bulb burned out last night.</div><div class="urd sentence2">بلب کل رات میں جل گیا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🔌</div>
-<figcaption class="front"><div class="ar">قَلْمَةٌ</div><div class="per">دو شاخه / فیش</div><div class="en">Plug (Fish)</div><div class="urd">پلگ / فِش</div></figcaption><figcaption class="back"><div class="ar">قَلْمَةٌ</div><div class="per">دو شاخه / فیش</div><div class="ar plural">قَلَمَاتٌ<span class="label">:Plural</span></div><div class="per plural">دوشاخه‌ها<span class="label">:Plural</span></div><div class="ar sentence1">أَدْخَلَ القَلاَمَةَ فِي المَقْبِسِ</div><div class="per sentence1">او دوشاخه را در پریز وارد کرد.</div><div class="en sentence1">He inserted the plug into the socket.</div><div class="urd sentence1">اُس نے پلگ کو ساکٹ میں ڈالا۔</div><div class="ar sentence2">اسْتَمِرَّ فِي سَحْبِ القَلاَمَةِ بِحِذْرٍ</div><div class="per sentence2">همیشه دوشاخه را با احتیاط بکشید.</div><div class="en sentence2">Always pull the plug carefully.</div><div class="urd sentence2">ہمیشہ پلگ کو احتیاط سے نکالو۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/socket.png"/>
-<figcaption class="front"><div class="ar">مَقْبَسٌ</div><div class="per">پریز</div><div class="en">Socket</div><div class="urd">ساکٹ</div></figcaption><figcaption class="back"><div class="ar">مَقْبَسٌ</div><div class="per">پریز</div><div class="ar plural">مَقَابِسُ<span class="label">:Plural</span></div><div class="per plural">پریزها<span class="label">:Plural</span></div><div class="ar sentence1">اللَّمْبَةُ مُتَّصِلَةٌ بِالمَقْبِسِ</div><div class="per sentence1">لامپ به پریز وصل است.</div><div class="en sentence1">The lamp is connected to the socket.</div><div class="urd sentence1">لیمپ ساکٹ سے جُڑا ہوا ہے۔</div><div class="ar sentence2">تَضَرَّرَ المَقْبِسُ</div><div class="per sentence2">پریز آسیب دید.</div><div class="en sentence2">The socket was damaged.</div><div class="urd sentence2">ساکٹ خراب ہو گیا۔</div></figcaption>
-</figure>
-</section>
-<h2>🧹 أَدَوَاتُ المَنْزِلِ وَالتَّنْظِيف (Household Tools &amp; Cleaning)</h2>
-<section class="grid">
-<figure class="card">
-<div class="emoji">🧹</div>
-<figcaption class="front"><div class="ar">مِكْنَسَةٌ</div><div class="per">جارو</div><div class="en">Broom</div><div class="urd">جھاڑو</div></figcaption><figcaption class="back"><div class="ar">مِكْنَسَةٌ</div><div class="per">جارو</div><div class="ar plural">مَكْنَسَاتٌ<span class="label">:Plural</span></div><div class="per plural">جاروها<span class="label">:Plural</span></div><div class="ar sentence1">كَنَسَتِ الأَرْضَ بِمِكْنَسَةٍ</div><div class="per sentence1">او زمین را با جاروی دستی جارو کرد.</div><div class="en sentence1">She swept the floor with a broom.</div><div class="urd sentence1">اُس نے جھاڑو سے فرش صاف کیا۔</div><div class="ar sentence2">المِكْنَسَةُ مَصْنُوعَةٌ مِنَ القَشِّ</div><div class="per sentence2">جاروی دستی از کاه ساخته شده است.</div><div class="en sentence2">The broom is made of straw.</div><div class="urd sentence2">جھاڑو تنکے سے بنایا گیا ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/wiper.png"/>
-<figcaption class="front"><div class="ar">مَسَّاحَةٌ</div><div class="per">طی کش / زمین‌شوی</div><div class="en">Mop / Wiper</div><div class="urd">موپ / صفائی کا کپڑا</div></figcaption><figcaption class="back"><div class="ar">مَسَّاحَةٌ</div><div class="per">طی کش / زمین‌شوی</div><div class="ar plural">مَسَّاحَاتٌ<span class="label">:Plural</span></div><div class="per plural">دستمال‌ها / تی‌ها<span class="label">:Plural</span></div><div class="ar sentence1">مَسَحَ أَرْضَ المَطْبَخِ بِالمِمْسَحَةِ</div><div class="per sentence1">او کف آشپزخانه را با طی کشید.</div><div class="en sentence1">He mopped the kitchen floor.</div><div class="urd sentence1">اُس نے باورچی خانے کا فرش پوچا لگایا۔</div><div class="ar sentence2">المِسَّاحَةُ تُنَظِّفُ زُجَاجَ السَّيَّارَةِ</div><div class="per sentence2">برف‌پاک‌کن شیشه خودرو را تمیز می‌کند.</div><div class="en sentence2">A wiper cleans car windshields.</div><div class="urd sentence2">وائیپر گاڑی کے شیشے صاف کرتا ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🧽</div>
-<figcaption class="front"><div class="ar">إِسْفَنْجَةٌ</div><div class="per">اسفنج</div><div class="en">Sponge</div><div class="urd">سپنج</div></figcaption><figcaption class="back"><div class="ar">إِسْفَنْجَةٌ</div><div class="per">اسفنج</div><div class="ar plural">إِسْفَانِجٌ<span class="label">:Plural</span></div><div class="per plural">اسفنج‌ها<span class="label">:Plural</span></div><div class="ar sentence1">غَسَلَ الأَطْبَاقَ بِإِسْفَنْجَةٍ</div><div class="per sentence1">او ظرف‌ها را با اسفنج شست.</div><div class="en sentence1">He washed the dishes with a sponge.</div><div class="urd sentence1">اُس نے برتن اسپنج سے دھوئے۔</div><div class="ar sentence2">امْتَصَّ الإِسْفَنْجُ كُلَّ المَاءِ</div><div class="per sentence2">اسفنج تمام آب را جذب کرد.</div><div class="en sentence2">The sponge absorbed all the water.</div><div class="urd sentence2">اسپنج نے سارا پانی جذب کر لیا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🪣</div>
-<figcaption class="front"><div class="ar">دَلْوُ ماءٍ</div><div class="per">سطل آب</div><div class="en">Water Bucket</div><div class="urd">پانی کی بالٹی</div></figcaption><figcaption class="back"><div class="ar">دَلْوُ ماءٍ</div><div class="per">سطل آب</div><div class="ar plural">دَلَوَاتُ<span class="label">:Plural</span></div><div class="per plural">سطل‌های آب<span class="label">:Plural</span></div><div class="ar sentence1">الدَّلْوُ مَلِيءٌ بِالمَاءِ</div><div class="per sentence1">سطل آب پر است.</div><div class="en sentence1">The water bucket is full.</div><div class="urd sentence1">پانی کی بالٹی بھری ہوئی ہے۔</div><div class="ar sentence2">حَمَلَت الدَّلْوَ إِلَى الحَدِيقَةِ</div><div class="per sentence2">او سطل آب را به باغ برد.</div><div class="en sentence2">She carried the water bucket to the garden.</div><div class="urd sentence2">اُس نے پانی کی بالٹی باغ میں لے گئی۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/towel.png"/>
-<figcaption class="front"><div class="ar">قُطْنَةٌ / فَتِيلَةٌ</div><div class="per">پارچه / دستمال</div><div class="en">Cloth / Rag</div><div class="urd">کپڑا / پرانا کپڑا</div></figcaption><figcaption class="back"><div class="ar">قُطْنَةٌ / فَتِيلَةٌ</div><div class="per">پارچه / دستمال</div><div class="ar plural">قُطْنَات / فَتَائِل<span class="label">:Plural</span></div><div class="per plural">پنبه‌ها / فتیله‌ها<span class="label">:Plural</span></div><div class="ar sentence1">مَسَحَ الطَّاوِلَةَ بِقُطْنَةٍ</div><div class="per sentence1">او میز را با پارچه پاک کرد.</div><div class="en sentence1">He wiped the table with a cloth.</div><div class="urd sentence1">اُس نے کپڑے سے میز صاف کی۔</div><div class="ar sentence2">القُطَعُ القَمَشِيَّةُ مُفِيدَةٌ لِلْتَّنْظِيفِ</div><div class="per sentence2">پارچه‌ها برای تمیزکاری مفید هستند.</div><div class="en sentence2">Rags are useful for cleaning.</div><div class="urd sentence2">کپڑے صفائی کے لیے مفید ہیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🪒</div>
-<figcaption class="front"><div class="ar">مِكْوَاةٌ</div><div class="per">اتو</div><div class="en">Iron</div><div class="urd">استری</div></figcaption><figcaption class="back"><div class="ar">مِكْوَاةٌ</div><div class="per">اتو</div><div class="ar plural">مَكْوَاتٌ<span class="label">:Plural</span></div><div class="per plural">اتوها<span class="label">:Plural</span></div><div class="ar sentence1">كَوَى قَمِيصَهُ بِعِنَايَةٍ</div><div class="per sentence1">او پیراهنش را با دقت اتو کرد.</div><div class="en sentence1">He ironed his shirt carefully.</div><div class="urd sentence1">اُس نے اپنی شرٹ احتیاط سے استری کی۔</div><div class="ar sentence2">المِكْوَى حَارٌّ جِدًّا</div><div class="per sentence2">اتو بسیار داغ است.</div><div class="en sentence2">The iron is very hot.</div><div class="urd sentence2">استری بہت گرم ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🪡</div>
-<figcaption class="front"><div class="ar">إِبْرَةٌ</div><div class="per">سوزن</div><div class="en">Needle</div><div class="urd">سوئی</div></figcaption><figcaption class="back"><div class="ar">إِبْرَةٌ</div><div class="per">سوزن</div><div class="ar plural">إِبَرٌ<span class="label">:Plural</span></div><div class="per plural">سوزن‌ها<span class="label">:Plural</span></div><div class="ar sentence1">أَدْخَلَتْ الخَيْطَ فِي الإِبْرَةِ</div><div class="per sentence1">او نخ را از سوزن رد کرد.</div><div class="en sentence1">She threaded the needle.</div><div class="urd sentence1">اُس نے سوئی میں دھاگہ ڈالا۔</div><div class="ar sentence2">الإِبَرُ تُسْتَخْدَمُ فِي الخِيَاطَةِ</div><div class="per sentence2">سوزن‌ها برای دوخت استفاده می‌شوند.</div><div class="en sentence2">Needles are used for sewing.</div><div class="urd sentence2">سوئیاں سلائی کے لیے استعمال ہوتی ہیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/sewingmachine.png"/>
-<figcaption class="front"><div class="ar">مَاكِينَةُ خِيَاطَةٍ</div><div class="per">چرخ خیاطی</div><div class="en">Sewing Machine</div><div class="urd">سلائی مشین</div></figcaption><figcaption class="back"><div class="ar">مَاكِينَةُ خِيَاطَةٍ</div><div class="per">چرخ خیاطی</div><div class="ar plural">مَاكِين خِيَاطَةٍ<span class="label">:Plural</span></div><div class="per plural">چرخ‌های خیاطی<span class="label">:Plural</span></div><div class="ar sentence1">خَاطَتْ مَاكِينَةُ الخِيَاطَةِ القَمِيشَ بِسُرْعَةٍ</div><div class="per sentence1">چرخ خیاطی پارچه را سریع دوخت.</div><div class="en sentence1">The sewing machine stitched the fabric quickly.</div><div class="urd sentence1">سلائی مشین نے کپڑے کو تیزی سے سیلا۔</div><div class="ar sentence2">اشْتَرَت مَاكِينَةَ خِيَاطَةٍ جَدِيدَةٍ</div><div class="per sentence2">او یک چرخ خیاطی جدید خرید.</div><div class="en sentence2">She bought a new sewing machine.</div><div class="urd sentence2">اُس نے نیا سلائی کا مشین خریدا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🔘</div>
-<figcaption class="front"><div class="ar">زِرٌّ</div><div class="per">دکمه</div><div class="en">Button</div><div class="urd">بٹن</div></figcaption><figcaption class="back"><div class="ar">زِرٌّ</div><div class="per">دکمه</div><div class="ar plural">أَزْرَارٌ<span class="label">:Plural</span></div><div class="per plural">دکمه‌ها<span class="label">:Plural</span></div><div class="ar sentence1">سَقَطَ الزِّرُّ عَنْ قَمِيصِهِ</div><div class="per sentence1">دکمه از پیراهنش افتاد.</div><div class="en sentence1">The button fell off his shirt.</div><div class="urd sentence1">اُس کی شرٹ کا بٹن گر گیا۔</div><div class="ar sentence2">خَاطَتِ الزِّرَّ مِن جَدِيدٍ</div><div class="per sentence2">او دکمه را دوباره دوخت.</div><div class="en sentence2">She sewed the button back on.</div><div class="urd sentence2">اُس نے بٹن دوبارہ سل دیا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🧷</div>
-<figcaption class="front"><div class="ar">دَبَّاسَة أَمَانٍ</div><div class="per">سنجاق ایمنی</div><div class="en">Safety Pin / Clip</div><div class="urd">سیفٹی پن / کلپ</div></figcaption><figcaption class="back"><div class="ar">دَبَّاسَة أَمَانٍ</div><div class="per">سنجاق ایمنی</div><div class="ar plural">دَبَّاسَات أَمَانٍ<span class="label">:Plural</span></div><div class="per plural">گیره‌های ایمنی<span class="label">:Plural</span></div><div class="ar sentence1">ثَبَّتَتْ فُسْتَانَهَا بِدَبَّوسِ أَمَانٍ</div><div class="per sentence1">او لباسش را با سنجاق ایمنی محکم کرد.</div><div class="en sentence1">She secured her dress with a safety pin.</div><div class="urd sentence1">اُس نے اپنی لباس کو سیفٹی پن سے محفوظ کیا۔</div><div class="ar sentence2">تَمْسِكُ المَقَاطِيفُ الأَوْرَاقَ مَعًا</div><div class="per sentence2">گیره‌ها کاغذها را کنار هم نگه می‌دارند.</div><div class="en sentence2">Clips hold papers together.</div><div class="urd sentence2">کلپس کاغذات کو اکٹھا رکھتے ہیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">📍</div>
-<figcaption class="front"><div class="ar">دَبُّوسَةٌ</div><div class="per">سنجاق / پین</div><div class="en">Pin</div><div class="urd">پن</div></figcaption><figcaption class="back"><div class="ar">دَبُّوسَةٌ</div><div class="per">سنجاق / پین</div><div class="ar plural">دَبُّوسَاتٌ<span class="label">:Plural</span></div><div class="per plural">سنجاق‌ها<span class="label">:Plural</span></div><div class="ar sentence1">ثَبَّتَ المُلَاحَظَةَ عَلَى اللَّوْحِ</div><div class="per sentence1">او یادداشت را به تخته سنجاق کرد.</div><div class="en sentence1">He pinned the note to the board.</div><div class="urd sentence1">اُس نے نوٹ کو بورڈ پر پن کیا۔</div><div class="ar sentence2">الدَّبَّوسَاتُ حَادَّةٌ وَصَغِيرَةٌ</div><div class="per sentence2">سنجاق‌ها تیز و کوچک هستند.</div><div class="en sentence2">Pins are sharp and small.</div><div class="urd sentence2">پنز تیز اور چھوٹے ہیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🔪</div>
-<figcaption class="front"><div class="ar">سِكِّين مَطْبَخٍ</div><div class="per">چاقوی آشپزخانه</div><div class="en">Kitchen Knife</div><div class="urd">باورچی خانے کی چھری</div></figcaption><figcaption class="back"><div class="ar">سِكِّين مَطْبَخٍ</div><div class="per">چاقوی آشپزخانه</div><div class="ar plural">سِكَّاكِين مَطْبَخٍ<span class="label">:Plural</span></div><div class="per plural">چاقوهای آشپزخانه<span class="label">:Plural</span></div><div class="ar sentence1">السِّكِّينُ فِي المَطْبَخِ حَادٌّ جِدًّا</div><div class="per sentence1">چاقوی آشپزخانه بسیار تیز است.</div><div class="en sentence1">The kitchen knife is very sharp.</div><div class="urd sentence1">باورچی خانے کی چھری بہت تیز ہے۔</div><div class="ar sentence2">قَطَعَ الخُضَارَ بِسِكِّينِ المَطْبَخِ</div><div class="per sentence2">او سبزی‌ها را با چاقوی آشپزخانه برید.</div><div class="en sentence2">He cut vegetables with a kitchen knife.</div><div class="urd sentence2">اُس نے سبزیاں کچن کی چھری سے کاٹیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/grater.png"/>
-<figcaption class="front"><div class="ar">بَابِلَة / مُبَشِّرَةٌ</div><div class="per">رنده</div><div class="en">Grater</div><div class="urd">گریٹر</div></figcaption><figcaption class="back"><div class="ar">بَابِلَة / مُبَشِّرَةٌ</div><div class="per">رنده</div><div class="ar plural">بَابِلَات / مُبَشِّرَاتٌ<span class="label">:Plural</span></div><div class="per plural">رنده‌ها<span class="label">:Plural</span></div><div class="ar sentence1">بَشَرَتِ الجُبْنَ بِالْمِبْرَدِ</div><div class="per sentence1">او پنیر را با رنده رنده کرد.</div><div class="en sentence1">She grated cheese with the grater.</div><div class="urd sentence1">اُس نے چیز کو گریٹر سے کدو کش کیا۔</div><div class="ar sentence2">لِلمِبْرَدِ أَثْقَابٌ صَغِيرَةٌ كَثِيرَةٌ</div><div class="per sentence2">رنده دارای سوراخ‌های کوچک زیادی است.</div><div class="en sentence2">A grater has many small holes.</div><div class="urd sentence2">گریٹر میں بہت سے چھوٹے سوراخ ہوتے ہیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍳</div>
-<figcaption class="front"><div class="ar">مِقْلَاةٌ</div><div class="per">تابه</div><div class="en">Frying Pan</div><div class="urd">فرائنگ پین</div></figcaption><figcaption class="back"><div class="ar">مِقْلَاةٌ</div><div class="per">تابه</div><div class="ar plural">مَقَالٍ / مَقَالٍات<span class="label">:Plural</span></div><div class="per plural">ماهیتابه‌ها<span class="label">:Plural</span></div><div class="ar sentence1">طَبَخَ البَيْضَ فِي مِقْلَاةٍ</div><div class="per sentence1">او تخم‌مرغ را در تابه سرخ کرد.</div><div class="en sentence1">He cooked eggs in a frying pan.</div><div class="urd sentence1">اُس نے انڈے فرائنگ پین میں پکائے۔</div><div class="ar sentence2">المِقْلَاةُ غَيْرُ لَاصِقَةٍ</div><div class="per sentence2">تابه نچسب است.</div><div class="en sentence2">The frying pan is non-stick.</div><div class="urd sentence2">فرائنگ پین نان اسٹک ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍲</div>
-<figcaption class="front"><div class="ar">قِدْرٌ</div><div class="per">قابلمه</div><div class="en">Pot</div><div class="urd">برتن / دیگ</div></figcaption><figcaption class="back"><div class="ar">قِدْرٌ</div><div class="per">قابلمه</div><div class="ar plural">قُدُورٌ<span class="label">:Plural</span></div><div class="per plural">قابلمه‌ها<span class="label">:Plural</span></div><div class="ar sentence1">غَلَتِ المَاءُ فِي القِدْرِ</div><div class="per sentence1">آب در قابلمه جوشید.</div><div class="en sentence1">Water boiled in the pot.</div><div class="urd sentence1">پانی برتن میں اُبل گیا۔</div><div class="ar sentence2">القِدْرُ يُسْتَخْدَمُ لِطَبْخِ الحَسَاءِ</div><div class="per sentence2">قابلمه برای پخت سوپ استفاده می‌شود.</div><div class="en sentence2">The pot is used for cooking soup.</div><div class="urd sentence2">برتن سوپ پکانے کے لیے استعمال ہوتا ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🫖</div>
-<figcaption class="front"><div class="ar">إبْرِيق شَايٍ</div><div class="per">قوری / پارچ</div><div class="en">Teapot / Pitcher</div><div class="urd">چائے کا برتن / جگ</div></figcaption><figcaption class="back"><div class="ar">إبْرِيق شَايٍ</div><div class="per">قوری / پارچ</div><div class="ar plural">إبْرِيقَات شَايٍ<span class="label">:Plural</span></div><div class="per plural">قوری‌ها / پارچ‌ها<span class="label">:Plural</span></div><div class="ar sentence1">صَبَّتِ الشَّايَ مِنَ الإِبْرِيقِ</div><div class="per sentence1">او چای را از قوری ریخت.</div><div class="en sentence1">She poured tea from the teapot.</div><div class="urd sentence1">اُس نے چائے چائے دان سے ڈالی۔</div><div class="ar sentence2">الإِبْرِيقُ يَحْمِلُ المَاءَ البَارِدَ</div><div class="per sentence2">پارچ آب سرد را نگه داشت.</div><div class="en sentence2">The pitcher held cold water.</div><div class="urd sentence2">جگ میں ٹھنڈا پانی تھا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍽️</div>
-<figcaption class="front"><div class="ar">صَحْنٌ</div><div class="per">بشقاب</div><div class="en">Plate / Dish</div><div class="urd">پلیٹ / ڈش</div></figcaption><figcaption class="back"><div class="ar">صَحْنٌ</div><div class="per">بشقاب</div><div class="ar plural">أَصْحَانٌ<span class="label">:Plural</span></div><div class="per plural">بشقاب‌ها<span class="label">:Plural</span></div><div class="ar sentence1">الصَّحْنُ مَلِيءٌ بِالطَّعَامِ</div><div class="per sentence1">بشقاب پر از غذا است.</div><div class="en sentence1">The plate is full of food.</div><div class="urd sentence1">پلیٹ کھانے سے بھری ہوئی ہے۔</div><div class="ar sentence2">غَسَلَتِ الصَّحْنَ بَعْدَ الغَدَاءِ</div><div class="per sentence2">او ظرف را بعد از ناهار شست.</div><div class="en sentence2">She washed the dish after lunch.</div><div class="urd sentence2">اُس نے دوپہر کے کھانے کے بعد برتن دھوئے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">☕</div>
-<figcaption class="front"><div class="ar">فِنْجَانٌ / كُوبٌ</div><div class="per">فنجان / لیوان</div><div class="en">Cup / Glass</div><div class="urd">کپ / گلاس</div></figcaption><figcaption class="back"><div class="ar">فِنْجَانٌ / كُوبٌ</div><div class="per">فنجان / لیوان</div><div class="ar plural">فَنَاجِين / أَكْوَابٌ<span class="label">:Plural</span></div><div class="per plural">فنجان‌ها / لیوان‌ها<span class="label">:Plural</span></div><div class="ar sentence1">شَرِبَ المَاءَ مِنَ الكَأْسِ</div><div class="per sentence1">او آب را از لیوان نوشید.</div><div class="en sentence1">He drank water from a glass.</div><div class="urd sentence1">اُس نے گلاس سے پانی پیا۔</div><div class="ar sentence2">رَشَفَتِ الشَّايَ مِنَ الفِنْجَانِ</div><div class="per sentence2">او چای را از فنجان نوشید.</div><div class="en sentence2">She sipped tea from the cup.</div><div class="urd sentence2">اُس نے کپ سے چائے پی۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍴</div>
-<figcaption class="front"><div class="ar">شَوْكَةٌ</div><div class="per">چنگال</div><div class="en">Fork</div><div class="urd">کانٹا</div></figcaption><figcaption class="back"><div class="ar">شَوْكَةٌ</div><div class="per">چنگال</div><div class="ar plural">شُوَكٌ<span class="label">:Plural</span></div><div class="per plural">چنگال‌ها<span class="label">:Plural</span></div><div class="ar sentence1">أَمْسَكَ السَّلَطَةَ بِالشَّوْكَةِ</div><div class="per sentence1">او سالاد را با چنگال برداشت.</div><div class="en sentence1">He picked up the salad with a fork.</div><div class="urd sentence1">اُس نے کانٹے سے سلاد اٹھایا۔</div><div class="ar sentence2">تَرَكَتِ الشَّوْكَةُ عَلَى الطَّاوِلَةِ</div><div class="per sentence2">چنگال روی میز باقی ماند.</div><div class="en sentence2">The fork was left on the table.</div><div class="urd sentence2">کانٹا میز پر چھوڑ دیا گیا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🥄</div>
-<figcaption class="front"><div class="ar">مِلْعَقَةٌ</div><div class="per">قاشق</div><div class="en">Spoon</div><div class="urd">چمچ</div></figcaption><figcaption class="back"><div class="ar">مِلْعَقَةٌ</div><div class="per">قاشق</div><div class="ar plural">مَلَاعِقُ<span class="label">:Plural</span></div><div class="per plural">قاشق‌ها<span class="label">:Plural</span></div><div class="ar sentence1">حَرَّكَتِ الحَسَاءَ بِالمِلْعَقَةِ</div><div class="per sentence1">او سوپ را با قاشق هم زد.</div><div class="en sentence1">She stirred the soup with a spoon.</div><div class="urd sentence1">اُس نے چمچ سے سوپ ہلایا۔</div><div class="ar sentence2">المِلْعَقَةُ مَصْنُوعَةٌ مِنَ الفُولَاذِ الغَيْرِ قَابِلٍ لِلصَّدَأِ</div><div class="per sentence2">قاشق از فولاد ضدزنگ ساخته شده است.</div><div class="en sentence2">The spoon is made of stainless steel.</div><div class="urd sentence2">چمچ اسٹینلیس اسٹیل کا بنا ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🔪</div>
-<figcaption class="front"><div class="ar">سِكِّين مَائِدَةٍ</div><div class="per">چاقوی غذا</div><div class="en">Table Knife</div><div class="urd">میز کی چھری</div></figcaption><figcaption class="back"><div class="ar">سِكِّين مَائِدَةٍ</div><div class="per">چاقوی غذا</div><div class="ar plural">سِكَّاكِين مَائِدَةٍ<span class="label">:Plural</span></div><div class="per plural">کاردهای میز<span class="label">:Plural</span></div><div class="ar sentence1">قَطَعَ الخُبْزَ بِسِكِّينِ المَائِدَةِ</div><div class="per sentence1">او نان را با چاقوی میز برید.</div><div class="en sentence1">He cut the bread with a table knife.</div><div class="urd sentence1">اُس نے میز کی چھری سے روٹی کاٹی۔</div><div class="ar sentence2">سِكِّينُ المَائِدَةِ عَلَى طَاوِلَةِ الطَّعَامِ</div><div class="per sentence2">چاقوی میز روی میز غذا است.</div><div class="en sentence2">The table knife is on the dining table.</div><div class="urd sentence2">ٹیبل نائف ڈائننگ ٹیبل پر ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">📦</div>
-<figcaption class="front"><div class="ar">صُنْدُوقٌ / عُلْبَةٌ</div><div class="per">جعبه / قوطی</div><div class="en">Box / Case</div><div class="urd">باکس / ڈبہ</div></figcaption><figcaption class="back"><div class="ar">صُنْدُوقٌ / عُلْبَةٌ</div><div class="per">جعبه / قوطی</div><div class="ar plural">صَنَادِيق / عُلَب<span class="label">:Plural</span></div><div class="per plural">جعبه‌ها<span class="label">:Plural</span></div><div class="ar sentence1">الصُّنْدُوقُ يَحْتَوِي عَلَى صُوَرٍ قَدِيمَةٍ</div><div class="per sentence1">جعبه حاوی عکس‌های قدیمی بود.</div><div class="en sentence1">The box contained old photographs.</div><div class="urd sentence1">ڈبے میں پرانی تصاویر تھیں۔</div><div class="ar sentence2">فَتَحَ الحَافِظَةَ بِحِذْرٍ</div><div class="per sentence2">او کیف را با احتیاط باز کرد.</div><div class="en sentence2">He opened the case carefully.</div><div class="urd sentence2">اُس نے کیس احتیاط سے کھولا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍼</div>
-<figcaption class="front"><div class="ar">زُجَاجَةٌ / قِنِّينَةٌ</div><div class="per">بطری</div><div class="en">Bottle</div><div class="urd">بوتل</div></figcaption><figcaption class="back"><div class="ar">زُجَاجَةٌ / قِنِّينَةٌ</div><div class="per">بطری</div><div class="ar plural">زُجَاجَات / قَنَانٍ<span class="label">:Plural</span></div><div class="per plural">بطری‌ها / شیشه‌ها<span class="label">:Plural</span></div><div class="ar sentence1">شَرِبَتِ المَاءَ مِنَ القِنِّينَةِ</div><div class="per sentence1">او آب را از بطری نوشید.</div><div class="en sentence1">She drank water from a bottle.</div><div class="urd sentence1">اُس نے بوتل سے پانی پیا۔</div><div class="ar sentence2">وَضِعَتِ القِنِّينَةُ عَلَى الرَّفِّ</div><div class="per sentence2">بطری روی قفسه گذاشته شد.</div><div class="en sentence2">The bottle was placed on the shelf.</div><div class="urd sentence2">بوتل شیلف پر رکھی گئی۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/lid.png"/>
-<figcaption class="front"><div class="ar">غِطَاءٌ</div><div class="per">درپوش</div><div class="en">Lid / Cover</div><div class="urd">ڈھکن / سرپوش</div></figcaption><figcaption class="back"><div class="ar">غِطَاءٌ</div><div class="per">درپوش</div><div class="ar plural">أَغْطِيَةٌ<span class="label">:Plural</span></div><div class="per plural">درپوش‌ها / پوشش‌ها<span class="label">:Plural</span></div><div class="ar sentence1">غَطَّى القِدْرَ بِالْغِطَاءِ</div><div class="per sentence1">او در قابلمه را گذاشت.</div><div class="en sentence1">He put a lid on the pot.</div><div class="urd sentence1">اُس نے برتن پر ڈھکن رکھا۔</div><div class="ar sentence2">يُحْمِي الغِطَاءُ الطَّعَامَ مِنَ الغُبَارِ</div><div class="per sentence2">درپوش غذا را از گرد و غبار محافظت می‌کند.</div><div class="en sentence2">The cover protects the food from dust.</div><div class="urd sentence2">ڈھکن کھانے کو گرد و غبار سے محفوظ رکھتا ہے۔</div></figcaption>
-</figure>
-</section>
-<script>
-
-/* ------------------------------
-   Compute Dynamic Presets
------------------------------- */
-function computeDynamicPresets() {
-  // Base preset (4)
-  const base = {
-    gridMin: 300,
-    gap: 40,
-    emoji: 120,
-    width: 300,
-    height: 220,
-    radius: 12,
-    capPad: 20,
-    capFont: 2,
-    capRadius: 12,
-
-    // NEW FONT & SPACING VALUES
-    fontBase: 1,               // rem
-    fontPlural: 1.7,             // rem
-    fontLabel: 1.3,            // em
-    fontSmall: 0.825,          // rem
-
-    pluralMarginBottom: 30,
-    pluralPaddingBottom: 15,
-    pluralBorderWidth: 3,
-    sentenceMarginTop: 4
-  };
-
-  const deviceWidth = window.innerWidth;
-
-  // Read actual padding (even when changed by media queries)
-  const bodyStyle = window.getComputedStyle(document.body);
-  const bodyPadding = parseFloat(bodyStyle.paddingLeft) + parseFloat(bodyStyle.paddingRight);
-
-  // Autofill columns using preset 4
-  let baseCols = Math.floor((deviceWidth - bodyPadding + base.gap) / base.gridMin);
-  if (baseCols < 1) baseCols = 1;
-
-  function makePreset(extraCards) {
-    const newCols = baseCols + extraCards;
-
-    // Total gap width
-    const totalGap = base.gap * (newCols - 1);
-
-    // New card width
-    const newGridMin = (deviceWidth - bodyPadding - totalGap) / newCols;
-
-    const factor = newGridMin / base.gridMin;
-
-    return {
-      gridMin: newGridMin + "px",
-      gap: (base.gap * factor) + "px",
-      emoji: (base.emoji * factor) + "px",
-      width: newGridMin + "px",
-      height: (base.height * factor) + "px",
-      radius: (base.radius * factor) + "px",
-      capPad: (base.capPad * factor) + "px",
-      capFont: (base.capFont * factor) + "rem",
-      capRadius: (base.capRadius * factor) + "px",
-
-      // NEW DYNAMIC VALUES
-      fontBase: (base.fontBase * factor) + "rem",
-      fontPlural: (base.fontPlural * factor) + "rem",
-      fontLabel: (base.fontLabel * factor) + "em", 
-      fontSmall: (base.fontSmall * factor) + "rem",
-
-      pluralMarginBottom: (base.pluralMarginBottom * factor) + "px",
-      pluralPaddingBottom: (base.pluralPaddingBottom * factor) + "px",
-      pluralBorderWidth: (base.pluralBorderWidth * factor) + "px",
-      sentenceMarginTop: (base.sentenceMarginTop * factor) + "px"
-    };
-  }
-
-  return {
-    4: {
-      gridMin: base.gridMin + "px",
-      gap: base.gap + "px",
-      emoji: base.emoji + "px",
-      width: base.width + "px",
-      height: base.height + "px",
-      radius: base.radius + "px",
-      capPad: base.capPad + "px",
-      capFont: base.capFont + "rem",
-      capRadius: base.capRadius + "px",
-
-      fontBase: base.fontBase + "rem",
-      fontPlural: base.fontPlural + "rem",
-      fontLabel: base.fontLabel + "em",
-      fontSmall: base.fontSmall + "rem",
-
-      pluralMarginBottom: base.pluralMarginBottom + "px",
-      pluralPaddingBottom: base.pluralPaddingBottom + "px",
-      pluralBorderWidth: base.pluralBorderWidth + "px",
-      sentenceMarginTop: base.sentenceMarginTop + "px"
-    },
-    5: makePreset(1),
-    6: makePreset(2)
-  };
-}
-
-
-/* ------------------------------
-   Update Back Height
------------------------------- */
-function updateBackHeight() {
-  const sampleFront = document.querySelector(".card .front");
-  if (!sampleFront) return;
-
-  const emojiHeight = parseFloat(
-    getComputedStyle(document.documentElement).getPropertyValue("--card-height")
-  );
-
-  const captionHeight = sampleFront.offsetHeight;
-
-  const total = emojiHeight + captionHeight;
-
-  document.documentElement.style.setProperty("--back-height", total + "px");
-}
-
-
-/* ------------------------------
-   Row Selector Change
------------------------------- */
-let presets = computeDynamicPresets();
-
-const rowSelector = document.getElementById("rowSelector");
-
-rowSelector.addEventListener("change", () => {
-  presets = computeDynamicPresets();
-
-  // Reset all flipped cards when row changes
-  document.querySelectorAll(".card").forEach(card => {
-    card.classList.remove("show-back", "flipping");
-  });
-
-  const p = presets[rowSelector.value];
-  const r = document.documentElement.style;
-
-  r.setProperty("--grid-min", p.gridMin);
-  r.setProperty("--gap", p.gap);
-  r.setProperty("--emoji-size", p.emoji);
-  r.setProperty("--card-width", p.width);
-  r.setProperty("--card-height", p.height);
-  r.setProperty("--radius", p.radius);
-  r.setProperty("--caption-padding", p.capPad);
-  r.setProperty("--caption-font", p.capFont);
-  r.setProperty("--caption-radius", p.capRadius);
-
-  r.setProperty("--font-base", p.fontBase);
-  r.setProperty("--font-plural", p.fontPlural);
-  r.setProperty("--font-label", p.fontLabel);
-  r.setProperty("--font-small", p.fontSmall);
-
-  r.setProperty("--plural-margin-bottom", p.pluralMarginBottom);
-  r.setProperty("--plural-padding-bottom", p.pluralPaddingBottom);
-  r.setProperty("--plural-border-width", p.pluralBorderWidth);
-  r.setProperty("--sentence-margin-top", p.sentenceMarginTop);
-
-  updateBackHeight(); // Update back after rows change
-});
-
-
-/* Update back height on first load */
-window.addEventListener("load", updateBackHeight);
-
-
-/* ------------------------------
-   Sidebar Toggle
------------------------------- */
-document.getElementById('toggleSidebar').onclick = () => {
-  const sidebar = document.getElementById('sidebar');
-  const open = sidebar.classList.toggle('open');
-  sidebar.setAttribute('aria-hidden', (!open).toString());
-};
-
-
-
-/* ============================================================
-
-   CLICK-TO-FLIP SYSTEM (FRONT ↔ BACK)
-
-   ============================================================ */
-
-document.querySelectorAll(".card").forEach(card => {
-
-
-
-  card.addEventListener("click", function(e) {
-
-    // Only flip when clicking image/emoji/caption
-
-    if (
-
-      e.target.classList.contains("emoji") ||
-
-      e.target.classList.contains("emoji-alt") ||
-
-      e.target.classList.contains("thumb") ||
-
-      e.target.classList.contains("thumb-alt") ||
-
-      e.target.tagName === "FIGCAPTION"
-
-    ) {
-
-      this.classList.toggle("show-back");
-
-    }
-
-  });
-
-
-
-});
-
-document.querySelectorAll(".card").forEach(card => {
-  card.addEventListener("click", () => {
-    // Start fake flip
-    card.classList.add("flipping");
-
-    // Wait half animation, then swap faces
-    setTimeout(() => {
-      card.classList.toggle("show-back");
-    }, 200);
-
-    // Finish animation by expanding back
-    setTimeout(() => {
-      card.classList.remove("flipping");
-    }, 400);
-  });
-});
-
-// Button 1: Urdu vs English
-document.getElementById('btn-urd').addEventListener('click', () => {
-  document.body.classList.toggle('show-urd');
-});
-
-// Button 2: Persian vs Arabic
-document.getElementById('btn-per').addEventListener('click', () => {
-  document.body.classList.toggle('show-per');
-});
-</script>
-</body>
-</html>

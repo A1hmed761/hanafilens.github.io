@@ -1,1140 +1,0 @@
-<!DOCTYPE html>
-
-<html dir="rtl" lang="ar">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>مفردات الأثاث — Furniture Vocabulary</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
-
-<style>
-
-@import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
-
-:root {
-
-  --grid-min: 300px;
-
-  --gap: 40px;
-
-  --emoji-size: 120px;
-
-  --card-width: 300px;
-
-  --card-height: 220px;
-
-  --radius: 12px;
-
-  --caption-padding: 20px;
-
-  --caption-font: 2rem;
-
-  --caption-radius: 12px;
-
-  --back-height: 300px; /* default temporary value */
-
-  /* Text Sizes */
-  --font-base: 1rem;
-  --font-plural: 1.7rem;
-  --font-label: 1.3rem;
-  --font-small: 0.825rem;
-
-  /* Spacing & Borders */
-  --plural-margin-bottom: 30px;
-  --plural-padding-bottom: 15px;
-  --plural-border-width: 3px;
-  --sentence-margin-top: 4px;
-}
-
-
-
-* { box-sizing: border-box; }
-
-
-
-body {
-
-  margin: 0;
-
-  font-family: 'Vazirmatn', sans-serif;
-
-  background: #f6f7fb;
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  padding: 5px;
-}
-
-
-
-h1, h2 {
-
-  font-size: 2rem;
-
-  margin-bottom: 30px;
-
-  text-align: center;
-
-}
-
-
-
-h2 { margin-top: 100px; }
-
-
-
-/* Grid */
-
-.grid {
-
-  display: grid;
-
-  grid-template-columns: repeat(auto-fill, minmax(var(--grid-min), 1fr));
-
-  gap: var(--gap);
-
-  justify-items: center;
-
-  width: 100%;
-
-  max-width: 1400px;
-
-}
-
-
-
-/* Cards */
-
-figure.card {
-
-  background: none;
-
-  border: none;
-
-  box-shadow: none;
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  text-align: center;
-
-  margin: 0;
-
-}
-
-
-
-.emoji, .thumb {
-
-  font-size: var(--emoji-size);
-
-  background: white;
-
-  width: var(--card-width);
-
-  height: var(--card-height);
-
-  border-radius: var(--radius);
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-
-}
-
-
-
-.thumb {
-
-  object-fit: cover;
-
-}
-
-
-
-figcaption {
-
-  margin-top: 10px;
-
-  background: white;
-
-  padding: var(--caption-padding) 0;
-
-  width: 100%;
-
-  border-radius: 0 0 var(--caption-radius) var(--caption-radius);
-
-  font-size: var(--caption-font);
-
-  font-weight: 700;
-
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: center;
-
-  align-items: center;
-
-  text-align: center;
-
-  box-sizing: border-box;
-
-}
-
-
-/* Base Arabic Style */
-.ar {
-  display: block; /* Visible by default */
-}
-
-figcaption.back {
-  width: var(--card-width);
-  height: var(--back-height);
-  overflow-y: auto;
-
-  
-  font-size: var(--font-label);
-  display: flex;
-  flex-direction: column;
-  
-  /* 1. Start from the very top */
-  justify-content: center; 
-
-  /* 2. Stretch items to fill the width (better for text alignment) */
-  align-items: stretch; 
-  
-  gap: var(--back-gap);
-  padding: var(--back-padding);
-
-}
-
-.plural {
-  margin-top: var(--plural-padding-bottom);
-  font-size: var(--font-plural);
-  font-weight: bold;
-  border-bottom: var(--plural-border-width) solid #eee;
-  margin-bottom: var(--plural-margin-bottom);
-  padding-bottom: var(--plural-padding-bottom);
-}
-
-.plural .label {
-  font-size: var(--font-small); /* Makes it smaller than the main text */
-  color: #888;      /* Lightens the color so it's less distracting */
-  font-weight: normal;
-}
-
-.arb.sentence1, .per.sentence1 {
-  font-size: var(--font-small);
-}
-
-/* Adding space specifically after the last line of the first example */
-/* and the last line of the second example */
-.urd.sentence1, .en.sentence1 {
-  margin-bottom: var(--plural-padding-bottom);
-}
-
-/* Hide Urdu and Persian by default */
-.urd, .per {
-  display: none;
-  font-size: var(--font-base);
-  font-weight: 400;
-  color: #666;
-  margin-top: var(--sentence-margin-top);
-}
-
-.en {
-  font-size: var(--font-small);   /* Smaller font size */
-  font-weight: 400;   /* Thinner weight */
-  color: #666;        /* Optional: grey color to create hierarchy */
-  font-family: 'sans-serif'; /* Optional: different font if desired */
-}
-
-.urd {
-  font-size: var(--font-base);   /* Smaller font size */
-  font-weight: 400;   /* Thinner weight */
-  color: #666;        /* Optional: grey color to create hierarchy */
-  font-family: 'Vazirmatn', sans-serif; /* Optional: different font if desired */
-}
-
-
-/* --- Toggle Button 1: Urdu replaces English --- */
-.show-urd .urd { display: block; }
-.show-urd .en  { display: none; }
-
-/* --- Toggle Button 2: Persian replaces Arabic --- */
-.show-per .per { 
-  display: block; 
-  font-size: var(--font-base) /* Matches original Arabic size */
-  font-weight: 700;
-  color: #000;      /* Matches original Arabic color */
-}
-.show-per .ar { display: none; }
-
-
-/* Sidebar Toggle */
-
-.toggle-btn {
-
-  position: fixed;
-
-  right: 20px;
-
-  top: 20px;
-
-  background: #4a4a4a;
-
-  color: white;
-
-  padding: 10px 15px;
-
-  border-radius: 8px;
-
-  cursor: pointer;
-
-  font-size: 1rem;
-
-  z-index: 999;
-
-}
-
-
-/* Sidebar */
-
-.sidebar {
-
-  position: fixed;
-
-  top: 0;
-
-  right: 0;
-
-  width: 320px;
-
-  height: 100vh;
-
-  background: #fff;
-
-  box-shadow: -6px 0 18px rgba(0,0,0,0.08);
-
-  padding: 24px;
-
-  transform: translateX(320px);
-
-  transition: transform 0.28s ease;
-
-  z-index: 998;
-
-  overflow-y: auto;
-
-  direction: rtl;
-
-}
-
-
-
-.sidebar.open {
-
-  transform: translateX(0);
-
-}
-
-
-@media (max-width: 480px) {
-
-  body { padding: 16px; }
-  .sidebar { width: 50px; transform: translateX(260px); }
-
-}
-
-
-
-/* ===========================================================
-
-   FRONT/BACK FLIP SYSTEM (NEW)
-
-   =========================================================== */
-
-
-
-/* Default state: show front, hide back side */
-
-.card .back,
-
-.card .emoji-alt,
-
-.card .thumb-alt {
-
-  display: none;
-
-}
-
-
-
-/* When card is flipped to show the BACK */
-
-.card.show-back .front,
-
-.card.show-back .emoji,
-
-.card.show-back .thumb {
-
-  display: none;
-
-}
-
-
-
-.card.show-back .back {
-
-  display: flex;
-
-}
-
-
-
-.card.show-back .emoji-alt {
-
-  display: flex;
-
-}
-
-
-
-.card.show-back .thumb-alt {
-
-  display: block;
-
-}
-
-.card * {
-  pointer-events: none;
-}
-
-.card {
-  transition: transform 0.4s ease;
-  transform-style: preserve-3d;
-}
-
-.card.flipping {
-  transform: scaleX(0);
-}
-
-@font-face {
-  font-family: 'GoogleEmoji';
-  src: url('fonts/NotoColorEmoji.ttf') format('truetype');
-}
-
-.emoji {
-  font-family: 'GoogleEmoji';
-}
-
- 
-</style>
-</head>
-<body>
-<!-- Sidebar Toggle Button -->
-<div class="toggle-btn" id="toggleSidebar">☰</div>
-<aside aria-hidden="true" class="sidebar" id="sidebar">
-<h3>⚙️ Display settings</h3>
-<label for="rowSelector">عدد الصفوف (حجم البطاقة):</label>
-<select aria-label="Choose card size" id="rowSelector">
-<option value="4">4 — الافتراضي</option>
-<option value="5">5</option>
-<option value="6">6</option>
-</select>
-
-<div class="buttons">
-<button id="btn-urd">Toggle Urdu / English</button>
-<button id="btn-per">Toggle Persian / Arabic</button>
-</div>
-</aside>
-
-<h1>Basic Food Words</h1>
-<section class="grid">
-<figure class="card">
-<img class="thumb" src="images/lunch.png"/>
-<figcaption class="front"><div class="ar">طَعام / وَجْبَة</div><div class="per">غذا / وعدهٔ غذایی</div><div class="en">Food / Meal</div><div class="urd">کھانا</div></figcaption><figcaption class="back"><div class="ar">طَعام / وَجْبَة</div><div class="per">غذا / وعدهٔ غذایی</div><div class="ar plural">أَطْعِمَةٌ / وَجَبَاتٌ<span class="label">:Plural</span></div><div class="per plural">غذاها<span class="label">:Plural</span></div><div class="ar sentence1">أُحِبُّ تَجْرِبَةَ أَطْعِمَةٍ جَدِيدَةٍ مِن دُوَلٍ مُخْتَلِفَةٍ</div><div class="per sentence1">دوست دارم غذاهای جدید از کشورهای مختلف را امتحان کنم.</div><div class="en sentence1">I love trying new food from different countries.</div><div class="urd sentence1">مجھے مختلف ممالک کے نئے کھانے آزمانا پسند ہے۔</div><div class="ar sentence2">أَعَدَدْنَا وَجْبَةً كَبِيرَةً لِعَائِلَتِنَا</div><div class="per sentence2">ما یک وعده غذای بزرگ برای خانواده آماده کردیم.</div><div class="en sentence2">We prepared a big meal for our family.</div><div class="urd sentence2">ہم نے اپنے خاندان کے لیے ایک بڑی غذا تیار کی۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/breakfast.png"/>
-<figcaption class="front"><div class="ar">فُطور</div><div class="per">صبحانه</div><div class="en">Breakfast</div><div class="urd">ناشتہ</div></figcaption><figcaption class="back"><div class="ar">فُطور</div><div class="per">صبحانه</div><div class="ar plural">فُطُورَاتٌ<span class="label">:Plural</span></div><div class="per plural">صبحانه‌ها<span class="label">:Plural</span></div><div class="ar sentence1">أَفْطُرُ عَادَةً بِالْبَيْضِ وَالخُبْزِ المُشَوَّى</div><div class="per sentence1">من معمولاً برای صبحانه تخم‌مرغ و نان تست می‌خورم.</div><div class="en sentence1">I usually eat eggs and toast for breakfast.</div><div class="urd sentence1">میں عام طور پر ناشتہ میں انڈے اور ٹوسٹ کھاتا ہوں۔</div><div class="ar sentence2">الإِفْطَارُ هُوَ أَهَمُّ وَجْبَةٍ فِي اليَوْمِ</div><div class="per sentence2">صبحانه مهم‌ترین وعده غذایی روز است.</div><div class="en sentence2">Breakfast is the most important meal of the day.</div><div class="urd sentence2">ناشتہ دن کا سب سے اہم کھانا ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/lunch.png"/>
-<figcaption class="front"><div class="ar">غَدَاء</div><div class="per">ناهار</div><div class="en">Lunch</div><div class="urd">دوپہر کا کھانا</div></figcaption><figcaption class="back"><div class="ar">غَدَاء</div><div class="per">ناهار</div><div class="ar plural">غَدَاءَاتٌ / أَغْدِيَةٌ<span class="label">:Plural</span></div><div class="per plural">ناهارها<span class="label">:Plural</span></div><div class="ar sentence1">أَحْمِلُ سَانْدْوِيشًا لِلغَدَاءِ كُلَّ يَوْمٍ</div><div class="per sentence1">هر روز برای ناهار یک ساندویچ می‌آورم.</div><div class="en sentence1">I bring a sandwich for lunch every day.</div><div class="urd sentence1">میں ہر روز دوپہر کے کھانے کے لیے سینڈوچ لاتا ہوں۔</div><div class="ar sentence2">ذَهَبْنَا إِلَى مَقْهَى لِتَنَاوُلِ الغَدَاءِ سَرِيعًا</div><div class="per sentence2">ما برای ناهار سریع به یک کافه رفتیم.</div><div class="en sentence2">We went to a café for a quick lunch.</div><div class="urd sentence2">ہم جلدی لنچ کے لیے کیفے گئے۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/dinner.png"/>
-<figcaption class="front"><div class="ar">عَشاء</div><div class="per">شام/شب‌آشا</div><div class="en">Dinner</div><div class="urd">رات کا کھانا</div></figcaption><figcaption class="back"><div class="ar">عَشاء</div><div class="per">شام/شب‌آشا</div><div class="ar plural">عَشَاءَاتٌ / أَعْشِيَةٌ<span class="label">:Plural</span></div><div class="per plural">شام‌ها<span class="label">:Plural</span></div><div class="ar sentence1">يَبْدَأُ العَشَاءُ فِي بَيْتِنَا السَّاعَةَ ٧ مَسَاءً</div><div class="per sentence1">شام در خانه ما ساعت ۷ شروع می‌شود.</div><div class="en sentence1">Dinner starts at 7 PM in our house.</div><div class="urd sentence1">ہمارے گھر میں رات کا کھانا 7 بجے شروع ہوتا ہے۔</div><div class="ar sentence2">تَنَاوَلْنَا البَاستَا وَالسَّلَطَةَ عَلَى العَشَاءِ</div><div class="per sentence2">ما برای شام پاستا و سالاد خوردیم.</div><div class="en sentence2">We had pasta and salad for dinner.</div><div class="urd sentence2">ہم نے رات کے کھانے میں پاستا اور سلاد کھایا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍽️</div>
-<figcaption class="front"><div class="ar">طَبَق</div><div class="per">بشقاب / ظرف</div><div class="en">Dish/Plate</div><div class="urd">پلیٹ</div></figcaption><figcaption class="back"><div class="ar">طَبَق</div><div class="per">بشقاب / ظرف</div><div class="ar plural">أَصَاحِينُ / أَطْبَاقٌ<span class="label">:Plural</span></div><div class="per plural">بشقاب‌ها<span class="label">:Plural</span></div><div class="ar sentence1">قَدَّمَتِ الطَّعَامَ عَلَى صَحْنٍ جَمِيلٍ</div><div class="per sentence1">او غذا را در ظرف زیبایی سرو کرد.</div><div class="en sentence1">She served the food on a beautiful dish.</div><div class="urd sentence1">اُس نے کھانے کو خوبصورت ڈش میں پیش کیا۔</div><div class="ar sentence2">اِغْسِلْ صَحْنَكَ بَعْدَ الأَكْلِ</div><div class="per sentence2">بشقاب خود را بعد از غذا بشویید.</div><div class="en sentence2">Wash your plate after eating.</div><div class="urd sentence2">کھانے کے بعد اپنی پلیٹ دھوئیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/kitchen.png"/>
-<figcaption class="front"><div class="ar">مَطْبَخ</div><div class="per">آشپزخانه</div><div class="en">Kitchen</div><div class="urd">باورچی خانہ</div></figcaption><figcaption class="back"><div class="ar">مَطْبَخ</div><div class="per">آشپزخانه</div><div class="ar plural">مَطَابِخُ<span class="label">:Plural</span></div><div class="per plural">آشپزخانه‌ها<span class="label">:Plural</span></div><div class="ar sentence1">تَفُوحُ رَائِحَةُ المَطْبَخِ عَطِرَةً عِنْدَمَا تَطْبُخُ</div><div class="per sentence1">وقتی او آشپزی می‌کند، آشپزخانه بوی خوش می‌دهد.</div><div class="en sentence1">The kitchen smells wonderful when she cooks.</div><div class="urd sentence1">جب وہ کھانا پکاتی ہے تو کچن خوشبو دار لگتا ہے۔</div><div class="ar sentence2">هُوَ يُنَظِّفُ المَطْبَخَ اليَوْمَ</div><div class="per sentence2">او امروز آشپزخانه را تمیز می‌کند.</div><div class="en sentence2">He is cleaning the kitchen today.</div><div class="urd sentence2">وہ آج کچن صاف کر رہا ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🏪</div>
-<figcaption class="front"><div class="ar">مَطْعَم</div><div class="per">رستوران</div><div class="en">Restaurant</div><div class="urd">ریسٹورنٹ</div></figcaption><figcaption class="back"><div class="ar">مَطْعَم</div><div class="per">رستوران</div><div class="ar plural">مَطَاعِمُ<span class="label">:Plural</span></div><div class="per plural">رستوران‌ها<span class="label">:Plural</span></div><div class="ar sentence1">ذَهَبْنَا إِلَى مَطْعَمٍ جَدِيدٍ لِلْعَشَاءِ</div><div class="per sentence1">برای شام به رستوران جدیدی رفتیم.</div><div class="en sentence1">We went to a new restaurant for dinner.</div><div class="urd sentence1">ہم رات کے کھانے کے لیے نئے ریستوران گئے۔</div><div class="ar sentence2">يُقَدِّمُ المَطْعَمُ الطَّعَامَ الإِيطَالِيَّ</div><div class="per sentence2">رستوران غذای ایتالیایی سرو می‌کند.</div><div class="en sentence2">The restaurant serves Italian food.</div><div class="urd sentence2">ریستوران اطالوی کھانا پیش کرتا ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/menu.png"/>
-<figcaption class="front"><div class="ar">قائِمَة الطَّعام</div><div class="per">منو</div><div class="en">Menu</div><div class="urd">مینو</div></figcaption><figcaption class="back"><div class="ar">قائِمَة الطَّعام</div><div class="per">منو</div><div class="ar plural">قَوَائِمُ<span class="label">:Plural</span></div><div class="per plural">فهرست‌ها<span class="label">:Plural</span></div><div class="ar sentence1">يَتَضَمَّنُ القَائِمَةُ العَدِيدَ مِنَ الخِيَارَاتِ النَّبَاتِيَّةِ</div><div class="per sentence1">منو شامل گزینه‌های زیادی برای گیاه‌خواران است.</div><div class="en sentence1">The menu includes many vegetarian options.</div><div class="urd sentence1">مینو میں بہت سے سبزی خور آپشنز شامل ہیں۔</div><div class="ar sentence2">لَا أَسْتَطِيعُ أَنْ أَقَرَّرَ مَاذَا أَطْلُبُ مِنَ القَائِمَةِ</div><div class="per sentence2">نمی‌توانم تصمیم بگیرم چه چیزی از منو سفارش دهم.</div><div class="en sentence2">I can’t decide what to order from the menu.</div><div class="urd sentence2">میں فیصلہ نہیں کر سکتا کہ مینو سے کیا منگواؤں۔</div></figcaption>
-</figure>
-</section>
-<h2>🍞 Bread, Grains &amp; Staples (الخُبْزُ وَالحُبُوب)</h2>
-<section class="grid">
-<figure class="card">
-<div class="emoji">🍞</div>
-<figcaption class="front"><div class="ar">خُبْز</div><div class="per">نان</div><div class="en">Bread</div><div class="urd">روٹی</div></figcaption><figcaption class="back"><div class="ar">خُبْز</div><div class="per">نان</div><div class="ar plural">أَرْغِفَةٌ<span class="label">:Plural</span></div><div class="per plural">نان‌ها<span class="label">:Plural</span></div><div class="ar sentence1">أُحِبُّ الخُبْزَ الطَّازَجَ فِي الصَّبَاحِ</div><div class="per sentence1">من نان تازه را صبح‌ها دوست دارم.</div><div class="en sentence1">I like fresh bread in the morning.</div><div class="urd sentence1">مجھے صبح کے وقت تازہ روٹی پسند ہے۔</div><div class="ar sentence2">يَبِيعُ الخَبَّازُ الخُبْزَ كُلَّ يَوْمٍ</div><div class="per sentence2">نانوا هر روز نان می‌فروشد.</div><div class="en sentence2">The baker sells bread every day.</div><div class="urd sentence2">بیکر ہر روز روٹی بیچتا ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍚</div>
-<figcaption class="front"><div class="ar">أَرُزّ</div><div class="per">برنج</div><div class="en">Rice</div><div class="urd">چاول</div></figcaption><figcaption class="back"><div class="ar">أَرُزّ</div><div class="per">برنج</div><div class="ar plural">أَرُزّ / أَرْزَاتٌ<span class="label">:Plural</span></div><div class="per plural">برنج‌ها<span class="label">:Plural</span></div><div class="ar sentence1">طَبَخْنَا الأَرُزَّ مَعَ الخُضْرَاوَاتِ</div><div class="per sentence1">ما برنج را با سبزیجات پختیم.</div><div class="en sentence1">We cooked rice with vegetables.</div><div class="urd sentence1">ہم نے چاول سبزیوں کے ساتھ پکائے۔</div><div class="ar sentence2">أُفَضِّلُ الأَرُزَّ البُنِّيَّ عَلَى الأَرُزِّ الأَبْيَضِ</div><div class="per sentence2">من برنج قهوه‌ای را به سفید ترجیح می‌دهم.</div><div class="en sentence2">I prefer brown rice over white rice.</div><div class="urd sentence2">میں سفید چاول کے بجائے براون رائس پسند کرتا ہوں۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/pasta.png"/>
-<figcaption class="front"><div class="ar">مَكَرونَة</div><div class="per">پاستا</div><div class="en">Pasta</div><div class="urd">پاستا</div></figcaption><figcaption class="back"><div class="ar">مَكَرونَة</div><div class="per">پاستا</div><div class="ar plural">مَعْكَرُونَاتٌ<span class="label">:Plural</span></div><div class="per plural">پاستاها<span class="label">:Plural</span></div><div class="ar sentence1">الإسبَاجِيتِي هُوَ نَوْعِي المُفَضَّلُ مِن البَاستَا</div><div class="per sentence1">اسپاگتی نوع مورد علاقه من پاستا است.</div><div class="en sentence1">Spaghetti is my favorite type of pasta.</div><div class="urd sentence1">سپیگیٹی میری پسندیدہ پاستا ہے۔</div><div class="ar sentence2">صَنَعَتْ صَلْصَةَ بَاستَا لَذِيذَةً</div><div class="per sentence2">او سس پاستای خوشمزه‌ای درست کرد.</div><div class="en sentence2">She made a delicious pasta sauce.</div><div class="urd sentence2">اُس نے مزیدار پاستا سوس بنایا۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/barley.png"/>
-<figcaption class="front"><div class="ar">شَعير</div><div class="per">جو</div><div class="en">Barley</div><div class="urd">جَو</div></figcaption><figcaption class="back"><div class="ar">شَعير</div><div class="per">جو</div><div class="ar plural">شَعِيرَاتٌ<span class="label">:Plural</span></div><div class="per plural">جوها<span class="label">:Plural</span></div><div class="ar sentence1">يُسْتَخْدَمُ الشَّعِيرُ فِي الحَسَائِسِ وَاليَخْنَاتِ</div><div class="per sentence1">جو در سوپ و خورش استفاده می‌شود.</div><div class="en sentence1">Barley is used in soups and stews.</div><div class="urd sentence1">جو سوپ اور اسٹو میں استعمال ہوتا ہے۔</div><div class="ar sentence2">يَزْرَعُ الفَلَّاحُونَ الشَّعِيرَ فِي الحُقُولِ</div><div class="per sentence2">کشاورزان جو را در مزارع می‌کارند.</div><div class="en sentence2">Farmers grow barley in the fields.</div><div class="urd sentence2">کسان کھیتوں میں جو اگاتے ہیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/wheat.png"/>
-<figcaption class="front"><div class="ar">قَمْح</div><div class="per">گندم</div><div class="en">Wheat</div><div class="urd">گندم</div></figcaption><figcaption class="back"><div class="ar">قَمْح</div><div class="per">گندم</div><div class="ar plural">قَمْحٌ / أَقْمِحَةٌ<span class="label">:Plural</span></div><div class="per plural">گندم‌ها<span class="label">:Plural</span></div><div class="ar sentence1">يُطْحَنُ القَمْحُ لِصُنْعِ الدَّقِيقِ</div><div class="per sentence1">گندم آسیاب می‌شود تا آرد درست شود.</div><div class="en sentence1">Wheat is ground to make flour.</div><div class="urd sentence1">گندم کو آٹا بنانے کے لیے پیسا جاتا ہے۔</div><div class="ar sentence2">نَحْتَاجُ إِلَى القَمْحِ لِخَبْزِ الخُبْزِ</div><div class="per sentence2">ما برای پخت نان به گندم نیاز داریم.</div><div class="en sentence2">We need wheat for baking bread.</div><div class="urd sentence2">ہمیں روٹی پکانے کے لیے گندم چاہیے۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/oats.png"/>
-<figcaption class="front"><div class="ar">شُوفان</div><div class="per">جو دوسر</div><div class="en">Oats</div><div class="urd">جئی</div></figcaption><figcaption class="back"><div class="ar">شُوفان</div><div class="per">جو دوسر</div><div class="ar plural">شُوفَانَاتٌ<span class="label">:Plural</span></div><div class="per plural">جودوسرها<span class="label">:Plural</span></div><div class="ar sentence1">أَأْكُلُ الشُّوفَانَ مَعَ الحَلِيبِ لِلإفْطَارِ</div><div class="per sentence1">من جو دوسر با شیر برای صبحانه می‌خورم.</div><div class="en sentence1">I eat oats with milk for breakfast.</div><div class="urd sentence1">میں ناشتہ میں دلیا دودھ کے ساتھ کھاتا ہوں۔</div><div class="ar sentence2">الشُّوفَانُ صَحِّيٌّ وَمُشْبِعٌ</div><div class="per sentence2">جو دوسر سالم و پرانرژی است.</div><div class="en sentence2">Oats are healthy and filling.</div><div class="urd sentence2">اوٹس صحت بخش اور بھرپور ہیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/flour.png"/>
-<figcaption class="front"><div class="ar">دَقيق</div><div class="per">آرد</div><div class="en">Flour</div><div class="urd">آٹا</div></figcaption><figcaption class="back"><div class="ar">دَقيق</div><div class="per">آرد</div><div class="ar plural">دَقِيقَاتٌ<span class="label">:Plural</span></div><div class="per plural">آردها<span class="label">:Plural</span></div><div class="ar sentence1">الحَدِيقُ مَطْلُوبٌ لِخَبْزِ الكَعْكِ</div><div class="per sentence1">آرد برای پختن کیک لازم است.</div><div class="en sentence1">Flour is needed to bake a cake.</div><div class="urd sentence1">کیک پکانے کے لیے آٹے کی ضرورت ہے۔</div><div class="ar sentence2">اِخْلِطِ الطَّحِينَ مَعَ المَاءِ لِعَمَلِ العَجِينِ</div><div class="per sentence2">آرد را با آب مخلوط کنید تا خمیر درست شود.</div><div class="en sentence2">Mix flour with water to make dough.</div><div class="urd sentence2">آٹا پانی کے ساتھ ملا کر آٹا تیار کریں۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/pita_bread.png"/>
-<figcaption class="front"><div class="ar">خُبْز مُسَطَّح</div><div class="per">نان پیتا</div><div class="en">Pita Bread</div><div class="urd">پیٹا بریڈ</div></figcaption><figcaption class="back"><div class="ar">خُبْز مُسَطَّح</div><div class="per">نان پیتا</div><div class="ar plural">خُبْزٌ شَعِيرِيّ / أَخْبَازٌ<span class="label">:Plural</span></div><div class="per plural">نان پیتا‌ها<span class="label">:Plural</span></div><div class="ar sentence1">أَكَلْنَا الحُمُّصَ مَعَ خُبْزِ البِيتَا</div><div class="per sentence1">ما حمص را با نان پیتا خوردیم.</div><div class="en sentence1">We had hummus with pita bread.</div><div class="urd sentence1">ہم نے ہمس پیتا بریڈ کے ساتھ کھایا۔</div><div class="ar sentence2">خُبْزُ البِيتَا طَرِيٌّ وَمُدَوَّرٌ</div><div class="per sentence2">نان پیتا نرم و گرد است.</div><div class="en sentence2">Pita bread is soft and round.</div><div class="urd sentence2">پیتا بریڈ نرم اور گول ہوتا ہے۔</div></figcaption>
-</figure>
-</section>
-<h2>🥩 Meat, Fish &amp; Poultry (اللَّحْمُ وَالسَّمَكُ وَالدَّوَاجِن)</h2>
-<section class="grid">
-<figure class="card">
-<div class="emoji">🍖</div>
-<figcaption class="front"><div class="ar">لَحْم</div><div class="per">گوشت</div><div class="en">Meat</div><div class="urd">گوشت</div></figcaption><figcaption class="back"><div class="ar">لَحْم</div><div class="per">گوشت</div><div class="ar plural">لُحُومٌ / لُحُومَاتٌ<span class="label">:Plural</span></div><div class="per plural">گوشت‌ها<span class="label">:Plural</span></div><div class="ar sentence1">هُوَ لا يَأْكُلُ اللَّحْمَ يَوْمَ الجُمُعَةِ</div><div class="per sentence1">او جمعه‌ها گوشت نمی‌خورد.</div><div class="en sentence1">He doesn’t eat meat on Fridays.</div><div class="urd sentence1">وہ جمعہ کے دن گوشت نہیں کھاتا۔</div><div class="ar sentence2">يَبِيعُ الجَزَّارُ اللَّحْمَ الطَّازَجَ كُلَّ يَوْمٍ</div><div class="per sentence2">قصاب هر روز گوشت تازه می‌فروشد.</div><div class="en sentence2">The butcher sells fresh meat every day.</div><div class="urd sentence2">قصاب ہر روز تازہ گوشت بیچتا ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/chicken.png"/>
-<figcaption class="front"><div class="ar">دَجاج</div><div class="per">مرغ</div><div class="en">Chicken</div><div class="urd">چکن</div></figcaption><figcaption class="back"><div class="ar">دَجاج</div><div class="per">مرغ</div><div class="ar plural">دَجَاجٌ / دَجَاجَاتٌ<span class="label">:Plural</span></div><div class="per plural">مرغ‌ها<span class="label">:Plural</span></div><div class="ar sentence1">شَوَيْنَا الدَّجَاجَ لِلْعَشَاءِ</div><div class="per sentence1">ما مرغ را برای شام گریل کردیم.</div><div class="en sentence1">We grilled chicken for dinner.</div><div class="urd sentence1">ہم نے رات کے کھانے کے لیے چکن گرل کیا۔</div><div class="ar sentence2">الدَّجَاجُ مَصْدَرٌ شَعْبِيٌّ لِلْبُرُوتِينِ</div><div class="per sentence2">مرغ منبع محبوب پروتئین است.</div><div class="en sentence2">Chicken is a popular source of protein.</div><div class="urd sentence2">چکن پروٹین کا مقبول ذریعہ ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/beef.png"/>
-<figcaption class="front"><div class="ar">لَحْمُ البَقَر</div><div class="per">گوشت گاو</div><div class="en">Beef</div><div class="urd">بیف / گائے کا گوشت</div></figcaption><figcaption class="back"><div class="ar">لَحْمُ البَقَر</div><div class="per">گوشت گاو</div><div class="ar plural">لَحْم بَقَرٍ / لُحُوم بَقَرِيَّة<span class="label">:Plural</span></div><div class="per plural">گوشت گاوها<span class="label">:Plural</span></div><div class="ar sentence1">تُوجَدُ بُرْغَرَاتُ اللَّحْمِ فِي القَائِمَةِ</div><div class="per sentence1">همبرگرهای گوشت گاو در منو هستند.</div><div class="en sentence1">Beef burgers are on the menu.</div><div class="urd sentence1">بیف برگر مینو میں ہیں۔</div><div class="ar sentence2">اِشْتَرَيْتُ لَحْمَ بَقَرٍ طَازَجًا مِنَ السُّوقِ</div><div class="per sentence2">من گوشت گاو تازه‌ای از بازار خریدم.</div><div class="en sentence2">I bought fresh beef from the market.</div><div class="urd sentence2">میں نے مارکیٹ سے تازہ گوشت خریدا۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/lamb.png"/>
-<figcaption class="front"><div class="ar">لَحْمُ الخَرُوف</div><div class="per">گوشت بره</div><div class="en">Lamb</div><div class="urd">بکرے کا گوشت</div></figcaption><figcaption class="back"><div class="ar">لَحْمُ الخَرُوف</div><div class="per">گوشت بره</div><div class="ar plural">لَحْم غَنَمٍ / أَلْحَام غَنَمِيَّة<span class="label">:Plural</span></div><div class="per plural">گوشت بره‌ها<span class="label">:Plural</span></div><div class="ar sentence1">كَارِي الضَّأْنِ هُوَ طَبَقِي المُفَضَّلُ</div><div class="per sentence1">کاری گوشت بره غذای مورد علاقه من است.</div><div class="en sentence1">Lamb curry is my favorite dish.</div><div class="urd sentence1">لیمب کری میرا پسندیدہ کھانا ہے۔</div><div class="ar sentence2">شَوَى الطَّبَّاخُ اللَّحْمَ الغَنَمِ بِكَمَالٍ</div><div class="per sentence2">سرآشپز گوشت گوسفند را به‌طور کامل کباب کرد.</div><div class="en sentence2">The chef roasted the lamb perfectly.</div><div class="urd sentence2">شیف نے بھیڑ کا گوشت بالکل صحیح بھونا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🐟</div>
-<figcaption class="front"><div class="ar">سَمَك</div><div class="per">ماهی</div><div class="en">Fish</div><div class="urd">مچھلی</div></figcaption><figcaption class="back"><div class="ar">سَمَك</div><div class="per">ماهی</div><div class="ar plural">أَسْمَاكٌ<span class="label">:Plural</span></div><div class="per plural">ماهی‌ها<span class="label">:Plural</span></div><div class="ar sentence1">السَّمَكُ صِحِّيٌّ وَلَذِيذٌ</div><div class="per sentence1">ماهی سالم و خوشمزه است.</div><div class="en sentence1">Fish is healthy and tasty.</div><div class="urd sentence1">مچھلی صحت بخش اور لذیذ ہے۔</div><div class="ar sentence2">صَدَدْنَا سَمَكًا طَازَجًا مِنَ البُحَيْرَةِ</div><div class="per sentence2">ما ماهی تازه‌ای از دریاچه گرفتیم.</div><div class="en sentence2">We caught fresh fish from the lake.</div><div class="urd sentence2">ہم نے جھیل سے تازہ مچھلی پکڑی۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🥚</div>
-<figcaption class="front"><div class="ar">بَيْضَة</div><div class="per">تخم‌مرغ</div><div class="en">Egg</div><div class="urd">انڈا</div></figcaption><figcaption class="back"><div class="ar">بَيْضَة</div><div class="per">تخم‌مرغ</div><div class="ar plural">بَيْضٌ / بَيْضَاتٌ<span class="label">:Plural</span></div><div class="per plural">تخم‌مرغ‌ها<span class="label">:Plural</span></div><div class="ar sentence1">سَلَقْتُ بَيْضَةً لِلإفْطَارِ</div><div class="per sentence1">من یک تخم‌مرغ برای صبحانه آب‌پز کردم.</div><div class="en sentence1">I boiled an egg for breakfast.</div><div class="urd sentence1">میں نے ناشتہ کے لیے ایک انڈہ اُبالا۔</div><div class="ar sentence2">يُمْكِنُ تَحْضِيرُ البَيْضِ مَخْلُوطًا أَوْ مَقْلِيًّا</div><div class="per sentence2">تخم‌مرغ می‌تواند نیمرو یا املت شود.</div><div class="en sentence2">Eggs can be scrambled or fried.</div><div class="urd sentence2">انڈے کو ہلکا سا پھینٹ کر یا تل کر کھایا جا سکتا ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🌭</div>
-<figcaption class="front"><div class="ar">نَقّانِق</div><div class="per">سوسیس</div><div class="en">Sausage</div><div class="urd">ساسیج</div></figcaption><figcaption class="back"><div class="ar">نَقّانِق</div><div class="per">سوسیس</div><div class="ar plural">نُقَانِقُ / نُقَانِقَاتٌ<span class="label">:Plural</span></div><div class="per plural">سوسیس‌ها<span class="label">:Plural</span></div><div class="ar sentence1">أُحِبُّ النُّقَانِقَ مَعَ البَيْضِ فِي الصَّبَاحِ</div><div class="per sentence1">من سوسیس را با تخم‌مرغ صبح‌ها دوست دارم.</div><div class="en sentence1">I like sausage with eggs in the morning.</div><div class="urd sentence1">مجھے صبح کے وقت انڈوں کے ساتھ ساسیج پسند ہے۔</div><div class="ar sentence2">يُقَدِّمُ المَطْعَمُ النُّقَانِقَ الحَارَّةَ</div><div class="per sentence2">رستوران سوسیس تند سرو می‌کند.</div><div class="en sentence2">The restaurant serves spicy sausage.</div><div class="urd sentence2">ریستوران مصالحہ دار ساسیج پیش کرتا ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/shawarma.png"/>
-<figcaption class="front"><div class="ar">شاوَرْما</div><div class="per">شاورما</div><div class="en">Shawarma</div><div class="urd">شاورما</div></figcaption><figcaption class="back"><div class="ar">شاوَرْما</div><div class="per">شاورما</div><div class="ar plural">شَاوَرْمَاتٌ<span class="label">:Plural</span></div><div class="per plural">شاورماها<span class="label">:Plural</span></div><div class="ar sentence1">طَلَبْنَا شَاوَرْمَا الدَّجَاجِ لِلغَدَاءِ</div><div class="per sentence1">ما برای ناهار شاورما مرغ سفارش دادیم.</div><div class="en sentence1">We ordered chicken shawarma for lunch.</div><div class="urd sentence1">ہم نے دوپہر کے کھانے کے لیے چکن شوارما منگوایا۔</div><div class="ar sentence2">يُلَفُّ الشَّاوَرْمَا فِي خُبْزِ البِيتَا</div><div class="per sentence2">شاورما در نان پیتا پیچیده می‌شود.</div><div class="en sentence2">Shawarma is wrapped in pita bread.</div><div class="urd sentence2">شاورما پیتا بریڈ میں لپیٹا جاتا ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/kofta.png"/>
-<figcaption class="front"><div class="ar">كُفْتَة</div><div class="per">کوفته</div><div class="en">Kofta</div><div class="urd">کفتہ</div></figcaption><figcaption class="back"><div class="ar">كُفْتَة</div><div class="per">کوفته</div><div class="ar plural">كُفْتَاتٌ / كُفْتَاواتٌ<span class="label">:Plural</span></div><div class="per plural">کوفته‌ها<span class="label">:Plural</span></div><div class="ar sentence1">الكُفْتَةُ مَصْنُوعَةٌ مِنَ اللَّحْمِ المَفْرُومِ وَالتَّوَابِلِ</div><div class="per sentence1">کوفته از گوشت چرخ‌کرده و ادویه درست می‌شود.</div><div class="en sentence1">Kofta is made of minced meat and spices.</div><div class="urd sentence1">کوفتہ قیمہ اور مصالحے سے بنتا ہے۔</div><div class="ar sentence2">أُحِبُّ أَنْ أَأْكُلَ الكُفْتَا مَعَ الأَرُزِّ</div><div class="per sentence2">من عاشق خوردن کوفته با برنج هستم.</div><div class="en sentence2">I love eating kofta with rice.</div><div class="urd sentence2">میں کوفتہ چاول کے ساتھ کھانا پسند کرتا ہوں۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/kebab.png"/>
-<figcaption class="front"><div class="ar">كَبَاب</div><div class="per">کباب</div><div class="en">Kebab</div><div class="urd">کباب</div></figcaption><figcaption class="back"><div class="ar">كَبَاب</div><div class="per">کباب</div><div class="ar plural">كَبَابَاتٌ<span class="label">:Plural</span></div><div class="per plural">کباب‌ها<span class="label">:Plural</span></div><div class="ar sentence1">شَوَيْنَا الكَبَابَ عَلَى الشَّوَاءِ</div><div class="per sentence1">ما کباب را روی گریل پختیم.</div><div class="en sentence1">We cooked kebabs on the grill.</div><div class="urd sentence1">ہم نے کباب گرل پر پکائے۔</div><div class="ar sentence2">الكَبَابُ شَعْبِيٌّ فِي الطَّبْخِ الشَّرْقِيِّ الأَوْسَطِ</div><div class="per sentence2">کباب در آشپزی خاورمیانه محبوب است.</div><div class="en sentence2">Kebab is popular in Middle Eastern cuisine.</div><div class="urd sentence2">کباب مشرق وسطیٰ کے کھانوں میں مقبول ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍔</div>
-<figcaption class="front"><div class="ar">بُرْغَر</div><div class="per">برگر</div><div class="en">Burger</div><div class="urd">برگر</div></figcaption><figcaption class="back"><div class="ar">بُرْغَر</div><div class="per">برگر</div><div class="ar plural">بُرْغَرَاتٌ<span class="label">:Plural</span></div><div class="per plural">برگرها<span class="label">:Plural</span></div><div class="ar sentence1">أَكَلْتُ بُرْغَرَ الجُبْنِ لِلغَدَاءِ</div><div class="per sentence1">من یک چیزبرگر برای ناهار خوردم.</div><div class="en sentence1">I ate a cheeseburger for lunch.</div><div class="urd sentence1">میں نے دوپہر کے کھانے کے لیے چیز برگر کھایا۔</div><div class="ar sentence2">يُقَدَّمُ الهَمْبُرْجَرُ غَالِبًا مَعَ البَطَاطِسِ المَقْلِيَّةِ</div><div class="per sentence2">همبرگر اغلب با سیب‌زمینی سرخ شده سرو می‌شود.</div><div class="en sentence2">Burgers are often served with fries.</div><div class="urd sentence2">برگر اکثر فرائز کے ساتھ پیش کیے جاتے ہیں۔</div></figcaption>
-</figure>
-</section>
-<h2>🧀 Dairy &amp; Related Foods (مُنْتَجَاتُ الأَلْبَان)</h2>
-<section class="grid">
-<figure class="card">
-<div class="emoji">🥛</div>
-<figcaption class="front"><div class="ar">حَلِيبٌ</div><div class="per">شیر</div><div class="en">Milk</div><div class="urd">دودھ</div></figcaption><figcaption class="back"><div class="ar">حَلِيبٌ</div><div class="per">شیر</div><div class="ar plural">أَلْبَانٌ<span class="label">:Plural</span></div><div class="per plural">شیرها<span class="label">:Plural</span></div><div class="ar sentence1">اِنْسَكَبَ الحَلِيبُ عَلَى الطَّاوِلَةِ</div><div class="per sentence1">شیر روی میز ریخته شد.</div><div class="en sentence1">Milk was spilled on the table.</div><div class="urd sentence1">دودھ میز پر گرا۔</div><div class="ar sentence2">هَلْ تَشْرَبُ الحَلِيبَ كُلَّ صَبَاحٍ؟</div><div class="per sentence2">آیا هر صبح شیر می‌نوشی؟</div><div class="en sentence2">Do you drink milk every morning?</div><div class="urd sentence2">کیا آپ ہر صبح دودھ پیتے ہیں؟</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/yogurt.png"/>
-<figcaption class="front"><div class="ar">لَبَن زَباديّ</div><div class="per">ماست</div><div class="en">Yogurt</div><div class="urd">دہی</div></figcaption><figcaption class="back"><div class="ar">لَبَن زَباديّ</div><div class="per">ماست</div><div class="ar plural">أَلْبَان مُخْتَلِفَة / أَلْبَان مُخْتَلِفَة<span class="label">:Plural</span></div><div class="per plural">ماست‌ها<span class="label">:Plural</span></div><div class="ar sentence1">الزَّبَادِي صِحِّيٌّ وَبِرُوبِيُوتِيكِيٌّ</div><div class="per sentence1">ماست سالم و پروبیوتیک است.</div><div class="en sentence1">Yogurt is healthy and probiotic.</div><div class="urd sentence1">دہی صحت بخش اور پروبائیوٹک ہے۔</div><div class="ar sentence2">أُضِيفُ العَسَلَ إِلَى الزَّبَادِي</div><div class="per sentence2">من عسل را به ماست اضافه می‌کنم.</div><div class="en sentence2">I add honey to my yogurt.</div><div class="urd sentence2">میں دہی میں شہد ڈالتا ہوں۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/butter.png"/>
-<figcaption class="front"><div class="ar">زُبْدَة</div><div class="per">کره</div><div class="en">Butter</div><div class="urd">مکھن</div></figcaption><figcaption class="back"><div class="ar">زُبْدَة</div><div class="per">کره</div><div class="ar plural">زُبْدَاتٌ / أَزْبَادٌ<span class="label">:Plural</span></div><div class="per plural">کره‌ها<span class="label">:Plural</span></div><div class="ar sentence1">الزُّبْدَةُ تُحَسِّنُ طَعْمَ الخُبْزِ</div><div class="per sentence1">کره طعم نان را بهتر می‌کند.</div><div class="en sentence1">Butter makes the bread taste better.</div><div class="urd sentence1">مکھن روٹی کا ذائقہ بہتر کرتا ہے۔</div><div class="ar sentence2">ذُوبِ الزُّبْدَةُ لِطَبْخِ الخُضْرَاوَاتِ</div><div class="per sentence2">کره را ذوب کنید تا سبزیجات پخته شوند.</div><div class="en sentence2">Melt butter to cook the vegetables.</div><div class="urd sentence2">سبزیوں کو پکانے کے لیے مکھن پگھلائیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🧀</div>
-<figcaption class="front"><div class="ar">جُبْن</div><div class="per">پنیر</div><div class="en">Cheese</div><div class="urd">پنیر</div></figcaption><figcaption class="back"><div class="ar">جُبْن</div><div class="per">پنیر</div><div class="ar plural">أَجْبَارَةٌ / أَجْبَانٌ<span class="label">:Plural</span></div><div class="per plural">پنیرها<span class="label">:Plural</span></div><div class="ar sentence1">أُحِبُّ الجُبْنَ عَلَى السَّانْدْوِيشِ</div><div class="per sentence1">من پنیر را روی ساندویچم دوست دارم.</div><div class="en sentence1">I like cheese on my sandwich.</div><div class="urd sentence1">مجھے اپنے سینڈوچ پر پنیر پسند ہے۔</div><div class="ar sentence2">الجُبْنُ يَأْتِي فِي نَكْهَاتٍ كَثِيرَةٍ</div><div class="per sentence2">پنیر در طعم‌های مختلف وجود دارد.</div><div class="en sentence2">Cheese comes in many flavors.</div><div class="urd sentence2">پنیر کئی ذائقوں میں آتا ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/cream.png"/>
-<figcaption class="front"><div class="ar">قِشْطَة</div><div class="per">خامه</div><div class="en">Cream</div><div class="urd">کریم</div></figcaption><figcaption class="back"><div class="ar">قِشْطَة</div><div class="per">خامه</div><div class="ar plural">قِشْدَةٌ / قِشَدَاتٌ<span class="label">:Plural</span></div><div class="per plural">خامه‌ها<span class="label">:Plural</span></div><div class="ar sentence1">أَضَافَتِ القِشْدَةَ إِلَى القَهْوَةِ</div><div class="per sentence1">او خامه را به قهوه اضافه کرد.</div><div class="en sentence1">She added cream to the coffee.</div><div class="urd sentence1">اُس نے کافی میں کریم ڈالی۔</div><div class="ar sentence2">الكَرِيمُ المُخْفُوقُ لَذِيذٌ عَلَى الحَلَوِيَاتِ</div><div class="per sentence2">خامه زده‌شده روی دسرها خوشمزه است.</div><div class="en sentence2">Whipped cream is delicious on desserts.</div><div class="urd sentence2">وہپڈ کریم میٹھے پر مزیدار لگتی ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍦</div>
-<figcaption class="front"><div class="ar">آيْس كْرِيمٌ</div><div class="per">بستنی</div><div class="en">Ice Cream</div><div class="urd">آئس کریم</div></figcaption><figcaption class="back"><div class="ar">آيْس كْرِيمٌ</div><div class="per">بستنی</div><div class="ar plural">أَغَانِيت / أَغَانِيت الآيس كريم<span class="label">:Plural</span></div><div class="per plural">بستنی‌ها<span class="label">:Plural</span></div><div class="ar sentence1">سَيَذُوبُ الآيْس كْرِيمُ إِذَا تُرِكَ خَارِجًا</div><div class="per sentence1">بستنی اگر بیرون بماند ذوب می‌شود.</div><div class="en sentence1">Ice cream will melt if left outside.</div><div class="urd sentence1">آئس کریم باہر چھوڑنے پر پگھل جائے گی۔</div><div class="ar sentence2">شَارَكْنَا البَاتِشِلَةَ بَعْدَ الغَدَاءِ</div><div class="per sentence2">ما بعد از ناهار بستنی را شریک شدیم.</div><div class="en sentence2">We shared ice cream after lunch.</div><div class="urd sentence2">ہم نے لنچ کے بعد آئس کریم بانٹی۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/powdered_milk.png"/>
-<figcaption class="front"><div class="ar">حَليبٌ مَسْحُوق</div><div class="per">شیر خشک</div><div class="en">Powdered Milk</div><div class="urd">دودھ کا پاؤڈر</div></figcaption><figcaption class="back"><div class="ar">حَليبٌ مَسْحُوق</div><div class="per">شیر خشک</div><div class="ar plural">أَلْبَان مُجَفَّفَة / أَلْبَان مُجَفَّفَة<span class="label">:Plural</span></div><div class="per plural">شیر خشک‌ها<span class="label">:Plural</span></div><div class="ar sentence1">يُمْكِنُ خَزْنُ الحَلِيبِ المُجَفَّفِ لِأَشْهُرٍ</div><div class="per sentence1">شیر خشک را می‌توان برای ماه‌ها نگه داشت.</div><div class="en sentence1">Powdered milk can be stored for months.</div><div class="urd sentence1">پاؤڈر دودھ کو مہینوں تک محفوظ رکھا جا سکتا ہے۔</div><div class="ar sentence2">أَضِفِ المَاءَ إِلَى الحَلِيبِ المُجَفَّفِ قَبْلَ الشُّرْبِ</div><div class="per sentence2">قبل از نوشیدن، آب به شیر خشک اضافه کنید.</div><div class="en sentence2">Add water to powdered milk before drinking.</div><div class="urd sentence2">پاؤڈر دودھ پینے سے پہلے پانی ڈالیں۔</div></figcaption>
-</figure>
-</section>
-<h2>🥗 Vegetables (الخُضْرَوَات)</h2>
-<section class="grid">
-<figure class="card">
-<img class="thumb" src="images/vegetables.png"/>
-<figcaption class="front"><div class="ar">خُضْرَوات</div><div class="per">سبزیجات</div><div class="en">Vegetables</div><div class="urd">سبزیاں</div></figcaption><figcaption class="back"><div class="ar">خُضْرَوات</div><div class="per">سبزیجات</div><div class="ar plural">خُضْرَوَاتٌ<span class="label">:Plural</span></div><div class="per plural">سبزیجات<span class="label">:Plural</span></div><div class="ar sentence1">الخُضْرَاوَاتُ مُهِمَّةٌ لِنِظَامٍ غِذَائِيٍّ صِحِّيٍّ</div><div class="per sentence1">سبزیجات برای رژیم غذایی سالم مهم هستند.</div><div class="en sentence1">Vegetables are important for a healthy diet.</div><div class="urd sentence1">سبزیاں صحت مند غذائی نظام کے لیے اہم ہیں۔</div><div class="ar sentence2">قَطَعْتُ الخُضْرَاوَاتِ لِلشُّورْبَةِ</div><div class="per sentence2">من سبزیجات را برای سوپ خرد کردم.</div><div class="en sentence2">I chopped the vegetables for soup.</div><div class="urd sentence2">میں نے سوپ کے لیے سبزیاں کاٹیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🥔</div>
-<figcaption class="front"><div class="ar">بَطاطِس</div><div class="per">سیب‌زمینی</div><div class="en">Potatoes</div><div class="urd">آلو</div></figcaption><figcaption class="back"><div class="ar">بَطاطِس</div><div class="per">سیب‌زمینی</div><div class="ar plural">بَطَاطِسُ<span class="label">:Plural</span></div><div class="per plural">سیب‌زمینی‌ها<span class="label">:Plural</span></div><div class="ar sentence1">خَبَزْتُ البَطَاطِسَ فِي الفُرْنِ</div><div class="per sentence1">من سیب‌زمینی را در فر پختم.</div><div class="en sentence1">I baked potatoes in the oven.</div><div class="urd sentence1">میں نے آلو اوون میں بیک کیے۔</div><div class="ar sentence2">يُمْكِنُ قَلِيُ البَطَاطِسِ أَوْ هَرْسُهَا</div><div class="per sentence2">سیب‌زمینی را می‌توان سرخ یا له کرد.</div><div class="en sentence2">Potatoes can be fried or mashed.</div><div class="urd sentence2">آلو کو تل یا میش کیا جا سکتا ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍅</div>
-<figcaption class="front"><div class="ar">طَماطِم</div><div class="per">گوجه‌فرنگی</div><div class="en">Tomatoes</div><div class="urd">ٹماٹر</div></figcaption><figcaption class="back"><div class="ar">طَماطِم</div><div class="per">گوجه‌فرنگی</div><div class="ar plural">طَمَاطِمُ / طَمَاطِمَاتٌ<span class="label">:Plural</span></div><div class="per plural">گوجه‌فرنگی‌ها<span class="label">:Plural</span></div><div class="ar sentence1">الطَّمَاطِمُ حَمْرَاءُ وَعَصِيرِيَّةٌ</div><div class="per sentence1">گوجه‌ها قرمز و آبدار هستند.</div><div class="en sentence1">Tomatoes are red and juicy.</div><div class="urd sentence1">ٹماٹر لال اور رسیلے ہیں۔</div><div class="ar sentence2">أَضَفْتُ الطَّمَاطِمَ إِلَى السَّلَطَةِ</div><div class="per sentence2">من گوجه فرنگی را به سالاد اضافه کردم.</div><div class="en sentence2">I added tomatoes to the salad.</div><div class="urd sentence2">میں نے سلاد میں ٹماٹر ڈالے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🧅</div>
-<figcaption class="front"><div class="ar">بَصَل</div><div class="per">پیاز</div><div class="en">Onion</div><div class="urd">پیاز</div></figcaption><figcaption class="back"><div class="ar">بَصَل</div><div class="per">پیاز</div><div class="ar plural">بَصَلٌ / بَصَلَاتٌ<span class="label">:Plural</span></div><div class="per plural">پیازها<span class="label">:Plural</span></div><div class="ar sentence1">يُضِيفُ البَصَلُ نَكْهَةً إِلَى الطَّبَقِ</div><div class="per sentence1">پیاز طعم غذا را بهتر می‌کند.</div><div class="en sentence1">Onion adds flavor to the dish.</div><div class="urd sentence1">پیاز کھانے میں ذائقہ بڑھاتا ہے۔</div><div class="ar sentence2">قَطَعَتْ بَصَلَةً لِلْيَخْنَةِ</div><div class="per sentence2">او یک پیاز برای خورش خرد کرد.</div><div class="en sentence2">She chopped an onion for the stew.</div><div class="urd sentence2">اُس نے اسٹو کے لیے پیاز کاٹا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🧄</div>
-<figcaption class="front"><div class="ar">ثُوم</div><div class="per">سیر</div><div class="en">Garlic</div><div class="urd">لہسن</div></figcaption><figcaption class="back"><div class="ar">ثُوم</div><div class="per">سیر</div><div class="ar plural">ثُومٌ / ثُومَاتٌ<span class="label">:Plural</span></div><div class="per plural">سیرها<span class="label">:Plural</span></div><div class="ar sentence1">يُسْتَخْدَمُ الثُّومُ فِي كَثِيرٍ مِنَ الصَّلَصَاتِ</div><div class="per sentence1">سیر در بسیاری از سس‌ها استفاده می‌شود.</div><div class="en sentence1">Garlic is used in many sauces.</div><div class="urd sentence1">لہسن بہت سے سوسز میں استعمال ہوتا ہے۔</div><div class="ar sentence2">اِسْحَقِ الثُّومَ قَبْلَ الطَّبْخِ</div><div class="per sentence2">سیر را قبل از پخت له کنید.</div><div class="en sentence2">Crush the garlic before cooking.</div><div class="urd sentence2">پکانے سے پہلے لہسن کو کچلیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/cucumber.png"/>
-<figcaption class="front"><div class="ar">خِيَار</div><div class="per">خیار</div><div class="en">Cucumber</div><div class="urd">کھیرا</div></figcaption><figcaption class="back"><div class="ar">خِيَار</div><div class="per">خیار</div><div class="ar plural">خِيَارٌ / خِيَارَاتٌ<span class="label">:Plural</span></div><div class="per plural">خیارها<span class="label">:Plural</span></div><div class="ar sentence1">قَطَعْتُ الخِيَارَ لِلصَّلَاطَةِ</div><div class="per sentence1">من خیار را برای سالاد برش زدم.</div><div class="en sentence1">I sliced cucumber for the salad.</div><div class="urd sentence1">میں نے سلاد کے لیے کھیرہ کاٹ دیا۔</div><div class="ar sentence2">الخِيَارُ مُنْعِشٌ فِي الصَّيْفِ</div><div class="per sentence2">خیار در تابستان تازه و خوشایند است.</div><div class="en sentence2">Cucumbers are refreshing in summer.</div><div class="urd sentence2">کھیرے گرمیوں میں تازگی بخش ہوتے ہیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🥕</div>
-<figcaption class="front"><div class="ar">جَزَر</div><div class="per">هویج</div><div class="en">Carrot</div><div class="urd">گاجر</div></figcaption><figcaption class="back"><div class="ar">جَزَر</div><div class="per">هویج</div><div class="ar plural">جَزَرٌ / جُزُرٌ<span class="label">:Plural</span></div><div class="per plural">هویج‌ها<span class="label">:Plural</span></div><div class="ar sentence1">الجَزَرُ غَنِيٌّ بِالْفِيتَامِين أ</div><div class="per sentence1">هویج سرشار از ویتامین A است.</div><div class="en sentence1">Carrots are rich in vitamin A.</div><div class="urd sentence1">گاجر وٹامن A سے بھرپور ہے۔</div><div class="ar sentence2">أَضَفْتُ الجَزَرَ إِلَى الشُّورْبَةِ</div><div class="per sentence2">من هویج را به سوپ اضافه کردم.</div><div class="en sentence2">I added carrots to the soup.</div><div class="urd sentence2">میں نے سوپ میں گاجر ڈال دی۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/chilie.png"/>
-<figcaption class="front"><div class="ar">فِلْفِلٌ حُلْو</div><div class="per">فلفل دلمه‌ای</div><div class="en">Bell Pepper</div><div class="urd">شِملا مرچ</div></figcaption><figcaption class="back"><div class="ar">فِلْفِلٌ حُلْو</div><div class="per">فلفل دلمه‌ای</div><div class="ar plural">فِلْفِلٌ / فَلَافِلٌ<span class="label">:Plural</span></div><div class="per plural">فلفل دلمه‌ای‌ها<span class="label">:Plural</span></div><div class="ar sentence1">الفِلْفِلُ الحُلْوُ يَأْتِي أَحْمَرَ، أَصْفَرَ، وَأَخْضَرَ</div><div class="per sentence1">فلفل دلمه‌ای به رنگ‌های قرمز، زرد و سبز موجود است.</div><div class="en sentence1">Bell peppers come in red, yellow, and green.</div><div class="urd sentence1">شملہ مرچ لال، پیلا اور سبز رنگ میں آتا ہے۔</div><div class="ar sentence2">قَلَيْتُ الفِلْفِلَ الحُلْوَ مَعَ الدَّجَاجِ</div><div class="per sentence2">فلفل دلمه‌ای را با مرغ تفت دادم.</div><div class="en sentence2">I stir-fried bell peppers with chicken.</div><div class="urd sentence2">میں نے بیل پیپرز کو چکن کے ساتھ اسٹرفرائی کیا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🌶️</div>
-<figcaption class="front"><div class="ar">فِلْفِل حارّ</div><div class="per">فلفل تند</div><div class="en">Chili Pepper</div><div class="urd">مرچ</div></figcaption><figcaption class="back"><div class="ar">فِلْفِل حارّ</div><div class="per">فلفل تند</div><div class="ar plural">فِلْفِل حَارّ / فَلَافِل حَارَّة<span class="label">:Plural</span></div><div class="per plural">فلفل تندها<span class="label">:Plural</span></div><div class="ar sentence1">تُجْعَلُ الفِلْفِلُ الحَارُّ الطَّعَامَ حَارًّا</div><div class="per sentence1">فلفل تند غذا را تند می‌کند.</div><div class="en sentence1">Chili peppers make food spicy.</div><div class="urd sentence1">مرچ کھانے کو تیکھا بناتی ہے۔</div><div class="ar sentence2">أَضَفْتُ الفِلْفِلَ الحَارَّ إِلَى الصَّلْصَةِ</div><div class="per sentence2">فلفل قرمز را به سس اضافه کردم.</div><div class="en sentence2">I added chili pepper to the sauce.</div><div class="urd sentence2">میں نے سوس میں مرچ ڈال دی۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/cabbage.png"/>
-<figcaption class="front"><div class="ar">كُرُنْب</div><div class="per">کلم</div><div class="en">Cabbage</div><div class="urd">بند گوبھی</div></figcaption><figcaption class="back"><div class="ar">كُرُنْب</div><div class="per">کلم</div><div class="ar plural">كَرُنْبٌ / أَكْرُنْبٌ<span class="label">:Plural</span></div><div class="per plural">کلم‌ها<span class="label">:Plural</span></div><div class="ar sentence1">يُسْتَخْدَمُ الكَرْبُوسُ فِي الصَّلَاطَاتِ وَالحَسَائِسِ</div><div class="per sentence1">کلم در سالاد و سوپ استفاده می‌شود.</div><div class="en sentence1">Cabbage is used in salads and soups.</div><div class="urd sentence1">بند گوبھی سلاد اور سوپ میں استعمال ہوتی ہے۔</div><div class="ar sentence2">صَنَعْتُ سَلَطَةَ الكَرْبُوجِ</div><div class="per sentence2">کلم را برای کلم سالاد درست کردم.</div><div class="en sentence2">I made coleslaw with cabbage.</div><div class="urd sentence2">میں نے بند گوبھی کے ساتھ کول سلو بنایا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🥬</div>
-<figcaption class="front"><div class="ar">خَسّ</div><div class="per">کاهو</div><div class="en">Lettuce</div><div class="urd">سلاد پتا</div></figcaption><figcaption class="back"><div class="ar">خَسّ</div><div class="per">کاهو</div><div class="ar plural">خَسٌّ / أَخْسَاسٌ<span class="label">:Plural</span></div><div class="per plural">کاهوها<span class="label">:Plural</span></div><div class="ar sentence1">الخَسُّ طَازَجٌ وَمَقْرُومٌ</div><div class="per sentence1">کاهو تازه و ترد است.</div><div class="en sentence1">Lettuce is fresh and crunchy.</div><div class="urd sentence1">لیٹش تازہ اور کرکرا ہے۔</div><div class="ar sentence2">وَضَعْتُ الخَسَّ فِي السَّنْدْوِيتْشِ</div><div class="per sentence2">کاهو را در ساندویچ خود گذاشتم.</div><div class="en sentence2">I put lettuce in my sandwich.</div><div class="urd sentence2">میں نے اپنے سینڈوچ میں سلاد ڈال دی۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/spinach.png"/>
-<figcaption class="front"><div class="ar">سَبانِخ</div><div class="per">اسفناج</div><div class="en">Spinach</div><div class="urd">پالک</div></figcaption><figcaption class="back"><div class="ar">سَبانِخ</div><div class="per">اسفناج</div><div class="ar plural">سَبَانِخٌ / سَبَانِخَاتٌ<span class="label">:Plural</span></div><div class="per plural">اسفناج‌ها<span class="label">:Plural</span></div><div class="ar sentence1">السَّبَانِخُ غَنِيَّةٌ بِالْحَدِيدِ</div><div class="per sentence1">اسفناج سرشار از آهن است.</div><div class="en sentence1">Spinach is rich in iron.</div><div class="urd sentence1">پالک آئرن سے بھرپور ہے۔</div><div class="ar sentence2">طَبَخْتُ السَّبَانِخَ مَعَ الثُّومِ</div><div class="per sentence2">اسفناج را با سیر پختم.</div><div class="en sentence2">I cooked spinach with garlic.</div><div class="urd sentence2">میں نے پالک کو لہسن کے ساتھ پکایا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍆</div>
-<figcaption class="front"><div class="ar">باذِنجان</div><div class="per">بادمجان</div><div class="en">Eggplant</div><div class="urd">بینگن</div></figcaption><figcaption class="back"><div class="ar">باذِنجان</div><div class="per">بادمجان</div><div class="ar plural">بَاذِنْجَانٌ / بَاذِنْجَانَاتٌ<span class="label">:Plural</span></div><div class="per plural">بادمجان‌ها<span class="label">:Plural</span></div><div class="ar sentence1">يُسْتَخْدَمُ البَاذِنْجَانُ فِي كَثِيرٍ مِنَ الأَطْبَاقِ المُتَوَسِّطِيَّةِ</div><div class="per sentence1">بادمجان در بسیاری از غذاهای مدیترانه‌ای استفاده می‌شود.</div><div class="en sentence1">Eggplant is used in many Mediterranean dishes.</div><div class="urd sentence1">بینگن بہت سے بحیرہ روم کے کھانوں میں استعمال ہوتا ہے۔</div><div class="ar sentence2">شَوَيْتُ شَرَائِحَ البَاذِنْجَانِ</div><div class="per sentence2">بادمجان را کباب کردم.</div><div class="en sentence2">I grilled the eggplant slices.</div><div class="urd sentence2">میں نے بینگن کے ٹکڑوں کو گرل کیا۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/zucchini.png"/>
-<figcaption class="front"><div class="ar">كوسا</div><div class="per">کدو سبز</div><div class="en">Zucchini</div><div class="urd">زُکِّنی / سبز کدو</div></figcaption><figcaption class="back"><div class="ar">كوسا</div><div class="per">کدو سبز</div><div class="ar plural">كُسَّبِينِيّ / كُسَّبِينِيَّاتٌ<span class="label">:Plural</span></div><div class="per plural">کدو سبزها<span class="label">:Plural</span></div><div class="ar sentence1">الكُوسَا خُضْرَاوَاتٌ صِحِّيَّةٌ</div><div class="per sentence1">کدو سبز یک سبزی سالم است.</div><div class="en sentence1">Zucchini is a healthy vegetable.</div><div class="urd sentence1">زوچینی ایک صحت مند سبزی ہے۔</div><div class="ar sentence2">خَبَزْتُ الكُوسَةَ مَعَ الجُبْنِ</div><div class="per sentence2">کدو سبز را با پنیر پختم.</div><div class="en sentence2">I baked zucchini with cheese.</div><div class="urd sentence2">میں نے زوچینی کو پنیر کے ساتھ بیک کیا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🫘</div>
-<figcaption class="front"><div class="ar">فاصولْياء</div><div class="per">لوبیا</div><div class="en">Beans</div><div class="urd">پھلیاں</div></figcaption><figcaption class="back"><div class="ar">فاصولْياء</div><div class="per">لوبیا</div><div class="ar plural">فُولٌ / فُولَاتٌ<span class="label">:Plural</span></div><div class="per plural">لوبیاها<span class="label">:Plural</span></div><div class="ar sentence1">الفُولُ غَنِيٌّ بِالبْرُوتِينِ</div><div class="per sentence1">لوبیا سرشار از پروتئین است.</div><div class="en sentence1">Beans are high in protein.</div><div class="urd sentence1">پھلیاں پروٹین سے بھرپور ہیں۔</div><div class="ar sentence2">طَبَخْتُ الفَاصُولِيَا لِلْعَشَاءِ</div><div class="per sentence2">لوبیا را برای شام پختم.</div><div class="en sentence2">I cooked beans for dinner.</div><div class="urd sentence2">میں نے رات کے کھانے کے لیے لوبیا پکایا۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/lentils.png"/>
-<figcaption class="front"><div class="ar">عَدَس</div><div class="per">عدس</div><div class="en">Lentils</div><div class="urd">دال</div></figcaption><figcaption class="back"><div class="ar">عَدَس</div><div class="per">عدس</div><div class="ar plural">عَدَسٌ / عَدَسَاتٌ<span class="label">:Plural</span></div><div class="per plural">عدس‌ها<span class="label">:Plural</span></div><div class="ar sentence1">يُسْتَخْدَمُ العَدَسُ فِي الحَسَائِسِ وَاليَخْنَاتِ</div><div class="per sentence1">عدس در سوپ و خورش استفاده می‌شود.</div><div class="en sentence1">Lentils are used in soups and stews.</div><div class="urd sentence1">مسور دال سوپ اور اسٹو میں استعمال ہوتی ہے۔</div><div class="ar sentence2">صَنَعْتُ شُورْبَةَ العَدَسِ لِلغَدَاءِ</div><div class="per sentence2">سوپ عدس را برای ناهار درست کردم.</div><div class="en sentence2">I made lentil soup for lunch.</div><div class="urd sentence2">میں نے لنٹلز کا سوپ لنچ کے لیے بنایا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🫛</div>
-<figcaption class="front"><div class="ar">بَازِلاءٌ</div><div class="per">نخود سبز</div><div class="en">Peas</div><div class="urd">مٹر</div></figcaption><figcaption class="back"><div class="ar">بَازِلاءٌ</div><div class="per">نخود سبز</div><div class="ar plural">بَازِيلَاتٌ<span class="label">:Plural</span></div><div class="per plural">نخود سبزها<span class="label">:Plural</span></div><div class="ar sentence1">أَضَافَ الطَّبَّاخُ البَازِلاءَ إِلَى الكَرِي</div><div class="per sentence1">سرآشپز نخود فرنگی را به کاری اضافه کرد.</div><div class="en sentence1">The chef added peas to the curry.</div><div class="urd sentence1">شیف نے مٹر کری میں ڈالے۔</div><div class="ar sentence2">تَنْمُو البَازِلَاءُ فِي أَغْلَافٍ صَغِيرَةٍ خَضْرَاءَ</div><div class="per sentence2">نخود سبز در غلاف‌های کوچک رشد می‌کند.</div><div class="en sentence2">Peas grow in small green pods.</div><div class="urd sentence2">مٹر چھوٹے سبز پھولوں میں اگتے ہیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🌽</div>
-<figcaption class="front"><div class="ar">ذُرَةٌ</div><div class="per">ذرت</div><div class="en">Corn</div><div class="urd">مکئی</div></figcaption><figcaption class="back"><div class="ar">ذُرَةٌ</div><div class="per">ذرت</div><div class="ar plural">ذُرُرٌ<span class="label">:Plural</span></div><div class="per plural">ذرت‌ها<span class="label">:Plural</span></div><div class="ar sentence1">جُنْدَرَةُ الذُّرَةِ حُصِدَتْ الأُسْبُوعَ المَاضِي</div><div class="per sentence1">ذرت هفته گذشته برداشت شد.</div><div class="en sentence1">Corn was harvested last week.</div><div class="urd sentence1">مکئی کاشت پچھلے ہفتے کی گئی۔</div><div class="ar sentence2">هَلْ يُمْكِنُكَ سَلْ الحِنْطِ لِلغَدَاءِ؟</div><div class="per sentence2">می‌توانی ذرت را برای ناهار بپزی؟</div><div class="en sentence2">Can you boil the corn for lunch?</div><div class="urd sentence2">کیا آپ لنچ کے لیے مکئی اُبال سکتے ہیں؟</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍄</div>
-<figcaption class="front"><div class="ar">فِطْرٌ</div><div class="per">قارچ</div><div class="en">Mushroom</div><div class="urd">کھمبی</div></figcaption><figcaption class="back"><div class="ar">فِطْرٌ</div><div class="per">قارچ</div><div class="ar plural">فُطُورٌ<span class="label">:Plural</span></div><div class="per plural">قارچ‌ها<span class="label">:Plural</span></div><div class="ar sentence1">لِلْفُطْرِ نَكْهَةٌ أَرْضِيَّةٌ فَرِيدَةٌ</div><div class="per sentence1">قارچ طعم خاکی و منحصر به فرد دارد.</div><div class="en sentence1">Mushrooms have a unique earthy flavor.</div><div class="urd sentence1">مشروم کا ذائقہ زمین دار اور منفرد ہوتا ہے۔</div><div class="ar sentence2">طَبَخَ الفُطْرَ مَعَ البَصَلِ أَمْسِ</div><div class="per sentence2">او دیروز قارچ را با پیاز پخت.</div><div class="en sentence2">He cooked mushrooms with onions yesterday.</div><div class="urd sentence2">اُس نے کل مشروم کو پیاز کے ساتھ پکایا۔</div></figcaption>
-</figure>
-</section>
-<h2>🍎 Fruits (الفَوَاكِه)</h2>
-<section class="grid">
-<figure class="card">
-<img class="thumb" src="images/fruits.png"/>
-<figcaption class="front"><div class="ar">فَوَاكِهٌ</div><div class="per">میوه‌ها</div><div class="en">Fruits</div><div class="urd">پھل</div></figcaption><figcaption class="back"><div class="ar">فَوَاكِهٌ</div><div class="per">میوه‌ها</div><div class="ar plural">فَوَاكِهٌ<span class="label">:Plural</span></div><div class="per plural">میوه‌ها<span class="label">:Plural</span></div><div class="ar sentence1">يَجِبُ غَسْلُ الفَوَاكِهِ قَبْلَ الأَكْلِ</div><div class="per sentence1">میوه‌ها باید قبل از خوردن شسته شوند.</div><div class="en sentence1">Fruits should be washed before eating.</div><div class="urd sentence1">پھل کھانے سے پہلے دھونے چاہیے۔</div><div class="ar sentence2">تَأْكُلُ الكَثِيرُ مِنَ الطُّيُورِ الفَوَاكِهَ فِي الحَدِيقَةِ</div><div class="per sentence2">پرندگان زیادی میوه‌ها را در باغ می‌خورند.</div><div class="en sentence2">Many birds eat fruits in the garden.</div><div class="urd sentence2">بہت سے پرندے باغ میں پھل کھاتے ہیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍎</div>
-<figcaption class="front"><div class="ar">تُفَّاحٌ</div><div class="per">سیب</div><div class="en">Apple</div><div class="urd">سیب</div></figcaption><figcaption class="back"><div class="ar">تُفَّاحٌ</div><div class="per">سیب</div><div class="ar plural">تُفَّاحَاتٌ<span class="label">:Plural</span></div><div class="per plural">سیب‌ها<span class="label">:Plural</span></div><div class="ar sentence1">قَضَمَتِ تُفَّاحَةً عَصِيرِيَّةً</div><div class="per sentence1">او یک سیب آبدار گاز زد.</div><div class="en sentence1">She bit into a juicy apple.</div><div class="urd sentence1">اُس نے رسیلا سیب کاٹ کر کھایا۔</div><div class="ar sentence2">تُحْصَدُ التُّفَّاحَ فِي الخَرِيفِ</div><div class="per sentence2">سیب‌ها در پاییز برداشت می‌شوند.</div><div class="en sentence2">Apples are harvested in autumn.</div><div class="urd sentence2">سیب خزاں میں کاٹے جاتے ہیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍊</div>
-<figcaption class="front"><div class="ar">بُرْتُقَالٌ</div><div class="per">پرتقال</div><div class="en">Orange</div><div class="urd">نارنگی</div></figcaption><figcaption class="back"><div class="ar">بُرْتُقَالٌ</div><div class="per">پرتقال</div><div class="ar plural">بُرْتُقَالَاتٌ<span class="label">:Plural</span></div><div class="per plural">پرتقال‌ها<span class="label">:Plural</span></div><div class="ar sentence1">يُقَدَّمُ عَصِيرُ البُرْتُقَالِ بَارِدًا</div><div class="per sentence1">آب پرتقال سرد سرو می‌شود.</div><div class="en sentence1">Orange juice is served cold.</div><div class="urd sentence1">سنتری کا جوس ٹھنڈا پیش کیا جاتا ہے۔</div><div class="ar sentence2">قَشَرَ بُرْتُقَالَةً لِابْنِهِ</div><div class="per sentence2">او یک پرتقال را برای پسرش پوست گرفت.</div><div class="en sentence2">He peeled an orange for his son.</div><div class="urd sentence2">اُس نے اپنے بیٹے کے لیے سنگترہ چھلکا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍌</div>
-<figcaption class="front"><div class="ar">مَوْزٌ</div><div class="per">موز</div><div class="en">Banana</div><div class="urd">کیلا</div></figcaption><figcaption class="back"><div class="ar">مَوْزٌ</div><div class="per">موز</div><div class="ar plural">مَوَازٌ<span class="label">:Plural</span></div><div class="per plural">موزها<span class="label">:Plural</span></div><div class="ar sentence1">تَنْضُجُ المَوَازِ فِي الطَّقْسِ الدَّافِئِ سَرِيعًا</div><div class="per sentence1">موز در هوای گرم سریع می‌رسد.</div><div class="en sentence1">Bananas ripen quickly in warm weather.</div><div class="urd sentence1">کیلے گرم موسم میں جلد پک جاتے ہیں۔</div><div class="ar sentence2">هَلْ جَرَّبْتَ فَطِيرَةَ المَوْزِ؟</div><div class="per sentence2">تا به حال پنکیک موز را امتحان کرده‌ای؟</div><div class="en sentence2">Have you tried banana pancakes?</div><div class="urd sentence2">کیا آپ نے کیلے کے پین کیکس چکھے ہیں؟</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍇</div>
-<figcaption class="front"><div class="ar">عِنَبٌ</div><div class="per">انگور</div><div class="en">Grapes</div><div class="urd">انگور</div></figcaption><figcaption class="back"><div class="ar">عِنَبٌ</div><div class="per">انگور</div><div class="ar plural">عِنَبٌ / عِنَبَاتٌ<span class="label">:Plural</span></div><div class="per plural">انگور‌ها<span class="label">:Plural</span></div><div class="ar sentence1">وُضِعَتِ العِنَبُ فِي وَعَاءٍ كَبِيرٍ</div><div class="per sentence1">انگورها در کاسه بزرگی قرار گرفتند.</div><div class="en sentence1">Grapes were placed in a large bowl.</div><div class="urd sentence1">انگور ایک بڑے پیالے میں رکھے گئے۔</div><div class="ar sentence2">يَزْرَعُ الفَلَّاحُ العِنَبَ لِلنَّبِيدِ</div><div class="per sentence2">کشاورز انگور برای شراب می‌کارد.</div><div class="en sentence2">The farmer grows grapes for wine.</div><div class="urd sentence2">کسان انگور شراب کے لیے اگاتے ہیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍓</div>
-<figcaption class="front"><div class="ar">فَرَاوِلَةٌ</div><div class="per">توت فرنگی</div><div class="en">Strawberry</div><div class="urd">اسٹرابیری</div></figcaption><figcaption class="back"><div class="ar">فَرَاوِلَةٌ</div><div class="per">توت فرنگی</div><div class="ar plural">فَرَاوِلٌ<span class="label">:Plural</span></div><div class="per plural">توت‌فرنگی‌ها<span class="label">:Plural</span></div><div class="ar sentence1">رَأَيْتُ حُقُولَ الفَرَاوِلَةِ فِي رِحْلَتِنَا</div><div class="per sentence1">من در سفرمان مزارع توت فرنگی را دیدم.</div><div class="en sentence1">I saw strawberry fields on our trip.</div><div class="urd sentence1">میں نے ہمارے سفر میں اسٹرابیری کے کھیت دیکھے۔</div><div class="ar sentence2">البَاتِشِلَةُ بِالفَرَاوِلَةِ هِيَ المُفَضَّلَةُ لَدَيَّ</div><div class="per sentence2">بستنی توت‌فرنگی مورد علاقه من است.</div><div class="en sentence2">Strawberry ice cream is my favorite.</div><div class="urd sentence2">اسٹابیری آئس کریم میری پسندیدہ ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍉</div>
-<figcaption class="front"><div class="ar">بَطِّيخٌ</div><div class="per">هندوانه</div><div class="en">Watermelon</div><div class="urd">تربوز</div></figcaption><figcaption class="back"><div class="ar">بَطِّيخٌ</div><div class="per">هندوانه</div><div class="ar plural">بَطِّيخَاتٌ<span class="label">:Plural</span></div><div class="per plural">هندوانه‌ها<span class="label">:Plural</span></div><div class="ar sentence1">شَارَكَ الأَطْفَالُ البَطِّيخَ فِي النُّزْهَةِ</div><div class="per sentence1">بچه‌ها هندوانه را در پیک‌نیک تقسیم کردند.</div><div class="en sentence1">The children shared a watermelon at the picnic.</div><div class="urd sentence1">بچوں نے پکنک پر تربوز بانٹا۔</div><div class="ar sentence2">البِطِّيخُ يَحْتَوِي عَلَى كَمِّيَّةٍ كَبِيرَةٍ مِنَ المَاءِ</div><div class="per sentence2">هندوانه مقدار زیادی آب دارد.</div><div class="en sentence2">Watermelon contains a lot of water.</div><div class="urd sentence2">تربوز میں بہت زیادہ پانی ہوتا ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/melon.png"/>
-<figcaption class="front"><div class="ar">شَمَّامٌ</div><div class="per">خربزه</div><div class="en">Melon</div><div class="urd">خربوزہ</div></figcaption><figcaption class="back"><div class="ar">شَمَّامٌ</div><div class="per">خربزه</div><div class="ar plural">شَمَّامَاتٌ<span class="label">:Plural</span></div><div class="per plural">طالبی‌ها<span class="label">:Plural</span></div><div class="ar sentence1">قُطِعَ الشَّمَّامُ لِلإفْطَارِ</div><div class="per sentence1">یک خربزه برای صبحانه برش داده شد.</div><div class="en sentence1">A melon was sliced for breakfast.</div><div class="urd sentence1">ناشتے کے لیے خربوزہ کاٹ دیا گیا۔</div><div class="ar sentence2">الشَّمَّامُ حُلْوٌ وَمُنْعِشٌ فِي الصَّيْفِ</div><div class="per sentence2">خربزه در تابستان شیرین و تازه است.</div><div class="en sentence2">Melons are sweet and refreshing in summer.</div><div class="urd sentence2">خربوزے گرمیوں میں میٹھے اور تازگی بخش ہوتے ہیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍍</div>
-<figcaption class="front"><div class="ar">أَنَانَاسٌ</div><div class="per">آناناس</div><div class="en">Pineapple</div><div class="urd">انناس</div></figcaption><figcaption class="back"><div class="ar">أَنَانَاسٌ</div><div class="per">آناناس</div><div class="ar plural">أَنَانِيسٌ<span class="label">:Plural</span></div><div class="per plural">آناناس‌ها<span class="label">:Plural</span></div><div class="ar sentence1">كَانَتْ بيتْزَا الأَنْانَاسِ مُثِيرَةً لِلْجَدَلِ بَعْضَ النَّاسِ</div><div class="per sentence1">پیتزای آناناس برای بعضی‌ها جنجالی است.</div><div class="en sentence1">Pineapple pizza is controversial for some.</div><div class="urd sentence1">کچھ لوگوں کے لیے پائن ایپل پیزا متنازع ہے۔</div><div class="ar sentence2">قَطَعَتْ الأَنْانَاسَ لِسَلَطَةِ الفَوَاكِهِ</div><div class="per sentence2">او آناناس را برای سالاد میوه خرد کرد.</div><div class="en sentence2">She chopped pineapple for the fruit salad.</div><div class="urd sentence2">اُس نے فروٹ سلاد کے لیے انناس کاٹا۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/mango.png"/>
-<figcaption class="front"><div class="ar">مَانْجُوٌ</div><div class="per">انبه</div><div class="en">Mango</div><div class="urd">آم</div></figcaption><figcaption class="back"><div class="ar">مَانْجُوٌ</div><div class="per">انبه</div><div class="ar plural">مَنَاجُو / مَانْجُوهَاتٌ<span class="label">:Plural</span></div><div class="per plural">انبه‌ها<span class="label">:Plural</span></div><div class="ar sentence1">الْمَانْجُو مَشْهُورٌ فِي البُلْدَانِ المُسْتَوِيَةِ</div><div class="per sentence1">انبه در کشورهای گرمسیری معروف است.</div><div class="en sentence1">Mangoes are famous in tropical countries.</div><div class="urd sentence1">آم گرم خطوں میں مشہور ہیں۔</div><div class="ar sentence2">هَلْ سَتَجْلِبُ لُبِّيَةً مِنَ السُّوقِ؟</div><div class="per sentence2">آیا یک انبه از بازار می‌آوری؟</div><div class="en sentence2">Will you bring a mango from the market?</div><div class="urd sentence2">کیا آپ بازار سے آم لائیں گے؟</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍎</div>
-<figcaption class="front"><div class="ar">رُمَّانٌ</div><div class="per">انار</div><div class="en">Pomegranate</div><div class="urd">انار</div></figcaption><figcaption class="back"><div class="ar">رُمَّانٌ</div><div class="per">انار</div><div class="ar plural">رُمَّانَاتٌ<span class="label">:Plural</span></div><div class="per plural">انارها<span class="label">:Plural</span></div><div class="ar sentence1">تَناثَرَتْ بُذُورُ الرُّمَّانِ عَلَى الحَلْوَى</div><div class="per sentence1">دانه‌های انار روی دسر پخش شدند.</div><div class="en sentence1">Pomegranate seeds were scattered on the dessert.</div><div class="urd sentence1">انار کے دانے میٹھے پر بکھرے۔</div><div class="ar sentence2">شَرِبُوا عَصِيرَ الرُّمَّانِ عَلَى الإِفْطَارِ</div><div class="per sentence2">آن‌ها آب انار را در صبحانه نوشیدند.</div><div class="en sentence2">They drank pomegranate juice at breakfast.</div><div class="urd sentence2">انہوں نے ناشتہ میں انار کا رس پیا۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/date.png"/>
-<figcaption class="front"><div class="ar">تَمْرٌ</div><div class="per">خرما</div><div class="en">Dates</div><div class="urd">کھجور</div></figcaption><figcaption class="back"><div class="ar">تَمْرٌ</div><div class="per">خرما</div><div class="ar plural">تَمُورٌ<span class="label">:Plural</span></div><div class="per plural">خرماها<span class="label">:Plural</span></div><div class="ar sentence1">تُؤْكَلُ التَّمُورُ لِفِطْرِ الصِّيَامِ</div><div class="per sentence1">خرما برای افطار خورده می‌شود.</div><div class="en sentence1">Dates are eaten to break the fast.</div><div class="urd sentence1">روزہ کھولنے کے لیے کھجور کھائی جاتی ہے۔</div><div class="ar sentence2">يَبِيعُ البَائِعُ التَّمْرَ الطَّازَجَ فِي السُّوقِ</div><div class="per sentence2">فروشنده خرما تازه در بازار می‌فروشد.</div><div class="en sentence2">The vendor sells fresh dates in the market.</div><div class="urd sentence2">بیچنے والا مارکیٹ میں تازہ کھجوریں بیچتا ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🫐</div>
-<figcaption class="front"><div class="ar">تِينٌ</div><div class="per">انجیر</div><div class="en">Fig</div><div class="urd">انجیر</div></figcaption><figcaption class="back"><div class="ar">تِينٌ</div><div class="per">انجیر</div><div class="ar plural">تِينٌ / تِينَاتٌ<span class="label">:Plural</span></div><div class="per plural">انجیرها<span class="label">:Plural</span></div><div class="ar sentence1">جُفِّفَتِ التُّفَّاحَةُ الشَّمْسِيَّةُ</div><div class="per sentence1">انجیرها در آفتاب خشک شدند.</div><div class="en sentence1">Figs were dried in the sun.</div><div class="urd sentence1">انجیر دھوپ میں خشک کیے گئے۔</div><div class="ar sentence2">هَلْ ذُقْتَ التِّينَ الطَّازَجَ مِنْ قَبْلُ؟</div><div class="per sentence2">تا به حال انجیر تازه را چشیده‌ای؟</div><div class="en sentence2">Have you ever tasted fresh figs?</div><div class="urd sentence2">کیا آپ نے کبھی تازہ انجیر چکھا ہے؟</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍋</div>
-<figcaption class="front"><div class="ar">لَيْمُونٌ</div><div class="per">لیمو</div><div class="en">Lemon</div><div class="urd">لیمو</div></figcaption><figcaption class="back"><div class="ar">لَيْمُونٌ</div><div class="per">لیمو</div><div class="ar plural">لَيْمُونَاتٌ<span class="label">:Plural</span></div><div class="per plural">لیموها<span class="label">:Plural</span></div><div class="ar sentence1">يُمْكِنُ اسْتِخْدَامُ اللَّيْمُونِ فِي المَشْرُوبَاتِ وَالحَلَوِيَاتِ</div><div class="per sentence1">لیمو در نوشیدنی‌ها و دسرها استفاده می‌شود.</div><div class="en sentence1">Lemon can be used in both drinks and desserts.</div><div class="urd sentence1">لیموں کو مشروبات اور مٹھائی دونوں میں استعمال کیا جا سکتا ہے۔</div><div class="ar sentence2">عَصَرَتْ لَيْمُونَةً عَلَى السَّلَطَةِ</div><div class="per sentence2">او یک لیمو روی سالاد فشار داد.</div><div class="en sentence2">She squeezed a lemon over the salad.</div><div class="urd sentence2">اُس نے سلاد پر لیموں نچوڑا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍒</div>
-<figcaption class="front"><div class="ar">كَرَزٌ</div><div class="per">گیلاس</div><div class="en">Cherry</div><div class="urd">چیری</div></figcaption><figcaption class="back"><div class="ar">كَرَزٌ</div><div class="per">گیلاس</div><div class="ar plural">كَرَازٌ / كَرَزَاتٌ<span class="label">:Plural</span></div><div class="per plural">گیلاس‌ها<span class="label">:Plural</span></div><div class="ar sentence1">اسْتُخْدِمَتِ الكَرَازُ فِي تَزْيِينِ الكَعْكِ</div><div class="per sentence1">گیلاس‌ها در تزئین کیک استفاده شدند.</div><div class="en sentence1">Cherries were used in the cake decoration.</div><div class="urd sentence1">کیک کی سجاوٹ میں چیریاں استعمال ہوئیں۔</div><div class="ar sentence2">رَأَيْتُ شَجَرَةَ كَرَازٍ فِي الحَدِيقَةِ</div><div class="per sentence2">من یک درخت گیلاس در پارک دیدم.</div><div class="en sentence2">I saw a cherry tree in the park.</div><div class="urd sentence2">میں نے پارک میں چیری کا درخت دیکھا۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/plum.png"/>
-<figcaption class="front"><div class="ar">بَرْقُوقٌ</div><div class="per">آلو</div><div class="en">Plum</div><div class="urd">آلو</div></figcaption><figcaption class="back"><div class="ar">بَرْقُوقٌ</div><div class="per">آلو</div><div class="ar plural">بَرَاقِيقُ<span class="label">:Plural</span></div><div class="per plural">آلوها<span class="label">:Plural</span></div><div class="ar sentence1">تَزَهَّرَتْ شَجَرَةُ الْخَوْخِ فِي الرَّبِيعِ</div><div class="per sentence1">درخت آلو در بهار شکوفه داد.</div><div class="en sentence1">The plum tree bloomed in spring.</div><div class="urd sentence1">آلو کا درخت بہار میں کھل گیا۔</div><div class="ar sentence2">مَرْبَى الْخَوْخِ لَذِيذٌ عَلَى الخُبْزِ</div><div class="per sentence2">مربای آلو روی نان تست فوق‌العاده است.</div><div class="en sentence2">Plum jam tastes amazing on toast.</div><div class="urd sentence2">آلو کی جیم ٹوسٹ پر بہت مزیدار لگتی ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍐</div>
-<figcaption class="front"><div class="ar">كُمَّثْرَىٌ</div><div class="per">گلابی</div><div class="en">Pear</div><div class="urd">ناشپاتی</div></figcaption><figcaption class="back"><div class="ar">كُمَّثْرَىٌ</div><div class="per">گلابی</div><div class="ar plural">كُمَّثْرًياتٌ<span class="label">:Plural</span></div><div class="per plural">گلابی‌ها<span class="label">:Plural</span></div><div class="ar sentence1">تُرْتِبَتِ الْأَجَاصُ عَلَى الطَّاوِلَةِ</div><div class="per sentence1">گلابی‌ها روی میز چیده شدند.</div><div class="en sentence1">Pears were arranged on the table.</div><div class="urd sentence1">ناشپاتی میز پر رکھی گئی۔</div><div class="ar sentence2">هُوَ يُفَضِّلُ الْكُمَّثْرَى الخَضْرَاءَ عَلَى الصَّفْرَاءَ</div><div class="per sentence2">او گلابی سبز را به زرد ترجیح می‌دهد.</div><div class="en sentence2">He prefers green pears over yellow ones.</div><div class="urd sentence2">وہ پیلے ناشپاتی کے بجائے سبز کو ترجیح دیتا ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍑</div>
-<figcaption class="front"><div class="ar">مِشْمِشٌ</div><div class="per">زردآلو</div><div class="en">Apricot</div><div class="urd">خوبانی</div></figcaption><figcaption class="back"><div class="ar">مِشْمِشٌ</div><div class="per">زردآلو</div><div class="ar plural">مِشْمِشَاتٌ<span class="label">:Plural</span></div><div class="per plural">زردآلوها<span class="label">:Plural</span></div><div class="ar sentence1">كَانَ مَرَبَّى الْمِشْمِشِ مَنْزِلِيًّا</div><div class="per sentence1">مربای زردآلو خانگی بود.</div><div class="en sentence1">Apricot jam was homemade.</div><div class="urd sentence1">خوبانی کا مربہ گھر میں بنایا گیا۔</div><div class="ar sentence2">وَجَدْتُ الْمِشْمِشَ فِي سُوقِ الفَلَّاحِ</div><div class="per sentence2">من زردآلو را در بازار کشاورز پیدا کردم.</div><div class="en sentence2">I found apricots at the farmer’s market.</div><div class="urd sentence2">میں نے کسان کی مارکیٹ میں خوبانی دیکھی۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/guava.png"/>
-<figcaption class="front"><div class="ar">جَوَافَةٌ</div><div class="per">گواوا</div><div class="en">Guava</div><div class="urd">امرود</div></figcaption><figcaption class="back"><div class="ar">جَوَافَةٌ</div><div class="per">گواوا</div><div class="ar plural">جَوَافَاتٌ<span class="label">:Plural</span></div><div class="per plural">گواواها<span class="label">:Plural</span></div><div class="ar sentence1">الْجَوَافَةُ غَنِيَّةٌ بِالْفِيتَامِين C</div><div class="per sentence1">گواوا سرشار از ویتامین C است.</div><div class="en sentence1">Guava is rich in vitamin C.</div><div class="urd sentence1">امرود وٹامن C سے بھرپور ہے۔</div><div class="ar sentence2">تُحِبُّ الطُّيُورُ فَوَاكِهَ الْقُضْبَانِ فِي الْبُسْتَانِ</div><div class="per sentence2">پرندگان در باغ میوه گواوا را دوست دارند.</div><div class="en sentence2">Birds love guava fruits in the orchard.</div><div class="urd sentence2">پرندے باغ میں امرود کے پھل پسند کرتے ہیں۔</div></figcaption>
-</figure>
-</section>
-<h2>🍰 Sweets &amp; Desserts (الحَلَوِيَّات)</h2>
-<section class="grid">
-<figure class="card">
-<img class="thumb" src="images/sweets.png"/>
-<figcaption class="front"><div class="ar">حَلْوَى</div><div class="per">شیرینی</div><div class="en">Candy/Sweets</div><div class="urd">مٹھائی</div></figcaption><figcaption class="back"><div class="ar">حَلْوَى</div><div class="per">شیرینی</div><div class="ar plural">حَلَوِيَّاتٌ<span class="label">:Plural</span></div><div class="per plural">شیرینی‌ها<span class="label">:Plural</span></div><div class="ar sentence1">اشْتَرَى الأَطْفَالُ الحَلْوَى مِنَ المَتْجَرِ</div><div class="per sentence1">بچه‌ها از فروشگاه آب‌نبات خریدند.</div><div class="en sentence1">Kids bought candy from the store.</div><div class="urd sentence1">بچوں نے دکان سے مٹھائیاں خریدیں۔</div><div class="ar sentence2">قَدَّمَتِ الحَلَوِيَاتِ لِضُيُوفِهَا</div><div class="per sentence2">او شیرینی را به مهمانانش تعارف کرد.</div><div class="en sentence2">She offered sweets to her guests.</div><div class="urd sentence2">اُس نے اپنے مہمانوں کو مٹھائی پیش کی۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍫</div>
-<figcaption class="front"><div class="ar">شُوكُولَاتَةٌ</div><div class="per">شکلات</div><div class="en">Chocolate</div><div class="urd">چاکلیٹ</div></figcaption><figcaption class="back"><div class="ar">شُوكُولَاتَةٌ</div><div class="per">شکلات</div><div class="ar plural">شُوكُولَاتٌ<span class="label">:Plural</span></div><div class="per plural">شکلات‌ها<span class="label">:Plural</span></div><div class="ar sentence1">يَذُوبُ الشُّوكُولَاتَةُ فِي فَمِكَ</div><div class="per sentence1">شکلات در دهان ذوب می‌شود.</div><div class="en sentence1">Chocolate melts in your mouth.</div><div class="urd sentence1">چاکلیٹ آپ کے منہ میں پگھل جاتی ہے۔</div><div class="ar sentence2">أَعْطَاهَا شُوكُولَاتًا لِيَوْمِ الفَالَنْتِينِ</div><div class="per sentence2">او شکلات برای روز ولنتاین به او داد.</div><div class="en sentence2">He gave her chocolate for Valentine’s Day.</div><div class="urd sentence2">اُس نے ویلنٹائن ڈے پر اُس کو چاکلیٹ دیا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍰</div>
-<figcaption class="front"><div class="ar">كَعْكٌ</div><div class="per">کیک</div><div class="en">Cake</div><div class="urd">کیک</div></figcaption><figcaption class="back"><div class="ar">كَعْكٌ</div><div class="per">کیک</div><div class="ar plural">كَعَكٌ / كَعَكَاتٌ<span class="label">:Plural</span></div><div class="per plural">کیک‌ها<span class="label">:Plural</span></div><div class="ar sentence1">خُبِزَ كَعْكُ الشُّوكُولَاتَةِ أَمْسِ</div><div class="per sentence1">دیروز کیک شکلات پخته شد.</div><div class="en sentence1">A chocolate cake was baked yesterday.</div><div class="urd sentence1">کل چاکلیٹ کا کیک بیک کیا گیا۔</div><div class="ar sentence2">هَلْ يُمْكِنُكَ قَطْعُ الكَعْكِ إِلَى قِطَعٍ؟</div><div class="per sentence2">آیا می‌توانی کیک را به قطعات برش بزنی؟</div><div class="en sentence2">Can you cut the cake into pieces?</div><div class="urd sentence2">کیا آپ کیک کو ٹکڑوں میں کاٹ سکتے ہیں؟</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍪</div>
-<figcaption class="front"><div class="ar">بِسْكُوِيتٌ</div><div class="per">بیسکویت</div><div class="en">Biscuit/Cookie</div><div class="urd">بسکٹ</div></figcaption><figcaption class="back"><div class="ar">بِسْكُوِيتٌ</div><div class="per">بیسکویت</div><div class="ar plural">بِسْكُوِيتَاتٌ<span class="label">:Plural</span></div><div class="per plural">بیسکوییت‌ها<span class="label">:Plural</span></div><div class="ar sentence1">كَانَتِ البِسْكُوِيتَاتُ طَازَجَةً مِنَ الفُرْنِ</div><div class="per sentence1">کوکی‌ها تازه از فر بودند.</div><div class="en sentence1">Cookies were fresh from the oven.</div><div class="urd sentence1">کوکیز اوون سے تازہ نکلی تھیں۔</div><div class="ar sentence2">غَمَسَتْ البِسْكُوِيتَ فِي شَايِهَا</div><div class="per sentence2">او بیسکوییت را در چای خود فرو برد.</div><div class="en sentence2">She dipped a biscuit in her tea.</div><div class="urd sentence2">اُس نے بسکٹ کو اپنی چائے میں ڈبویا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🥧</div>
-<figcaption class="front"><div class="ar">فَطِيرَةٌ</div><div class="per">پای / شیرینی</div><div class="en">Pie/Pastry</div><div class="urd">پائی / پیسٹری</div></figcaption><figcaption class="back"><div class="ar">فَطِيرَةٌ</div><div class="per">پای / شیرینی</div><div class="ar plural">فَطَائِرُ<span class="label">:Plural</span></div><div class="per plural">پای‌ها / شیرینی‌ها<span class="label">:Plural</span></div><div class="ar sentence1">تَفُوحُ رَائِحَةُ فَطِيرَةِ التُّفَّاحِ فِي الفُرْنِ رَائِعَةً</div><div class="per sentence1">پای سیب در فر بوی شگفت‌انگیزی دارد.</div><div class="en sentence1">Apple pie smells amazing in the oven.</div><div class="urd sentence1">ایپل پائی اوون میں بہت خوشبودار لگتی ہے۔</div><div class="ar sentence2">اِشْتَرَى فَطِيرَةً مِنَ المَخْبَزِ</div><div class="per sentence2">او یک شیرینی از نانوایی خرید.</div><div class="en sentence2">He bought a pastry from the bakery.</div><div class="urd sentence2">اُس نے بیکری سے پیسٹری خریدی۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍦</div>
-<figcaption class="front"><div class="ar">آيْس كْرِيمٌ</div><div class="per">بستنی</div><div class="en">Ice Cream</div><div class="urd">آئس کریم</div></figcaption><figcaption class="back"><div class="ar">آيْس كْرِيمٌ</div><div class="per">بستنی</div><div class="ar plural">أَغَانِيت / أَغَانِيت الآيس كريم<span class="label">:Plural</span></div><div class="per plural">بستنی‌ها<span class="label">:Plural</span></div><div class="ar sentence1">سَيَذُوبُ الآيْس كْرِيمُ إِذَا تُرِكَ خَارِجًا</div><div class="per sentence1">بستنی اگر بیرون بماند ذوب می‌شود.</div><div class="en sentence1">Ice cream will melt if left outside.</div><div class="urd sentence1">آئس کریم باہر چھوڑنے پر پگھل جائے گی۔</div><div class="ar sentence2">شَارَكْنَا البَاتِشِلَةَ بَعْدَ الغَدَاءِ</div><div class="per sentence2">ما بعد از ناهار بستنی را شریک شدیم.</div><div class="en sentence2">We shared ice cream after lunch.</div><div class="urd sentence2">ہم نے لنچ کے بعد آئس کریم بانٹی۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍯</div>
-<figcaption class="front"><div class="ar">عَسَلٌ</div><div class="per">عسل</div><div class="en">Honey</div><div class="urd">شہد</div></figcaption><figcaption class="back"><div class="ar">عَسَلٌ</div><div class="per">عسل</div><div class="ar plural">أَعْسَالٌ<span class="label">:Plural</span></div><div class="per plural">عسل‌ها<span class="label">:Plural</span></div><div class="ar sentence1">تَصْنَعُ النَّحْلَةُ العَسَلَ مِنَ الأَزْهَارِ</div><div class="per sentence1">زنبور عسل از گل‌ها عسل تولید می‌کند.</div><div class="en sentence1">Bees make honey from flowers.</div><div class="urd sentence1">مکھی پھولوں سے شہد بناتی ہے۔</div><div class="ar sentence2">صَبَّ العَسَلَ عَلَى الخُبْزِ المُحْمَصِ</div><div class="per sentence2">او عسل را روی نان تست ریخت.</div><div class="en sentence2">He drizzled honey on the toast.</div><div class="urd sentence2">اُس نے ٹوسٹ پر شہد ڈال دیا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍓</div>
-<figcaption class="front"><div class="ar">مُرَبَّى</div><div class="per">مربا</div><div class="en">Jam</div><div class="urd">مربہ</div></figcaption><figcaption class="back"><div class="ar">مُرَبَّى</div><div class="per">مربا</div><div class="ar plural">مُرَبَّيَاتٌ<span class="label">:Plural</span></div><div class="per plural">مرباها<span class="label">:Plural</span></div><div class="ar sentence1">وُضِعَ مَرَبَّى الفَرَاوِلَةِ عَلَى الخُبْزِ</div><div class="per sentence1">مربای توت فرنگی روی نان مالیده شد.</div><div class="en sentence1">Strawberry jam was spread on bread.</div><div class="urd sentence1">اسٹابری کا مربہ روٹی پر لگایا گیا۔</div><div class="ar sentence2">هَلِ اشْتَرَيْتَ مَرْبَى جَدِيدًا مِنَ المَتْجَرِ؟</div><div class="per sentence2">آیا مربای جدید از فروشگاه خریدی؟</div><div class="en sentence2">Did you buy new jam from the store?</div><div class="urd sentence2">کیا آپ نے دکان سے نئی جیم خریدی؟</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/sugar.png"/>
-<figcaption class="front"><div class="ar">سُكَّرٌ</div><div class="per">شکر</div><div class="en">Sugar</div><div class="urd">چینی</div></figcaption><figcaption class="back"><div class="ar">سُكَّرٌ</div><div class="per">شکر</div><div class="ar plural">سُكَّرٌ / أَسْكَارٌ<span class="label">:Plural</span></div><div class="per plural">شکرها<span class="label">:Plural</span></div><div class="ar sentence1">أَضِفِ السُّكَّرَ إِلَى شَايِكَ إِذَا أَرَدْتَهُ حُلْوًا</div><div class="per sentence1">اگر چای‌تان را شیرین دوست دارید، شکر اضافه کنید.</div><div class="en sentence1">Add sugar to your tea if you like it sweet.</div><div class="urd sentence1">اگر آپ کو چائے میٹھی پسند ہے تو چینی ڈالیں۔</div><div class="ar sentence2">يَذُوبُ السُّكَّرُ أَسْرَعَ فِي المَاءِ الحَارِّ</div><div class="per sentence2">شکر در آب داغ سریع‌تر حل می‌شود.</div><div class="en sentence2">Sugar dissolves faster in hot water.</div><div class="urd sentence2">گرم پانی میں چینی تیزی سے گھلتی ہے۔</div></figcaption>
-</figure>
-</section>
-<h2>🍶 Drinks (المَشْرُوبَات)</h2>
-<section class="grid">
-<figure class="card">
-<img class="thumb" src="images/drink.png"/>
-<figcaption class="front"><div class="ar">مَشْرُوبٌ</div><div class="per">نوشیدنی</div><div class="en">Drink/Beverage</div><div class="urd">مشروب</div></figcaption><figcaption class="back"><div class="ar">مَشْرُوبٌ</div><div class="per">نوشیدنی</div><div class="ar plural">مَشْرُوبَاتٌ<span class="label">:Plural</span></div><div class="per plural">نوشیدنی‌ها<span class="label">:Plural</span></div><div class="ar sentence1">المَشْرُوبَاتُ الغَازِيَةُ شَعْبِيَّةٌ فِي الصَّيْفِ</div><div class="per sentence1">نوشابه‌های گازدار در تابستان محبوب هستند.</div><div class="en sentence1">Soft drinks are popular in summer.</div><div class="urd sentence1">سافٹ ڈرنکس گرمیوں میں مقبول ہیں۔</div><div class="ar sentence2">صَبَّ مَشْرُوبًا فِي الكُوبِ</div><div class="per sentence2">او نوشیدنی را در لیوان ریخت.</div><div class="en sentence2">He poured a beverage into the glass.</div><div class="urd sentence2">اُس نے گلاس میں مشروب ڈالا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">💧</div>
-<figcaption class="front"><div class="ar">مَاءٌ</div><div class="per">آب</div><div class="en">Water</div><div class="urd">پانی</div></figcaption><figcaption class="back"><div class="ar">مَاءٌ</div><div class="per">آب</div><div class="ar plural">مِيَاهٌ<span class="label">:Plural</span></div><div class="per plural">آب‌ها<span class="label">:Plural</span></div><div class="ar sentence1">تَحْتَاجُ النَّبَاتَاتُ إِلَى المَاءِ لِلنُّمُوِّ</div><div class="per sentence1">گیاهان برای رشد به آب نیاز دارند.</div><div class="en sentence1">Plants need water to grow.</div><div class="urd sentence1">پودوں کو بڑھنے کے لیے پانی کی ضرورت ہوتی ہے۔</div><div class="ar sentence2">هَلْ شَرِبْتَ كَمِيَّةً كَافِيَةً مِنَ المَاءِ اليَوْمَ؟</div><div class="per sentence2">آیا امروز به اندازه کافی آب نوشیده‌ای؟</div><div class="en sentence2">Have you drunk enough water today?</div><div class="urd sentence2">کیا آپ نے آج کافی پانی پیا ہے؟</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🍵</div>
-<figcaption class="front"><div class="ar">شَايٌ</div><div class="per">چای</div><div class="en">Tea</div><div class="urd">چائے</div></figcaption><figcaption class="back"><div class="ar">شَايٌ</div><div class="per">چای</div><div class="ar plural">شَايَاتٌ<span class="label">:Plural</span></div><div class="per plural">چای‌ها<span class="label">:Plural</span></div><div class="ar sentence1">يُقَدَّمُ الشَّايُ مَعَ الوجَبَاتِ الخَفِيفَةِ فِي الظُّهْرِ</div><div class="per sentence1">چای بعدازظهر با تنقلات سرو می‌شود.</div><div class="en sentence1">Tea is served with snacks in the afternoon.</div><div class="urd sentence1">دوپہر میں چائے ہلکی ناشتہ کے ساتھ پیش کی جاتی ہے۔</div><div class="ar sentence2">غَلَتِ المَاءَ لِعَمَلِ الشَّايِ</div><div class="per sentence2">او آب را جوشاند تا چای درست کند.</div><div class="en sentence2">She boiled water to make tea.</div><div class="urd sentence2">اُس نے چائے بنانے کے لیے پانی اُبالا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">☕</div>
-<figcaption class="front"><div class="ar">قَهْوَةٌ</div><div class="per">قهوه</div><div class="en">Coffee</div><div class="urd">کافی</div></figcaption><figcaption class="back"><div class="ar">قَهْوَةٌ</div><div class="per">قهوه</div><div class="ar plural">قَهْوَاتٌ<span class="label">:Plural</span></div><div class="per plural">قهوه‌ها<span class="label">:Plural</span></div><div class="ar sentence1">القَهْوَةُ تُبْقِينِي مُسْتَيْقِظًا فِي الصَّبَاحِ</div><div class="per sentence1">قهوه صبح‌ها مرا بیدار نگه می‌دارد.</div><div class="en sentence1">Coffee keeps me awake in the morning.</div><div class="urd sentence1">صبح میں کافی مجھے جاگتا رکھتی ہے۔</div><div class="ar sentence2">هَلْ شَرِبْتَ قَهْوَتَكَ أَلْآنَ؟</div><div class="per sentence2">آیا قهوه‌ات را قبلاً نوشیدی؟</div><div class="en sentence2">Did you drink your coffee already?</div><div class="urd sentence2">کیا آپ نے اپنی کافی پہلے ہی پی لی؟</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🧃</div>
-<figcaption class="front"><div class="ar">عَصِيرٌ</div><div class="per">آبمیوه</div><div class="en">Juice</div><div class="urd">جوس</div></figcaption><figcaption class="back"><div class="ar">عَصِيرٌ</div><div class="per">آبمیوه</div><div class="ar plural">عَصِيرَاتٌ<span class="label">:Plural</span></div><div class="per plural">آبمیوه‌ها<span class="label">:Plural</span></div><div class="ar sentence1">كَانَ عَصِيرُ البُرْتُقَالِ مَعْصُورًا طَازَجًا</div><div class="per sentence1">آب پرتقال تازه گرفته شده بود.</div><div class="en sentence1">The orange juice was freshly squeezed.</div><div class="urd sentence1">سنتری کا جوس تازہ نچوڑا گیا تھا۔</div><div class="ar sentence2">يُمْكِنُ عَمَلُ العَصِيرِ مِنْ أَيِّ فَاكِهَةٍ تَقْرِيبًا</div><div class="per sentence2">آبمیوه را می‌توان تقریباً از هر میوه‌ای تهیه کرد.</div><div class="en sentence2">Juice can be made from almost any fruit.</div><div class="urd sentence2">جوس تقریباً کسی بھی پھل سے بنایا جا سکتا ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🥛</div>
-<figcaption class="front"><div class="ar">حَلِيبٌ</div><div class="per">شیر</div><div class="en">Milk</div><div class="urd">دودھ</div></figcaption><figcaption class="back"><div class="ar">حَلِيبٌ</div><div class="per">شیر</div><div class="ar plural">أَلْبَانٌ<span class="label">:Plural</span></div><div class="per plural">شیرها<span class="label">:Plural</span></div><div class="ar sentence1">اِنْسَكَبَ الحَلِيبُ عَلَى الطَّاوِلَةِ</div><div class="per sentence1">شیر روی میز ریخته شد.</div><div class="en sentence1">Milk was spilled on the table.</div><div class="urd sentence1">دودھ میز پر گرا۔</div><div class="ar sentence2">هَلْ تَشْرَبُ الحَلِيبَ كُلَّ صَبَاحٍ؟</div><div class="per sentence2">آیا هر صبح شیر می‌نوشی؟</div><div class="en sentence2">Do you drink milk every morning?</div><div class="urd sentence2">کیا آپ ہر صبح دودھ پیتے ہیں؟</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🥤</div>
-<figcaption class="front"><div class="ar">مَشْرُوبٌ غَازِيٌّ</div><div class="per">نوشابه</div><div class="en">Soda/Soft Drink</div><div class="urd">سافٹ ڈرنک</div></figcaption><figcaption class="back"><div class="ar">مَشْرُوبٌ غَازِيٌّ</div><div class="per">نوشابه</div><div class="ar plural">مَشْرُوبَات غَازِيَّة<span class="label">:Plural</span></div><div class="per plural">نوشابه‌ها<span class="label">:Plural</span></div><div class="ar sentence1">يَفُورُ الصَّودَا عِنْدَ فَتْحِهَا</div><div class="per sentence1">نوشابه وقتی باز می‌شود گازدار می‌شود.</div><div class="en sentence1">Soda bubbles when opened.</div><div class="urd sentence1">سوڈا کھولنے پر بلبلے بنتے ہیں۔</div><div class="ar sentence2">اِشْتَرَى مَشْرُوبًا غَازِيًّا مِنَ الثَّلَّاجَةِ</div><div class="per sentence2">او یک نوشابه از یخچال خرید.</div><div class="en sentence2">He bought a soft drink from the fridge.</div><div class="urd sentence2">اُس نے فریج سے سافٹ ڈرنک خریدا۔</div></figcaption>
-</figure>
-</section>
-<h2>🧂 Spices, Oils &amp; Condiments (التَّوَابِلُ وَالصَّلَصَات)</h2>
-<section class="grid">
-<figure class="card">
-<div class="emoji">🧂</div>
-<figcaption class="front"><div class="ar">مِلْحٌ</div><div class="per">نمک</div><div class="en">Salt</div><div class="urd">نمک</div></figcaption><figcaption class="back"><div class="ar">مِلْحٌ</div><div class="per">نمک</div><div class="ar plural">أَمْلَاحٌ<span class="label">:Plural</span></div><div class="per plural">نمک‌ها<span class="label">:Plural</span></div><div class="ar sentence1">يُحَسِّنُ المِلْحُ طَعْمَ الطَّعَامِ</div><div class="per sentence1">نمک طعم غذا را بهتر می‌کند.</div><div class="en sentence1">Salt enhances the taste of food.</div><div class="urd sentence1">نمک کھانے کے ذائقے کو بڑھاتا ہے۔</div><div class="ar sentence2">هَلْ تَذَكَّرْتَ أَنْ تُضِيفَ المِلْحَ؟</div><div class="per sentence2">آیا یادت آمد که نمک اضافه کنی؟</div><div class="en sentence2">Did you remember to add salt?</div><div class="urd sentence2">کیا آپ نے نمک ڈالنا یاد رکھا؟</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/pepper.png"/>
-<figcaption class="front"><div class="ar">فِلْفِلٌ</div><div class="per">فلفل</div><div class="en">Pepper</div><div class="urd">کالی مرچ</div></figcaption><figcaption class="back"><div class="ar">فِلْفِلٌ</div><div class="per">فلفل</div><div class="ar plural">فِلْفِلَاتٌ<span class="label">:Plural</span></div><div class="per plural">فلفل‌ها<span class="label">:Plural</span></div><div class="ar sentence1">يُضِيفُ الفِلْفِلُ نَكْهَةً حَارَّةً</div><div class="per sentence1">فلفل طعم تند اضافه می‌کند.</div><div class="en sentence1">Pepper adds a spicy flavor.</div><div class="urd sentence1">کالی مرچ کھانے کو مصالحہ دار بناتی ہے۔</div><div class="ar sentence2">طَحَنَ الطَّبَّاخُ الفِلْفِلَ الطَّازَجَ عَلَى السَّلَطَةِ</div><div class="per sentence2">سرآشپز فلفل تازه را روی سالاد آسیاب کرد.</div><div class="en sentence2">The chef ground fresh pepper on the salad.</div><div class="urd sentence2">شیف نے سلاد پر تازہ مرچ پیسی۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/oil.png"/>
-<figcaption class="front"><div class="ar">زَيْتٌ</div><div class="per">روغن</div><div class="en">Oil</div><div class="urd">تیل</div></figcaption><figcaption class="back"><div class="ar">زَيْتٌ</div><div class="per">روغن</div><div class="ar plural">زُيُوتٌ<span class="label">:Plural</span></div><div class="per plural">روغن‌ها<span class="label">:Plural</span></div><div class="ar sentence1">سُخِّنَ الزَّيْتُ قَبْلَ القَلِيِّ</div><div class="per sentence1">روغن قبل از سرخ کردن گرم شد.</div><div class="en sentence1">Oil was heated before frying.</div><div class="urd sentence1">تلنے سے پہلے تیل گرم کیا گیا۔</div><div class="ar sentence2">زَيْتُ الزَّيْتُونِ أَصَحُّ مِنْ زَيْتِ الخُضْرَوَاتِ</div><div class="per sentence2">روغن زیتون سالم‌تر از روغن گیاهی است.</div><div class="en sentence2">Olive oil is healthier than vegetable oil.</div><div class="urd sentence2">زیتون کا تیل سبزیوں کے تیل سے صحت مند ہے۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🫒</div>
-<figcaption class="front"><div class="ar">زَيْت زَيْتُونٍ</div><div class="per">روغن زیتون</div><div class="en">Olive Oil</div><div class="urd">زیتون کا تیل</div></figcaption><figcaption class="back"><div class="ar">زَيْت زَيْتُونٍ</div><div class="per">روغن زیتون</div><div class="ar plural">زُيُوت زَيْتُون<span class="label">:Plural</span></div><div class="per plural">روغن زیتون‌ها<span class="label">:Plural</span></div><div class="ar sentence1">يُسْتَخْدَمُ زَيْتُ الزَّيْتُونِ لِتَتْبِيلِ الصَّلَاطَةِ</div><div class="per sentence1">روغن زیتون برای سس سالاد استفاده می‌شود.</div><div class="en sentence1">Olive oil is used for salad dressing.</div><div class="urd sentence1">زیتون کا تیل سلاد کے لیے استعمال ہوتا ہے۔</div><div class="ar sentence2">صَبُّوا زَيْتَ الزَّيْتُونِ عَلَى المَعْكَرُونَةِ</div><div class="per sentence2">آن‌ها روغن زیتون را روی پاستا ریختند.</div><div class="en sentence2">They drizzled olive oil over the pasta.</div><div class="urd sentence2">انہوں نے پاستا پر زیتون کا تیل ڈال دیا۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/vinegar.png"/>
-<figcaption class="front"><div class="ar">خَلٌّ</div><div class="per">سرکه</div><div class="en">Vinegar</div><div class="urd">سرکہ</div></figcaption><figcaption class="back"><div class="ar">خَلٌّ</div><div class="per">سرکه</div><div class="ar plural">خُلُولٌ<span class="label">:Plural</span></div><div class="per plural">سرکه‌ها<span class="label">:Plural</span></div><div class="ar sentence1">الخَلُّ حَامِضٌ وَلَكِنْ مُفِيدٌ فِي الطَّبْخِ</div><div class="per sentence1">سرکه ترش است اما در آشپزی مفید است.</div><div class="en sentence1">Vinegar is sour but useful in cooking.</div><div class="urd sentence1">سرکہ کھٹا ہے لیکن کھانا پکانے میں مفید ہے۔</div><div class="ar sentence2">صَبَّتِ الخَلَّ فِي التَّبْلِ</div><div class="per sentence2">او سرکه را در مریناد ریخت.</div><div class="en sentence2">She poured vinegar into the marinade.</div><div class="urd sentence2">اُس نے میرینیڈ میں سرکہ ڈال دیا۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/spice.png"/>
-<figcaption class="front"><div class="ar">تُوَابِلٌ</div><div class="per">ادویه</div><div class="en">Spice</div><div class="urd">مصالحہ</div></figcaption><figcaption class="back"><div class="ar">تُوَابِلٌ</div><div class="per">ادویه</div><div class="ar plural">تُوَابِلٌ<span class="label">:Plural</span></div><div class="per plural">ادویه‌ها<span class="label">:Plural</span></div><div class="ar sentence1">التَّوَابِلُ تَجْعَلُ الطَّبَقَ عَطِرًا</div><div class="per sentence1">ادویه غذا را خوشبو می‌کند.</div><div class="en sentence1">Spices make the dish aromatic.</div><div class="urd sentence1">مصالحے کھانے کو خوشبودار بناتے ہیں۔</div><div class="ar sentence2">يَسْتَعْمِلُ الطَّعَامُ الهِنْدِيُّ كَثِيرًا مِنَ التَّوَابِلِ</div><div class="per sentence2">غذای هندی از ادویه‌های زیادی استفاده می‌کند.</div><div class="en sentence2">Indian food uses many spices.</div><div class="urd sentence2">بھارتی کھانے میں بہت ساری مصالحہ جات استعمال ہوتی ہیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/turmeric.png"/>
-<figcaption class="front"><div class="ar">كُرْكُمٌ</div><div class="per">زردچوبه</div><div class="en">Turmeric</div><div class="urd">ہلدی</div></figcaption><figcaption class="back"><div class="ar">كُرْكُمٌ</div><div class="per">زردچوبه</div><div class="ar plural">أَكْرُمٌ<span class="label">:Plural</span></div><div class="per plural">زردچوبه‌ها<span class="label">:Plural</span></div><div class="ar sentence1">يُعْطِي الكَرِي لَوْنًا ذَهَبِيًّا بِالكُرْكُمِ</div><div class="per sentence1">زردچوبه به کاری رنگ طلایی می‌دهد.</div><div class="en sentence1">Turmeric gives curry a golden color.</div><div class="urd sentence1">ہلدی کری کو سنہری رنگ دیتی ہے۔</div><div class="ar sentence2">هَلْ جَرَّبْتَ حَلِيبَ الكُرْكُمِ؟</div><div class="per sentence2">آیا شیر زردچوبه را امتحان کرده‌ای؟</div><div class="en sentence2">Have you tried turmeric milk?</div><div class="urd sentence2">کیا آپ نے ہلدی والا دودھ پیا ہے؟</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/cumin.png"/>
-<figcaption class="front"><div class="ar">كَمُّونٌ</div><div class="per">زیره</div><div class="en">Cumin</div><div class="urd">زیرہ</div></figcaption><figcaption class="back"><div class="ar">كَمُّونٌ</div><div class="per">زیره</div><div class="ar plural">أَكْمُونٌ<span class="label">:Plural</span></div><div class="per plural">زیره‌ها<span class="label">:Plural</span></div><div class="ar sentence1">تُحْمَصُ حَبُّ الْكَمُّونِ لِلطَّعْمِ</div><div class="per sentence1">دانه‌های زیره برای طعم برشته می‌شوند.</div><div class="en sentence1">Cumin seeds are roasted for flavor.</div><div class="urd sentence1">زیرہ کے بیج ذائقہ کے لیے بھونے جاتے ہیں۔</div><div class="ar sentence2">رُشِّ الْكَمُّونَ عَلَى السَّلَطَةِ لِلذَّوْقِ</div><div class="per sentence2">کمیون را برای طعم روی سالاد بپاشید.</div><div class="en sentence2">Sprinkle cumin on the salad for taste.</div><div class="urd sentence2">سلاد پر ذائقہ کے لیے زیرہ چھڑکیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/cinnamon.png"/>
-<figcaption class="front"><div class="ar">قِرْفَةٌ</div><div class="per">دارچین</div><div class="en">Cinnamon</div><div class="urd">دارچینی</div></figcaption><figcaption class="back"><div class="ar">قِرْفَةٌ</div><div class="per">دارچین</div><div class="ar plural">قِرَفٌ<span class="label">:Plural</span></div><div class="per plural">دارچین‌ها<span class="label">:Plural</span></div><div class="ar sentence1">يُسْتَخْدَمُ القَرْفَةُ فِي الحَلَوِيَاتِ وَالمَشْرُوبَاتِ</div><div class="per sentence1">دارچین در دسرها و نوشیدنی‌ها استفاده می‌شود.</div><div class="en sentence1">Cinnamon is used in desserts and drinks.</div><div class="urd sentence1">دارچینی مٹھائیوں اور مشروبات میں استعمال ہوتی ہے۔</div><div class="ar sentence2">مَلَأَ رَائِحَةُ القِرْفَةِ المَطْبَخَ</div><div class="per sentence2">بوی دارچین آشپزخانه را پر کرد.</div><div class="en sentence2">The smell of cinnamon filled the kitchen.</div><div class="urd sentence2">دارچینی کی خوشبو نے کچن کو بھر دیا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🫚</div>
-<figcaption class="front"><div class="ar">زَنْجَبِيلٌ</div><div class="per">زنجبیل</div><div class="en">Ginger</div><div class="urd">ادرک</div></figcaption><figcaption class="back"><div class="ar">زَنْجَبِيلٌ</div><div class="per">زنجبیل</div><div class="ar plural">زَنْجَبِيلَاتٌ<span class="label">:Plural</span></div><div class="per plural">زنجبیل‌ها<span class="label">:Plural</span></div><div class="ar sentence1">يُضَافُ الزَّنْجَبِيلُ غَالِبًا إِلَى الشَّايِ</div><div class="per sentence1">زنجبیل اغلب به چای اضافه می‌شود.</div><div class="en sentence1">Ginger is often added to tea.</div><div class="urd sentence1">ادرک اکثر چائے میں ڈالا جاتا ہے۔</div><div class="ar sentence2">بَشَرَ الزَّنْجَبِيلَ لِلوَصْفَةِ</div><div class="per sentence2">او زنجبیل را برای دستور پخت رنده کرد.</div><div class="en sentence2">He grated ginger for the recipe.</div><div class="urd sentence2">اُس نے نسخے کے لیے ادرک کدوکش کیا۔</div></figcaption>
-</figure>
-<figure class="card">
-<div class="emoji">🌿</div>
-<figcaption class="front"><div class="ar">نَعْنَاعٌ</div><div class="per">نعناع</div><div class="en">Mint</div><div class="urd">پودینہ</div></figcaption><figcaption class="back"><div class="ar">نَعْنَاعٌ</div><div class="per">نعناع</div><div class="ar plural">أَنْعُع / نَعْنَاعَاتٌ<span class="label">:Plural</span></div><div class="per plural">نعناها<span class="label">:Plural</span></div><div class="ar sentence1">أُضِيفَتْ أَوْرَاقُ النَّعْنَاعِ إِلَى لِيمُونَادَةِ</div><div class="per sentence1">برگ نعناع به لیموناد اضافه شد.</div><div class="en sentence1">Mint leaves were added to the lemonade.</div><div class="urd sentence1">پودینے کے پتے لیمونیڈ میں ڈالے گئے۔</div><div class="ar sentence2">يَحْتَوِي البُسْتَانُ عَلَى نَبَاتَاتِ النَّعْنَاعِ الطَّازَجَةِ</div><div class="per sentence2">باغچه گیاهان تازه نعناع دارد.</div><div class="en sentence2">The garden has fresh mint plants.</div><div class="urd sentence2">باغ میں تازہ پودینے کے پودے ہیں۔</div></figcaption>
-</figure>
-<figure class="card">
-<img class="thumb" src="images/ketchup.png"/>
-<figcaption class="front"><div class="ar">صَلْصَةٌ</div><div class="per">سس / کچاپ</div><div class="en">Sauce/Ketchup</div><div class="urd">ساس / کیچپ</div></figcaption><figcaption class="back"><div class="ar">صَلْصَةٌ</div><div class="per">سس / کچاپ</div><div class="ar plural">صَلَصَاتٌ<span class="label">:Plural</span></div><div class="per plural">سس‌ها<span class="label">:Plural</span></div><div class="ar sentence1">صَبَّتِ الكِيتشَابَ عَلَى البَطَاطِسِ المَقْلِيَّةِ</div><div class="per sentence1">او سس گوجه فرنگی را روی سیب‌زمینی سرخ شده ریخت.</div><div class="en sentence1">She poured ketchup on her fries.</div><div class="urd sentence1">اُس نے کیچپ اپنے فرائز پر ڈال دی۔</div><div class="ar sentence2">صَلْصَةُ الطَّمَاطِمِ شَعْبِيَّةٌ فِي أَطْبَاقِ المَعْكَرُونَةِ</div><div class="per sentence2">سس گوجه فرنگی در غذاهای پاستا محبوب است.</div><div class="en sentence2">Tomato sauce is popular in pasta dishes.</div><div class="urd sentence2">ٹماٹر کی چٹنی پاستا کے کھانوں میں مقبول ہے۔</div></figcaption>
-</figure>
-</section>
-<script>
-
-/* ------------------------------
-   Compute Dynamic Presets
------------------------------- */
-function computeDynamicPresets() {
-  // Base preset (4)
-  const base = {
-    gridMin: 300,
-    gap: 40,
-    emoji: 120,
-    width: 300,
-    height: 220,
-    radius: 12,
-    capPad: 20,
-    capFont: 2,
-    capRadius: 12,
-
-    // NEW FONT & SPACING VALUES
-    fontBase: 1,               // rem
-    fontPlural: 1.7,             // rem
-    fontLabel: 1.3,            // em
-    fontSmall: 0.825,          // rem
-
-    pluralMarginBottom: 30,
-    pluralPaddingBottom: 15,
-    pluralBorderWidth: 3,
-    sentenceMarginTop: 4
-  };
-
-  const deviceWidth = window.innerWidth;
-
-  // Read actual padding (even when changed by media queries)
-  const bodyStyle = window.getComputedStyle(document.body);
-  const bodyPadding = parseFloat(bodyStyle.paddingLeft) + parseFloat(bodyStyle.paddingRight);
-
-  // Autofill columns using preset 4
-  let baseCols = Math.floor((deviceWidth - bodyPadding + base.gap) / base.gridMin);
-  if (baseCols < 1) baseCols = 1;
-
-  function makePreset(extraCards) {
-    const newCols = baseCols + extraCards;
-
-    // Total gap width
-    const totalGap = base.gap * (newCols - 1);
-
-    // New card width
-    const newGridMin = (deviceWidth - bodyPadding - totalGap) / newCols;
-
-    const factor = newGridMin / base.gridMin;
-
-    return {
-      gridMin: newGridMin + "px",
-      gap: (base.gap * factor) + "px",
-      emoji: (base.emoji * factor) + "px",
-      width: newGridMin + "px",
-      height: (base.height * factor) + "px",
-      radius: (base.radius * factor) + "px",
-      capPad: (base.capPad * factor) + "px",
-      capFont: (base.capFont * factor) + "rem",
-      capRadius: (base.capRadius * factor) + "px",
-
-      // NEW DYNAMIC VALUES
-      fontBase: (base.fontBase * factor) + "rem",
-      fontPlural: (base.fontPlural * factor) + "rem",
-      fontLabel: (base.fontLabel * factor) + "em", 
-      fontSmall: (base.fontSmall * factor) + "rem",
-
-      pluralMarginBottom: (base.pluralMarginBottom * factor) + "px",
-      pluralPaddingBottom: (base.pluralPaddingBottom * factor) + "px",
-      pluralBorderWidth: (base.pluralBorderWidth * factor) + "px",
-      sentenceMarginTop: (base.sentenceMarginTop * factor) + "px"
-    };
-  }
-
-  return {
-    4: {
-      gridMin: base.gridMin + "px",
-      gap: base.gap + "px",
-      emoji: base.emoji + "px",
-      width: base.width + "px",
-      height: base.height + "px",
-      radius: base.radius + "px",
-      capPad: base.capPad + "px",
-      capFont: base.capFont + "rem",
-      capRadius: base.capRadius + "px",
-
-      fontBase: base.fontBase + "rem",
-      fontPlural: base.fontPlural + "rem",
-      fontLabel: base.fontLabel + "em",
-      fontSmall: base.fontSmall + "rem",
-
-      pluralMarginBottom: base.pluralMarginBottom + "px",
-      pluralPaddingBottom: base.pluralPaddingBottom + "px",
-      pluralBorderWidth: base.pluralBorderWidth + "px",
-      sentenceMarginTop: base.sentenceMarginTop + "px"
-    },
-    5: makePreset(1),
-    6: makePreset(2)
-  };
-}
-
-
-/* ------------------------------
-   Update Back Height
------------------------------- */
-function updateBackHeight() {
-  const sampleFront = document.querySelector(".card .front");
-  if (!sampleFront) return;
-
-  const emojiHeight = parseFloat(
-    getComputedStyle(document.documentElement).getPropertyValue("--card-height")
-  );
-
-  const captionHeight = sampleFront.offsetHeight;
-
-  const total = emojiHeight + captionHeight;
-
-  document.documentElement.style.setProperty("--back-height", total + "px");
-}
-
-
-/* ------------------------------
-   Row Selector Change
------------------------------- */
-let presets = computeDynamicPresets();
-
-const rowSelector = document.getElementById("rowSelector");
-
-rowSelector.addEventListener("change", () => {
-  presets = computeDynamicPresets();
-
-  // Reset all flipped cards when row changes
-  document.querySelectorAll(".card").forEach(card => {
-    card.classList.remove("show-back", "flipping");
-  });
-
-  const p = presets[rowSelector.value];
-  const r = document.documentElement.style;
-
-  r.setProperty("--grid-min", p.gridMin);
-  r.setProperty("--gap", p.gap);
-  r.setProperty("--emoji-size", p.emoji);
-  r.setProperty("--card-width", p.width);
-  r.setProperty("--card-height", p.height);
-  r.setProperty("--radius", p.radius);
-  r.setProperty("--caption-padding", p.capPad);
-  r.setProperty("--caption-font", p.capFont);
-  r.setProperty("--caption-radius", p.capRadius);
-
-  r.setProperty("--font-base", p.fontBase);
-  r.setProperty("--font-plural", p.fontPlural);
-  r.setProperty("--font-label", p.fontLabel);
-  r.setProperty("--font-small", p.fontSmall);
-
-  r.setProperty("--plural-margin-bottom", p.pluralMarginBottom);
-  r.setProperty("--plural-padding-bottom", p.pluralPaddingBottom);
-  r.setProperty("--plural-border-width", p.pluralBorderWidth);
-  r.setProperty("--sentence-margin-top", p.sentenceMarginTop);
-
-  updateBackHeight(); // Update back after rows change
-});
-
-
-/* Update back height on first load */
-window.addEventListener("load", updateBackHeight);
-
-
-/* ------------------------------
-   Sidebar Toggle
------------------------------- */
-document.getElementById('toggleSidebar').onclick = () => {
-  const sidebar = document.getElementById('sidebar');
-  const open = sidebar.classList.toggle('open');
-  sidebar.setAttribute('aria-hidden', (!open).toString());
-};
-
-
-
-/* ============================================================
-
-   CLICK-TO-FLIP SYSTEM (FRONT ↔ BACK)
-
-   ============================================================ */
-
-document.querySelectorAll(".card").forEach(card => {
-
-
-
-  card.addEventListener("click", function(e) {
-
-    // Only flip when clicking image/emoji/caption
-
-    if (
-
-      e.target.classList.contains("emoji") ||
-
-      e.target.classList.contains("emoji-alt") ||
-
-      e.target.classList.contains("thumb") ||
-
-      e.target.classList.contains("thumb-alt") ||
-
-      e.target.tagName === "FIGCAPTION"
-
-    ) {
-
-      this.classList.toggle("show-back");
-
-    }
-
-  });
-
-
-
-});
-
-document.querySelectorAll(".card").forEach(card => {
-  card.addEventListener("click", () => {
-    // Start fake flip
-    card.classList.add("flipping");
-
-    // Wait half animation, then swap faces
-    setTimeout(() => {
-      card.classList.toggle("show-back");
-    }, 200);
-
-    // Finish animation by expanding back
-    setTimeout(() => {
-      card.classList.remove("flipping");
-    }, 400);
-  });
-});
-
-// Button 1: Urdu vs English
-document.getElementById('btn-urd').addEventListener('click', () => {
-  document.body.classList.toggle('show-urd');
-});
-
-// Button 2: Persian vs Arabic
-document.getElementById('btn-per').addEventListener('click', () => {
-  document.body.classList.toggle('show-per');
-});
-</script>
-</body>
-</html>
