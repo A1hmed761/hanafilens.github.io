@@ -1,76 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hanafi Lens – Learn. Understand. Live Islam Digitally.</title>
-  <style>
-    dy {
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vocabulary Products</title>
+<style>
+* {
   margin: 0;
-
-  font-family: "Segoe UI", sans-serif;
-
-  background: #004643;
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  padding: 5px;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Cairo", sans-serif;
 }
 
-      
-    h2 {
-      color: #004643;
-      margin-bottom: 15px;
-    }
-    .card-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
-    }
-    .card {
-      background-color: #fff;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-      transition: 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-    }
+body {
+  background: #f5f7fb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 10px;
+}
+
+/* Page Title */
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+/* Container for Cards */
+.container {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* CARD DESIGN */
+.card {
+  width: 320px;
+  background: #fff;
+  padding: 30px 25px;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: 0.3s;
+  border-top: 5px solid #4a6cf7;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+/* Headings */
+.card h3 {
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+/* Text */
+.card p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+/* BUTTON */
+.btn {
+  text-decoration: none;
+  display: inline-block;
+  padding: 12px 22px;
+  background: #4a6cf7;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #354ee2;
+}
+
+/* Disabled Button */
+.btn.disabled {
+  background: #b7bfd8;
+  pointer-events: none;
+}
+
   
-  </style>
+</style>
 </head>
 <body>
-  <header>
-    <h1>Vocabulary Tool</h1>
-    <nav>
-<div class="card-container">
-      <div class="card">
-        <h3>Nouns</h3>
-        <p>700+ Nouns with Images</p>
-        <a href="https://noun-a42d5.web.app/arabic-learning.html" target="_blank">Explore Product</a>
-      </div>
-    <h2>Coming Soon</h2>
-    <div class="card-container">
-      <div class="card">
-        <h3>Verbs</h3>
-        <p><em>Under Development...</em></p>
-      </div>
-      <div class="card">
-        <h3>Adjectives</h3>
-        <p><em>Coming soon...</em></p>
-      </div>
-    </div>
-  </section>
 
-  <footer>
-    <p>© 2025 Hanafi Lens — All Rights Reserved.</p>
-  </footer>
+<h1 class="title">Vocabulary Products</h1>
+
+<div class="container">
+
+  <div class="card">
+    <h3>Nouns</h3>
+    <p>700+ Nouns with Images</p>
+    <a href="https://noun-a42d5.web.app/arabic-learning.html" target="_blank" class="btn">Explore Product</a>
+  </div>
+
+  <div class="card">
+    <h3>Verbs</h3>
+    <p><em>Under Development...</em></p>
+    <a class="btn disabled">Coming Soon</a>
+  </div>
+
+  <div class="card">
+    <h3>Adjectives</h3>
+    <p><em>Coming soon...</em></p>
+    <a class="btn disabled">Coming Soon</a>
+  </div>
+
+</div>
+
 </body>
 </html>
+
