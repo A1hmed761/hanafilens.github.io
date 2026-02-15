@@ -18,21 +18,17 @@
       padding: 20px 0;
       text-align: center;
     }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 10px;
-      flex-wrap: wrap;
+    .nav-container{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:0 20px;}
+    .logo{color:#fff;font-size:1.6rem;font-weight:700;}
+    nav{display:flex;gap:25px;}
+    nav a{
+      color:#d7ffef;text-decoration:none;font-weight:500;padding:5px 10px;border-radius:6px;transition:0.3s;
     }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
+    nav a:hover{color:#2cb67d;}
+    nav a.active{
+      background:#2cb67d;color:#fff;font-weight:600;
     }
-    nav a:hover {
-      text-decoration: underline;
-    }
+
     .hero {
       background: linear-gradient(135deg, #004643, #2cb67d);
       color: white;
@@ -113,10 +109,10 @@
   <header>
     <h1>Hanafi Lens</h1>
     <nav>
-      <a href="/">Home</a>
-      <a href="/products/">Products</a>
-      <a href="/blog/">Blog</a>
-      <a href="/courses/">Courses</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="products.html">Products</a>
+      <a href="blog.html">Blog</a>
+      <a href="courses.html">Courses</a>
     </nav>
   </header>
 
@@ -124,7 +120,7 @@
     <h1>Full Vocabulary package Arabic and Persian language</h1>
     <p>This product contains 2000+ vocabulary categorized in Nouns, Verbs and Adjectives to make you Intermediate level.</p>
     <div class="buttons">
-  <a href="product.html" target="_blank">Explore Product</a>
+  <a href="product.html">Explore Product</a>
 </div>
   </section>
 
