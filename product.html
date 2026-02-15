@@ -28,13 +28,15 @@ body {
   color: #333;
 }
 
-/* Container for Cards */
 .container {
   display: flex;
+  flex-direction: column;   /* Arrange cards vertically */
   gap: 30px;
-  flex-wrap: wrap;
-  justify-content: center;
+  width: 100%;
+  max-width: 400px;         /* Keeps the column nicely centered */
+  align-items: center;
 }
+
 
 /* CARD DESIGN */
 .card {
@@ -102,7 +104,7 @@ body {
   <div class="card">
     <h3>Nouns</h3>
     <p>700+ Nouns with Images</p>
-    <a href="https://noun-a42d5.web.app/arabic-learning.html" target="_blank" class="btn">Explore Product</a>
+    <a href="https://noun-a42d5.web.app/arabic-learning.html" class="btn">Explore Product</a>
   </div>
 
   <div class="card">
