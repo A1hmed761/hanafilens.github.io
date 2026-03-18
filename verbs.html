@@ -1,0 +1,1320 @@
+ <!DOCTYPE html>
+
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>مفردات الأثاث — Furniture Vocabulary</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
+
+:root {
+
+  --grid-min: 300px;
+
+  --gap: 40px;
+
+  --emoji-size: 120px;
+
+  --card-width: 300px;
+
+  --card-height: 220px;
+
+  --radius: 12px;
+
+  --caption-padding: 20px;
+
+  --caption-font: 2rem;
+
+  --caption-radius: 12px;
+
+  --back-height: 300px; /* default temporary value */
+
+
+  /* Text Sizes */
+  --font-base: 1rem;
+  --font-plural: 90px;
+  --font-label: 1.3rem;
+  --font-small: 0.825rem;
+
+  /* Spacing & Borders */
+  --plural-margin-bottom: 30px;
+  --plural-padding-bottom: 15px;
+  --plural-border-width: 3px;
+  --sentence-margin-top: 4px;
+}
+
+
+
+* { box-sizing: border-box; }
+
+
+
+body {
+
+  margin: 0;
+
+  font-family: 'Vazirmatn', sans-serif;
+
+  background: #f6f7fb;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  padding: 5px;
+}
+
+
+
+
+h4 {
+
+  margin-bottom: 30px;
+  border-bottom: 3px solid #eee;
+  padding-bottom: 20px;
+
+}
+
+
+/* Grid */
+
+.grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(var(--grid-min), 1fr));
+
+  gap: var(--gap);
+
+  justify-items: center;
+
+  width: 100%;
+
+  max-width: 1400px;
+
+}
+
+
+
+/* Cards */
+
+figure.verb-card {
+
+ background: none;
+
+  border: none;
+
+  box-shadow: none;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+
+  margin: 0;
+
+}
+
+
+
+.emoji, .thumb {
+
+  font-size: var(--emoji-size);
+
+  background: white;
+
+  width: var(--card-width);
+
+  height: var(--card-height);
+
+  border-radius: var(--radius);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+
+}
+
+
+
+.thumb {
+
+  object-fit: cover;
+
+}
+
+
+
+figcaption.front {
+  margin-top: 10px;
+  background: white;
+  padding: var(--caption-padding) 0;
+  width: var(--card-width);
+  height: var(--back-height);
+  border-radius: 0 0 var(--caption-radius) var(--caption-radius);
+  font-size: var(--caption-font);
+  font-weight: 700;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.show-images figcaption.front {
+  margin-top: 10px;
+  background: white;
+  padding: var(--caption-padding) 0;
+  width: 100%;
+  height:40%;
+  border-radius: 0 0 var(--caption-radius) var(--caption-radius);
+  font-size: var(--caption-font);
+  font-weight: 700;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Base Arabic Style */
+.ar {
+  display: block; /* Visible by default */
+}
+
+figcaption.back {
+margin-top: 10px;
+  background: white;
+  padding: var(--caption-padding) 0;
+  width: var(--card-width);
+  height: var(--back-height);
+  border-radius: 0 0 var(--caption-radius) var(--caption-radius);
+  font-size: var(--caption-font);
+  font-weight: 700;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+        }
+
+/* Hide emoji/images by default */
+.hide-images .emoji,
+.hide-images .thumb {
+    display: none !important;
+}
+
+/* When visible, show normally */
+.show-images .emoji,
+.show-images .thumb {
+    display: flex !important;
+}
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+    
+
+/* Hide Urdu and Persian by default */
+.urd, .per {
+  display: none;
+  font-size: var(--font-base);
+  font-weight: 400;
+  color: #666;
+  margin-top: var(--sentence-margin-top);
+}
+
+.en {
+  font-size: var(--font-small);   /* Smaller font size */
+  font-weight: 400;   /* Thinner weight */
+  color: #666;        /* Optional: grey color to create hierarchy */
+  font-family: 'sans-serif'; /* Optional: different font if desired */
+}
+
+.urd {
+  font-size: var(--font-base);   /* Smaller font size */
+  font-weight: 400;   /* Thinner weight */
+  color: #666;        /* Optional: grey color to create hierarchy */
+  font-family: 'Vazirmatn', sans-serif; /* Optional: different font if desired */
+}
+
+
+/* --- Toggle Button 1: Urdu replaces English --- */
+.show-urd .urd { display: block; }
+.show-urd .en  { display: none; }
+
+/* --- Toggle Button 2: Persian replaces Arabic --- */
+.show-per .per { 
+  display: block; 
+  font-size: var(--font-base) /* Matches original Arabic size */
+  font-weight: 700;
+  color: #000;      /* Matches original Arabic color */
+}
+.show-per .ar { display: none; }
+
+/* Horizontal layout for both language groups */
+.lang-row {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 30px;
+  border-bottom: 3px solid #eee;
+  padding-bottom: 20px;
+}
+
+/* The double-sided arrow */
+.double-arrow {
+  font-size: 22px;
+  font-weight: bold;
+  color: #444;
+  user-select: none;
+}
+
+/* Ensure lang groups stay vertically stacked internally */
+.lang-group {
+  display: flex;
+  flex-direction: column;
+  width: 140px;
+  
+}
+
+/* Buttons */
+.main-btn, .sub-btn {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #aaa;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 6px;
+  text-align: left;
+}
+
+.main-btn {
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sub-btn {
+  display: none;
+  margin-top: 4px;
+  background: #f7f7f7;
+}
+
+.main-btn.open + .sub-btn {
+  display: block;
+}
+
+.arrow {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.row-selector-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 30px;
+  border-bottom: 3px solid #eee;
+  padding-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+    margin-top: 5px;
+
+  background: white;
+
+  padding: 5px 0;
+
+  width: 100%;
+
+  border-radius: 0 0 10px 10px;
+
+  font-size: 1rem;
+
+  font-weight: 300;
+
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+
+/* Sidebar Toggle */
+
+.toggle-btn {
+
+  position: fixed;
+
+  font-family: 'Inter', sans-serif;
+
+  right: 20px;
+
+  top: 20px;
+
+  background: #4a4a4a;
+
+  color: white;
+
+  padding: 10px 15px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-size: 1rem;
+
+  z-index: 999;
+
+}
+
+
+/* Sidebar */
+
+.sidebar {
+
+  position: fixed;
+
+  top: 0;
+
+  right: 0;
+
+  width: 320px;
+
+  height: 100vh;
+
+  background: #fff;
+
+  box-shadow: -6px 0 18px rgba(0,0,0,0.08);
+
+  padding: 24px;
+
+  transform: translateX(320px);
+
+  transition: transform 0.28s ease;
+
+  z-index: 998;
+
+  overflow-y: auto;
+
+
+  direction: ltr;
+
+}
+
+
+
+.sidebar.open {
+
+  transform: translateX(0);
+
+}
+
+
+@media (max-width: 300px) {
+
+  body { padding: 16px; }
+  .sidebar { width: 10px; transform: translateX(100px); }
+
+}
+
+
+
+@font-face {
+  font-family: 'GoogleEmoji';
+  src: url('fonts/NotoColorEmoji.ttf') format('truetype');
+}
+
+.emoji {
+  font-family: 'GoogleEmoji';
+
+}
+
+
+</style>
+
+</head>
+<body>
+<!-- Sidebar Toggle Button -->
+<div class="toggle-btn" id="toggleSidebar">☰</div>
+<aside aria-hidden="true" class="sidebar" id="sidebar">
+
+<div class="lang-row">
+
+<div class="lang-group" id="group-ar">
+    <button class="main-btn" id="btn-ar-main">Arabic <span class="arrow">▾</span></button>
+    <button class="sub-btn" id="btn-ar-sub">Persian</button>
+  </div>
+
+
+  <div class="double-arrow">↔</div>
+
+  <div class="lang-group" id="group-urd">
+    <button class="main-btn" id="btn-urd-main">English <span class="arrow">▾</span></button>
+    <button class="sub-btn" id="btn-urd-sub">Urdu</button>
+  </div>
+</div>
+
+
+
+<div class="row-selector-wrapper">
+  <label for="rowSelector">Change view:</label>
+  <select aria-label="Choose card size" id="rowSelector">
+    <option value="4">1</option>
+    <option value="5">2</option>
+    <option value="6">3</option>
+  </select>
+</div>
+
+<h4>Click on the Card to see it's Plural and Sentences</h4>
+
+<div class="lang-row">
+<div class="lang-group" id="group-ar">
+<button class="main-btn" id="btnShowImages">Images</button>
+ </div>
+<div class="lang-group" id="group-urd">
+<button class="main-btn" id="btnHideImages">Without Images</button>
+ </div>
+</div>
+
+<div class="buttons">
+    <button data-target="home">General Home & Rooms</button>
+    <button data-target="furniture">Furniture </button>
+    <button data-target="items">Household Items</button>
+    <button data-target="kitchen">Kitchen Objects</button>
+    <button data-target="bathroom">Bathroom & Cleaning</button>
+  </div>
+
+<select id="formFilter" onchange="filterVerbs()">
+  <option value="">All Arabic Forms</option>
+  <option value="I">Form I</option>
+  <option value="II">Form II</option>
+  <option value="III">Form III</option>
+  <option value="IV">Form IV</option>
+  <option value="V">Form V</option>
+  <option value="VI">Form VI</option>
+  <option value="VII">Form VII</option>
+  <option value="VIII">Form VIII</option>
+  <option value="IX">Form IX</option>
+  <option value="X">Form X</option>
+</select>
+
+<select id="weakFilter" onchange="filterVerbs()">
+  <option value="">All Weakness Types</option>
+  <option value="sound">Sound</option>
+  <option value="hollow">Hollow</option>
+  <option value="defective">Defective</option>
+  <option value="assimilated">Assimilated</option>
+  <option value="doubled">Geminated</option>
+  <option value="hamzated">Hamzated</option>
+</select>
+
+<select id="persianTypeFilter" onchange="filterVerbs()">
+  <option value="">All Persian Types</option>
+  <option value="simple">Simple</option>
+  <option value="compound">Compound</option>
+  <option value="light">Light</option>
+</select>
+
+<input type="text" id="searchInput" placeholder="Search Arabic / Persian / English / Urdu..." oninput="searchVerbs()">
+
+</aside>
+
+<h2 id="home">General Home &amp; Rooms</h1>
+<section aria-label="General Home &amp; Rooms" class="grid">
+<figure class="verb-card" onclick="openVerb('faala')" data-ar="كتب" data-per="نوشتن" data-en="write" data-urd="لکھنا" data-root="ك-ت-ب" data-form="I" data-weak="sound" data-persian="simple">
+  <figcaption class="back"><div class="ar">كَتَبَ</div><div class="per">نوشتن</div><div class="en">to write</div><div class="urd">لکھنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('qaraa')" data-ar="قرأ" data-per="خواندن" data-en="read" data-urd="پڑھنا" data-root="ق-ر-أ" data-form="I" data-weak="hamzated" data-persian="simple">
+  <figcaption class="back"><div class="ar">قَرَأَ</div><div class="per">خواندن</div><div class="en">to read</div><div class="urd">پڑھنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('raaa')" data-ar="رأى" data-per="دیدن" data-en="see" data-urd="دیکھنا" data-root="ر-أ-ي" data-form="I" data-weak="doubly-weak" data-persian="simple">
+  <figcaption class="back"><div class="ar">رَأَى</div><div class="per">دیدن</div><div class="en">to see</div><div class="urd">دیکھنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('nathara')" data-ar="نظر" data-per="نگاه کردن" data-en="look" data-urd="دیکھنا" data-root="ن-ظ-ر" data-form="I" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">نَظَرَ</div><div class="per">نگاه کردن</div><div class="en">to look</div><div class="urd">دیکھنا / نظر ڈالنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('raqaba')" data-ar="راقب" data-per="تماشا کردن" data-en="watch" data-urd="دیکھنا" data-root="ر-ق-ب" data-form="III" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">رَاقَبَ</div><div class="per">تماشا کردن</div><div class="en">to watch/observe</div><div class="urd">دیکھنا / ملاحظہ کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('ata')" data-ar="أتى" data-per="آمدن" data-en="come" data-urd="آنا" data-root="أ-ت-ي" data-form="I" data-weak="doubly-weak" data-persian="simple">
+  <figcaption class="back"><div class="ar">أَتَى</div><div class="per">آمدن</div><div class="en">to come</div><div class="urd">آنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('dhahaba')" data-ar="ذهب" data-per="رفتن" data-en="go" data-urd="جانا" data-root="ذ-ه-ب" data-form="I" data-weak="sound" data-persian="simple">
+  <figcaption class="back"><div class="ar">ذَهَبَ</div><div class="per">رفتن</div><div class="en">to go</div><div class="urd">جانا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('masha')" data-ar="مشى" data-per="راه رفتن" data-en="walk" data-urd="چلنا" data-root="م-ش-ي" data-form="I" data-weak="defective" data-persian="compound">
+  <figcaption class="back"><div class="ar">مَشَى</div><div class="per">راه رفتن</div><div class="en">to walk</div><div class="urd">چلنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('jara')" data-ar="جرى" data-per="دویدن" data-en="run" data-urd="دوڑنا" data-root="ج-ر-ي" data-form="I" data-weak="defective" data-persian="simple">
+  <figcaption class="back"><div class="ar">جَرَى</div><div class="per">دویدن</div><div class="en">to run</div><div class="urd">دوڑنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('nama')" data-ar="نام" data-per="خوابیدن" data-en="sleep" data-urd="سونا" data-root="ن-و-م" data-form="I" data-weak="hollow" data-persian="simple">
+  <figcaption class="back"><div class="ar">نَامَ</div><div class="per">خوابیدن</div><div class="en">to sleep</div><div class="urd">سونا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('istalqa')" data-ar="استلقى" data-per="دراز کشیدن" data-en="lay down" data-urd="لیٹنا" data-root="ل-ق-ي" data-form="X" data-weak="defective" data-persian="compound">
+  <figcaption class="back"><div class="ar">اِسْتَلْقَى</div><div class="per">دراز کشیدن</div><div class="en">to lay down</div><div class="urd">لیٹنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('istayqatha')" data-ar="استيقظ" data-per="بیدار شدن" data-en="wake up" data-urd="جاگنا" data-root="ي-ق-ظ" data-form="X" data-weak="assimilated" data-persian="compound">
+  <figcaption class="back"><div class="ar">اِسْتَيْقَظَ</div><div class="per">بیدار شدن</div><div class="en">to wake up</div><div class="urd">جاگنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('jalasa')" data-ar="جلس" data-per="نشستن" data-en="sit" data-urd="بیٹھنا" data-root="ج-ل-س" data-form="I" data-weak="sound" data-persian="simple">
+  <figcaption class="back"><div class="ar">جَلَسَ</div><div class="per">نشستن</div><div class="en">to sit</div><div class="urd">بیٹھنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('waqafa')" data-ar="وقف" data-per="ایستادن" data-en="stand" data-urd="کھڑا ہونا" data-root="و-ق-ف" data-form="I" data-weak="assimilated" data-persian="simple">
+  <figcaption class="back"><div class="ar">وَقَفَ</div><div class="per">ایستادن</div><div class="en">to stand</div><div class="urd">کھڑا ہونا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('akala')" data-ar="أكل" data-per="خوردن" data-en="eat" data-urd="کھانا" data-root="أ-ك-ل" data-form="I" data-weak="hamzated" data-persian="simple">
+  <figcaption class="back"><div class="ar">أَكَلَ</div><div class="per">خوردن</div><div class="en">to eat</div><div class="urd">کھانا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('shariba')" data-ar="شرب" data-per="نوشیدن" data-en="drink" data-urd="پینا" data-root="ش-ر-ب" data-form="I" data-weak="sound" data-persian="simple">
+  <figcaption class="back"><div class="ar">شَرِبَ</div><div class="per">نوشیدن</div><div class="en">to drink</div><div class="urd">پینا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('akhadha')" data-ar="أخذ" data-per="گرفتن" data-en="take" data-urd="لینا" data-root="أ-خ-ذ" data-form="I" data-weak="hamzated" data-persian="simple">
+  <figcaption class="back"><div class="ar">أَخَذَ</div><div class="per">گرفتن</div><div class="en">to take</div><div class="urd">لینا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('amsaka')" data-ar="أمسك" data-per="گرفتن" data-en="catch" data-urd="پکڑنا" data-root="م-س-ك" data-form="IV" data-weak="sound" data-persian="simple">
+  <figcaption class="back"><div class="ar">أَمْسَكَ</div><div class="per">گرفتن</div><div class="en">to catch/hold</div><div class="urd">پکڑنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('hasala')" data-ar="حصل" data-per="به دست آوردن" data-en="get" data-urd="حاصل کرنا" data-root="ح-ص-ل" data-form="I" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">حَصَلَ</div><div class="per">به دست آوردن</div><div class="en">to get/obtain</div><div class="urd">حاصل کرنا / پانا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('sarakha')" data-ar="صرخ" data-per="فریاد زدن" data-en="shout" data-urd="چلانا" data-root="ص-ر-خ" data-form="I" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">صَرَخَ</div><div class="per">فریاد زدن</div><div class="en">to shout</div><div class="urd">چلانا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('fahima')" data-ar="فهم" data-per="فهمیدن" data-en="understand" data-urd="سمجھنا" data-root="ف-ه-م" data-form="I" data-weak="sound" data-persian="simple">
+  <figcaption class="back"><div class="ar">فَهِمَ</div><div class="per">فهمیدن</div><div class="en">to understand</div><div class="urd">سمجھنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('takallama')" data-ar="تكلم" data-per="صحبت کردن" data-en="speak" data-urd="بولنا" data-root="ك-ل-م" data-form="V" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">تَكَلَّمَ</div><div class="per">صحبت کردن</div><div class="en">to speak</div><div class="urd">بولنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('qala')" data-ar="قال" data-per="گفتن" data-en="tell" data-urd="بتانا" data-root="ق-و-ل" data-form="I" data-weak="hollow" data-persian="simple">
+  <figcaption class="back"><div class="ar">قَالَ</div><div class="per">گفتن</div><div class="en">to say/tell</div><div class="urd">بتانا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('ablagha')" data-ar="أبلغ" data-per="گزارش دادن" data-en="report" data-urd="اطلاع دینا" data-root="ب-ل-غ" data-form="IV" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">أَبْلَغَ</div><div class="per">گزارش دادن</div><div class="en">to report</div><div class="urd">اطلاع دینا / رپورٹ کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('ajaba')" data-ar="أجاب" data-per="پاسخ دادن" data-en="answer" data-urd="جواب دینا" data-root="ج-و-ب" data-form="IV" data-weak="hollow" data-persian="compound">
+  <figcaption class="back"><div class="ar">أَجَابَ</div><div class="per">پاسخ دادن</div><div class="en">to answer</div><div class="urd">جواب دینا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('radda')" data-ar="رد" data-per="جواب دادن" data-en="reply" data-urd="جواب دینا" data-root="ر-د-د" data-form="I" data-weak="doubled" data-persian="compound">
+  <figcaption class="back"><div class="ar">رَدَّ</div><div class="per">جواب دادن</div><div class="en">to reply/reject</div><div class="urd">جواب دینا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('nada')" data-ar="نادى" data-per="صدا زدن" data-en="call" data-urd="بلانا" data-root="ن-د-ي" data-form="III" data-weak="defective" data-persian="compound">
+  <figcaption class="back"><div class="ar">نَادَى</div><div class="per">صدا زدن</div><div class="en">to call</div><div class="urd">بلانا / فون کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('samia')" data-ar="سمع" data-per="شنیدن" data-en="hear" data-urd="سننا" data-root="س-م-ع" data-form="I" data-weak="sound" data-persian="simple">
+  <figcaption class="back"><div class="ar">سَمِعَ</div><div class="per">شنیدن</div><div class="en">to hear</div><div class="urd">سننا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('istama-a')" data-ar="استمع" data-per="گوش دادن" data-en="listen" data-urd="سننا" data-root="س-م-ع" data-form="VIII" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">اِسْتَمَعَ</div><div class="per">گوش دادن</div><div class="en">to listen</div><div class="urd">سننا (توجہ سے)</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('amila')" data-ar="عمل" data-per="کار کردن" data-en="work" data-urd="کام کرنا" data-root="ع-م-ل" data-form="I" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">عَمِلَ</div><div class="per">کار کردن</div><div class="en">to work</div><div class="urd">کام کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('wada-a')" data-ar="وضع" data-per="گذاشتن" data-en="put" data-urd="رکھنا" data-root="و-ض-ع" data-form="I" data-weak="assimilated" data-persian="simple">
+  <figcaption class="back"><div class="ar">وَضَعَ</div><div class="per">گذاشتن</div><div class="en">to put</div><div class="urd">رکھنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('sanaa')" data-ar="صنع" data-per="ساختن" data-en="make" data-urd="بنانا" data-root="ص-ن-ع" data-form="I" data-weak="sound" data-persian="simple">
+  <figcaption class="back"><div class="ar">صَنَعَ</div><div class="per">ساختن</div><div class="en">to make</div><div class="urd">بنانا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('tabakha')" data-ar="طبخ" data-per="آشپزی کردن" data-en="cook" data-urd="پکانا" data-root="ط-ب-خ" data-form="I" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">طَبَخَ</div><div class="per">آشپزی کردن</div><div class="en">to cook</div><div class="urd">پکانا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('badaa')" data-ar="بدأ" data-per="شروع کردن" data-en="start" data-urd="شروع کرنا" data-root="ب-د-أ" data-form="I" data-weak="hamzated" data-persian="compound">
+  <figcaption class="back"><div class="ar">بَدأَ</div><div class="per">شروع کردن</div><div class="en">to start</div><div class="urd">شروع کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('anha')" data-ar="أنهى" data-per="تمام کردن" data-en="finish" data-urd="ختم کرنا" data-root="ن-ه-ي" data-form="IV" data-weak="defective" data-persian="compound">
+  <figcaption class="back"><div class="ar">أَنْهَى</div><div class="per">تمام کردن</div><div class="en">to finish</div><div class="urd">ختم کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('fataha')" data-ar="فتح" data-per="باز کردن" data-en="open" data-urd="کھولنا" data-root="ف-ت-ح" data-form="I" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">فَتَحَ</div><div class="per">باز کردن</div><div class="en">to open</div><div class="urd">کھولنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('aghlaqa')" data-ar="أغلق" data-per="بستن" data-en="close" data-urd="بند کرنا" data-root="غ-ل-ق" data-form="IV" data-weak="sound" data-persian="simple">
+  <figcaption class="back"><div class="ar">أَغْلَقَ</div><div class="per">بستن</div><div class="en">to close</div><div class="urd">بند کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('qada_drive')" data-ar="قاد" data-per="رانندگی کردن" data-en="drive" data-urd="گاڑی چلانا" data-root="ق-و-د" data-form="I" data-weak="hollow" data-persian="compound">
+  <figcaption class="back"><div class="ar">قَادَ</div><div class="per">رانندگی کردن</div><div class="en">to drive</div><div class="urd">گاڑی چلانا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('rakiba')" data-ar="ركب" data-per="سوار شدن" data-en="ride" data-urd="سواری کرنا" data-root="ر-ك-ب" data-form="I" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">رَكِبَ</div><div class="per">سوار شدن</div><div class="en">to ride</div><div class="urd">سواری کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('tara')" data-ar="طار" data-per="پرواز کردن" data-en="fly" data-urd="اڑنا" data-root="ط-ي-ر" data-form="I" data-weak="hollow" data-persian="compound">
+  <figcaption class="back"><div class="ar">طَارَ</div><div class="per">پرواز کردن</div><div class="en">to fly</div><div class="urd">اڑنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('sabaha')" data-ar="سبح" data-per="شنا کردن" data-en="swim" data-urd="تیرنا" data-root="س-ب-ح" data-form="I" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">سَبَحَ</div><div class="per">شنا کردن</div><div class="en">to swim</div><div class="urd">تیرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('laqiya')" data-ar="لقي" data-per="ملاقات کردن" data-en="meet" data-urd="ملنا" data-root="ل-ق-ي" data-form="I" data-weak="defective" data-persian="compound">
+  <figcaption class="back"><div class="ar">لَقِيَ</div><div class="per">ملاقات کردن</div><div class="en">to meet</div><div class="urd">ملنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('arafa_rec')" data-ar="عرف" data-per="شناختن" data-en="recognize" data-urd="پہچاننا" data-root="ع-ر-ف" data-form="I" data-weak="sound" data-persian="simple">
+  <figcaption class="back"><div class="ar">عَرَفَ</div><div class="per">شناختن</div><div class="en">to recognize</div><div class="urd">پہچاننا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('amana')" data-ar="آمن" data-per="باور کردن" data-en="believe" data-urd="یقین کرنا" data-root="أ-م-ن" data-form="IV" data-weak="hamzated" data-persian="compound">
+  <figcaption class="back"><div class="ar">آمَنَ</div><div class="per">باور کردن</div><div class="en">to believe</div><div class="urd">یقین کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('fakkara')" data-ar="فكر" data-per="فکر کردن" data-en="think" data-urd="سوچنا" data-root="ف-ك-ر" data-form="II" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">فَكَّرَ</div><div class="per">فکر کردن</div><div class="en">to think/ponder</div><div class="urd">سوچنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('sha-ara')" data-ar="شعر" data-per="احساس کردن" data-en="feel" data-urd="محسوس کرنا" data-root="ش-ع-ر" data-form="I" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">شَعَرَ</div><div class="per">احساس کردن</div><div class="en">to feel</div><div class="urd">محسوس کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('ta-allama')" data-ar="تعلم" data-per="یاد گرفتن" data-en="learn" data-urd="سیکھنا" data-root="ع-ل-م" data-form="V" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">تَعَلَّمَ</div><div class="per">یاد گرفتن</div><div class="en">to learn</div><div class="urd">سیکھنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('allama')" data-ar="علم" data-per="آموزش دادن" data-en="teach" data-urd="سکھانا" data-root="ع-ل-م" data-form="II" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">عَلَّمَ</div><div class="per">آموزش دادن</div><div class="en">to teach</div><div class="urd">سکھانا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('qabila')" data-ar="قبل" data-per="پذیرفتن" data-en="accept" data-urd="قبول کرنا" data-root="ق-ب-ل" data-form="I" data-weak="sound" data-persian="simple">
+  <figcaption class="back"><div class="ar">قَبِلَ</div><div class="per">پذیرفتن</div><div class="en">to accept</div><div class="urd">قبول کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('rafada')" data-ar="رفض" data-per="رد کردن" data-en="reject" data-urd="رد کرنا" data-root="ر-ف-ض" data-form="I" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">رَفَضَ</div><div class="per">رد کردن</div><div class="en">to reject</div><div class="urd">رد کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('dahika')" data-ar="ضحك" data-per="خندیدن" data-en="laugh" data-urd="ہنسنا" data-root="ض-ح-ك" data-form="I" data-weak="sound" data-persian="simple">
+  <figcaption class="back"><div class="ar">ضَحِكَ</div><div class="per">خندیدن</div><div class="en">to laugh</div><div class="urd">ہنسنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('baka')" data-ar="بكى" data-per="گریه کردن" data-en="cry" data-urd="رونا" data-root="ب-ك-ي" data-form="I" data-weak="defective" data-persian="compound">
+  <figcaption class="back"><div class="ar">بَكَى</div><div class="per">گریه کردن</div><div class="en">to cry</div><div class="urd">رونا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('ghadiba')" data-ar="غضب" data-per="خشمگین شدن" data-en="angry" data-urd="غصہ ہونا" data-root="غ-ض-ب" data-form="I" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">غَضِبَ</div><div class="per">خشمگین شدن</div><div class="en">to become angry</div><div class="urd">غصہ ہونا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('ahabba')" data-ar="أحب" data-per="دوست داشتن" data-en="like" data-urd="پسند کرنا" data-root="ح-ب-ب" data-form="IV" data-weak="doubled" data-persian="compound">
+  <figcaption class="back"><div class="ar">أَحَبَّ</div><div class="per">دوست داشتن</div><div class="en">to like</div><div class="urd">پسند کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('kariha')" data-ar="كره" data-per="نفرت داشتن" data-en="hate" data-urd="نفرت کرنا" data-root="ك-ر-ه" data-form="I" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">كَرِهَ</div><div class="per">نفرت داشتن</div><div class="en">to hate</div><div class="urd">نفرت کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('ashiqa')" data-ar="عشق" data-per="عاشق شدن" data-en="love" data-urd="محبت کرنا" data-root="ع-ش-ق" data-form="I" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">عَشِقَ</div><div class="per">عاشق شدن</div><div class="en">to love</div><div class="urd">محبت کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('da-a')" data-ar="دعا" data-per="دعوت کردن" data-en="invite" data-urd="دعوت دینا" data-root="د-ع-و" data-form="I" data-weak="defective" data-persian="compound">
+  <figcaption class="back"><div class="ar">دَعَا</div><div class="per">دعوت کردن</div><div class="en">to invite/pray</div><div class="urd">دعوت دینا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('wathiqa')" data-ar="وثق" data-per="اعتماد کردن" data-en="trust" data-urd="اعتماد کرنا" data-root="و-ث-ق" data-form="I" data-weak="assimilated" data-persian="compound">
+  <figcaption class="back"><div class="ar">وَثِقَ</div><div class="per">اعتماد کردن</div><div class="en">to trust</div><div class="urd">اعتماد کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('tamanna')" data-ar="تمنى" data-per="آرزو کردن" data-en="wish" data-urd="خواہش کرنا" data-root="م-ن-ي" data-form="V" data-weak="defective" data-persian="compound">
+  <figcaption class="back"><div class="ar">تَمَنَّى</div><div class="per">آرزو کردن</div><div class="en">to wish</div><div class="urd">خواہش کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('salla')" data-ar="صلى" data-per="نماز خواندن" data-en="pray" data-urd="دعا کرنا" data-root="ص-ل-و" data-form="II" data-weak="defective" data-persian="compound">
+  <figcaption class="back"><div class="ar">صَلَّى</div><div class="per">نماز خواندن</div><div class="en">to pray</div><div class="urd">دعا کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('la-iba')" data-ar="لعب" data-per="بازی کردن" data-en="play" data-urd="کھیلنا" data-root="ل-ع-ب" data-form="I" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">لَعِبَ</div><div class="per">بازی کردن</div><div class="en">to play</div><div class="urd">کھیلنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('daraba')" data-ar="ضرب" data-per="زدن" data-en="hit" data-urd="مارنا" data-root="ض-ر-ب" data-form="I" data-weak="sound" data-persian="simple">
+  <figcaption class="back"><div class="ar">ضَرَبَ</div><div class="per">زدن</div><div class="en">to hit</div><div class="urd">مارنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('samata')" data-ar="صمت" data-per="ساکت شدن" data-en="silent" data-urd="خاموش ہونا" data-root="ص-م-ت" data-form="I" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">صَمَتَ</div><div class="per">ساکت شدن</div><div class="en">to be silent</div><div class="urd">خاموش ہونا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('taraka')" data-ar="ترك" data-per="ترک کردن" data-en="leave" data-urd="چھوڑنا" data-root="ت-ر-ك" data-form="I" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">تَرَكَ</div><div class="per">ترک کردن</div><div class="en">to leave</div><div class="urd">چھوڑنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('mata')" data-ar="مات" data-per="مردن" data-en="die" data-urd="مرنا" data-root="م-و-ت" data-form="I" data-weak="hollow" data-persian="simple">
+  <figcaption class="back"><div class="ar">مَاتَ</div><div class="per">مردن</div><div class="en">to die</div><div class="urd">مرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('rasama')" data-ar="رسم" data-per="کشیدن" data-en="draw" data-urd="کھینچنا" data-root="ر-س-م" data-form="I" data-weak="sound" data-persian="simple">
+  <figcaption class="back"><div class="ar">رَسَمَ</div><div class="per">کشیدن</div><div class="en">to draw</div><div class="urd">کھینچنا / ڈرائنگ کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('i-tadhara')" data-ar="اعتذر" data-per="عذرخواهی کردن" data-en="apologize" data-urd="معافی مانگنا" data-root="ع-ذ-ر" data-form="VIII" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">اِعْتَذَرَ</div><div class="per">عذرخواهی کردن</div><div class="en">to apologize</div><div class="urd">معافی مانگنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('rahima')" data-ar="رحم" data-per="رحم کردن" data-en="mercy" data-urd="رحم کرنا" data-root="ر-ح-م" data-form="I" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">رَحِمَ</div><div class="per">رحم کردن</div><div class="en">to show mercy</div><div class="urd">رحم کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('tawassala')" data-ar="توسل" data-per="التماس کردن" data-en="beg" data-urd="منگنا" data-root="و-س-ل" data-form="V" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">تَوَسَّلَ</div><div class="per">التماس کردن</div><div class="en">to beg/plead</div><div class="urd">منگنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('ghanna')" data-ar="غنى" data-per="آواز خواندن" data-en="sing" data-urd="گانا" data-root="غ-ن-ي" data-form="II" data-weak="defective" data-persian="compound">
+  <figcaption class="back"><div class="ar">غَنَّى</div><div class="per">آواز خواندن</div><div class="en">to sing</div><div class="urd">گانا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('qabbala')" data-ar="قبل_kiss" data-per="بوسیدن" data-en="kiss" data-urd="بوسہ دینا" data-root="ق-ب-ل" data-form="II" data-weak="sound" data-persian="simple">
+  <figcaption class="back"><div class="ar">قَبَّلَ</div><div class="per">بوسیدن</div><div class="en">to kiss</div><div class="urd">بوسہ دینا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('ulida')" data-ar="ولد" data-per="متولد شدن" data-en="be born" data-urd="پیدا ہونا" data-root="و-ل-د" data-form="I_Passive" data-weak="assimilated" data-persian="compound">
+  <figcaption class="back"><div class="ar">وُلِدَ</div><div class="per">متولد شدن</div><div class="en">to be born</div><div class="urd">پیدا ہونا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('rakala')" data-ar="ركل" data-per="لگد زدن" data-en="kick" data-urd="لات مارنا" data-root="ر-ك-ل" data-form="I" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">رَكَلَ</div><div class="per">لگد زدن</div><div class="en">to kick</div><div class="urd">لات مارنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('hada-a')" data-ar="هدأ" data-per="آرام شدن" data-en="quiet" data-urd="خاموش رہنا" data-root="ه-د-أ" data-form="I" data-weak="hamzated" data-persian="compound">
+  <figcaption class="back"><div class="ar">هَدَأَ</div><div class="per">آرام شدن</div><div class="en">to be quiet</div><div class="urd">خاموش رہنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('azala')" data-ar="أزال" data-per="برداشتن" data-en="remove" data-urd="ہٹانا" data-root="ز-و-ل" data-form="IV" data-weak="hollow" data-persian="simple">
+  <figcaption class="back"><div class="ar">أَزَالَ</div><div class="per">برداشتن</div><div class="en">to remove</div><div class="urd">ہٹانا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('ghasala')" data-ar="غسل" data-per="شستن" data-en="wash" data-urd="دھونا" data-root="غ-س-ل" data-form="I" data-weak="sound" data-persian="simple">
+  <figcaption class="back"><div class="ar">غَسَلَ</div><div class="per">شستن</div><div class="en">to wash</div><div class="urd">دھونا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('nath-thafa')" data-ar="نظف" data-per="تمیز کردن" data-en="clean" data-urd="صاف کرنا" data-root="ن-ظ-ف" data-form="II" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">نَظَّفَ</div><div class="per">تمیز کردن</div><div class="en">to clean</div><div class="urd">صاف کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('wajaba')" data-ar="وجب" data-per="باید بودن" data-en="must" data-urd="ضروری ہونا" data-root="و-ج-ب" data-form="I" data-weak="assimilated" data-persian="compound">
+  <figcaption class="back"><div class="ar">وَجَبَ</div><div class="per">باید بودن</div><div class="en">must/to be necessary</div><div class="urd">ضروری ہونا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('ata_give')" data-ar="أعطى" data-per="دادن" data-en="give" data-urd="دینا" data-root="ع-ط-و" data-form="IV" data-weak="defective" data-persian="simple">
+  <figcaption class="back"><div class="ar">أَعْطَى</div><div class="per">دادن</div><div class="en">to give</div><div class="urd">دینا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('tanaffasa')" data-ar="تنفس" data-per="نفس کشیدن" data-en="breathe" data-urd="سانس" data-root="ن-ف-س" data-form="V" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">تَنَفَّسَ</div><div class="per">نفس کشیدن</div><div class="en">to breathe</div><div class="urd">سانس لینا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('khafa')" data-ar="خاف" data-per="ترسیدن" data-en="afraid" data-urd="ڈرنا" data-root="خ-و-ف" data-form="I" data-weak="hollow" data-persian="simple">
+  <figcaption class="back"><div class="ar">خَافَ</div><div class="per">ترسیدن</div><div class="en">to be afraid</div><div class="urd">ڈرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('shamma')" data-ar="شم" data-per="بو کردن" data-en="smell" data-urd="سونگھنا" data-root="ش-م-م" data-form="I" data-weak="doubled" data-persian="compound">
+  <figcaption class="back"><div class="ar">شَمَّ</div><div class="per">بو کردن</div><div class="en">to smell</div><div class="urd">سونگھنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('rama')" data-ar="رمى" data-per="پرتاب کردن" data-en="throw" data-urd="پھینکنا" data-root="ر-م-ي" data-form="I" data-weak="defective" data-persian="compound">
+  <figcaption class="back"><div class="ar">رَمَى</div><div class="per">پرتاب کردن</div><div class="en">to throw</div><div class="urd">پھینکنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('haja')" data-ar="حاج" data-per="نیاز داشتن" data-en="need" data-urd="ضرورت ہونا" data-root="ح-و-ج" data-form="I" data-weak="hollow" data-persian="compound">
+  <figcaption class="back"><div class="ar">حَاجَ</div><div class="per">نیاز داشتن</div><div class="en">to need</div><div class="urd">ضرورت ہونا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('arada')" data-ar="أراد" data-per="خواستن" data-en="want" data-urd="چاہنا" data-root="ر-و-د" data-form="IV" data-weak="hollow" data-persian="simple">
+  <figcaption class="back"><div class="ar">أَرَادَ</div><div class="per">خواستن</div><div class="en">to want</div><div class="urd">چاہنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('qarrara')" data-ar="قرر" data-per="تصمیم گرفتن" data-en="decide" data-urd="فیصلہ کرنا" data-root="ق-ر-ر" data-form="II" data-weak="doubled" data-persian="compound">
+  <figcaption class="back"><div class="ar">قَرَّرَ</div><div class="per">تصمیم گرفتن</div><div class="en">to decide</div><div class="urd">فیصلہ کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('thanna')" data-ar="ظن" data-per="گمان کرنا" data-en="think/assume" data-urd="گمان کرنا" data-root="ظ-ن-ن" data-form="I" data-weak="doubled" data-persian="compound">
+  <figcaption class="back"><div class="ar">ظَنَّ</div><div class="per">گمان کردن</div><div class="en">to assume</div><div class="urd">گمان کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('hajama')" data-ar="هاجم" data-per="حمله کردن" data-en="attack" data-urd="حملہ کرنا" data-root="ه-ج-م" data-form="III" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">هَاجَمَ</div><div class="per">حمله کردن</div><div class="en">to attack</div><div class="urd">حملہ کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('dafa-a')" data-ar="دافع" data-per="دفاع کردن" data-en="defend" data-urd="دفاع کرنا" data-root="د-ف-ع" data-form="III" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">دَافَعَ</div><div class="per">دفاع کردن</div><div class="en">to defend</div><div class="urd">دفاع کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('qatala_fight')" data-ar="قاتل" data-per="جنگیدن" data-en="fight" data-urd="لڑنا" data-root="ق-ت-ل" data-form="III" data-weak="sound" data-persian="simple">
+  <figcaption class="back"><div class="ar">قَاتَلَ</div><div class="per">جنگیدن</div><div class="en">to fight</div><div class="urd">لڑنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('qatala_kill')" data-ar="قتل" data-per="کشتن" data-en="kill" data-urd="قتل کرنا" data-root="ق-ت-ل" data-form="I" data-weak="sound" data-persian="simple">
+  <figcaption class="back"><div class="ar">قَتَلَ</div><div class="per">کشتن</div><div class="en">to kill</div><div class="urd">قتل کرنا / مارنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('qata-a')" data-ar="قطع" data-per="بریدن" data-en="cut" data-urd="کاٹنا" data-root="ق-ط-ع" data-form="I" data-weak="sound" data-persian="simple">
+  <figcaption class="back"><div class="ar">قَطَعَ</div><div class="per">بریدن</div><div class="en">to cut</div><div class="urd">کاٹنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('saala')" data-ar="سأل" data-per="پرسیدن" data-en="ask" data-urd="پوچھنا" data-root="س-أ-ل" data-form="I" data-weak="hamzated" data-persian="simple">
+  <figcaption class="back"><div class="ar">سأَلَ</div><div class="per">پرسیدن</div><div class="en">to ask</div><div class="urd">پوچھنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('wajada')" data-ar="وجد" data-per="یافتن" data-en="find" data-urd="تلاش کرنا" data-root="و-ج-د" data-form="I" data-weak="assimilated" data-persian="simple">
+  <figcaption class="back"><div class="ar">وَجَدَ</div><div class="per">یافتن</div><div class="en">to find</div><div class="urd">تلاش کرنا / پانا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('ikhtaba')" data-ar="اختبأ" data-per="پنهان شدن" data-en="hide" data-urd="چھپانا" data-root="خ-ب-أ" data-form="VIII" data-weak="hamzated" data-persian="compound">
+  <figcaption class="back"><div class="ar">اِخْتَبَأَ</div><div class="per">پنهان شدن</div><div class="en">to hide</div><div class="urd">چھپانا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('ath-thara_imp')" data-ar="أثر" data-per="تحت تأثیر قرار دادن" data-en="impress" data-urd="متاثر کرنا" data-root="أ-ث-ر" data-form="II" data-weak="hamzated" data-persian="compound">
+  <figcaption class="back"><div class="ar">أَثَّرَ</div><div class="per">تحت تأثیر قرار دادن</div><div class="en">to impress</div><div class="urd">متاثر کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('asha')" data-ar="عاش" data-per="زندگی کردن" data-en="live" data-urd="رہنا" data-root="ع-ي-ش" data-form="I" data-weak="hollow" data-persian="compound">
+  <figcaption class="back"><div class="ar">عَاشَ</div><div class="per">زندگی کردن</div><div class="en">to live</div><div class="urd">رہنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('baqiya')" data-ar="بقي" data-per="ماندن" data-en="stay" data-urd="ٹھہرنا" data-root="ب-ق-ي" data-form="I" data-weak="defective" data-persian="simple">
+  <figcaption class="back"><div class="ar">بَقِيَ</div><div class="per">ماندن</div><div class="en">to stay</div><div class="urd">ٹھہرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('baa')" data-ar="باع" data-per="فروختن" data-en="sell" data-urd="بیچنا" data-root="ب-ي-ع" data-form="I" data-weak="hollow" data-persian="simple">
+  <figcaption class="back"><div class="ar">بَاعَ</div><div class="per">فروختن</div><div class="en">to sell</div><div class="urd">بیچنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('shara')" data-ar="شرى" data-per="خریدن" data-en="buy" data-urd="خریدنا" data-root="ش-ر-ي" data-form="I" data-weak="defective" data-persian="simple">
+  <figcaption class="back"><div class="ar">شَرَى</div><div class="per">خریدن</div><div class="en">to buy</div><div class="urd">خریدنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('ahdara')" data-ar="أحضر" data-per="آوردن" data-en="bring" data-urd="لانا" data-root="ح-ض-ر" data-form="IV" data-weak="sound" data-persian="simple">
+  <figcaption class="back"><div class="ar">أَحْضَرَ</div><div class="per">آوردن</div><div class="en">to bring</div><div class="urd">لانا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('taharraka')" data-ar="تحرك" data-per="حرکت کردن" data-en="move" data-urd="حرکت کرنا" data-root="ح-ر-ك" data-form="V" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">تَحَرَّكَ</div><div class="per">حرکت کردن</div><div class="en">to move</div><div class="urd">حرکت کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('labisa')" data-ar="لبس" data-per="پوشیدن" data-en="wear" data-urd="پہننا" data-root="ل-ب-س" data-form="I" data-weak="sound" data-persian="simple">
+  <figcaption class="back"><div class="ar">لَبِسَ</div><div class="per">پوشیدن</div><div class="en">to wear</div><div class="urd">پہننا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('qafaza')" data-ar="قفز" data-per="پریدن" data-en="jump" data-urd="چھلانگ لگانا" data-root="ق-ف-ز" data-form="I" data-weak="sound" data-persian="simple">
+  <figcaption class="back"><div class="ar">قَفَزَ</div><div class="per">پریدن</div><div class="en">to jump</div><div class="urd">چھلانگ لگانا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('saffaqa')" data-ar="صفق" data-per="دست زدن" data-en="clap" data-urd="تالیاں بجانا" data-root="ص-ف-ق" data-form="II" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">صَفَّقَ</div><div class="per">دست زدن</div><div class="en">to clap</div><div class="urd">تالیاں بجانا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('ikhtara')" data-ar="اختار" data-per="انتخاب کردن" data-en="choose" data-urd="چننا" data-root="خ-ي-ر" data-form="VIII" data-weak="hollow" data-persian="compound">
+  <figcaption class="back"><div class="ar">اِخْتَارَ</div><div class="per">انتخاب کردن</div><div class="en">to choose</div><div class="urd">چننا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('inzalaqa')" data-ar="انزلق" data-per="لغزیدن" data-en="slip" data-urd="پھسلنا" data-root="ز-ل-ق" data-form="VII" data-weak="sound" data-persian="simple">
+  <figcaption class="back"><div class="ar">اِنْزَلَقَ</div><div class="per">لغزیدن</div><div class="en">to slip</div><div class="urd">پھسلنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('madhagha')" data-ar="مضغ" data-per="جویدن" data-en="chew" data-urd="چبانا" data-root="م-ض-غ" data-form="I" data-weak="sound" data-persian="simple">
+  <figcaption class="back"><div class="ar">مَضَغَ</div><div class="per">جویدن</div><div class="en">to chew</div><div class="urd">چبانا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('mash-shata')" data-ar="مشط" data-per="شانه کردن" data-en="comb" data-urd="کنگھی کرنا" data-root="م-ش-ط" data-form="II" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">مَشَّطَ</div><div class="per">شانه کردن</div><div class="en">to comb</div><div class="urd">کنگھی کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('arafa_know')" data-ar="عرف" data-per="دانستن" data-en="know" data-urd="جاننا" data-root="ع-ر-ف" data-form="I" data-weak="sound" data-persian="simple">
+  <figcaption class="back"><div class="ar">عَرَفَ</div><div class="per">دانستن</div><div class="en">to know</div><div class="urd">جاننا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('farasha')" data-ar="فرش" data-per="مسواک زدن" data-en="brush" data-urd="برش کرنا" data-root="ف-ر-ش" data-form="I" data-weak="sound" data-persian="compound">
+  <figcaption class="back"><div class="ar">فَرَشَ</div><div class="per">مسواک زدن / برس کشیدن</div><div class="en">to brush</div><div class="urd">برش کرنا</div></figcaption>
+</figure>
+</section>
+<script>
+/* ------------------------------
+   Compute Dynamic Presets
+------------------------------ */
+function computeDynamicPresets() {
+  // Base preset (4)
+  const base = {
+    gridMin: 300,
+    gap: 40,
+    emoji: 120,
+    width: 300,
+    height: 220,
+    radius: 12,
+    capPad: 20,
+    capFont: 2,
+    capRadius: 12,
+    backHeight: 300,
+
+    // NEW FONT & SPACING VALUES
+    fontBase: 1,               // rem
+    fontPlural: 1.7,             // rem
+    fontLabel: 1.3,            // em
+    fontSmall: 0.825,          // rem
+
+    pluralMarginBottom: 30,
+    pluralPaddingBottom: 15,
+    pluralBorderWidth: 3,
+    sentenceMarginTop: 4
+  };
+
+  const deviceWidth = window.innerWidth;
+
+  // Read actual padding (even when changed by media queries)
+  const bodyStyle = window.getComputedStyle(document.body);
+  const bodyPadding = parseFloat(bodyStyle.paddingLeft) + parseFloat(bodyStyle.paddingRight);
+
+  // Autofill columns using preset 4
+  let baseCols = Math.floor((deviceWidth - bodyPadding + base.gap) / base.gridMin);
+  if (baseCols < 1) baseCols = 1;
+
+  function makePreset(extraCards) {
+    const newCols = baseCols + extraCards;
+
+    // Total gap width
+    const totalGap = base.gap * (newCols - 1);
+
+    // New card width
+    const newGridMin = (deviceWidth - bodyPadding - totalGap) / newCols;
+
+    const factor = newGridMin / base.gridMin;
+
+    return {
+      gridMin: newGridMin + "px",
+      gap: (base.gap * factor) + "px",
+      emoji: (base.emoji * factor) + "px",
+      width: newGridMin + "px",
+      height: (base.height * factor) + "px",
+      radius: (base.radius * factor) + "px",
+      capPad: (base.capPad * factor) + "px",
+      capFont: (base.capFont * factor) + "rem",
+      capRadius: (base.capRadius * factor) + "px",
+      backHeight: (base.backHeight * factor) + "px",
+
+      // NEW DYNAMIC VALUES
+      fontBase: (base.fontBase * factor) + "rem",
+      fontPlural: (base.fontPlural * factor) + "rem",
+      fontLabel: (base.fontLabel * factor) + "em", 
+      fontSmall: (base.fontSmall * factor) + "rem",
+
+      pluralMarginBottom: (base.pluralMarginBottom * factor) + "px",
+      pluralPaddingBottom: (base.pluralPaddingBottom * factor) + "px",
+      pluralBorderWidth: (base.pluralBorderWidth * factor) + "px",
+      sentenceMarginTop: (base.sentenceMarginTop * factor) + "px"
+    };
+  }
+
+  return {
+    4: {
+      gridMin: base.gridMin + "px",
+      gap: base.gap + "px",
+      emoji: base.emoji + "px",
+      width: base.width + "px",
+      height: base.height + "px",
+      radius: base.radius + "px",
+      capPad: base.capPad + "px",
+      capFont: base.capFont + "rem",
+      capRadius: base.capRadius + "px",
+      backHeight: base.backHeight + "px",
+
+
+      fontBase: base.fontBase + "rem",
+      fontPlural: base.fontPlural + "rem",
+      fontLabel: base.fontLabel + "em",
+      fontSmall: base.fontSmall + "rem",
+
+      pluralMarginBottom: base.pluralMarginBottom + "px",
+      pluralPaddingBottom: base.pluralPaddingBottom + "px",
+      pluralBorderWidth: base.pluralBorderWidth + "px",
+      sentenceMarginTop: base.sentenceMarginTop + "px"
+    },
+    5: makePreset(1),
+    6: makePreset(2)
+  };
+}
+
+/* ------------------------------
+   Update Back Height
+------------------------------ */
+function updateBackHeight() {
+  const sampleFront = document.querySelector(".card .front");
+  if (!sampleFront) return;
+
+  const emojiHeight = parseFloat(
+    getComputedStyle(document.documentElement).getPropertyValue("--card-height")
+  );
+
+  const captionHeight = sampleFront.offsetHeight;
+
+  const total = emojiHeight + captionHeight;
+
+  document.documentElement.style.setProperty("--back-height", total + "px");
+}
+
+
+/* ------------------------------
+   Row Selector Change
+------------------------------ */
+let presets = computeDynamicPresets();
+
+const rowSelector = document.getElementById("rowSelector");
+
+rowSelector.addEventListener("change", () => {
+  presets = computeDynamicPresets();
+
+  // Reset all flipped cards when row changes
+  document.querySelectorAll(".card").forEach(card => {
+    card.classList.remove("show-back", "flipping");
+  });
+
+  const p = presets[rowSelector.value];
+  const r = document.documentElement.style;
+
+  r.setProperty("--grid-min", p.gridMin);
+  r.setProperty("--gap", p.gap);
+  r.setProperty("--emoji-size", p.emoji);
+  r.setProperty("--card-width", p.width);
+  r.setProperty("--card-height", p.height);
+  r.setProperty("--radius", p.radius);
+  r.setProperty("--caption-padding", p.capPad);
+  r.setProperty("--caption-font", p.capFont);
+  r.setProperty("--caption-radius", p.capRadius);
+  r.setProperty("--back-height", p.backHeight);
+
+  r.setProperty("--font-base", p.fontBase);
+  r.setProperty("--font-plural", p.fontPlural);
+  r.setProperty("--font-label", p.fontLabel);
+  r.setProperty("--font-small", p.fontSmall);
+
+  r.setProperty("--plural-margin-bottom", p.pluralMarginBottom);
+  r.setProperty("--plural-padding-bottom", p.pluralPaddingBottom);
+  r.setProperty("--plural-border-width", p.pluralBorderWidth);
+  r.setProperty("--sentence-margin-top", p.sentenceMarginTop);
+
+});
+
+
+
+
+/* ------------------------------
+   Sidebar Toggle
+------------------------------ */
+document.getElementById('toggleSidebar').onclick = () => {
+  const sidebar = document.getElementById('sidebar');
+  const open = sidebar.classList.toggle('open');
+  sidebar.setAttribute('aria-hidden', (!open).toString());
+};
+
+
+
+// Helper function to swap button text
+function swapButtons(mainBtn, subBtn) {
+  let mainText = mainBtn.innerText.replace("▾", "").trim();
+  let subText = subBtn.innerText.trim();
+
+  // Swap values
+  mainBtn.innerHTML = `${subText} <span class="arrow">▾</span>`;
+  subBtn.innerText = mainText;
+}
+
+// Dropdown opening only
+document.querySelectorAll('.main-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('open');
+  });
+});
+
+// Urdu <-> English
+document.getElementById('btn-urd-sub').addEventListener('click', () => {
+  document.body.classList.toggle('show-urd');
+
+  let main = document.getElementById('btn-urd-main');
+  let sub  = document.getElementById('btn-urd-sub');
+
+  swapButtons(main, sub);
+
+  main.classList.remove('open');  // close dropdown
+});
+
+// Arabic <-> Persian
+document.getElementById('btn-ar-sub').addEventListener('click', () => {
+  document.body.classList.toggle('show-per');
+
+  let main = document.getElementById('btn-ar-main');
+  let sub  = document.getElementById('btn-ar-sub');
+
+  swapButtons(main, sub);
+
+  main.classList.remove('open'); // close dropdown
+});
+
+// Select all buttons
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    const targetId = button.getAttribute('data-target');
+    const targetElement = document.getElementById(targetId);
+    
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+function openVerb(id) {
+    window.location.href = `verb.html?id=${id}`;
+}
+
+// Start hidden mode
+document.body.classList.add("hide-images");
+
+// BUTTON: Show Images
+document.getElementById("btnShowImages").addEventListener("click", () => {
+    document.body.classList.remove("hide-images");
+    document.body.classList.add("show-images");
+});
+
+// BUTTON: Hide Images
+document.getElementById("btnHideImages").addEventListener("click", () => {
+    document.body.classList.remove("show-images");
+    document.body.classList.add("hide-images");
+});
+
+function filterVerbs() {
+
+  const form = document.getElementById("formFilter").value;
+  const weak = document.getElementById("weakFilter").value;
+  const persian = document.getElementById("persianTypeFilter").value;
+
+  const verbs = document.querySelectorAll(".verb-card");
+
+  verbs.forEach(verb => {
+
+    const verbForm = verb.dataset.form;
+    const verbWeak = verb.dataset.weak;
+    const verbPersian = verb.dataset.persian;
+
+    if (
+      (form === "" || verbForm === form) &&
+      (weak === "" || verbWeak === weak) &&
+      (persian === "" || verbPersian === persian)
+    ) {
+      verb.style.display = "inline-block";
+    } else {
+      verb.style.display = "none";
+    }
+
+  });
+
+}
+
+function searchVerbs() {
+
+  const search = document.getElementById("searchInput").value.toLowerCase();
+  const form = document.getElementById("formFilter").value;
+  const weak = document.getElementById("weakFilter").value;
+  const persian = document.getElementById("persianTypeFilter").value;
+
+  const verbs = document.querySelectorAll(".verb-card");
+
+  verbs.forEach(verb => {
+
+    const ar = (verb.dataset.ar || "").toLowerCase();
+    const per = (verb.dataset.per || "").toLowerCase();
+    const en = (verb.dataset.en || "").toLowerCase();
+    const urd = (verb.dataset.urd || "").toLowerCase();
+    const root = (verb.dataset.root || "").toLowerCase();
+
+    const formMatch = form === "" || verb.dataset.form === form;
+    const weakMatch = weak === "" || verb.dataset.weak === weak;
+    const persianMatch = persian === "" || verb.dataset.persian === persian;
+
+    const searchMatch =
+      ar.includes(search) ||
+      per.includes(search) ||
+      en.includes(search) ||
+      urd.includes(search) ||
+      root.includes(search);
+
+    if (searchMatch && formMatch && weakMatch && persianMatch) {
+      verb.style.display = "inline-block";
+    } else {
+      verb.style.display = "none";
+    }
+
+  });
+
+}
+ </script>
+
+</body>
+</html>

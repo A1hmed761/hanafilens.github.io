@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arabic Verb Conjugation</title>
+<style>
+  body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f4f7f6; color:#333; padding:20px; }
+  .container { max-width:900px; margin:0 auto; background:#fff; padding:30px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
+  h1 { text-align:center; color:#2c3e50; font-size:2.5rem; margin-bottom:10px; }
+  .metadata { display:flex; justify-content:space-around; background:#eef2f3; padding:15px; border-radius:8px; margin-bottom:30px; }
+  .metadata div { font-size:1.1rem; font-weight:bold; }
+  .metadata span { color:#4a86e8; }
+  h2 { border-bottom:2px solid #4a86e8; padding-bottom:5px; color:#2c3e50; margin-top:40px; }
+  table { width:100%; border-collapse:collapse; margin-top:15px; direction:rtl; }
+  th, td { border:1px solid #ddd; padding:12px; text-align:center; }
+  th { background-color:#4a86e8; color:white; font-weight:600; }
+  tr:nth-child(even) { background-color:#f9f9f9; }
+  .arabic-verb { font-size:1.4rem; font-weight:bold; color:#000; }
+  .english-sub { display:block; font-size:0.8rem; color:#777; font-weight:normal; }
+  .row-label { background-color:#f1f1f1; font-weight:bold; width:15%; }
+  .sentence-box { background-color:#fff9f0; border-right:5px solid #ffa500; padding:15px; margin-top:20px; border-radius:4px; }
+  .sentence-item { margin-bottom:15px; }
+  .sentence-ar { font-size:1.3rem; font-weight:bold; color:#d35400; display:block; }
+  .sentence-en { font-size:1rem; color:#555; font-style:italic; }
+</style>
+</head>
+<body>
+
+<div class="container" id="verb-container">
+  Loading...
+</div>
+
+<script>
+// 1️⃣ Get id from URL
+const urlParams = new URLSearchParams(window.location.search);
+const verbId = urlParams.get('id');
+
+// 2️⃣ Fetch verbs.json
+fetch('verbs.json')
+  .then(res => res.json())
+  .then(data => {
+    const verb = data[verbId];
+    if (!verb) return document.getElementById('verb-container').innerHTML = "Verb not found.";
+
+    // 3️⃣ Fill HTML
+    const container = document.getElementById('verb-container');
+    container.innerHTML = `
+      <h1>${verb.verb}</h1>
+      <div class="metadata">
+        <div>المصدر: <span>${verb.masdar}</span></div>
+        <div>اسم الفاعل: <span>${verb.ism_faail}</span></div>
+        <div>اسم المفعول: <span>${verb.ism_mafool}</span></div>
+      </div>
+      
+      ${buildTable('الماضي (Past Tense)', verb.past)}
+      ${buildTable('المضارع (Present Tense)', verb.present)}
+      
+      <h2>3. أمثلة في جمل (Examples)</h2>
+      <div class="sentence-box">
+        ${verb.sentences.map(s => `
+          <div class="sentence-item">
+            <span class="sentence-ar">${s[0]}</span>
+            <span class="sentence-en">${s[1]}</span>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  })
+  .catch(err => {
+    console.error(err);
+    document.getElementById('verb-container').innerHTML = "Error loading verbs.json";
+  });
+
+// 4️⃣ Updated Build table function to include Ghaib and Hadir rows
+function buildTable(title, tense) {
+  // Helper to create a cell with Arabic and English
+  const cell = (data) => data ? `<td><span class="arabic-verb">${data[0]}</span><span class="english-sub">${data[1]}</span></td>` : `<td>-</td>`;
+
+  return `
+    <h2>${title}</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>النوع</th>
+          <th>المفرد</th>
+          <th>المثنى</th>
+          <th>الجمع</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="row-label">مذكر غائب</td>
+          ${cell(tense.m_singular)}
+          ${cell(tense.m_dual)}
+          ${cell(tense.m_plural)}
+        </tr>
+        <tr>
+          <td class="row-label">مؤنث غائب</td>
+          ${cell(tense.f_singular)}
+          ${cell(tense.f_dual)}
+          ${cell(tense.f_plural)}
+        </tr>
+        <tr>
+          <td class="row-label">مذكر حاضر</td>
+          ${cell(tense.m_present)}
+          ${cell(tense.m_dual_present)}
+          ${cell(tense.m_plural_present)}
+        </tr>
+        <tr>
+          <td class="row-label">مؤنث حاضر</td>
+          ${cell(tense.f_present)}
+          ${cell(tense.f_dual_present)}
+          ${cell(tense.f_plural_present)}
+        </tr>
+        <tr>
+          <td class="row-label">متكلم</td>
+          ${cell(tense['1_singular'])}
+          <td>-</td>
+          ${cell(tense['1_plural'])}
+        </tr>
+      </tbody>
+    </table>
+  `;
+}
+</script>
+</body>
+</html>
