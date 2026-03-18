@@ -1,5 +1,4 @@
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -126,15 +125,23 @@ fetch('verbs.json')
     const verb = data[verbId];
     if (!verb) return document.getElementById('verb-container').innerHTML = "Verb not found.";
 
+    // 3️⃣ Fill HTML
     const container = document.getElementById('verb-container');
     
     // Formatting helper
     const fmt = (val) => Array.isArray(val) ? val.join(' - ') : (val || '—');
 
+    // Get the first word of the present singular for the header
+    const presentHeader = verb.present && verb.present.m_singular ? verb.present.m_singular[0] : '';
+
     container.innerHTML = `
-      <h1>${verb.verb}</h1>
+      <h1>
+        ${verb.verb} 
+        <span style="color: var(--primary-color); font-size: 0.8em; margin: 0 10px;">- ${presentHeader}</span>
+      </h1>
       
-      <div class="metadata" style="margin-bottom: 20px;">
+      <div class="metadata" style="margin-bottom: 20px; border-bottom: 2px solid #e2e8f0;">
+        ${verb.meaning ? `<div>المعنى <span>${verb.meaning}</span></div>` : ''}
         ${verb.root ? `<div>الجذر <span>${fmt(verb.root)}</span></div>` : ''}
         <div>المصدر <span>${fmt(verb.masdar)}</span></div>
         ${verb.baab ? `<div>الباب <span>${verb.baab}</span></div>` : ''}
@@ -143,7 +150,8 @@ fetch('verbs.json')
       ${buildTable('تصريف الماضي (Past Tense)', verb.past)}
       ${buildTable('تصريف المضارع (Present Tense)', verb.present)}
       
-      <div class="metadata" style="margin-top: 30px; background: #f1f1f1;">
+      <h3 style="margin-top:40px; color:#718096; font-size:1.1rem;">تفاصيل إضافية (Additional Details)</h3>
+      <div class="metadata" style="background: #f1f5f9; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
         ${verb.haft_iqsaam ? `<div>هفت اقسام <span>${verb.haft_iqsaam}</span></div>` : ''}
         <div>اسم الفاعل <span>${fmt(verb.ism_faail)}</span></div>
         <div>اسم المفعول <span>${fmt(verb.ism_mafool)}</span></div>
@@ -157,7 +165,7 @@ fetch('verbs.json')
             <span class="sentence-ar">${s[0]}</span>
             <span class="sentence-en">${s[1]}</span>
           </div>
-        `).join('') : 'لا توجد أمثلة'}
+        `).join('') : '<p>لا توجد أمثلة متاحة.</p>'}
       </div>
     `;
   })
