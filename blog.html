@@ -1,73 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog – Hanafi Lens</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Arabic Verb Conjugation</title>
 <style>
-  *{margin:0;padding:0;box-sizing:border-box;}
-  body{font-family:"Inter",sans-serif;background:#f5f7fb;color:#333;line-height:1.6;}
-  header{background:#0b3d3a;padding:18px 0;box-shadow:0 3px 10px rgba(0,0,0,0.15);}
-  .nav-container{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:0 20px;}
-  .logo{color:#fff;font-size:1.6rem;font-weight:700;}
-  nav{display:flex;gap:25px;}
-  nav a{color:#d7ffef;text-decoration:none;font-weight:500;padding:5px 10px;border-radius:6px;transition:0.3s;}
-  nav a:hover{color:#2cb67d;}
-  nav a.active{background:#2cb67d;color:#fff;font-weight:600;}
-
-  .products-section{
-    max-width:1200px;margin:40px auto;padding:0 20px;
-    display:flex;flex-wrap:wrap;gap:20px;position:relative;
-  }
-
-  .product-card{
-    background:#fff;padding:20px;border-radius:14px;
-    box-shadow:0 6px 20px rgba(0,0,0,0.08);
-    width:280px;text-align:center;transition:0.3s;
-    position:absolute;top:0;left:0;
-  }
-  .product-card h3{font-size:1.3rem;margin-bottom:10px;color:#0b3d3a;}
-  .product-card p{font-size:0.95rem;color:#555;margin-bottom:15px;}
-  .product-card .btn{
-    display:inline-block;background:#0b3d3a;color:#fff;
-    padding:10px 22px;border-radius:8px;font-weight:600;font-size:0.95rem;
-    transition:0.3s;
-  }
-  .product-card .btn:hover{background:#2cb67d;color:#fff;}
-
-  .product-list{flex:1;min-height:400px;padding:20px;margin-left:320px;}
-  .product-list p{font-size:1rem;color:#555;}
-
-  @media (max-width:768px){
-    .product-card{position:static;width:100%;margin-bottom:20px;}
-    .product-list{margin-left:0;}
-  }
+  body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f4f7f6; color:#333; padding:20px; }
+  .container { max-width:900px; margin:0 auto; background:#fff; padding:30px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
+  h1 { text-align:center; color:#2c3e50; font-size:2.5rem; margin-bottom:10px; }
+  .metadata { display:flex; justify-content:space-around; background:#eef2f3; padding:15px; border-radius:8px; margin-bottom:30px; }
+  .metadata div { font-size:1.1rem; font-weight:bold; }
+  .metadata span { color:#4a86e8; }
+  h2 { border-bottom:2px solid #4a86e8; padding-bottom:5px; color:#2c3e50; margin-top:40px; }
+  table { width:100%; border-collapse:collapse; margin-top:15px; direction:rtl; }
+  th, td { border:1px solid #ddd; padding:12px; text-align:center; }
+  th { background-color:#4a86e8; color:white; font-weight:600; }
+  tr:nth-child(even) { background-color:#f9f9f9; }
+  .arabic-verb { font-size:1.4rem; font-weight:bold; color:#000; }
+  .english-sub { display:block; font-size:0.8rem; color:#777; font-weight:normal; }
+  .row-label { background-color:#f1f1f1; font-weight:bold; width:15%; }
+  .sentence-box { background-color:#fff9f0; border-right:5px solid #ffa500; padding:15px; margin-top:20px; border-radius:4px; }
+  .sentence-item { margin-bottom:15px; }
+  .sentence-ar { font-size:1.3rem; font-weight:bold; color:#d35400; display:block; }
+  .sentence-en { font-size:1rem; color:#555; font-style:italic; }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="nav-container">
-    <div class="logo">Hanafi Lens</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="blog.html" class="active">Blog</a>
-      <a href="courses.html">Courses</a>
-    </nav>
-  </div>
-</header>
+<div class="container" id="verb-container">
+  Loading...
+</div>
 
-<section class="products-section">
-  <div class="product-card">
-    <h3>No Articles Yet</h3>
-    <p>Our blog content is coming soon. Stay connected!</p>
-  </div>
-  <div class="product-list">
-    <p>All blog posts will appear here.</p>
-  </div>
-</section>
+<script>
+// 1️⃣ Get id from URL
+const urlParams = new URLSearchParams(window.location.search);
+const verbId = urlParams.get('id');
 
+// 2️⃣ Fetch verbs.json
+fetch('verbs.json')
+  .then(res => res.json())
+  .then(data => {
+    const verb = data[verbId];
+    if (!verb) return document.getElementById('verb-container').innerHTML = "Verb not found.";
+
+    // 3️⃣ Fill HTML
+    const container = document.getElementById('verb-container');
+    container.innerHTML = `
+      <h1>${verb.verb}</h1>
+      <div class="metadata">
+        <div>المصدر: <span>${verb.masdar}</span></div>
+        <div>اسم الفاعل: <span>${verb.ism_faail}</span></div>
+        <div>اسم المفعول: <span>${verb.ism_mafool}</span></div>
+      </div>
+      
+      ${buildTable('الماضي (Past Tense)', verb.past)}
+      ${buildTable('المضارع (Present Tense)', verb.present)}
+      
+      <h2>3. أمثلة في جمل (Examples)</h2>
+      <div class="sentence-box">
+        ${verb.sentences.map(s => `
+          <div class="sentence-item">
+            <span class="sentence-ar">${s[0]}</span>
+            <span class="sentence-en">${s[1]}</span>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  })
+  .catch(err => {
+    console.error(err);
+    document.getElementById('verb-container').innerHTML = "Error loading verbs.json";
+  });
+
+// 4️⃣ Updated Build table function to include Ghaib and Hadir rows
+function buildTable(title, tense) {
+  // Helper to create a cell with Arabic and English
+  const cell = (data) => data ? `<td><span class="arabic-verb">${data[0]}</span><span class="english-sub">${data[1]}</span></td>` : `<td>-</td>`;
+
+  return `
+    <h2>${title}</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>النوع</th>
+          <th>المفرد</th>
+          <th>المثنى</th>
+          <th>الجمع</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="row-label">مذكر غائب</td>
+          ${cell(tense.m_singular)}
+          ${cell(tense.m_dual)}
+          ${cell(tense.m_plural)}
+        </tr>
+        <tr>
+          <td class="row-label">مؤنث غائب</td>
+          ${cell(tense.f_singular)}
+          ${cell(tense.f_dual)}
+          ${cell(tense.f_plural)}
+        </tr>
+        <tr>
+          <td class="row-label">مذكر حاضر</td>
+          ${cell(tense.m_present)}
+          ${cell(tense.m_dual_present)}
+          ${cell(tense.m_plural_present)}
+        </tr>
+        <tr>
+          <td class="row-label">مؤنث حاضر</td>
+          ${cell(tense.f_present)}
+          ${cell(tense.f_dual_present)}
+          ${cell(tense.f_plural_present)}
+        </tr>
+        <tr>
+          <td class="row-label">متكلم</td>
+          ${cell(tense['1_singular'])}
+          <td>-</td>
+          ${cell(tense['1_plural'])}
+        </tr>
+      </tbody>
+    </table>
+  `;
+}
+</script>
 </body>
 </html>
