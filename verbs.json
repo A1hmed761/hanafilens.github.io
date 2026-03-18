@@ -1,9 +1,10 @@
 {
   "faala": {
     "verb": "فَعَلَ",
+    "meaning": "to do",
     "root": "ف ع ل",
-    "haft_iqsaam": "Sahih (صحيح)",
-    "baab": "Thulathi Mujarrad - Baab Fatha (فَتَحَ - يَفْتَحُ)",
+    "haft_iqsaam": "صحيح",
+    "baab": "فَتَحَ - يَفْتَحُ",
     "masdar": "فَعْل",
     "ism_faail": "فَاعِل",
     "ism_mafool": "مَفْعُول",
@@ -48,9 +49,10 @@
   },
   "akala": {
     "verb": "أَكَلَ",
+    "meaning": "to do",
     "root": "أ ك ل",
     "haft_iqsaam": "Mahmuz al-Fa (مهموز الفاء)",
-    "baab": "Thulathi Mujarrad - Baab Nasara (نَصَرَ - يَنْصُرُ)",
+    "baab": "ثلاثي مجرد باب (نَصَرَ - يَنْصُرُ)",
     "masdar": "أَكْل",
     "ism_faail": "آكِل",
     "ism_mafool": "مَأْكُول",
