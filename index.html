@@ -18,7 +18,8 @@
       font-family: "Inter", sans-serif;
       background: #f5f7fb;
       color: #333;
-      line-height: 1.7;
+      line-height: 1.6;
+      overflow-x: hidden; /* Prevent horizontal scroll */
     }
 
     a {
@@ -28,34 +29,49 @@
     /* -------------------- HEADER -------------------- */
     header {
       background: #0b3d3a;
-      padding: 18px 0;
+      padding: 15px 0;
       box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .nav-container {
       max-width: 1200px;
       margin: auto;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column; /* Stack on mobile */
       align-items: center;
       padding: 0 20px;
+      gap: 15px;
+    }
+
+    @media (min-width: 768px) {
+      .nav-container {
+        flex-direction: row; /* Side-by-side on desktop */
+        justify-content: space-between;
+      }
     }
 
     .logo {
       color: #fff;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: 700;
       letter-spacing: .5px;
     }
 
     nav {
       display: flex;
-      gap: 25px;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     nav a {
       color: #d7ffef;
       font-weight: 500;
+      font-size: 0.9rem;
+      padding: 5px 10px;
       transition: 0.3s;
     }
 
@@ -66,138 +82,146 @@
     /* -------------------- HERO -------------------- */
     .hero {
       background: radial-gradient(circle at top left, #0b3d3a, #2cb67d);
-      padding: 90px 20px;
+      padding: 60px 20px; /* Reduced for mobile */
       color: white;
       text-align: center;
-      position: relative;
-      overflow: hidden;
+      display: flex;
+      justify-content: center;
     }
 
-    /* Glass card effect */
+    @media (min-width: 768px) {
+      .hero {
+        padding: 100px 20px;
+      }
+    }
+
     .hero-inner {
-      max-width: 700px;
-      margin: auto;
+      width: 100%;
+      max-width: 800px;
       background: rgba(255,255,255,0.1);
-      padding: 40px;
+      padding: 30px 20px;
       border-radius: 18px;
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      border: 1px solid rgba(255,255,255,0.1);
     }
 
     .hero h1 {
-      font-size: 2.4rem;
+      font-size: 1.75rem; /* Smaller for mobile */
+      line-height: 1.2;
       font-weight: 700;
       margin-bottom: 20px;
     }
 
     .hero p {
-      font-size: 1.15rem;
+      font-size: 1rem;
       margin-bottom: 30px;
       color: #eaffe7;
+      max-width: 550px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .hero .btn {
+    @media (min-width: 768px) {
+      .hero h1 { font-size: 2.8rem; }
+      .hero p { font-size: 1.2rem; }
+      .hero-inner { padding: 50px; }
+    }
+
+    .btn {
       display: inline-block;
       background: #ffffff;
       color: #0b3d3a;
-      padding: 14px 32px;
+      padding: 14px 30px;
       border-radius: 10px;
       font-weight: 700;
       font-size: 1rem;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.15);
-      transition: 0.3s ease;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
     }
 
-    .hero .btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      background: #f0f0f0;
     }
 
-    /* -------------------- SECTION -------------------- */
-    section {
-      max-width: 900px;
-      margin: 70px auto;
-      padding: 0 20px;
+    /* -------------------- SECTIONS -------------------- */
+    .content-section {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 0 25px;
       text-align: center;
     }
 
     h2 {
-      font-size: 2rem;
+      font-size: 1.75rem;
       color: #0b3d3a;
-      margin-bottom: 18px;
+      margin-bottom: 15px;
       font-weight: 700;
     }
 
-    p {
+    .content-section p {
       font-size: 1.05rem;
-      color: #444;
+      color: #555;
+      line-height: 1.8;
     }
 
     /* -------------------- FOOTER -------------------- */
     footer {
       background: #0b3d3a;
-      padding: 25px 10px;
+      padding: 40px 20px;
       color: white;
       text-align: center;
       margin-top: 60px;
     }
 
     footer p {
+      font-size: 0.9rem;
       color: #d7ffef;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 1.8rem;
-      }
-      .hero-inner {
-        padding: 25px;
-      }
+      opacity: 0.8;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
   <header>
     <div class="nav-container">
       <div class="logo">Hanafi Lens</div>
-
       <nav>
-     <nav>
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="blog.html">Blog</a>
-      <a href="courses.html">Courses</a>
-    </nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="blog.html">Blog</a>
+        <a href="courses.html">Courses</a>
+      </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-      <h1>Full Vocabulary Package – Arabic & Persian</h1>
-      <p>2000+ vocabulary words of Nouns, Verbs & Adjectives with images or visuals to take you from beginner to intermediate level.</p>
-      <a href="product.html" class="btn">Explore Product</a>
-    </div>
-  </section>
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>Full Vocabulary Package Arabic & Persian</h1>
+        <p>2,000+ curated nouns, verbs, and adjectives with visual aids to bridge the gap from beginner to intermediate.</p>
+        <a href="product.html" class="btn">Explore Product</a>
+      </div>
+    </section>
 
-  <!-- ABOUT -->
-  <section>
-    <h2>About Hanafi Lens</h2>
-    <p>
-      Hanafi Lens is a digital initiative to make Islamic learning simple, structured, and accessible. 
-      Our goal is to combine classical Hanafi scholarship with modern tools — from comprehensive Arabic learning products to advanced courses.
-    </p>
-  </section>
+    <section class="content-section">
+      <h2>About Hanafi Lens</h2>
+      <p>
+        Hanafi Lens is a digital initiative to make Islamic learning simple, structured, and accessible. 
+        We combine classical Hanafi scholarship with modern tools—ranging from comprehensive Arabic learning resources to advanced theological courses.
+      </p>
+    </section>
+  </main>
 
-  <!-- FOOTER -->
   <footer>
     <p>© 2025 Hanafi Lens — All Rights Reserved.</p>
   </footer>
 
 </body>
-</html>
+    </html>
+
 
