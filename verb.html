@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+  <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -133,19 +134,22 @@ fetch('verbs.json')
     container.innerHTML = `
       <h1>${verb.verb}</h1>
       
-      <div class="metadata">
+      <div class="metadata" style="margin-bottom: 20px;">
         ${verb.root ? `<div>الجذر <span>${fmt(verb.root)}</span></div>` : ''}
-        ${verb.haft_iqsaam ? `<div>هفت اقسام <span>${verb.haft_iqsaam}</span></div>` : ''}
-        ${verb.baab ? `<div>الباب <span>${verb.baab}</span></div>` : ''}
         <div>المصدر <span>${fmt(verb.masdar)}</span></div>
-        <div>اسم الفاعل <span>${fmt(verb.ism_faail)}</span></div>
-        <div>اسم المفعول <span>${fmt(verb.ism_mafool)}</span></div>
-        ${verb.synonyms ? `<div>المترادفات <span>${verb.synonyms.join('، ')}</span></div>` : ''}
+        ${verb.baab ? `<div>الباب <span>${verb.baab}</span></div>` : ''}
       </div>
       
       ${buildTable('تصريف الماضي (Past Tense)', verb.past)}
       ${buildTable('تصريف المضارع (Present Tense)', verb.present)}
       
+      <div class="metadata" style="margin-top: 30px; background: #f1f1f1;">
+        ${verb.haft_iqsaam ? `<div>هفت اقسام <span>${verb.haft_iqsaam}</span></div>` : ''}
+        <div>اسم الفاعل <span>${fmt(verb.ism_faail)}</span></div>
+        <div>اسم المفعول <span>${fmt(verb.ism_mafool)}</span></div>
+        ${verb.synonyms ? `<div>المترادفات <span>${verb.synonyms.join('، ')}</span></div>` : ''}
+      </div>
+
       <h2>أمثلة في جمل (Examples)</h2>
       <div class="sentence-box">
         ${verb.sentences ? verb.sentences.map(s => `
@@ -153,7 +157,7 @@ fetch('verbs.json')
             <span class="sentence-ar">${s[0]}</span>
             <span class="sentence-en">${s[1]}</span>
           </div>
-        `).join('') : 'لا توجد أمثلة متاحة حالياً.'}
+        `).join('') : 'لا توجد أمثلة'}
       </div>
     `;
   })
