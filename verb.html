@@ -8,9 +8,21 @@
   body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f4f7f6; color:#333; padding:20px; }
   .container { max-width:900px; margin:0 auto; background:#fff; padding:30px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
   h1 { text-align:center; color:#2c3e50; font-size:2.5rem; margin-bottom:10px; }
-  .metadata { display:flex; justify-content:space-around; background:#eef2f3; padding:15px; border-radius:8px; margin-bottom:30px; }
-  .metadata div { font-size:1.1rem; font-weight:bold; }
-  .metadata span { color:#4a86e8; }
+  
+  /* Flexible metadata layout */
+  .metadata { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 15px; 
+    justify-content: center; 
+    background: #eef2f3; 
+    padding: 15px; 
+    border-radius: 8px; 
+    margin-bottom: 30px; 
+  }
+  .metadata div { font-size: 1rem; font-weight: bold; background: white; padding: 5px 12px; border-radius: 4px; border: 1px solid #dce4e6; }
+  .metadata span { color: #4a86e8; }
+  
   h2 { border-bottom:2px solid #4a86e8; padding-bottom:5px; color:#2c3e50; margin-top:40px; }
   table { width:100%; border-collapse:collapse; margin-top:15px; direction:rtl; }
   th, td { border:1px solid #ddd; padding:12px; text-align:center; }
@@ -45,12 +57,24 @@ fetch('verbs.json')
 
     // 3️⃣ Fill HTML
     const container = document.getElementById('verb-container');
+    
+    // Logic for Root (handling both string and array)
+    let rootDisplay = "";
+    if (verb.root) {
+      rootDisplay = Array.isArray(verb.root) ? verb.root.join(' - ') : verb.root;
+    }
+
     container.innerHTML = `
       <h1>${verb.verb}</h1>
+      
       <div class="metadata">
+        ${verb.root ? `<div>الجذر: <span>${rootDisplay}</span></div>` : ''}
+        ${verb.haft_iqsaam ? `<div>هفت اقسام: <span>${verb.haft_iqsaam}</span></div>` : ''}
+        ${verb.baab ? `<div>الباب: <span>${verb.baab}</span></div>` : ''}
         <div>المصدر: <span>${verb.masdar}</span></div>
         <div>اسم الفاعل: <span>${verb.ism_faail}</span></div>
         <div>اسم المفعول: <span>${verb.ism_mafool}</span></div>
+        ${verb.synonyms ? `<div>المترادفات: <span>${verb.synonyms.join('، ')}</span></div>` : ''}
       </div>
       
       ${buildTable('الماضي (Past Tense)', verb.past)}
@@ -72,9 +96,8 @@ fetch('verbs.json')
     document.getElementById('verb-container').innerHTML = "Error loading verbs.json";
   });
 
-// 4️⃣ Updated Build table function to include Ghaib and Hadir rows
+// 4️⃣ Build table function
 function buildTable(title, tense) {
-  // Helper to create a cell with Arabic and English
   const cell = (data) => data ? `<td><span class="arabic-verb">${data[0]}</span><span class="english-sub">${data[1]}</span></td>` : `<td>-</td>`;
 
   return `
