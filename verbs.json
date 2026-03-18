@@ -1,0 +1,96 @@
+{
+  "faala": {
+    "verb": "فَعَلَ",
+    "root": "ف ع ل",
+    "haft_iqsaam": "Sahih (صحيح)",
+    "baab": "Thulathi Mujarrad - Baab Fatha (فَتَحَ - يَفْتَحُ)",
+    "masdar": "فَعْل",
+    "ism_faail": "فَاعِل",
+    "ism_mafool": "مَفْعُول",
+    "synonyms": ["صَنَعَ", "عَمِلَ"],
+    "past": {
+      "m_singular": ["فَعَلَ", "He did"],
+      "m_dual": ["فَعَلَا", "They two did"],
+      "m_plural": ["فَعَلُوا", "They did"],
+      "f_singular": ["فَعَلَتْ", "She did"],
+      "f_dual": ["فَعَلَتَا", "They two did"],
+      "f_plural": ["فَعَلْنَ", "They did"],
+      "m_present": ["فَعَلْتَ", "You did"],
+      "m_dual_present": ["فَعَلْتُمَا", "You two did"],
+      "m_plural_present": ["فَعَلْتُمْ", "You all did"],
+      "f_present": ["فَعَلْتِ", "You did"],
+      "f_dual_present": ["فَعَلْتُمَا", "You two did"],
+      "f_plural_present": ["فَعَلْتُنَّ", "You all did"],
+      "1_singular": ["فَعَلْتُ", "I did"],
+      "1_plural": ["فَعَلْنَا", "We did"]
+    },
+    "present": {
+      "m_singular": ["يَفْعَلُ", "He does"],
+      "m_dual": ["يَفْعَلَانِ", "They two do"],
+      "m_plural": ["يَفْعَلُونَ", "They do"],
+      "f_singular": ["تَفْعَلُ", "She does"],
+      "f_dual": ["تَفْعَلَانِ", "They two do"],
+      "f_plural": ["يَفْعَلْنَ", "They do"],
+      "m_present": ["تَفْعَلُ", "You do"],
+      "m_dual_present": ["تَفْعَلَانِ", "You two do"],
+      "m_plural_present": ["تَفْعَلُونَ", "You all do"],
+      "f_present": ["تَفْعَلِينَ", "You do"],
+      "f_dual_present": ["تَفْعَلَانِ", "You two do"],
+      "f_plural_present": ["تَفْعَلْنَ", "You all do"],
+      "1_singular": ["أَفْعَلُ", "I do"],
+      "1_plural": ["نَفْعَلُ", "We do"]
+    },
+    "sentences": [
+      ["فَعَلَ الرَّجُلُ خَيْرًا كَثِيرًا.", "The man did a lot of good."],
+      ["أَنَا أَفْعَلُ مَا بِي وُسْعِي لِلنَّجَاحِ.", "I am doing my best to succeed."],
+      ["هُوَ فَاعِلٌ لِلْخَيْرِ دَائِمًا.", "He is always a doer of good."]
+    ]
+  },
+  "akala": {
+    "verb": "أَكَلَ",
+    "root": "أ ك ل",
+    "haft_iqsaam": "Mahmuz al-Fa (مهموز الفاء)",
+    "baab": "Thulathi Mujarrad - Baab Nasara (نَصَرَ - يَنْصُرُ)",
+    "masdar": "أَكْل",
+    "ism_faail": "آكِل",
+    "ism_mafool": "مَأْكُول",
+    "synonyms": ["تَنَاوَلَ"],
+    "past": {
+      "m_singular": ["أَكَلَ", "He ate"],
+      "m_dual": ["أَكَلَا", "They two ate"],
+      "m_plural": ["أَكَلُوا", "They ate"],
+      "f_singular": ["أَكَلَتْ", "She ate"],
+      "f_dual": ["أَكَلَتَا", "They two ate"],
+      "f_plural": ["أَكَلْنَ", "They ate"],
+      "m_present": ["أَكَلْتَ", "You ate"],
+      "m_dual_present": ["أَكَلْتُمَا", "You two ate"],
+      "m_plural_present": ["أَكَلْتُمْ", "You all ate"],
+      "f_present": ["أَكَلْتِ", "You ate"],
+      "f_dual_present": ["أَكَلْتُمَا", "You two ate"],
+      "f_plural_present": ["أَكَلْتُنَّ", "You all ate"],
+      "1_singular": ["أَكَلْتُ", "I ate"],
+      "1_plural": ["أَكَلْنَا", "We ate"]
+    },
+    "present": {
+      "m_singular": ["يَأْكُلُ", "He eats"],
+      "m_dual": ["يَأْكُلَانِ", "They two eat"],
+      "m_plural": ["يَأْكُلُونَ", "They eat"],
+      "f_singular": ["تَأْكُلُ", "She eats"],
+      "f_dual": ["تَأْكُلَانِ", "They two eat"],
+      "f_plural": ["يَأْكُلْنَ", "They eat"],
+      "m_present": ["تَأْكُلُ", "You eat"],
+      "m_dual_present": ["تَأْكُلَانِ", "You two eat"],
+      "m_plural_present": ["تَأْكُلُونَ", "You all eat"],
+      "f_present": ["تَأْكُلِينَ", "You eat"],
+      "f_dual_present": ["تَأْكُلَانِ", "You two eat"],
+      "f_plural_present": ["تَأْكُلْنَ", "You all eat"],
+      "1_singular": ["آكُلُ", "I eat"],
+      "1_plural": ["نَأْكُلُ", "We eat"]
+    },
+    "sentences": [
+      ["أَكَلَ الطِّفْلُ تُفَّاحًا.", "The child ate an apple."],
+      ["نَحْنُ نَأْكُلُ طَعَامًا لَذِيذًا.", "We eat delicious food."],
+      ["هُوَ آكِلٌ سَرِيعًا.", "He eats quickly."]
+    ]
+  }
+}
