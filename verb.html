@@ -5,145 +5,187 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Arabic Verb Conjugation</title>
 <style>
-  body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f4f7f6; color:#333; padding:20px; }
-  .container { max-width:900px; margin:0 auto; background:#fff; padding:30px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
-  h1 { text-align:center; color:#2c3e50; font-size:2.5rem; margin-bottom:10px; }
-  
-  /* Flexible metadata layout */
-  .metadata { 
-    display: flex; 
-    flex-wrap: wrap; 
-    gap: 15px; 
-    justify-content: center; 
-    background: #eef2f3; 
-    padding: 15px; 
-    border-radius: 8px; 
-    margin-bottom: 30px; 
-  }
-  .metadata div { font-size: 1rem; font-weight: bold; background: white; padding: 5px 12px; border-radius: 4px; border: 1px solid #dce4e6; }
-  .metadata span { color: #4a86e8; }
-  
-  h2 { border-bottom:2px solid #4a86e8; padding-bottom:5px; color:#2c3e50; margin-top:40px; }
-  table { width:100%; border-collapse:collapse; margin-top:15px; direction:rtl; }
-  th, td { border:1px solid #ddd; padding:12px; text-align:center; }
-  th { background-color:#4a86e8; color:white; font-weight:600; }
-  tr:nth-child(even) { background-color:#f9f9f9; }
-  .arabic-verb { font-size:1.4rem; font-weight:bold; color:#000; }
-  .english-sub { display:block; font-size:0.8rem; color:#777; font-weight:normal; }
-  .row-label { background-color:#f1f1f1; font-weight:bold; width:15%; }
-  .sentence-box { background-color:#fff9f0; border-right:5px solid #ffa500; padding:15px; margin-top:20px; border-radius:4px; }
-  .sentence-item { margin-bottom:15px; }
-  .sentence-ar { font-size:1.3rem; font-weight:bold; color:#d35400; display:block; }
-  .sentence-en { font-size:1rem; color:#555; font-style:italic; }
+    :root {
+        --primary-color: #4a86e8;
+        --secondary-color: #2c3e50;
+        --accent-color: #d35400;
+        --bg-color: #f0f2f5;
+        --card-bg: #ffffff;
+    }
+
+    body { 
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        background: var(--bg-color); 
+        color: #333; 
+        padding: 10px; 
+        margin: 0;
+        line-height: 1.6;
+    }
+
+    .container { 
+        max-width: 1000px; 
+        margin: 20px auto; 
+        background: var(--card-bg); 
+        padding: 20px; 
+        border-radius: 16px; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+    }
+
+    h1 { text-align: center; color: var(--secondary-color); font-size: 2.8rem; margin-bottom: 5px; }
+    
+    /* Improved Metadata Grid */
+    .metadata { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+        gap: 12px; 
+        background: #f8fafc; 
+        padding: 20px; 
+        border-radius: 12px; 
+        margin: 20px 0 40px 0;
+        border: 1px solid #e2e8f0;
+    }
+
+    .metadata div { 
+        font-size: 0.95rem; 
+        font-weight: bold; 
+        background: white; 
+        padding: 10px 15px; 
+        border-radius: 8px; 
+        box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        display: flex;
+        flex-direction: column;
+        border-right: 4px solid var(--primary-color);
+    }
+
+    .metadata span { color: var(--primary-color); margin-top: 4px; font-weight: normal; }
+
+    h2 { 
+        color: var(--secondary-color); 
+        margin-top: 40px; 
+        font-size: 1.5rem; 
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    h2::before { content: ""; width: 8px; height: 24px; background: var(--primary-color); border-radius: 4px; display: inline-block; }
+
+    /* Responsive Table Container */
+    .table-wrapper { 
+        width: 100%; 
+        overflow-x: auto; /* Enables horizontal scroll on mobile */
+        margin-top: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    table { width: 100%; border-collapse: collapse; min-width: 600px; background: white; }
+    th, td { border: 1px solid #e2e8f0; padding: 15px 10px; text-align: center; }
+    th { background-color: var(--primary-color); color: white; font-weight: 600; font-size: 1.1rem; }
+    
+    .arabic-verb { font-size: 1.5rem; font-weight: bold; color: #1a202c; display: block; margin-bottom: 4px; }
+    .english-sub { font-size: 0.85rem; color: #718096; font-weight: normal; display: block; }
+    
+    .row-label { background-color: #f7fafc; font-weight: bold; color: var(--secondary-color); width: 120px; }
+
+    /* Sentences */
+    .sentence-box { 
+        background-color: #fffaf0; 
+        border-right: 5px solid #ffa500; 
+        padding: 20px; 
+        margin-top: 20px; 
+        border-radius: 8px; 
+    }
+    .sentence-item { padding: 10px 0; border-bottom: 1px dashed #feebc8; }
+    .sentence-item:last-child { border-bottom: none; }
+    .sentence-ar { font-size: 1.4rem; font-weight: bold; color: var(--accent-color); display: block; }
+    .sentence-en { font-size: 1rem; color: #4a5568; font-style: italic; }
+
+    /* Mobile Adjustments */
+    @media (max-width: 600px) {
+        h1 { font-size: 2rem; }
+        .container { padding: 15px; border-radius: 0; margin: 0; }
+        .metadata { grid-template-columns: 1fr 1fr; font-size: 0.8rem; }
+        .arabic-verb { font-size: 1.2rem; }
+    }
 </style>
 </head>
 <body>
 
 <div class="container" id="verb-container">
-  Loading...
+    <div style="text-align:center; padding: 50px;">جاري التحميل...</div>
 </div>
 
 <script>
-// 1️⃣ Get id from URL
 const urlParams = new URLSearchParams(window.location.search);
 const verbId = urlParams.get('id');
 
-// 2️⃣ Fetch verbs.json
 fetch('verbs.json')
   .then(res => res.json())
   .then(data => {
     const verb = data[verbId];
     if (!verb) return document.getElementById('verb-container').innerHTML = "Verb not found.";
 
-    // 3️⃣ Fill HTML
     const container = document.getElementById('verb-container');
     
-    // Logic for Root (handling both string and array)
-    let rootDisplay = "";
-    if (verb.root) {
-      rootDisplay = Array.isArray(verb.root) ? verb.root.join(' - ') : verb.root;
-    }
+    // Formatting helper
+    const fmt = (val) => Array.isArray(val) ? val.join(' - ') : (val || '—');
 
     container.innerHTML = `
       <h1>${verb.verb}</h1>
       
       <div class="metadata">
-        ${verb.root ? `<div>الجذر: <span>${rootDisplay}</span></div>` : ''}
-        ${verb.haft_iqsaam ? `<div>هفت اقسام: <span>${verb.haft_iqsaam}</span></div>` : ''}
-        ${verb.baab ? `<div>الباب: <span>${verb.baab}</span></div>` : ''}
-        <div>المصدر: <span>${verb.masdar}</span></div>
-        <div>اسم الفاعل: <span>${verb.ism_faail}</span></div>
-        <div>اسم المفعول: <span>${verb.ism_mafool}</span></div>
-        ${verb.synonyms ? `<div>المترادفات: <span>${verb.synonyms.join('، ')}</span></div>` : ''}
+        ${verb.root ? `<div>الجذر <span>${fmt(verb.root)}</span></div>` : ''}
+        ${verb.haft_iqsaam ? `<div>هفت اقسام <span>${verb.haft_iqsaam}</span></div>` : ''}
+        ${verb.baab ? `<div>الباب <span>${verb.baab}</span></div>` : ''}
+        <div>المصدر <span>${fmt(verb.masdar)}</span></div>
+        <div>اسم الفاعل <span>${fmt(verb.ism_faail)}</span></div>
+        <div>اسم المفعول <span>${fmt(verb.ism_mafool)}</span></div>
+        ${verb.synonyms ? `<div>المترادفات <span>${verb.synonyms.join('، ')}</span></div>` : ''}
       </div>
       
-      ${buildTable('الماضي (Past Tense)', verb.past)}
-      ${buildTable('المضارع (Present Tense)', verb.present)}
+      ${buildTable('تصريف الماضي (Past Tense)', verb.past)}
+      ${buildTable('تصريف المضارع (Present Tense)', verb.present)}
       
-      <h2>3. أمثلة في جمل (Examples)</h2>
+      <h2>أمثلة في جمل (Examples)</h2>
       <div class="sentence-box">
-        ${verb.sentences.map(s => `
+        ${verb.sentences ? verb.sentences.map(s => `
           <div class="sentence-item">
             <span class="sentence-ar">${s[0]}</span>
             <span class="sentence-en">${s[1]}</span>
           </div>
-        `).join('')}
+        `).join('') : 'لا توجد أمثلة متاحة حالياً.'}
       </div>
     `;
   })
   .catch(err => {
-    console.error(err);
-    document.getElementById('verb-container').innerHTML = "Error loading verbs.json";
+    document.getElementById('verb-container').innerHTML = "Error loading data.";
   });
 
-// 4️⃣ Build table function
 function buildTable(title, tense) {
+  if (!tense) return "";
   const cell = (data) => data ? `<td><span class="arabic-verb">${data[0]}</span><span class="english-sub">${data[1]}</span></td>` : `<td>-</td>`;
 
   return `
     <h2>${title}</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>النوع</th>
-          <th>المفرد</th>
-          <th>المثنى</th>
-          <th>الجمع</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="row-label">مذكر غائب</td>
-          ${cell(tense.m_singular)}
-          ${cell(tense.m_dual)}
-          ${cell(tense.m_plural)}
-        </tr>
-        <tr>
-          <td class="row-label">مؤنث غائب</td>
-          ${cell(tense.f_singular)}
-          ${cell(tense.f_dual)}
-          ${cell(tense.f_plural)}
-        </tr>
-        <tr>
-          <td class="row-label">مذكر حاضر</td>
-          ${cell(tense.m_present)}
-          ${cell(tense.m_dual_present)}
-          ${cell(tense.m_plural_present)}
-        </tr>
-        <tr>
-          <td class="row-label">مؤنث حاضر</td>
-          ${cell(tense.f_present)}
-          ${cell(tense.f_dual_present)}
-          ${cell(tense.f_plural_present)}
-        </tr>
-        <tr>
-          <td class="row-label">متكلم</td>
-          ${cell(tense['1_singular'])}
-          <td>-</td>
-          ${cell(tense['1_plural'])}
-        </tr>
-      </tbody>
-    </table>
+    <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>النوع</th>
+              <th>المفرد</th>
+              <th>المثنى</th>
+              <th>الجمع</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="row-label">مذكر غائب</td>${cell(tense.m_singular)}${cell(tense.m_dual)}${cell(tense.m_plural)}</tr>
+            <tr><td class="row-label">مؤنث غائب</td>${cell(tense.f_singular)}${cell(tense.f_dual)}${cell(tense.f_plural)}</tr>
+            <tr><td class="row-label">مذكر حاضر</td>${cell(tense.m_present)}${cell(tense.m_dual_present)}${cell(tense.m_plural_present)}</tr>
+            <tr><td class="row-label">مؤنث حاضر</td>${cell(tense.f_present)}${cell(tense.f_dual_present)}${cell(tense.f_plural_present)}</tr>
+            <tr><td class="row-label">متكلم</td>${cell(tense['1_singular'])}<td>-</td>${cell(tense['1_plural'])}</tr>
+          </tbody>
+        </table>
+    </div>
   `;
 }
 </script>
