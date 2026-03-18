@@ -31,17 +31,16 @@
         box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
     }
 
-    h1 { text-align: center; color: var(--secondary-color); font-size: 2.8rem; margin-bottom: 5px; }
+    h1 { text-align: center; color: var(--secondary-color); font-size: 2.5rem; margin-bottom: 5px; }
     
-    /* Improved Metadata Grid */
     .metadata { 
         display: grid; 
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
         gap: 12px; 
         background: #f8fafc; 
         padding: 20px; 
         border-radius: 12px; 
-        margin: 20px 0 40px 0;
+        margin: 20px 0;
         border: 1px solid #e2e8f0;
     }
 
@@ -69,25 +68,33 @@
     }
     h2::before { content: ""; width: 8px; height: 24px; background: var(--primary-color); border-radius: 4px; display: inline-block; }
 
-    /* Responsive Table Container */
     .table-wrapper { 
         width: 100%; 
-        overflow-x: auto; /* Enables horizontal scroll on mobile */
+        overflow-x: auto; 
         margin-top: 15px;
         border-radius: 8px;
         box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
 
-    table { width: 100%; border-collapse: collapse; min-width: 600px; background: white; }
-    th, td { border: 1px solid #e2e8f0; padding: 15px 10px; text-align: center; }
-    th { background-color: var(--primary-color); color: white; font-weight: 600; font-size: 1.1rem; }
+    table { width: 100%; border-collapse: collapse; min-width: 500px; background: white; table-layout: fixed; }
+    th, td { border: 1px solid #e2e8f0; padding: 12px 5px; text-align: center; }
+    th { background-color: var(--primary-color); color: white; font-weight: 600; }
     
-    .arabic-verb { font-size: 1.5rem; font-weight: bold; color: #1a202c; display: block; margin-bottom: 4px; }
-    .english-sub { font-size: 0.85rem; color: #718096; font-weight: normal; display: block; }
-    
-    .row-label { background-color: #f7fafc; font-weight: bold; color: var(--secondary-color); width: 120px; }
+    /* THE FIX: Super narrow and small text for the first column */
+    th:first-child, .row-label { 
+        width: 65px;         /* Absolute minimum width */
+        font-size: 0.75rem;   /* Smaller font size */
+        line-height: 1.1;
+        background-color: #f7fafc; 
+        color: #718096;
+        font-weight: bold;
+        padding: 8px 2px;
+        white-space: normal;  /* Allows "مذكر غائب" to wrap if needed to save horizontal space */
+    }
 
-    /* Sentences */
+    .arabic-verb { font-size: 1.4rem; font-weight: bold; color: #1a202c; display: block; }
+    .english-sub { font-size: 0.8rem; color: #718096; font-weight: normal; display: block; }
+    
     .sentence-box { 
         background-color: #fffaf0; 
         border-right: 5px solid #ffa500; 
@@ -96,16 +103,14 @@
         border-radius: 8px; 
     }
     .sentence-item { padding: 10px 0; border-bottom: 1px dashed #feebc8; }
-    .sentence-item:last-child { border-bottom: none; }
-    .sentence-ar { font-size: 1.4rem; font-weight: bold; color: var(--accent-color); display: block; }
-    .sentence-en { font-size: 1rem; color: #4a5568; font-style: italic; }
+    .sentence-ar { font-size: 1.3rem; font-weight: bold; color: var(--accent-color); display: block; }
+    .sentence-en { font-size: 0.95rem; color: #4a5568; font-style: italic; }
 
-    /* Mobile Adjustments */
     @media (max-width: 600px) {
-        h1 { font-size: 2rem; }
-        .container { padding: 15px; border-radius: 0; margin: 0; }
-        .metadata { grid-template-columns: 1fr 1fr; font-size: 0.8rem; }
-        .arabic-verb { font-size: 1.2rem; }
+        h1 { font-size: 1.8rem; }
+        .container { padding: 10px; border-radius: 0; margin: 0; }
+        .metadata { grid-template-columns: 1fr 1fr; gap: 8px; padding: 10px; }
+        th:first-child, .row-label { width: 55px; font-size: 0.65rem; }
     }
 </style>
 </head>
@@ -125,13 +130,8 @@ fetch('verbs.json')
     const verb = data[verbId];
     if (!verb) return document.getElementById('verb-container').innerHTML = "Verb not found.";
 
-    // 3️⃣ Fill HTML
     const container = document.getElementById('verb-container');
-    
-    // Formatting helper
     const fmt = (val) => Array.isArray(val) ? val.join(' - ') : (val || '—');
-
-    // Get the first word of the present singular for the header
     const presentHeader = verb.present && verb.present.m_singular ? verb.present.m_singular[0] : '';
 
     container.innerHTML = `
@@ -140,7 +140,7 @@ fetch('verbs.json')
         <span style="color: var(--primary-color); font-size: 0.8em; margin: 0 10px;">- ${presentHeader}</span>
       </h1>
       
-      <div class="metadata" style="margin-bottom: 20px; border-bottom: 2px solid #e2e8f0;">
+      <div class="metadata">
         ${verb.meaning ? `<div>المعنى <span>${verb.meaning}</span></div>` : ''}
         ${verb.root ? `<div>الجذر <span>${fmt(verb.root)}</span></div>` : ''}
         <div>المصدر <span>${fmt(verb.masdar)}</span></div>
@@ -150,8 +150,8 @@ fetch('verbs.json')
       ${buildTable('تصريف الماضي (Past Tense)', verb.past)}
       ${buildTable('تصريف المضارع (Present Tense)', verb.present)}
       
-      <h3 style="margin-top:40px; color:#718096; font-size:1.1rem;">تفاصيل إضافية (Additional Details)</h3>
-      <div class="metadata" style="background: #f1f5f9; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
+      <h3 style="margin: 40px 10px 0 0; color: #718096; font-size: 1.1rem;">تفاصيل إضافية (Details)</h3>
+      <div class="metadata" style="background: #f1f5f9; border-style: dashed;">
         ${verb.haft_iqsaam ? `<div>هفت اقسام <span>${verb.haft_iqsaam}</span></div>` : ''}
         <div>اسم الفاعل <span>${fmt(verb.ism_faail)}</span></div>
         <div>اسم المفعول <span>${fmt(verb.ism_mafool)}</span></div>
