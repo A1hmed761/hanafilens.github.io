@@ -7,111 +7,226 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;}
-    body{font-family:"Inter",sans-serif;background:#f5f7fb;color:#333;line-height:1.6;}
-    
-    /* HEADER */
-    header{background:#0b3d3a;padding:18px 0;box-shadow:0 3px 10px rgba(0,0,0,0.15);}
-    .nav-container{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:0 20px;}
-    .logo{color:#fff;font-size:1.6rem;font-weight:700;}
-    nav{display:flex;gap:25px;}
-    nav a{
-      color:#d7ffef;text-decoration:none;font-weight:500;padding:5px 10px;border-radius:6px;transition:0.3s;
-    }
-    nav a:hover{color:#2cb67d;}
-    nav a.active{
-      background:#2cb67d;color:#fff;font-weight:600;
+    /* -------------------- GLOBAL -------------------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    /* MAIN PRODUCT AREA */
-    .products-section{
-      max-width:1200px;
-      margin:40px auto;
-      padding:0 20px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:20px;
-      position:relative;
+    body {
+      font-family: "Inter", sans-serif;
+      background: #f5f7fb;
+      color: #333;
+      line-height: 1.6;
     }
 
-    /* Small Product Card top-left */
-    .product-card{
-      background:#fff;
-      padding:20px;
-      border-radius:14px;
-      box-shadow:0 6px 20px rgba(0,0,0,0.08);
-      width:280px;
-      text-align:center;
-      transition:0.3s;
-      position:absolute;
-      top:0;
-      left:0; /* Changed from right to left */
+    a {
+      text-decoration: none;
     }
 
-    .product-card:hover{
-      transform:translateY(-4px);
-      box-shadow:0 12px 28px rgba(0,0,0,0.12);
+    /* -------------------- HEADER -------------------- */
+    header {
+      background: #0b3d3a;
+      padding: 15px 0;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
-    .product-card h3{font-size:1.3rem;margin-bottom:10px;color:#0b3d3a;}
-    .product-card p{font-size:0.95rem;color:#555;margin-bottom:15px;}
-    .product-card .btn{
-      display:inline-block;
-      background:#0b3d3a;color:#fff;
-      padding:10px 22px;border-radius:8px;font-weight:600;
-      font-size:0.95rem;transition:0.3s;
-    }
-    .product-card .btn:hover{
-      background:#2cb67d;color:#fff;
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-direction: column; 
+      align-items: center;
+      padding: 0 20px;
+      gap: 15px;
     }
 
-    /* Placeholder for product list */
-    .product-list{
-      flex:1;
-      min-height:400px;
-      padding:20px;
-      margin-left:320px; /* To avoid overlap with top-left card */
-    }
-
-    /* Responsive */
-    @media (max-width:768px){
-      .product-card{
-        position:static;
-        width:100%;
-        margin-bottom:20px;
+    @media (min-width: 768px) {
+      .nav-container {
+        flex-direction: row;
+        justify-content: space-between;
       }
-      .product-list{margin-left:0;}
+    }
+
+    .logo {
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: .5px;
+    }
+
+    nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      color: #d7ffef;
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 8px 15px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #2cb67d;
+    }
+
+    nav a.active {
+      background: #2cb67d;
+      color: #fff;
+    }
+
+    /* -------------------- PAGE TITLE -------------------- */
+    .page-header {
+      text-align: center;
+      padding: 60px 20px 20px;
+    }
+
+    .page-header h1 {
+      font-size: 2.2rem;
+      color: #0b3d3a;
+      margin-bottom: 10px;
+    }
+
+    /* -------------------- PRODUCTS GRID -------------------- */
+    .products-grid {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      /* Automatically creates columns based on available width */
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+      border-color: #2cb67d;
+    }
+
+    .product-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: #0b3d3a;
+    }
+
+    .product-card p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 25px;
+      flex-grow: 1; /* Pushes button to bottom if text is short */
+    }
+
+    .btn {
+      display: inline-block;
+      background: #0b3d3a;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #2cb67d;
+      transform: scale(1.02);
+    }
+
+    .status-msg {
+      grid-column: 1 / -1;
+      text-align: center;
+      color: #888;
+      font-style: italic;
+      margin-top: 40px;
+      padding: 20px;
+      border-top: 1px solid #ddd;
+    }
+
+    /* -------------------- FOOTER -------------------- */
+    footer {
+      background: #0b3d3a;
+      padding: 40px 20px;
+      color: white;
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+      color: #d7ffef;
+      opacity: 0.8;
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <div class="nav-container">
-    <div class="logo">Hanafi Lens</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="products.html" class="active">Products</a>
-      <a href="blog.html">Blog</a>
-      <a href="courses.html">Courses</a>
-    </nav>
-  </div>
-</header>
+  <header>
+    <div class="nav-container">
+      <div class="logo">Hanafi Lens</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html" class="active">Products</a>
+        <a href="blog.html">Blog</a>
+        <a href="courses.html">Courses</a>
+      </nav>
+    </div>
+  </header>
 
-<section class="products-section">
-  <!-- Small Product Card top-left -->
-  <div class="product-card">
-    <h3>Full Vocabulary Package</h3>
-    <p>2000+ words of Nouns, Verbs & Adjectives with images or visuals.</p>
-    <a href="product.html" class="btn">Explore</a>
+  <div class="page-header">
+    <h1>Our Products</h1>
+    <p>Premium resources for Arabic, Persian, and Islamic studies.</p>
   </div>
 
-  <!-- Placeholder for product list -->
-  <div class="product-list">
-    <p>More products will appear here soon.</p>
-  </div>
-</section>
+  <section class="products-grid">
+    
+    <div class="product-card">
+      <div>
+        <h3>Full Vocabulary Package</h3>
+        <p>2,000+ words including Nouns, Verbs & Adjectives with high-quality visual aids to boost retention.</p>
+      </div>
+      <a href="product-details.html" class="btn">View Details</a>
+    </div>
+
+    <div class="product-card">
+      <div>
+        <h3>Arabic Grammar Guide</h3>
+        <p>Simplifying complex Sarf and Nahw rules into easy-to-digest digital charts.</p>
+      </div>
+      <a href="#" class="btn" style="background:#eee; color:#999; cursor:not-allowed;">Coming Soon</a>
+    </div>
+
+    <div class="status-msg">
+      More products will appear here soon. Stay tuned for our Persian Verb series!
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Hanafi Lens — All Rights Reserved.</p>
+  </footer>
 
 </body>
 </html>
