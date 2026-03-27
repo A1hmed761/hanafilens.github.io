@@ -186,7 +186,15 @@
 </head>
 
 <body>
+<script>
+const params = new URLSearchParams(window.location.search);
+const ref = params.get("ref");
 
+if (ref) {
+  localStorage.setItem("affiliate", ref);
+}
+</script>
+  
   <header>
     <div class="nav-container">
       <div class="logo">Hanafi Lens</div>
@@ -203,7 +211,16 @@
       <div class="hero-inner">
         <h1>Full Vocabulary Package Arabic & Persian</h1>
         <p>1,500+ curated nouns, verbs, and adjectives with visual aids to bridge the gap from beginner to intermediate.</p>
-        <a href="product.html" class="btn">Explore Product</a>
+        <a href="product.html" class="btn" id="exploreBtn">Explore Product</a>
+
+<script>
+const btn = document.getElementById("exploreBtn");
+const affiliate = localStorage.getItem("affiliate");
+
+if (affiliate) {
+  btn.href = "product.html?ref=" + affiliate;
+}
+</script>
       </div>
     </section>
 
