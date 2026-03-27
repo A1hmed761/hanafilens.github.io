@@ -220,16 +220,26 @@
     <p>© 2025 Hanafi Lens — All Rights Reserved.</p>
   </footer>
 <script>
-const params = new URLSearchParams(window.location.search);
-const ref = params.get("ref");
+document.querySelectorAll(".btn").forEach(link => {
+  link.addEventListener("click", function(e) {
+    const affiliateData = localStorage.getItem("affiliate");
 
-if (ref) {
-  const data = {
-    id: ref,
-    time: Date.now()
-  };
-  localStorage.setItem("affiliate", JSON.stringify(data));
-}
+    if (affiliateData) {
+      const affiliate = JSON.parse(affiliateData);
+
+      // Get original link
+      let url = this.getAttribute("href");
+
+      // Add ?ref= if not already present
+      if (!url.includes("ref=")) {
+        url += "?ref=" + affiliate.id;
+      }
+
+      // Update link dynamically
+      this.setAttribute("href", url);
+    }
+  });
+});
   
 </script>
 </body>
