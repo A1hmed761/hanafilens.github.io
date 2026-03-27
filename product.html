@@ -119,7 +119,18 @@ body {
   </div>
 
 </div>
+<script>
+const affiliate = JSON.parse(localStorage.getItem("affiliate"));
 
+let url = "https://noun-a42d5.web.app/arabic-learning.html";
+
+if (affiliate) {
+  url += "?ref=" + affiliate.id;
+}
+
+window.location.href = url;
+  
+</script>
 </body>
 </html>
 
