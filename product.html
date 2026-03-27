@@ -120,16 +120,26 @@ body {
 
 </div>
 <script>
-const affiliate = JSON.parse(localStorage.getItem("affiliate"));
+document.querySelectorAll(".btn").forEach(link => {
+  link.addEventListener("click", function(e) {
+    const affiliateData = localStorage.getItem("affiliate");
 
-let url = "https://noun-a42d5.web.app/arabic-learning.html";
+    if (affiliateData) {
+      const affiliate = JSON.parse(affiliateData);
 
-if (affiliate) {
-  url += "?ref=" + affiliate.id;
-}
+      // Get original link
+      let url = this.getAttribute("href");
 
-window.location.href = url;
-  
+      // Add ?ref= if not already present
+      if (!url.includes("ref=")) {
+        url += "?ref=" + affiliate.id;
+      }
+
+      // Update link dynamically
+      this.setAttribute("href", url);
+    }
+  });
+});
 </script>
 </body>
 </html>
