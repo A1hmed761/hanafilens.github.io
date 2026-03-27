@@ -103,8 +103,24 @@ body {
   <div class="card">
     <h3>Nouns</h3>
     <p>700+ Nouns with Images</p>
-    <a href="https://noun-a42d5.web.app/arabic-learning.html" class="btn">Explore Product</a>
-  </div>
+    <a href="https://noun-a42d5.web.app/arabic-learning.html" class="btn" id="productBtn">Explore Product</a>
+</div>
+<script>
+const productBtn = document.getElementById("productBtn");
+
+// First try URL param
+const params = new URLSearchParams(window.location.search);
+let ref = params.get("ref");
+
+// Fallback to localStorage
+if (!ref) {
+  ref = localStorage.getItem("affiliate");
+}
+
+if (ref) {
+  productBtn.href = "https://noun-a42d5.web.app/arabic-learning.html?ref=" + ref;
+}
+</script>
 
   <div class="card">
     <h3>Verbs</h3>
@@ -119,28 +135,7 @@ body {
   </div>
 
 </div>
-<script>
-document.querySelectorAll(".btn").forEach(link => {
-  link.addEventListener("click", function(e) {
-    const affiliateData = localStorage.getItem("affiliate");
 
-    if (affiliateData) {
-      const affiliate = JSON.parse(affiliateData);
-
-      // Get original link
-      let url = this.getAttribute("href");
-
-      // Add ?ref= if not already present
-      if (!url.includes("ref=")) {
-        url += "?ref=" + affiliate.id;
-      }
-
-      // Update link dynamically
-      this.setAttribute("href", url);
-    }
-  });
-});
-</script>
 </body>
 </html>
 
