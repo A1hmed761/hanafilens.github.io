@@ -219,7 +219,19 @@
   <footer>
     <p>© 2025 Hanafi Lens — All Rights Reserved.</p>
   </footer>
+<script>
+const params = new URLSearchParams(window.location.search);
+const ref = params.get("ref");
 
+if (ref) {
+  const data = {
+    id: ref,
+    time: Date.now()
+  };
+  localStorage.setItem("affiliate", JSON.stringify(data));
+}
+  
+</script>
 </body>
     </html>
 
