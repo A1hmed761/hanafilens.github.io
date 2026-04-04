@@ -6,7 +6,7 @@
 
 <title>Shahwah</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Amiri&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
 
 <style>
 body {
@@ -68,19 +68,28 @@ h1 {
 
 /* Quran style */
 .quran {
-    background: #f0f7f2;
-    border: 1px solid #dbe7dd;
+     background: #fff5f7;      /* very light pink */
+    border: 1px solid #f0d6dc; /* soft pink border */
     padding: 25px;
     border-radius: 12px;
     margin-bottom: 20px;
 }
-
 .arabic {
-    font-family: 'Amiri', serif;
     font-size: 22px;
+    font-weight: bold;
     text-align: right;
     direction: rtl;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    line-height: 2;
+}
+
+.arabic2 {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: right;
+    direction: rtl;
+    margin-bottom: 10px;
+    margin-top: 10px;
     line-height: 2;
 }
 
@@ -89,19 +98,27 @@ h1 {
     color: #374151;
 }
 
+.translation2 {
+    font-size: 15px;
+    color: #374151;
+    margin-bottom: 20px;
+}
+
 /* Hadith style */
 .hadith {
-    background: #f9f6ef;
-    border: 1px solid #e7e1d3;
+   background: #fffbea;      /* very light yellow */
+    border: 1px solid #f3e7b3; /* soft yellow border */
     padding: 20px;
     border-radius: 12px;
     margin-bottom: 20px;
 }
-
 .reference {
-    font-size: 13px;
-    color: #6b7280;
-    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 12.5px;
+    color: #777;
+    margin-top: 3px;
+    font-style: italic;
 }
 
 /* tips */
@@ -110,7 +127,44 @@ h1 {
 }
 
 .highlight {
+    font-size: 20px;
     color: #4c7c59;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+}
+.lang-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #ffffff;
+    padding: 6px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    z-index: 999;
+}
+
+.lang-toggle button {
+    border: none;
+    background: transparent;
+    padding: 8px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+    color: #444;
+}
+
+.lang-toggle button:hover {
+    background: #f2f2f2;
+}
+
+/* Active button */
+.lang-toggle button.active {
+    background: #2e7d32;   /* nice calm green */
+    color: white;
     font-weight: 500;
 }
 </style>
@@ -122,6 +176,11 @@ h1 {
 
     <h1>شَهْوَة</h1>
     <div class="subtitle">Shahwah (Desires / Lust)</div>
+
+<div class="lang-toggle">
+    <button id="btn-en" onclick="setLang('en')">English</button>
+    <button id="btn-ur" onclick="setLang('ur')">اردو</button>
+</div>
 
     <!-- Definition -->
     <div class="section">
@@ -151,8 +210,17 @@ Real-life examples:
                 <li>Doing it after watching or recalling something inappropriate</li>
                 <li>Treating it as something “normal” because “everyone does it.</li>
             </ul>
-        </div>
 
+<div class="arabic">
+               وَٱلَّذِينَ هُمْ لِفُرُوجِهِمْ حَـٰفِظُونَ  (29) إِلَّا عَلَىٰٓ أَزْوَٰجِهِمْ أَوْ مَا مَلَكَتْ أَيْمَـٰنُهُمْ فَإِنَّهُمْ غَيْرُ مَلُومِينَ (30)  فَمَنِ ٱبْتَغَىٰ وَرَآءَ ذَٰلِكَ فَأُو۟لَـٰٓئِكَ هُمُ ٱلْعَادُونَ (31) 
+            </div>
+<div class="translation">
+                And those who guard their chastity. except with their wives or those ˹bondwomen˺ in their possession, for then they are free from blame. but whoever seeks beyond that are the transgressors.
+</div>
+<div class="reference">
+    <a href="https://quran.com/al-maarij/29-31" target="_blank">Surah Al Ma'arij 70 : 29 (Click for Tafsir)</a>
+ </div>
+ </div>
         <div class="card">
             <b>2. Watching Non-Mahram and Taking Pleasure</b>
             <div class="example">
@@ -167,9 +235,18 @@ Real-life examples:
                 <li>Looking at someone in public and then looking again and again</li>
                 <li>Observing classmates, colleagues, or strangers with hidden desire</li>
             </ul>
-<div class="example">
-👉 What starts as a glance often turns into lingering looks, and then into thoughts.</div>
-        </div>
+<ul class="tips">
+👉 What starts as a glance often turns into lingering looks, and then into thoughts.      </ul>
+ <div class="arabic">
+                وقُل لِّلْمُؤْمِنِينَ يَغُضُّوا۟ مِنْ أَبْصَـٰرِهِمْ وَيَحْفَظُوا۟ فُرُوجَهُمْ ۚ ذَٰلِكَ أَزْكَىٰ لَهُمْ ۗ إِنَّ ٱللَّهَ خَبِيرٌۢ بِمَا يَصْنَعُونَ (30) 
+            </div>
+            <div class="translation">
+                ˹O Prophet!˺ Tell the believing men to lower their gaze and guard their chastity. That is purer for them. Surely Allah is All-Aware of what they do.</div>
+<div class="reference">
+    <a href="https://quran.com/an-nur/30-31" target="_blank">
+        An-Nur 24 : 30 (Click for Tafsir)
+    </a>
+</div>
 </div>
 
         <div class="card">
@@ -186,9 +263,20 @@ Real-life examples:
                 <li>Creating imaginary relationships in the mind</li>
                 <li>Lying in bed and entertaining such thoughts intentionally</li>
             </ul>
-<div class="example">
-👉 What starts as a glance often turns into lingering looks, and then into thoughts.</div>
-        </div>
+<ul class="tips">
+👉 What starts as a glance often turns into lingering looks, and then into thoughts. </ul>
+ <div class="arabic">
+                وَلَا تَقْفُ مَا لَيْسَ لَكَ بِهِۦ عِلْمٌ ۚ إِنَّ ٱلسَّمْعَ وَٱلْبَصَرَ وَٱلْفُؤَادَ كُلُّ أُو۟لَـٰٓئِكَ كَانَ عَنْهُ مَسْـُٔولًۭا  (36)
+            </div>
+            <div class="translation">
+                Do not follow what you have no ˹sure˺ knowledge of. Indeed, all will be called to account for ˹their˺ hearing, sight, and heart.
+            </div>
+<div class="reference">
+    <a href="https://quran.com/al-isra/36" target="_blank">
+        Surah Bani Israel 17 : 36 (Click for Tafsir)
+    </a>
+</div>
+</div>
 
     <!-- Why Dangerous -->
     <div class="section">
@@ -203,7 +291,77 @@ Real-life examples:
         </div>
     </div>
 
-    <!-- Quran -->
+
+    <!-- Tips -->
+    <div class="section">
+        <h2>How to leave this sin?</h2>
+
+        <div class="card">
+            <ul class="tips">
+                <li><span class="highlight">Lower your gaze</span> –  Avoid looking at non-mahram and train your eyes to stay away from temptation. Lessen social media and avoid those videos, reels or shorts that would have even a chance of non mahram display. Don't consider it small and be trapped by it because that's how temptation initiates.</li>
+
+<div class="arabic2">
+عَنْ جَرِيرِ بْنِ عَبْدِ اللَّهِ، قَالَ سَأَلْتُ رَسُولَ اللَّهِ صلى الله عليه وسلم عَنْ نَظَرِ الْفُجَاءَةِ فَأَمَرَنِي أَنْ أَصْرِفَ بَصَرِي ‏.‏            </div>
+            <div class="translation2">
+               I asked Allah's Messenger (ﷺ) about the sudden glance (that is cast) on the face (of a non-Mahram). He commanded me that I should turn away my eyes.
+       
+
+    <a href="https://sunnah.com/muslim:2159a" target="_blank">
+        (Sahih Muslim 2159)
+    </a>
+</div>
+
+
+                <li><span class="highlight">Guard your thoughts</span> – Do not entertain sinful imagination. Consider it as an impurity and dirt for a pure or chaste person like you. These thoughts don't deserve to be in your heart and mind. Respect women not just by your actions and eyes but in your mind too. Sexual thoughts or attractive fanaticism of opposite gender when done intentionally for pleasure are indeed sins.</li>
+
+ <div class="arabic2">
+                وَإِمَّا يَنزَغَنَّكَ مِنَ ٱلشَّيْطَـٰنِ نَزْغٌۭ فَٱسْتَعِذْ بِٱللَّهِ ۚ إِنَّهُۥ سَمِيعٌ عَلِيمٌ  (200) إِنَّ ٱلَّذِينَ ٱتَّقَوْا۟ إِذَا مَسَّهُمْ طَـٰٓئِفٌۭ مِّنَ ٱلشَّيْطَـٰنِ تَذَكَّرُوا۟ فَإِذَا هُم مُّبْصِرُونَ (201) وَإِخْوَٰنُهُمْ يَمُدُّونَهُمْ فِى ٱلْغَىِّ ثُمَّ لَا يُقْصِرُونَ (202)
+            </div>
+            <div class="translation2">
+               If you are tempted by Satan, then seek refuge with Allah. Surely He is All-Hearing, All-Knowing. Indeed, when Satan whispers to those mindful ˹of Allah˺, they remember ˹their Lord˺ then they start to see ˹things˺ clearly. But the devils persistently plunge their ˹human˺ associates1 deeper into wickedness, sparing no effort.
+          
+
+    <a href="https://quran.com/7?startingVerse=200" target="_blank">
+        (Surah Al-A'raf 7 : 200 - Click for Tafsir)
+    </a>
+</div>
+
+
+                <li><span class="highlight">Guard your private time and Stay busy</span> – Fill your time with beneficial activities. Don’t leave yourself alone with idle thoughts; occupy your time with work, study, worship, beneficial hobbies, or even sports or games.</li>
+
+<div class="arabic2">
+                وَلَا تَقْفُ مَا لَيْسَ لَكَ بِهِۦ عِلْمٌ ۚ إِنَّ ٱلسَّمْعَ وَٱلْبَصَرَ وَٱلْفُؤَادَ كُلُّ أُو۟لَـٰٓئِكَ كَانَ عَنْهُ مَسْـُٔولًۭا  (36)
+            </div>
+            <div class="translation2">
+                Do not follow what you have no ˹sure˺ knowledge of. Indeed, all will be called to account for ˹their˺ hearing, sight, and intellect.
+           
+
+    <a href="https://quran.com/al-isra/36" target="_blank">
+       (Surah Bani Israel 17 : 36 - Click for Tafsir)
+    </a>
+</div>
+
+                <li><span class="highlight">Fast regularly</span> – Strengthens self-control and will move your mind from shahwat to the worship and Dhikr of Allah and Rasool.</li>
+
+            <div class="arabic2">
+              رَسُول اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ، يَقُولُ :  إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى، فَمَنْ كَانَتْ هِجْرَتُهُ إِلَى دُنْيَا يُصِيبُهَا أَوْ إِلَى امْرَأَةٍ يَنْكِحُهَا، فَهِجْرَتُهُ إِلَى مَا هَاجَرَ إِلَيْهِ
+            </div>
+            <div class="translation2">
+               The reward of deeds depends upon the intentions and every person will get the reward according to what he has intended. So whoever emigrated for worldly benefits or for a woman to marry, his emigration was for what he emigrated for.
+           
+
+    <a href="https://sunnah.com/bukhari:1" target="_blank">
+        (Sahih al-Bukhari 1)
+    </a>
+
+ </div>
+                <li><span class="highlight">Remember Allah and  Qur’an and Hadith</span> – Memorize relevant ayats and sayings of the Prophet ﷺ condemning unlawful sexual desire given below or meomrize those which will motivate you more to leave this sin during temptaion.
+Recite them when tempted – Whenever a desire or thought arises, recite these ayats and hadith with understanding; this trains your mind, reminds your heart of Allah’s commands, and strengthens your fear of sin.
+</li>
+            </ul>
+        </div>
+
+            <!-- Quran -->
     <div class="section">
         <h2>Qur’an</h2>
 
@@ -212,10 +370,10 @@ Real-life examples:
                وَٱلَّذِينَ هُمْ لِفُرُوجِهِمْ حَـٰفِظُونَ  (29) إِلَّا عَلَىٰٓ أَزْوَٰجِهِمْ أَوْ مَا مَلَكَتْ أَيْمَـٰنُهُمْ فَإِنَّهُمْ غَيْرُ مَلُومِينَ (30)  فَمَنِ ٱبْتَغَىٰ وَرَآءَ ذَٰلِكَ فَأُو۟لَـٰٓئِكَ هُمُ ٱلْعَادُونَ (31) 
             </div>
             <div class="translation">
-                Tell the believing men to lower their gaze and guard their chastity. That is purer for them.
+               And those who guard their chastity. except with their wives or those ˹bondwomen˺ in their possession, for then they are free from blame. but whoever seeks beyond that are the transgressors.
             </div>
 <div class="reference">
-    <a href="https://sunnah.com/bukhari:6807" target="_blank">
+    <a href="https://quran.com/al-maarij/29-31" target="_blank">
         Surah Al Ma'arij 70 : 29 (Click for Tafsir)
     </a>
 </div>
@@ -223,13 +381,91 @@ Real-life examples:
 
         <div class="quran">
             <div class="arabic">
-                وَلَا تَقْرَبُوا الزِّنَىٰ إِنَّهُ كَانَ فَاحِشَةً وَسَاءَ سَبِيلًا
+                وَلَا تَقْرَبُوا الزِّنَىٰ إِنَّهُ كَانَ فَاحِشَةً وَسَاءَ سَبِيلًا  (32)
             </div>
             <div class="translation">
                 Do not go near zina. Indeed, it is an immorality and an evil way.
             </div>
+<div class="reference">
+    <a href="https://quran.com/al-isra/32" target="_blank">
+        Surah Bani Israel 17 : 32 (Click for Tafsir)
+    </a>
+</div>
+
         </div>
 
+<div class="quran">
+            <div class="arabic">
+                وقُل لِّلْمُؤْمِنِينَ يَغُضُّوا۟ مِنْ أَبْصَـٰرِهِمْ وَيَحْفَظُوا۟ فُرُوجَهُمْ ۚ ذَٰلِكَ أَزْكَىٰ لَهُمْ ۗ إِنَّ ٱللَّهَ خَبِيرٌۢ بِمَا يَصْنَعُونَ (30) وَقُل لِّلْمُؤْمِنَـٰتِ يَغْضُضْنَ مِنْ أَبْصَـٰرِهِنَّ وَيَحْفَظْنَ فُرُوجَهُنَّ وَلَا يُبْدِينَ زِينَتَهُنَّ إِلَّا مَا ظَهَرَ مِنْهَا ۖ وَلْيَضْرِبْنَ بِخُمُرِهِنَّ عَلَىٰ جُيُوبِهِنَّ ۖ وَلَا يُبْدِينَ زِينَتَهُنَّ إِلَّا لِبُعُولَتِهِنَّ أَوْ ءَابَآئِهِنَّ أَوْ ءَابَآءِ بُعُولَتِهِنَّ أَوْ أَبْنَآئِهِنَّ أَوْ أَبْنَآءِ بُعُولَتِهِنَّ أَوْ إِخْوَٰنِهِنَّ أَوْ بَنِىٓ إِخْوَٰنِهِنَّ أَوْ بَنِىٓ أَخَوَٰتِهِنَّ أَوْ نِسَآئِهِنَّ أَوْ مَا مَلَكَتْ أَيْمَـٰنُهُنَّ أَوِ ٱلتَّـٰبِعِينَ غَيْرِ أُو۟لِى ٱلْإِرْبَةِ مِنَ ٱلرِّجَالِ أَوِ ٱلطِّفْلِ ٱلَّذِينَ لَمْ يَظْهَرُوا۟ عَلَىٰ عَوْرَٰتِ ٱلنِّسَآءِ ۖ وَلَا يَضْرِبْنَ بِأَرْجُلِهِنَّ لِيُعْلَمَ مَا يُخْفِينَ مِن زِينَتِهِنَّ ۚ وَتُوبُوٓا۟ إِلَى ٱللَّهِ جَمِيعًا أَيُّهَ ٱلْمُؤْمِنُونَ لَعَلَّكُمْ تُفْلِحُونَ (31)
+            </div>
+            <div class="translation">
+                ˹O Prophet!˺ Tell the believing men to lower their gaze and guard their chastity. That is purer for them. Surely Allah is All-Aware of what they do. And tell the believing women to lower their gaze and guard their chastity, and not to reveal their adornments1 except what normally appears.2 Let them draw their veils over their chests, and not reveal their ˹hidden˺ adornments3 except to their husbands, their fathers, their fathers-in-law, their sons, their stepsons, their brothers, their brothers’ sons or sisters’ sons, their fellow women, those ˹bondwomen˺ in their possession, male attendants with no desire, or children who are still unaware of women’s nakedness. Let them not stomp their feet, drawing attention to their hidden adornments. Turn to Allah in repentance all together, O  believers, so that you may be successful.
+            </div>
+<div class="reference">
+    <a href="https://quran.com/an-nur/30-31" target="_blank">
+        Surah An-Nur 24 : 30 (Click for Tafsir)
+    </a>
+</div>
+        </div>
+
+<div class="quran">
+            <div class="arabic">
+                وَلَا تَقْفُ مَا لَيْسَ لَكَ بِهِۦ عِلْمٌ ۚ إِنَّ ٱلسَّمْعَ وَٱلْبَصَرَ وَٱلْفُؤَادَ كُلُّ أُو۟لَـٰٓئِكَ كَانَ عَنْهُ مَسْـُٔولًۭا  (36)
+            </div>
+            <div class="translation">
+                Do not follow what you have no ˹sure˺ knowledge of. Indeed, all will be called to account for ˹their˺ hearing, sight, and intellect.
+            </div>
+<div class="reference">
+    <a href="https://quran.com/al-isra/36" target="_blank">
+        Surah Bani Israel 17 : 36 (Click for Tafsir)
+    </a>
+</div>
+
+        </div>
+
+<div class="quran">
+            <div class="arabic">
+                قَالَتْ فَذَٰلِكُنَّ ٱلَّذِى لُمْتُنَّنِى فِيهِ ۖ وَلَقَدْ رَٰوَدتُّهُۥ عَن نَّفْسِهِۦ فَٱسْتَعْصَمَ ۖ وَلَئِن لَّمْ يَفْعَلْ مَآ ءَامُرُهُۥ لَيُسْجَنَنَّ وَلَيَكُونًۭا مِّنَ ٱلصَّـٰغِرِينَ  (34) قَالَ رَبِّ ٱلسِّجْنُ أَحَبُّ إِلَىَّ مِمَّا يَدْعُونَنِىٓ إِلَيْهِ ۖ وَإِلَّا تَصْرِفْ عَنِّى كَيْدَهُنَّ أَصْبُ إِلَيْهِنَّ وَأَكُن مِّنَ ٱلْجَـٰهِلِينَ (35)
+            </div>
+            <div class="translation">
+               She said, “This is the one for whose love you criticized me! I did try to seduce him but he ˹firmly˺ refused. And if he does not do what I order him to, he will certainly be imprisoned and ˹fully˺ disgraced.” Joseph prayed, “My Lord! I would rather be in jail than do what they invite me to. And if You do not turn their cunning away from me, I might yield to them and fall into ignorance.”
+            </div>
+<div class="reference">
+    <a href="https://quran.com/yusuf/32" target="_blank">
+        Surah Yusuf 12 : 32 (Click for Tafsir)
+    </a>
+</div>
+
+        </div>
+
+<div class="quran">
+            <div class="arabic">
+                يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا تَتَّبِعُوا۟ خُطُوَٰتِ ٱلشَّيْطَـٰنِ ۚ وَمَن يَتَّبِعْ خُطُوَٰتِ ٱلشَّيْطَـٰنِ فَإِنَّهُۥ يَأْمُرُ بِٱلْفَحْشَآءِ وَٱلْمُنكَرِ ۚ وَلَوْلَا فَضْلُ ٱللَّهِ عَلَيْكُمْ وَرَحْمَتُهُۥ مَا زَكَىٰ مِنكُم مِّنْ أَحَدٍ أَبَدًۭا وَلَـٰكِنَّ ٱللَّهَ يُزَكِّى مَن يَشَآءُ ۗ وَٱللَّهُ سَمِيعٌ عَلِيمٌۭ(21)
+            </div>
+            <div class="translation">
+               And those who guard their chastity. except with their wives or those ˹bondwomen˺ in their possession, for then they are free from blame. but whoever seeks beyond that are the transgressors.
+            </div>
+<div class="reference">
+    <a href="https://quran.com/an-nur/21" target="_blank">
+        Surah An-Nur 24 : 21 (Click for Tafsir)
+    </a>
+</div>
+</div>
+
+<div class="quran">
+            <div class="arabic">
+                وَإِمَّا يَنزَغَنَّكَ مِنَ ٱلشَّيْطَـٰنِ نَزْغٌۭ فَٱسْتَعِذْ بِٱللَّهِ ۚ إِنَّهُۥ سَمِيعٌ عَلِيمٌ  (200) إِنَّ ٱلَّذِينَ ٱتَّقَوْا۟ إِذَا مَسَّهُمْ طَـٰٓئِفٌۭ مِّنَ ٱلشَّيْطَـٰنِ تَذَكَّرُوا۟ فَإِذَا هُم مُّبْصِرُونَ (201) وَإِخْوَٰنُهُمْ يَمُدُّونَهُمْ فِى ٱلْغَىِّ ثُمَّ لَا يُقْصِرُونَ (202)
+            </div>
+            <div class="translation">
+               If you are tempted by Satan, then seek refuge with Allah. Surely He is All-Hearing, All-Knowing. Indeed, when Satan whispers to those mindful ˹of Allah˺, they remember ˹their Lord˺ then they start to see ˹things˺ clearly. But the devils persistently plunge their ˹human˺ associates1 deeper into wickedness, sparing no effort.
+            </div>
+<div class="reference">
+    <a href="https://quran.com/7?startingVerse=200" target="_blank">
+        Surah Al-A'raf 7 : 200 (Click for Tafsir)
+    </a>
+</div>
+
+        </div>
     </div>
 
     <!-- Hadith -->
@@ -250,25 +486,53 @@ Real-life examples:
 </div>
         </div>
 
-    </div>
-
-    <!-- Tips -->
+ <!-- Hadith -->
     <div class="section">
-        <h2>How to Avoid It</h2>
-
-        <div class="card">
-            <ul class="tips">
-                <li><span class="highlight">Lower your gaze</span> – Avoid temptation, especially on social media.</li>
-                <li><span class="highlight">Guard your thoughts</span> – Do not entertain sinful imagination.</li>
-                <li><span class="highlight">Stay busy</span> – Fill your time with beneficial activities.</li>
-                <li><span class="highlight">Fast regularly</span> – Strengthens self-control.</li>
-                <li><span class="highlight">Remember Allah</span> – Recite Qur’an and Hadith when tempted.</li>
-            </ul>
+        <div class="hadith">
+            <div class="arabic">
+               إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى، فَمَنْ كَانَتْ هِجْرَتُهُ إِلَى دُنْيَا يُصِيبُهَا أَوْ إِلَى امْرَأَةٍ يَنْكِحُهَا، فَهِجْرَتُهُ إِلَى مَا هَاجَرَ إِلَيْهِ
+            </div>
+            <div class="translation">
+               The reward of deeds depends upon the intentions and every person will get the reward according to what he has intended. So whoever emigrated for worldly benefits or for a woman to marry, his emigration was for what he emigrated for.
+            </div>
+            <div class="reference">
+    <a href="https://sunnah.com/bukhari:1" target="_blank">
+        Sahih al-Bukhari 1
+    </a>
+</div>
         </div>
 
-        <div class="quote-box">
-            “By combining self-discipline with remembrance of Allah, you protect your heart from falling into sin.”
+<!-- Hadith -->
+    <div class="section">
+        <div class="hadith">
+            <div class="arabic">
+               إِنَّ اللَّهَ كَتَبَ عَلَى ابْنِ آدَمَ حَظَّهُ مِنَ الزِّنَى أَدْرَكَ ذَلِكَ لاَ مَحَالَةَ فَزِنَى الْعَيْنَيْنِ النَّظَرُ وَزِنَى اللِّسَانِ النُّطْقُ وَالنَّفْسُ تَمَنَّى وَتَشْتَهِي وَالْفَرْجُ يُصَدِّقُ ذَلِكَ أَوْ يُكَذِّبُهُ 
+            </div>
+            <div class="translation">
+               Verily Allah has fixed the very portion of adultery which a man will indulge in, and which he of necessity must commit. The adultery of the eye is the lustful look, and the adultery of the tongue is the licentious speech, the heart desires and yearns, which the parts may or may not put into effect. 
+            </div>
+            <div class="reference">
+    <a href="https://sunnah.com/muslim:2657b" target="_blank">
+        Sahih Muslim 2657
+    </a>
+</div>
         </div>
+
+<!-- Hadith -->
+    <div class="section">
+        <div class="hadith">
+            <div class="arabic">
+عَنْ جَرِيرِ بْنِ عَبْدِ اللَّهِ، قَالَ سَأَلْتُ رَسُولَ اللَّهِ صلى الله عليه وسلم عَنْ نَظَرِ الْفُجَاءَةِ فَأَمَرَنِي أَنْ أَصْرِفَ بَصَرِي ‏.‏            </div>
+            <div class="translation">
+               I asked Allah's Messenger (ﷺ) about the sudden glance (that is cast) on the face (of a non-Mahram). He commanded me that I should turn away my eyes.
+            </div>
+            <div class="reference">
+    <a href="https://sunnah.com/muslim:2159a" target="_blank">
+        Sahih Muslim 2159
+    </a>
+</div>
+        </div>
+    </div>
     </div>
 
 </div>
