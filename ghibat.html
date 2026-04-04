@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ghibat</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f7f8f5;
+    color: #2c2c2c;
+    line-height: 1.8;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 38px;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #6b7280;
+    margin-bottom: 30px;
+}
+
+.section {
+    margin-top: 40px;
+}
+
+.section h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #1f3d2b;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #e5e7eb;
+}
+
+.example {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-left: 10px;
+}
+
+.example2 {
+    margin-top: 18px;
+    padding-left: 10px;
+}
+
+
+.quote-box {
+    background: #eef5f0;
+    border-left: 4px solid #4c7c59;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+/* Quran style */
+.quran {
+     background: #fff5f7;      /* very light pink */
+    border: 1px solid #f0d6dc; /* soft pink border */
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+.arabic {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: right;
+    direction: rtl;
+    margin-bottom: 10px;
+    line-height: 2;
+}
+
+.arabic2 {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: right;
+    direction: rtl;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    line-height: 2;
+}
+
+.translation {
+    font-size: 15px;
+    color: #374151;
+}
+
+.translation2 {
+    font-size: 15px;
+    color: #374151;
+    margin-bottom: 20px;
+}
+
+/* Hadith style */
+.hadith {
+   background: #fffbea;      /* very light yellow */
+    border: 1px solid #f3e7b3; /* soft yellow border */
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+.reference {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 12.5px;
+    color: #777;
+    margin-top: 3px;
+    font-style: italic;
+}
+
+
+/* tips */
+.tips li {
+    margin-bottom: 7px;
+}
+
+.highlight {
+    font-size: 20px;
+    color: #4c7c59;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+}
+.lang-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #ffffff;
+    padding: 6px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    z-index: 999;
+}
+
+.lang-toggle button {
+    border: none;
+    background: transparent;
+    padding: 8px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+    color: #444;
+}
+
+.lang-toggle button:hover {
+    background: #f2f2f2;
+}
+
+/* Active button */
+.lang-toggle button.active {
+    background: #2e7d32;   /* nice calm green */
+    color: white;
+    font-weight: 500;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>غِيبَة</h1>
+    <div class="subtitle">Ghibah (Backbiting)</div>
+
+    <!-- Definition -->
+    <div class="section">
+        <h2>Definition</h2>
+        <div class="card">
+            Abu Huraira reported Allah's Messenger (ﷺ) as saying:
+Do you know what is backbiting? They (the Companions) said: Allah and His Messenger know best. Thereupon he (the Holy Prophet) said: Backbiting implies your talking about your brother in a manner which he does not like. It was said to him: What is your opinion about this that if I actually find (that failing) in my brother which I made a mention of? He said: If (that failing) is actually found (in him) what you assert, you in fact backbited him, and if that is not in him it is a slander.
+
+<div class="arabic">
+                عَنْ أَبِي هُرَيْرَةَ، أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم قَالَ ‏"‏ أَتَدْرُونَ مَا الْغِيبَةُ ‏"‏ ‏.‏ قَالُوا اللَّهُ وَرَسُولُهُ أَعْلَمُ ‏.‏ قَالَ ‏"‏ ذِكْرُكَ أَخَاكَ بِمَا يَكْرَهُ ‏"‏ ‏.‏ قِيلَ أَفَرَأَيْتَ إِنْ كَانَ فِي أَخِي مَا أَقُولُ قَالَ ‏"‏ إِنْ كَانَ فِيهِ مَا تَقُولُ فَقَدِ اغْتَبْتَهُ وَإِنْ لَمْ يَكُنْ فِيهِ فَقَدْ بَهَتَّهُ ‏"‏
+            </div>
+                      <div class="reference">
+    <a href="https://sunnah.com/muslim:2589" target="_blank">
+        Sahih Muslim 2589
+    </a>
+</div>
+
+        </div>
+    </div>
+
+    <!-- Common Practices -->
+    <div class="section">
+        <h2>Common Practices</h2>
+
+        <div class="card">
+            <b>1- Direct Backbiting (The Definition)</b>
+            <div class="example">
+                This is the most explicit form of Ghibah: mentioning a specific, hidden fault or personal trait of an absent person that they would dislike being shared. Whether it is a physical attribute, a religious shortcoming, or a private life event. It involves treating a person with kindness, smiles, and respect to their face, while secretly tallying and broadcasting their flaws in their absence.
+
+            </div>
+
+ <div class="arabic">
+               يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ ٱجْتَنِبُوا۟ كَثِيرًۭا مِّنَ ٱلظَّنِّ إِنَّ بَعْضَ ٱلظَّنِّ إِثْمٌۭ ۖ وَلَا تَجَسَّسُوا۟ وَلَا يَغْتَب بَّعْضُكُم بَعْضًا ۚ أَيُحِبُّ أَحَدُكُمْ أَن يَأْكُلَ لَحْمَ أَخِيهِ مَيْتًۭا فَكَرِهْتُمُوهُ ۚ وَٱتَّقُوا۟ ٱللَّهَ ۚ إِنَّ ٱللَّهَ تَوَّابٌۭ رَّحِيمٌۭ(12) 
+            </div>
+            <div class="translation">
+                O  believers! Avoid many suspicions, ˹for˺ indeed, some suspicions are sinful. And do not spy, nor backbite one another. Would any of you like to eat the flesh of their dead brother? You would despise that! And fear Allah. Surely Allah is ˹the˺ Accepter of Repentance, Most Merciful.
+            </div>
+<div class="reference">
+    <a href="https://quran.com/al-hujurat/12" target="_blank">
+        Al-Hujurat 49 : 12 (Click for Tafsir)
+    </a>
+</div>
+
+        </div>
+
+        <div class="card">
+            <b>2- Veiled Gossip (Concern & Comparison)</b>
+            <div class="example">
+               This involves framing backbiting as a positive or neutral emotion to mask the negativity. It includes the "Concerned" Narrative, where one discusses private trials under the guise of worry or pity, and Comparative Backbiting, where others' perceived failures are highlighted to subtly praise one’s own virtues.
+            </div>
+
+ <div class="arabic">
+                وَيْلٌۭ لِّكُلِّ هُمَزَةٍۢ لُّمَزَةٍ  (1)
+            </div>
+            <div class="translation">
+                Woe to every backbiter, slanderer,
+            </div>
+<div class="reference">
+    <a href="https://quran.com/al-humazah" target="_blank">
+        Surah Al-Humazah 104 : 1 (Click for Tafsir)
+    </a>
+</div>
+
+</div>
+
+        <div class="card">
+            <b>3- Belittling through Mockery & Gestures</b>
+            <div class="example">
+                Ghibah often hides in Humor and Non-Verbal cues. This includes sharing embarrassing anecdotes for a laugh or using "silent" communication—like eye-rolling, mimicking speech patterns, or hand gestures—to insult an absent person’s character or competence.
+            </div>
+
+ <div class="arabic">
+                ع عَنْ عَائِشَةَ، قَالَتْ قُلْتُ لِلنَّبِيِّ صلى الله عليه وسلم حَسْبُكَ مِنْ صَفِيَّةَ كَذَا وَكَذَا قَالَ غَيْرُ مُسَدَّدٍ تَعْنِي قَصِيرَةً ‏.‏ فَقَالَ ‏"‏ لَقَدْ قُلْتِ كَلِمَةً لَوْ مُزِجَتْ بِمَاءِ الْبَحْرِ لَمَزَجَتْهُ ‏"‏ ‏.‏ قَالَتْ وَحَكَيْتُ لَهُ إِنْسَانًا فَقَالَ ‏"‏ مَا أُحِبُّ أَنِّي حَكَيْتُ إِنْسَانًا وَأَنَّ لِي كَذَا وَكَذَا ‏"‏
+            </div>
+            <div class="translation">
+              Narrated Aisha, Ummul Mu'minin:
+I said to the Prophet (ﷺ): It is enough for you in Safiyyah that she is such and such (the other version than Musaddad's has:) meaning that she was short-statured. He replied; You have said a word which would change the sea if it were mixed in it. She said: I imitated a man before him (out of disgrace). He said: I do not like that I imitate anyone even if I should get such and such.
+            </div>
+            <div class="reference">
+    <a href="https://sunnah.com/abudawud:4875" target="_blank">
+        Sunan Abi Dawud 4875
+    </a>
+</div>
+
+        </div>
+
+<div class="card">
+            <b>4- Passive Participation (Listening & Validation)</b>
+            <div class="example">
+                Being a silent witness is a form of engagement. By nodding, asking follow-up questions like "Really?", or simply failing to change the subject, a listener validates and encourages the speaker. Ethical conduct suggests that "listening" is the fuel that allows backbiting to continue.
+            </div>
+
+<div class="arabic">
+                وَلَقَدْ خَلَقْنَا ٱلْإِنسَـٰنَ وَنَعْلَمُ مَا تُوَسْوِسُ بِهِۦ نَفْسُهُۥ ۖ وَنَحْنُ أَقْرَبُ إِلَيْهِ مِنْ حَبْلِ ٱلْوَرِيدِ (16) إِذْ يَتَلَقَّى ٱلْمُتَلَقِّيَانِ عَنِ ٱلْيَمِينِ وَعَنِ ٱلشِّمَالِ قَعِيدٌۭ (17) مَّا يَلْفِظُ مِن قَوْلٍ إِلَّا لَدَيْهِ رَقِيبٌ عَتِيدٌۭ (18)
+            </div>
+            <div class="translation">
+                Indeed, ˹it is˺ We ˹Who˺ created humankind and ˹fully˺ know what their souls whisper to them, and We are closer to them than ˹their˺ jugular vein. As the two recording-angels—˹one˺ sitting to the right, and ˹the other to˺ the left—note ˹everything˺. Not a word does a person utter without having a ˹vigilant˺ observer ready ˹to write it down˺.
+            </div>
+<div class="reference">
+    <a href="https://quran.com/50?startingVerse=16" target="_blank">
+        Surah Qaf 50 : 16 (Click for Tafsir)
+    </a>
+</div>
+
+        </div>
+
+    <!-- Why Dangerous -->
+    <div class="section">
+        <h2>Why Is It Dangerous?</h2>
+
+        <div class="quote-box">
+            <b>Spiritual harm:</b> 
+<ul class="tips">
+ <li>Darkens the Heart: Each word of backbiting acts as a "black spot," hardening the soul and making it resistant to divine guidance and empathy.</li>
+<li>Weakens Īmān: Betraying the honor of others erodes personal integrity, creating a hollow and distant relationship with the Creator.
+</li>
+<li>Reduces Sweetness of Worship: A tongue used for gossip loses the purity required to taste the genuine peace and joy in prayer and remembrance.</li>
+</ul>
+
+            <b>Moral Hypocrisy & Psychological Cynicism:</b> It turns the speaker into a "two-faced" individual, eroding personal integrity by offering a fake smile while hiding a poisonous tongue. Constantly focusing on the "dirty laundry" of others trains the brain to be hyper-critical and negative. This focus on others' failures prevents the speaker from seeing beauty and goodness, leading to a miserable and cynical worldview that ultimately damages their own mental peace.
+<br>
+            <b>The Death of Social Trust:</b> Backbiting acts as a "social poison" that destroys the fabric of a community. It breeds paranoia and suspicion; when you hear someone gossip to you, you instinctively realize they will eventually gossip about you, making genuine vulnerability impossible. By broadcasting a person's flaws, you contaminate the community's perception of them, unfairly sabotaging their relationships and opportunities without them ever having a chance to defend themselves.
+
+        </div>
+    </div>
+
+    <!-- Tips -->
+    <div class="section">
+        <h2>How to leave this sin?</h2>
+
+        <div class="card">
+            <div class="example2">
+                <span class="highlight">Three-second delay</span> – The simplest way to stop is to implement a three-second delay before speaking about anyone who isn't in the room. Ask yourself:
+            </div>
+<ul class="tips">
+ <li>"Would I say this if they were sitting right next to me?" If the answer is "No," choose silence. Silence is never a sin, but speech often is</li>
+                <li>Every time you feel the urge to mention someone's fault, immediately force yourself to think of two of your own faults that you wouldn't want others to discuss.
+</li>
+</ul>
+ <div class="arabic2">
+              الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ، وَالْمُهَاجِرُ مَنْ هَجَرَ مَا نَهَى اللَّهُ عَنْهُ 
+            </div>
+            <div class="translation">
+              A Muslim is the one who avoids harming Muslims with his tongue and hands. And a Muhajir (emigrant) is the one who gives up (abandons) all what Allah has forbidden.
+            
+
+    <a href="https://sunnah.com/bukhari:10" target="_blank">
+         (Sahih al-Bukhari 10)
+    </a>
+</div>
+
+
+               <div class="example2">
+                <span class="highlight">Master the "Positive Pivot"</span> – When a conversation starts turning toward someone's flaws, you don't always have to be confrontational. Use a Pivot Statement: 
+            </div>
+<ul class="tips">
+ <li>The Deflection: "I’m not sure about that, but did you hear about [New Topic]?"</li>
+                <li>The Shield: "They aren't here to defend themselves, so I'd rather not judge."
+</li>
+ <li>The Counter-Praise: If someone mentions a flaw, intentionally mention one of that person's strengths to balance the energy.
+</li>
+</ul>
+ <div class="arabic2">
+                وَمَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ‏
+            </div>
+            <div class="translation">
+             And whoever believes in Allah and the Last Day, should talk what is good or keep quiet.
+    <a href="https://sunnah.com/bukhari:6138" target="_blank">
+        (Sahih al-Bukhari 6138)
+    </a>
+</div>
+                <div class="example2">
+                <span class="highlight">Curate Your Circle</span> – Backbiting is often a group activity. 
+            </div>
+<ul class="tips">
+ <li>Set Boundaries: Explicitly tell your close circle, "I’m trying to cut back on talking about people.</li>
+                <li>Distance: If the group refuses to change, you may need to limit your time with them to protect your own integrity.
+</li>
+ </ul>
+<div class="arabic2">
+              لَمَّا عُرِجَ بِي مَرَرْتُ بِقَوْمٍ لَهُمْ أَظْفَارٌ مِنْ نُحَاسٍ يَخْمِشُونَ وُجُوهَهُمْ وَصُدُورَهُمْ فَقُلْتُ مَنْ هَؤُلاَءِ يَا جِبْرِيلُ قَالَ هَؤُلاَءِ الَّذِينَ يَأْكُلُونَ لُحُومَ النَّاسِ وَيَقَعُونَ فِي أَعْرَاضِهِمْ
+            </div>
+            <div class="translation">
+              When I was taken up to heaven I passed by people who had nails of copper and were scratching their faces and their breasts. I said: Who are these people, Gabriel? He replied: They are those who were given to back biting and who aspersed people's honour.
+
+
+    <a href="https://sunnah.com/abudawud:4878" target="_blank">
+        (Sunan Abi Dawud 4878)
+    </a>
+</div>
+
+
+               <div class="example2">
+                <span class="highlight">Remember Allah and Qur’an and Hadith</span> – Fear from Allah and dislikes of his Rasool. Understand the impurity and dirtiness of this hypocrisy. Remember it’s punishment and relevant ayats and sayings of the Prophet ﷺ condemning Ghibah. Whenever a desire or thought arises to do backbiting, recite these ayats and hadith with understanding; this trains your mind, reminds your heart of Allah’s commands, and strengthens your fear of sin. 
+            </div>
+
+<div class="arabic">
+                 إِنَّ شَرَّ النَّاسِ ذُو الْوَجْهَيْنِ الَّذِي يَأْتِي هَؤُلاَءِ بِوَجْهٍ وَهَؤُلاَءِ بِوَجْهٍ
+            </div>
+            <div class="translation">
+           The worst amongst people is one with the double face. He comes to some people with one face and to others with the other face.
+    <a href="https://sunnah.com/muslim:2526d" target="_blank">
+       (Sahih Muslim 2526)
+    </a>
+</div>
+
+        </div>
+    </div>
+
+<!-- Quran -->
+    <div class="section">
+        <h2>Qur’an</h2>
+
+        <div class="quran">
+            <div class="arabic">
+               يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ ٱجْتَنِبُوا۟ كَثِيرًۭا مِّنَ ٱلظَّنِّ إِنَّ بَعْضَ ٱلظَّنِّ إِثْمٌۭ ۖ وَلَا تَجَسَّسُوا۟ وَلَا يَغْتَب بَّعْضُكُم بَعْضًا ۚ أَيُحِبُّ أَحَدُكُمْ أَن يَأْكُلَ لَحْمَ أَخِيهِ مَيْتًۭا فَكَرِهْتُمُوهُ ۚ وَٱتَّقُوا۟ ٱللَّهَ ۚ إِنَّ ٱللَّهَ تَوَّابٌۭ رَّحِيمٌۭ (12) 
+            </div>
+            <div class="translation">
+               O  believers! Avoid many suspicions, ˹for˺ indeed, some suspicions are sinful. And do not spy, nor backbite one another. Would any of you like to eat the flesh of their dead brother? You would despise that! And fear Allah. Surely Allah is ˹the˺ Accepter of Repentance, Most Merciful.
+            </div>
+<div class="reference">
+    <a href="https://quran.com/al-hujurat/12" target="_blank">
+        Al-Hujurat 49 : 12 (Click for Tafsir)
+    </a>
+</div>
+        </div>
+
+        <div class="quran">
+            <div class="arabic">
+                وَيْلٌۭ لِّكُلِّ هُمَزَةٍۢ لُّمَزَةٍ  (1)
+            </div>
+            <div class="translation">
+                Woe to every backbiter, slanderer,
+            </div>
+<div class="reference">
+    <a href="https://quran.com/al-humazah" target="_blank">
+        Surah Al-Humazah 104 : 1 (Click for Tafsir)
+    </a>
+</div>
+
+        </div>
+
+<div class="quran">
+            <div class="arabic">
+                وَلَقَدْ خَلَقْنَا ٱلْإِنسَـٰنَ وَنَعْلَمُ مَا تُوَسْوِسُ بِهِۦ نَفْسُهُۥ ۖ وَنَحْنُ أَقْرَبُ إِلَيْهِ مِنْ حَبْلِ ٱلْوَرِيدِ (16) إِذْ يَتَلَقَّى ٱلْمُتَلَقِّيَانِ عَنِ ٱلْيَمِينِ وَعَنِ ٱلشِّمَالِ قَعِيدٌۭ (17) مَّا يَلْفِظُ مِن قَوْلٍ إِلَّا لَدَيْهِ رَقِيبٌ عَتِيدٌۭ (18)
+            </div>
+            <div class="translation">
+                Indeed, ˹it is˺ We ˹Who˺ created humankind and ˹fully˺ know what their souls whisper to them, and We are closer to them than ˹their˺ jugular vein. As the two recording-angels—˹one˺ sitting to the right, and ˹the other to˺ the left—note ˹everything˺. Not a word does a person utter without having a ˹vigilant˺ observer ready ˹to write it down˺.
+            </div>
+<div class="reference">
+    <a href="https://quran.com/50?startingVerse=16" target="_blank">
+        Surah Qaf 50 : 16 (Click for Tafsir)
+    </a>
+</div>
+        </div>
+
+<div class="quran">
+            <div class="arabic">
+                وَلَا تَقْفُ مَا لَيْسَ لَكَ بِهِۦ عِلْمٌ ۚ إِنَّ ٱلسَّمْعَ وَٱلْبَصَرَ وَٱلْفُؤَادَ كُلُّ أُو۟لَـٰٓئِكَ كَانَ عَنْهُ مَسْـُٔولًۭا  (36)
+            </div>
+            <div class="translation">
+                Do not follow what you have no ˹sure˺ knowledge of. Indeed, all will be called to account for ˹their˺ hearing, sight, and intellect.
+            </div>
+<div class="reference">
+    <a href="https://quran.com/al-isra/36" target="_blank">
+        Surah Bani Israel 17 : 36 (Click for Tafsir)
+    </a>
+</div>
+
+        </div>
+    </div>
+
+    <!-- Hadith -->
+    <div class="section">
+        <h2>Hadith</h2>
+
+        <div class="hadith">
+            <div class="arabic">
+                عَنْ أَبِي هُرَيْرَةَ، أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم قَالَ ‏"‏ أَتَدْرُونَ مَا الْغِيبَةُ ‏"‏ ‏.‏ قَالُوا اللَّهُ وَرَسُولُهُ أَعْلَمُ ‏.‏ قَالَ ‏"‏ ذِكْرُكَ أَخَاكَ بِمَا يَكْرَهُ ‏"‏ ‏.‏ قِيلَ أَفَرَأَيْتَ إِنْ كَانَ فِي أَخِي مَا أَقُولُ قَالَ ‏"‏ إِنْ كَانَ فِيهِ مَا تَقُولُ فَقَدِ اغْتَبْتَهُ وَإِنْ لَمْ يَكُنْ فِيهِ فَقَدْ بَهَتَّهُ ‏"‏
+            </div>
+            <div class="translation">
+               Abu Huraira reported Allah's Messenger (ﷺ) as saying:
+Do you know what is backbiting? They (the Companions) said: Allah and His Messenger know best. Thereupon he (the Holy Prophet) said: Backbiting implies your talking about your brother in a manner which he does not like. It was said to him: What is your opinion about this that if I actually find (that failing) in my brother which I made a mention of? He said: If (that failing) is actually found (in him) what you assert, you in fact backbited him, and if that is not in him it is a slande.
+            </div>
+            <div class="reference">
+    <a href="https://sunnah.com/muslim:2589" target="_blank">
+        Sahih Muslim 2589
+    </a>
+</div>
+        </div>
+
+ <!-- Hadith -->
+    <div class="section">
+        <div class="hadith">
+            <div class="arabic">
+              لَمَّا عُرِجَ بِي مَرَرْتُ بِقَوْمٍ لَهُمْ أَظْفَارٌ مِنْ نُحَاسٍ يَخْمِشُونَ وُجُوهَهُمْ وَصُدُورَهُمْ فَقُلْتُ مَنْ هَؤُلاَءِ يَا جِبْرِيلُ قَالَ هَؤُلاَءِ الَّذِينَ يَأْكُلُونَ لُحُومَ النَّاسِ وَيَقَعُونَ فِي أَعْرَاضِهِمْ
+            </div>
+            <div class="translation">
+              When I was taken up to heaven I passed by people who had nails of copper and were scratching their faces and their breasts. I said: Who are these people, Gabriel? He replied: They are those who were given to back biting and who aspersed people's honour.
+            </div>
+            <div class="reference">
+    <a href="https://sunnah.com/abudawud:4878" target="_blank">
+        Sunan Abi Dawud 4878
+    </a>
+</div>
+        </div>
+<div class="hadith">
+            <div class="arabic">
+                ع عَنْ عَائِشَةَ، قَالَتْ قُلْتُ لِلنَّبِيِّ صلى الله عليه وسلم حَسْبُكَ مِنْ صَفِيَّةَ كَذَا وَكَذَا قَالَ غَيْرُ مُسَدَّدٍ تَعْنِي قَصِيرَةً ‏.‏ فَقَالَ ‏"‏ لَقَدْ قُلْتِ كَلِمَةً لَوْ مُزِجَتْ بِمَاءِ الْبَحْرِ لَمَزَجَتْهُ ‏"‏ ‏.‏ قَالَتْ وَحَكَيْتُ لَهُ إِنْسَانًا فَقَالَ ‏"‏ مَا أُحِبُّ أَنِّي حَكَيْتُ إِنْسَانًا وَأَنَّ لِي كَذَا وَكَذَا ‏"‏
+            </div>
+            <div class="translation">
+              Narrated Aisha, Ummul Mu'minin:
+I said to the Prophet (ﷺ): It is enough for you in Safiyyah that she is such and such (the other version than Musaddad's has:) meaning that she was short-statured. He replied; You have said a word which would change the sea if it were mixed in it. She said: I imitated a man before him (out of disgrace). He said: I do not like that I imitate anyone even if I should get such and such.
+            </div>
+            <div class="reference">
+    <a href="https://sunnah.com/abudawud:4875" target="_blank">
+        Sunan Abi Dawud 4875
+    </a>
+</div>
+        </div>
+
+<div class="hadith">
+            <div class="arabic">
+                 إِنَّ شَرَّ النَّاسِ ذُو الْوَجْهَيْنِ الَّذِي يَأْتِي هَؤُلاَءِ بِوَجْهٍ وَهَؤُلاَءِ بِوَجْهٍ
+            </div>
+            <div class="translation">
+           The worst amongst people is one with the double face. He comes to some people with one face and to others with the other face.
+            </div>
+            <div class="reference">
+    <a href="https://sunnah.com/muslim:2526d" target="_blank">
+       Sahih Muslim 2526
+    </a>
+</div>
+        </div>
+
+ <!-- Hadith -->
+    <div class="section">
+        <div class="hadith">
+            <div class="arabic">
+              الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ، وَالْمُهَاجِرُ مَنْ هَجَرَ مَا نَهَى اللَّهُ عَنْهُ 
+            </div>
+            <div class="translation">
+              A Muslim is the one who avoids harming Muslims with his tongue and hands. And a Muhajir (emigrant) is the one who gives up (abandons) all what Allah has forbidden.
+            </div>
+            <div class="reference">
+    <a href="https://sunnah.com/bukhari:10" target="_blank">
+         Sahih al-Bukhari 10
+    </a>
+</div>
+        </div>
+
+<div class="hadith">
+            <div class="arabic">
+                وَمَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ‏
+            </div>
+            <div class="translation">
+             and whoever believes in Allah and the Last Day, should talk what is good or keep quiet.
+            </div>
+            <div class="reference">
+    <a href="https://sunnah.com/bukhari:6138" target="_blank">
+        Sahih al-Bukhari 6138
+    </a>
+</div>
+        </div>
+
+<div class="hadith">
+            <div class="arabic">
+                لا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ
+            </div>
+            <div class="translation">
+            None of you will have faith till he wishes for his (Muslim) brother what he likes for himself.
+            </div>
+            <div class="reference">
+    <a href="https://sunnah.com/bukhari:13" target="_blank">
+      Sahih al-Bukhari 13
+    </a>
+</div>
+        </div>
+
+<div class="hadith">
+            <div class="arabic">
+                مَنْ رَدَّ عَنْ عِرْضِ أَخِيهِ رَدَّ اللَّهُ عَنْ وَجْهِهِ النَّارَ يَوْمَ الْقِيَامَةِ
+            </div>
+            <div class="translation">
+            Whoever protects his brother's honor, Allah protects his face from the Fire on the Day of Resurrection..
+            </div>
+            <div class="reference">
+    <a href="https://sunnah.com/tirmidhi:1931" target="_blank">
+      Jami` at-Tirmidhi 1931
+    </a>
+</div>
+        </div>
+
+
+    </div>
+
+</div>
+
+</body>
+</html>
