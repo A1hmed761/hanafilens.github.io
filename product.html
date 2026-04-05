@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Arabic and Persian Vocabulary</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 * {
   margin: 0;
@@ -32,7 +33,7 @@ body {
   margin-top: 60px;
   display: flex;
   flex-direction: column;   /* Arrange cards vertically */
-  gap: 60px;
+  gap: 30px;                /* Reduced gap for better mobile flow */
   width: 100%;
   max-width: 400px;         /* Keeps the column nicely centered */
   align-items: center;
@@ -92,43 +93,28 @@ body {
   background: #b7bfd8;
   pointer-events: none;
 }
-
   
 </style>
 </head>
 <body>
+
+<h1 class="title">Learning Resources</h1>
   
 <div class="container">
 
   <div class="card">
     <h3>Nouns</h3>
     <p>700+ Nouns with Images</p>
-    <a href="https://noun-a42d5.web.app/arabic-learning.html" class="btn" id="productBtn">Explore Product</a>
-</div>
-<script>
-const productBtn = document.getElementById("productBtn");
-
-// First try URL param
-const params = new URLSearchParams(window.location.search);
-let ref = params.get("ref");
-
-// Fallback to localStorage
-if (!ref) {
-  ref = localStorage.getItem("affiliate");
-}
-
-if (ref) {
-  productBtn.href = "https://noun-a42d5.web.app/arabic-learning.html?ref=" + ref;
-}
-</script>
-
-  <div class="card">
-    <h3>Verbs</h3>
-    <p><em>Under Development...</em></p>
-    <a class="btn disabled">Coming Soon</a>
+    <a href="https://noun-a42d5.web.app/arabic-learning.html" class="btn aff-link">Explore Nouns</a>
   </div>
 
-  <div class="card">
+  <div class="card" style="border-top-color: #2ecc71;">
+    <h3>Verbs</h3>
+    <p>500 Essential Verbs in 5 Tiers</p>
+    <a href="https://noun-a42d5.web.app/fael.html" class="btn aff-link">Explore Verbs</a>
+  </div>
+
+  <div class="card" style="border-top-color: #95a5a6;">
     <h3>Adjectives</h3>
     <p><em>Coming soon...</em></p>
     <a class="btn disabled">Coming Soon</a>
@@ -136,6 +122,28 @@ if (ref) {
 
 </div>
 
+<script>
+// Handle Affiliate IDs for all active product links
+const affLinks = document.querySelectorAll(".aff-link");
+
+// 1. Check URL params
+const params = new URLSearchParams(window.location.search);
+let ref = params.get("ref");
+
+// 2. Fallback to localStorage
+if (!ref) {
+  ref = localStorage.getItem("affiliate");
+}
+
+// 3. Apply to all links if ref exists
+if (ref) {
+  affLinks.forEach(link => {
+    const currentUrl = new URL(link.href);
+    currentUrl.searchParams.set("ref", ref);
+    link.href = currentUrl.toString();
+  });
+}
+</script>
+
 </body>
 </html>
-
