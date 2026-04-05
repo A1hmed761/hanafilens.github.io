@@ -460,6 +460,78 @@ button {
 
 }
 
+/* Container for all filters */
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+/* Base style for both selects and input */
+.filter-group select, 
+.filter-group input {
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  font-size: 0.95rem;
+  color: #334155;
+  outline: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  font-family: 'Cairo', sans-serif;
+}
+
+/* Hover & Focus states */
+.filter-group select:hover, 
+.filter-group input:hover {
+  border-color: #cbd5e1;
+}
+
+.filter-group select:focus, 
+.filter-group input:focus {
+  border-color: #4a6cf7;
+  box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.15);
+}
+
+/* Search Input specific width */
+#searchInput {
+  flex: 2; /* Makes search wider than dropdowns */
+  min-width: 250px;
+}
+
+/* Select specific styling */
+.filter-group select {
+  flex: 1;
+  min-width: 160px;
+  cursor: pointer;
+  appearance: none; /* Removes default OS arrow */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .filter-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  #searchInput, 
+  .filter-group select {
+    width: 100%;
+    flex: none;
+  }
+}
+
 
 </style>
 
@@ -496,63 +568,57 @@ button {
   </select>
 </div>
 
-<h4>Click on the Card to see it's Plural and Sentences</h4>
+<h4>Click on the Card to see Present and Past Gardaan of the verb, it's sentences and further detail</h4>
 
-<div class="lang-row">
-<div class="lang-group" id="group-ar">
-<button class="main-btn" id="btnShowImages">Images</button>
- </div>
-<div class="lang-group" id="group-urd">
-<button class="main-btn" id="btnHideImages">Without Images</button>
- </div>
-</div>
 
-<div class="buttons">
-    <button data-target="home">General Home & Rooms</button>
-    <button data-target="furniture">Furniture </button>
-    <button data-target="items">Household Items</button>
-    <button data-target="kitchen">Kitchen Objects</button>
-    <button data-target="bathroom">Bathroom & Cleaning</button>
+
+<div class="filter-group">
+  <div class="search-wrapper">
+    <input type="text" id="searchInput" placeholder="Search Arabic / Persian / English / Urdu..." oninput="searchVerbs()">
   </div>
 
-<select id="formFilter" onchange="filterVerbs()">
-  <option value="">All Arabic Forms</option>
-  <option value="I">Form I</option>
-  <option value="II">Form II</option>
-  <option value="III">Form III</option>
-  <option value="IV">Form IV</option>
-  <option value="V">Form V</option>
-  <option value="VI">Form VI</option>
-  <option value="VII">Form VII</option>
-  <option value="VIII">Form VIII</option>
-  <option value="IX">Form IX</option>
-  <option value="X">Form X</option>
+ <select id="formFilter" onchange="filterVerbs()">
+  <option value="">جميع الأوزان (All Forms)</option>
+  <option value="I">فَعَلَ</option>
+  <option value="II">فَعَّلَ - تفعيل )</option>
+  <option value="III">فَاعَلَ - مفاعلة</option>
+  <option value="IV">أَفْعَلَ - إفعال</option>
+  <option value="V">تَفَعَّلَ - تفعّل</option>
+  <option value="VI">تَفَاعَلَ - تفاعل</option>
+  <option value="VII">انْفَعَلَ - انفعال</option>
+  <option value="VIII">افْتَعَلَ - افتعال</option>
+  <option value="IX">افْعَلَّ - افعلال</option>
+  <option value="X">اسْتَفْعَلَ - استفعال</option>
 </select>
 
-<select id="weakFilter" onchange="filterVerbs()">
-  <option value="">All Weakness Types</option>
-  <option value="sound">Sound</option>
-  <option value="hollow">Hollow</option>
-  <option value="defective">Defective</option>
-  <option value="assimilated">Assimilated</option>
-  <option value="doubled">Geminated</option>
-  <option value="hamzated">Hamzated</option>
+  <select id="weakFilter" onchange="filterVerbs()">
+  <option value="">هفت اقسام (All Types)</option>
+  <option value="sound">صحيح</option>
+  <option value="hollow">أجوف </option>
+  <option value="defective">ناقص </option>
+  <option value="assimilated">مثال </option>
+  <option value="doubled">مضاعف </option>
+  <option value="hamzated">مهموز </option>
+  <option value="lafif">لفيف </option>
 </select>
 
-<select id="persianTypeFilter" onchange="filterVerbs()">
-  <option value="">All Persian Types</option>
-  <option value="simple">Simple</option>
-  <option value="compound">Compound</option>
-  <option value="light">Light</option>
-</select>
-
-<input type="text" id="searchInput" placeholder="Search Arabic / Persian / English / Urdu..." oninput="searchVerbs()">
+  <select id="persianTypeFilter" onchange="filterVerbs()">
+    <option value="">All Persian Types</option>
+    <option value="simple">Simple</option>
+    <option value="compound">Compound</option>
+    <option value="light">Light</option>
+  </select>
+</div>
 
 </aside>
 
-<h2 id="home">General Home &amp; Rooms</h1>
+<h2 id="verb">Verbs: Tier 1</h1>
 <section aria-label="General Home &amp; Rooms" class="grid">
-<figure class="verb-card" onclick="openVerb('faala')" data-ar="كتب" data-per="نوشتن" data-en="write" data-urd="لکھنا" data-root="ك-ت-ب" data-form="I" data-weak="sound" data-persian="simple">
+<figure class="verb-card" onclick="openVerb('faala')" data-ar="فعل" data-per=" کردن" data-en="go" data-urd="کرنا" data-root="ف-ع-ل" data-form="I" data-weak="sound" data-persian="simple">
+  <figcaption class="back"><div class="ar">فَعَلَ</div><div class="per"> کردن</div><div class="en">to do</div><div class="urd">کرنا</div></figcaption>
+</figure>
+
+<figure class="verb-card" onclick="openVerb('kataba')" data-ar="كتب" data-per="نوشتن" data-en="write" data-urd="لکھنا" data-root="ك-ت-ب" data-form="I" data-weak="sound" data-persian="simple">
   <figcaption class="back"><div class="ar">كَتَبَ</div><div class="per">نوشتن</div><div class="en">to write</div><div class="urd">لکھنا</div></figcaption>
 </figure>
 
@@ -664,7 +730,7 @@ button {
   <figcaption class="back"><div class="ar">سَمِعَ</div><div class="per">شنیدن</div><div class="en">to hear</div><div class="urd">سننا</div></figcaption>
 </figure>
 
-<figure class="verb-card" onclick="openVerb('istama-a')" data-ar="استمع" data-per="گوش دادن" data-en="listen" data-urd="سننا" data-root="س-م-ع" data-form="VIII" data-weak="sound" data-persian="compound">
+<figure class="verb-card" onclick="openVerb('istama_a')" data-ar="استمع" data-per="گوش دادن" data-en="listen" data-urd="سننا" data-root="س-م-ع" data-form="VIII" data-weak="sound" data-persian="compound">
   <figcaption class="back"><div class="ar">اِسْتَمَعَ</div><div class="per">گوش دادن</div><div class="en">to listen</div><div class="urd">سننا (توجہ سے)</div></figcaption>
 </figure>
 
@@ -672,7 +738,7 @@ button {
   <figcaption class="back"><div class="ar">عَمِلَ</div><div class="per">کار کردن</div><div class="en">to work</div><div class="urd">کام کرنا</div></figcaption>
 </figure>
 
-<figure class="verb-card" onclick="openVerb('wada-a')" data-ar="وضع" data-per="گذاشتن" data-en="put" data-urd="رکھنا" data-root="و-ض-ع" data-form="I" data-weak="assimilated" data-persian="simple">
+<figure class="verb-card" onclick="openVerb('wada_a')" data-ar="وضع" data-per="گذاشتن" data-en="put" data-urd="رکھنا" data-root="و-ض-ع" data-form="I" data-weak="assimilated" data-persian="simple">
   <figcaption class="back"><div class="ar">وَضَعَ</div><div class="per">گذاشتن</div><div class="en">to put</div><div class="urd">رکھنا</div></figcaption>
 </figure>
 
@@ -700,7 +766,7 @@ button {
   <figcaption class="back"><div class="ar">أَغْلَقَ</div><div class="per">بستن</div><div class="en">to close</div><div class="urd">بند کرنا</div></figcaption>
 </figure>
 
-<figure class="verb-card" onclick="openVerb('qada_drive')" data-ar="قاد" data-per="رانندگی کردن" data-en="drive" data-urd="گاڑی چلانا" data-root="ق-و-د" data-form="I" data-weak="hollow" data-persian="compound">
+<figure class="verb-card" onclick="openVerb('qada')" data-ar="قاد" data-per="رانندگی کردن" data-en="drive" data-urd="گاڑی چلانا" data-root="ق-و-د" data-form="I" data-weak="hollow" data-persian="compound">
   <figcaption class="back"><div class="ar">قَادَ</div><div class="per">رانندگی کردن</div><div class="en">to drive</div><div class="urd">گاڑی چلانا</div></figcaption>
 </figure>
 
@@ -792,7 +858,7 @@ button {
   <figcaption class="back"><div class="ar">صَلَّى</div><div class="per">نماز خواندن</div><div class="en">to pray</div><div class="urd">دعا کرنا</div></figcaption>
 </figure>
 
-<figure class="verb-card" onclick="openVerb('la-iba')" data-ar="لعب" data-per="بازی کردن" data-en="play" data-urd="کھیلنا" data-root="ل-ع-ب" data-form="I" data-weak="sound" data-persian="compound">
+<figure class="verb-card" onclick="openVerb('la_iba')" data-ar="لعب" data-per="بازی کردن" data-en="play" data-urd="کھیلنا" data-root="ل-ع-ب" data-form="I" data-weak="sound" data-persian="compound">
   <figcaption class="back"><div class="ar">لَعِبَ</div><div class="per">بازی کردن</div><div class="en">to play</div><div class="urd">کھیلنا</div></figcaption>
 </figure>
 
@@ -816,7 +882,7 @@ button {
   <figcaption class="back"><div class="ar">رَسَمَ</div><div class="per">کشیدن</div><div class="en">to draw</div><div class="urd">کھینچنا / ڈرائنگ کرنا</div></figcaption>
 </figure>
 
-<figure class="verb-card" onclick="openVerb('i-tadhara')" data-ar="اعتذر" data-per="عذرخواهی کردن" data-en="apologize" data-urd="معافی مانگنا" data-root="ع-ذ-ر" data-form="VIII" data-weak="sound" data-persian="compound">
+<figure class="verb-card" onclick="openVerb('i_tadhara')" data-ar="اعتذر" data-per="عذرخواهی کردن" data-en="apologize" data-urd="معافی مانگنا" data-root="ع-ذ-ر" data-form="VIII" data-weak="sound" data-persian="compound">
   <figcaption class="back"><div class="ar">اِعْتَذَرَ</div><div class="per">عذرخواهی کردن</div><div class="en">to apologize</div><div class="urd">معافی مانگنا</div></figcaption>
 </figure>
 
@@ -864,7 +930,7 @@ button {
   <figcaption class="back"><div class="ar">وَجَبَ</div><div class="per">باید بودن</div><div class="en">must/to be necessary</div><div class="urd">ضروری ہونا</div></figcaption>
 </figure>
 
-<figure class="verb-card" onclick="openVerb('ata_give')" data-ar="أعطى" data-per="دادن" data-en="give" data-urd="دینا" data-root="ع-ط-و" data-form="IV" data-weak="defective" data-persian="simple">
+<figure class="verb-card" onclick="openVerb('ata-give')" data-ar="أعطى" data-per="دادن" data-en="give" data-urd="دینا" data-root="ع-ط-و" data-form="IV" data-weak="defective" data-persian="simple">
   <figcaption class="back"><div class="ar">أَعْطَى</div><div class="per">دادن</div><div class="en">to give</div><div class="urd">دینا</div></figcaption>
 </figure>
 
@@ -1165,32 +1231,23 @@ rowSelector.addEventListener("change", () => {
 
 
 /* ------------------------------
-   Sidebar Toggle
+    Smart Verb Opener
 ------------------------------ */
-document.getElementById('toggleSidebar').onclick = () => {
-  const sidebar = document.getElementById('sidebar');
-  const open = sidebar.classList.toggle('open');
-  sidebar.setAttribute('aria-hidden', (!open).toString());
-};
+function openVerb(id) {
+    const isUrdu = document.body.classList.contains('show-urd');
+    const isPersian = document.body.classList.contains('show-per');
 
-
-
-// Helper function to swap button text
-function swapButtons(mainBtn, subBtn) {
-  let mainText = mainBtn.innerText.replace("▾", "").trim();
-  let subText = subBtn.innerText.trim();
-
-  // Swap values
-  mainBtn.innerHTML = `${subText} <span class="arrow">▾</span>`;
-  subBtn.innerText = mainText;
+    if (isPersian) {
+        // Redirect to Persian page
+        window.location.href = `under.html?id=${id}`;
+    } else if (isUrdu) {
+        // Redirect to Urdu page
+        window.location.href = `verb2.html?id=${id}`;
+    } else {
+        // Redirect to Default English page
+        window.location.href = `verb.html?id=${id}`;
+    }
 }
-
-// Dropdown opening only
-document.querySelectorAll('.main-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    btn.classList.toggle('open');
-  });
-});
 
 // Urdu <-> English
 document.getElementById('btn-urd-sub').addEventListener('click', () => {
@@ -1216,39 +1273,58 @@ document.getElementById('btn-ar-sub').addEventListener('click', () => {
   main.classList.remove('open'); // close dropdown
 });
 
-// Select all buttons
-const buttons = document.querySelectorAll('button');
 
-buttons.forEach(button => {
+/* ------------------------------
+    Sidebar Toggle
+------------------------------ */
+document.getElementById('toggleSidebar').onclick = () => {
+  const sidebar = document.getElementById('sidebar');
+  const open = sidebar.classList.toggle('open');
+  sidebar.setAttribute('aria-hidden', (!open).toString());
+};
+
+// Helper function to swap button text
+function swapButtons(mainBtn, subBtn) {
+  let mainText = mainBtn.innerText.replace("▾", "").trim();
+  let subText = subBtn.innerText.trim();
+
+  mainBtn.innerHTML = `${subText} <span class="arrow">▾</span>`;
+  subBtn.innerText = mainText;
+}
+
+// Dropdown opening only
+document.querySelectorAll('.main-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('open');
+  });
+});
+
+
+// Select all buttons for smooth scroll
+const scrollButtons = document.querySelectorAll('button[data-target]');
+scrollButtons.forEach(button => {
   button.addEventListener('click', () => {
     const targetId = button.getAttribute('data-target');
     const targetElement = document.getElementById(targetId);
-    
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: 'smooth' });
     }
   });
 });
 
-function openVerb(id) {
-    window.location.href = `verb.html?id=${id}`;
-}
-
 // Start hidden mode
 document.body.classList.add("hide-images");
 
-// BUTTON: Show Images
+// Image Toggle Buttons
 document.getElementById("btnShowImages").addEventListener("click", () => {
     document.body.classList.remove("hide-images");
     document.body.classList.add("show-images");
 });
 
-// BUTTON: Hide Images
 document.getElementById("btnHideImages").addEventListener("click", () => {
     document.body.classList.remove("show-images");
     document.body.classList.add("hide-images");
 });
-
 function filterVerbs() {
 
   const form = document.getElementById("formFilter").value;
