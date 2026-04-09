@@ -7,118 +7,100 @@
 
 <style>
   body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #e8fdf5, #f5f7fa);
+    padding: 0;
   }
 
-  .container {
-    max-width: 650px;
-    margin: 60px auto;
-    background: #ffffff;
-    padding: 40px 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  .box {
+    max-width: 500px;
+    margin: 80px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
     text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   }
 
   h1 {
     margin-bottom: 10px;
-    font-size: 28px;
   }
 
-  .subtitle {
-    color: #666;
-    margin-bottom: 30px;
-  }
-
-  .contact-card {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .btn {
-    display: block;
-    padding: 15px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
-    transition: 0.3s;
-  }
-
-  /* WhatsApp Button */
-  .whatsapp {
-    background: linear-gradient(135deg, #25D366, #1ebe5d);
-    color: white;
-    box-shadow: 0 5px 15px rgba(37,211,102,0.4);
-  }
-
-  .whatsapp:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(37,211,102,0.6);
-  }
-
-  /* Email Button */
-  .email {
-    background: #f1f3f5;
-    color: #333;
-    border: 1px solid #ddd;
-  }
-
-  .email:hover {
-    background: #e2e6ea;
-    transform: translateY(-2px);
-  }
-
-  .note {
-    margin-top: 25px;
-    font-size: 14px;
+  p {
     color: #555;
   }
 
-  .highlight {
-    color: #25D366;
+  a.button {
+    display: block;
+    margin: 15px 0;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 6px;
     font-weight: bold;
   }
 
-  .footer {
+  .whatsapp {
+    background: #25D366;
+    color: white;
+  }
+
+  .email {
+    background: #007bff;
+    color: white;
+  }
+
+  .whatsapp:hover {
+    background: #1ebe5d;
+  }
+
+  .email:hover {
+    background: #0056b3;
+  }
+
+  .note {
     margin-top: 20px;
+    font-size: 14px;
+  }
+
+  .footer {
+    margin-top: 15px;
     font-size: 13px;
-    color: #888;
+    color: #777;
   }
 </style>
 
 </head>
 <body>
 
-<div class="container">
+<div class="box">
+
   <h1>Contact Us</h1>
-  <p class="subtitle">We’re here to help you with any questions or issues.</p>
+  <p>If you need help, feel free to contact us anytime.</p>
 
-  <div class="contact-card">
+  <!-- WhatsApp -->
+  <a class="button whatsapp" 
+     href="https://wa.me/923295111234" target="_blank">
+     Chat on WhatsApp
+  </a>
 
-    <a class="btn whatsapp" 
-       href="https://wa.me/923295111234?text=Hello%20I%20need%20help%20with%20your%20study%20website" 
-       target="_blank">
-       💬 Chat on WhatsApp
-    </a>
-
-    <a class="btn email" href="mailto:ahmedshahqr@gmail.com">
-       📧 Send an Email
-    </a>
-
-  </div>
+  <!-- Email -->
+  <a class="button email" 
+     href="mailto:ahmedshahqr@gmail.com?subject=Support Request">
+     Send Email
+  </a>
 
   <p class="note">
-    If you are facing <span class="highlight">problems in logging in</span>, please contact us immediately via WhatsApp or email.
+    If you are facing problems in logging in, please contact us immediately via WhatsApp or email.
   </p>
 
   <div class="footer">
-    Support Hours: 10 AM – 8 PM (Mon–Sat)<br>
-    We usually respond within 24 hours.
+    You can contact us anytime.<br>
+    Our usual response hours are:<br>
+    <strong>10:00 AM – 8:00 PM (Pakistan Standard Time - PKT)</strong><br>
+    We usually reply within 24 hours.
   </div>
+
 </div>
 
 </body>
