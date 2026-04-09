@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #e8fdf5, #f5f7fa);
+  }
+
+  .container {
+    max-width: 650px;
+    margin: 60px auto;
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+
+  h1 {
+    margin-bottom: 10px;
+    font-size: 28px;
+  }
+
+  .subtitle {
+    color: #666;
+    margin-bottom: 30px;
+  }
+
+  .contact-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .btn {
+    display: block;
+    padding: 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s;
+  }
+
+  /* WhatsApp Button */
+  .whatsapp {
+    background: linear-gradient(135deg, #25D366, #1ebe5d);
+    color: white;
+    box-shadow: 0 5px 15px rgba(37,211,102,0.4);
+  }
+
+  .whatsapp:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(37,211,102,0.6);
+  }
+
+  /* Email Button */
+  .email {
+    background: #f1f3f5;
+    color: #333;
+    border: 1px solid #ddd;
+  }
+
+  .email:hover {
+    background: #e2e6ea;
+    transform: translateY(-2px);
+  }
+
+  .note {
+    margin-top: 25px;
+    font-size: 14px;
+    color: #555;
+  }
+
+  .highlight {
+    color: #25D366;
+    font-weight: bold;
+  }
+
+  .footer {
+    margin-top: 20px;
+    font-size: 13px;
+    color: #888;
+  }
+</style>
+
+</head>
+<body>
+
+<div class="container">
+  <h1>Contact Us</h1>
+  <p class="subtitle">We’re here to help you with any questions or issues.</p>
+
+  <div class="contact-card">
+
+    <a class="btn whatsapp" 
+       href="https://wa.me/923295111234?text=Hello%20I%20need%20help%20with%20your%20study%20website" 
+       target="_blank">
+       💬 Chat on WhatsApp
+    </a>
+
+    <a class="btn email" href="mailto:ahmedshahqr@gmail.com">
+       📧 Send an Email
+    </a>
+
+  </div>
+
+  <p class="note">
+    If you are facing <span class="highlight">problems in logging in</span>, please contact us immediately via WhatsApp or email.
+  </p>
+
+  <div class="footer">
+    Support Hours: 10 AM – 8 PM (Mon–Sat)<br>
+    We usually respond within 24 hours.
+  </div>
+</div>
+
+</body>
+</html>
