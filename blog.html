@@ -5,17 +5,67 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Taqwa</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-        margin: 0;
         font-family: 'Poppins', sans-serif;
         background: #f9faf7;
         color: #2f3e34;
         line-height: 1.8;
+        overflow-x: hidden;
     }
 
+    a { text-decoration: none; }
+
+    /* --- HEADER --- */
+    header {
+        background: #0b3d3a;
+        padding: 15px 0;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .nav-container {
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px;
+        gap: 15px;
+    }
+
+    @media (min-width: 768px) {
+        .nav-container { flex-direction: row; justify-content: space-between; }
+    }
+
+    .logo { color: #fff; font-size: 1.5rem; font-weight: 700; letter-spacing: .5px; font-family: 'Inter', sans-serif; }
+
+    nav { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+
+    nav a {
+        color: #d7ffef;
+        font-weight: 500;
+        font-size: 0.9rem;
+        padding: 8px 15px;
+        border-radius: 8px;
+        transition: 0.3s;
+        font-family: 'Inter', sans-serif;
+    }
+
+    nav a:hover { color: #2cb67d; }
+
+    nav a.active {
+        background: #2cb67d;
+        color: #fff;
+    }
+
+    /* --- TAQWA CONTENT --- */
     .container {
         max-width: 900px;
         margin: auto;
@@ -30,12 +80,7 @@
         color: #1f2d26;
     }
 
-    .story {
-        text-align: center;
-        font-size: 17px;
-        margin-bottom: 25px;
-        color: #4b5d52;
-    }
+    .story { text-align: center; font-size: 17px; margin-bottom: 25px; color: #4b5d52; }
 
     .quote {
         background: #eef3ed;
@@ -46,24 +91,10 @@
         font-style: italic;
     }
 
-    .highlight {
-        color: #4c7c59;
-        font-weight: 500;
-    }
+    .highlight { color: #4c7c59; font-weight: 500; }
+    .definition { text-align: center; font-size: 18px; margin-top: 30px; }
 
-    .definition {
-        text-align: center;
-        font-size: 18px;
-        margin-top: 30px;
-    }
-
-    .sins-title {
-        text-align: center;
-        margin-top: 60px;
-        font-size: 22px;
-        color: #6b8f71;
-        font-weight: 500;
-    }
+    .sins-title { text-align: center; margin-top: 60px; font-size: 22px; color: #6b8f71; font-weight: 500; }
 
     .sins-container {
         display: grid;
@@ -82,36 +113,29 @@
         border: 1px solid #e3e8e1;
     }
 
-    .sin:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-    }
+    .sin:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
 
-    .arabic {
-        font-size: 20px;
-        font-weight: 600;
-        margin-bottom: 6px;
-    }
+    .arabic { font-size: 20px; font-weight: 600; margin-bottom: 6px; }
+    .english { font-size: 14px; color: #6b7280; }
 
-    .english {
-        font-size: 14px;
-        color: #6b7280;
-    }
-
-    .fade-in {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: 0.8s ease;
-    }
-
-    .fade-in.show {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: 0.8s ease; }
+    .fade-in.show { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 
 <body>
+
+<header>
+    <div class="nav-container">
+        <div class="logo">Hanafi Lens</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="blog.html" class="active">Blogs</a>
+            <a href="contact.html">Contact us</a>
+        </nav>
+    </div>
+</header>
 
 <div class="container">
 
@@ -122,9 +146,9 @@
     </div>
 
     <div class="quote fade-in">
-        “What would you do if you had to walk on a path full of thorns?” <br><br>
-        ‘Umar said: I would gather my clothes, watch every step carefully, and move with caution to avoid being pricked. <br><br>
-        Ubayy (رضي الله عنه) said: <span class="highlight">“That is Taqwa.”</span>
+        "What would you do if you had to walk on a path full of thorns?" <br><br>
+        'Umar said: I would gather my clothes, watch every step carefully, and move with caution to avoid being pricked. <br><br>
+        Ubayy (رضي الله عنه) said: <span class="highlight">"That is Taqwa."</span>
     </div>
 
     <div class="definition fade-in">
@@ -136,72 +160,27 @@
     </div>
 
     <div class="sins-container">
-
-        <div class="sin fade-in">
-            <div class="arabic">شَهْوَة</div>
-            <div class="english">Desires / Lust</div>
-        </div>
-
-        <div class="sin fade-in">
-            <div class="arabic">غِيبَة</div>
-            <div class="english">Backbiting</div>
-        </div>
-
-        <div class="sin fade-in">
-            <div class="arabic">حَسَد</div>
-            <div class="english">Envy</div>
-        </div>
-
-        <div class="sin fade-in">
-            <div class="arabic">كَذِب</div>
-            <div class="english">Lying</div>
-        </div>
-
-        <div class="sin fade-in">
-            <div class="arabic">عُقُوقُ الوَالِدَيْن</div>
-            <div class="english">Disobedience to parents</div>
-        </div>
-
-        <div class="sin fade-in">
-            <div class="arabic">غَطْرَسَة</div>
-            <div class="english">Arrogance / Pride</div>
-        </div>
-
-        <div class="sin fade-in">
-            <div class="arabic">رِيَاء</div>
-            <div class="english">Showing off (Riya)</div>
-        </div>
-
-        <div class="sin fade-in">
-            <div class="arabic">غَضَب</div>
-            <div class="english">Uncontrolled anger</div>
-        </div>
-
-        <div class="sin fade-in">
-            <div class="arabic">سَبّ و شتم</div>
-            <div class="english">Abusive speech</div>
-        </div>
-
-        <div class="sin fade-in">
-            <div class="arabic">إِضَاعَةُ الوَقْتِ وَالمَال</div>
-            <div class="english">Wasting time & wealth</div>
-        </div>
-
+        <div class="sin fade-in"><div class="arabic">شَهْوَة</div><div class="english">Desires / Lust</div></div>
+        <div class="sin fade-in"><div class="arabic">غِيبَة</div><div class="english">Backbiting</div></div>
+        <div class="sin fade-in"><div class="arabic">حَسَد</div><div class="english">Envy</div></div>
+        <div class="sin fade-in"><div class="arabic">كَذِب</div><div class="english">Lying</div></div>
+        <div class="sin fade-in"><div class="arabic">عُقُوقُ الوَالِدَيْن</div><div class="english">Disobedience to parents</div></div>
+        <div class="sin fade-in"><div class="arabic">غَطْرَسَة</div><div class="english">Arrogance / Pride</div></div>
+        <div class="sin fade-in"><div class="arabic">رِيَاء</div><div class="english">Showing off (Riya)</div></div>
+        <div class="sin fade-in"><div class="arabic">غَضَب</div><div class="english">Uncontrolled anger</div></div>
+        <div class="sin fade-in"><div class="arabic">سَبّ و شتم</div><div class="english">Abusive speech</div></div>
+        <div class="sin fade-in"><div class="arabic">إِضَاعَةُ الوَقْتِ وَالمَال</div><div class="english">Wasting time & wealth</div></div>
     </div>
 
 </div>
 
 <script>
     const elements = document.querySelectorAll('.fade-in');
-
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-            }
+            if (entry.isIntersecting) entry.target.classList.add('show');
         });
     });
-
     elements.forEach(el => observer.observe(el));
 
     document.querySelectorAll('.sin').forEach(item => {
@@ -213,3 +192,4 @@
 
 </body>
 </html>
+
