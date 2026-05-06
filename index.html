@@ -19,7 +19,6 @@
 
     a { text-decoration: none; }
 
-    /* --- HEADER --- */
     header {
       background: #0b3d3a;
       padding: 15px 0;
@@ -44,120 +43,58 @@
     }
 
     .logo { color: #fff; font-size: 1.5rem; font-weight: 700; letter-spacing: .5px; }
-
     nav { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
-
     nav a { color: #d7ffef; font-weight: 500; font-size: 0.9rem; padding: 5px 10px; transition: 0.3s; }
     nav a:hover { color: #2cb67d; }
 
-    /* --- HERO --- */
     .hero {
       background: radial-gradient(circle at top left, #0b3d3a, #2cb67d);
-      padding: 60px 20px;
-      color: white;
-      text-align: center;
+      padding: 70px 20px;
       display: flex;
       justify-content: center;
-    }
-
-    @media (min-width: 768px) {
-      .hero { padding: 100px 20px; }
-    }
-
-    .hero-inner {
-      width: 100%;
-      max-width: 800px;
-      background: rgba(255,255,255,0.1);
-      padding: 30px 20px;
-      border-radius: 18px;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-      border: 1px solid rgba(255,255,255,0.15);
-      display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 30px;
     }
 
-    @media (min-width: 768px) {
-      .hero-inner { padding: 50px; }
+    .product-block {
+      display: inline-block;
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.25), 0 30px 80px rgba(0,0,0,0.2);
     }
 
-    /* --- PRODUCT IMAGE --- */
-    .product-image-wrap {
-      position: relative;
+    .product-block img {
+      display: block;
       width: 100%;
       max-width: 420px;
+      height: auto;
     }
 
-    /* Decorative glow behind the image */
-    .product-image-wrap::before {
-      content: '';
-      position: absolute;
-      inset: -18px;
-      border-radius: 22px;
-      background: radial-gradient(ellipse at center, rgba(255,255,255,0.18) 0%, transparent 70%);
-      z-index: 0;
+    .product-block .btn-area {
+      padding: 16px 20px;
+      text-align: center;
     }
 
-    .product-image-wrap img {
-      width: 100%;
-      border-radius: 16px;
-      box-shadow:
-        0 4px 15px rgba(0,0,0,0.25),
-        0 20px 60px rgba(0,0,0,0.3),
-        0 0 0 1px rgba(255,255,255,0.15);
-      display: block;
-      position: relative;
-      z-index: 1;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-
-    .product-image-wrap img:hover {
-      transform: translateY(-6px) scale(1.01);
-      box-shadow:
-        0 10px 30px rgba(0,0,0,0.3),
-        0 30px 80px rgba(0,0,0,0.35),
-        0 0 0 1px rgba(255,255,255,0.2);
-    }
-
-    /* Floating badge */
-    .product-badge {
-      position: absolute;
-      top: -14px;
-      right: -14px;
-      background: #fff;
-      color: #0b3d3a;
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 6px 12px;
-      border-radius: 20px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
-      z-index: 2;
-      letter-spacing: 0.3px;
-    }
-
-    /* --- CTA BUTTON --- */
-    .btn {
+    .product-block .btn {
       display: inline-block;
       background: #ffffff;
       color: #0b3d3a;
-      padding: 14px 30px;
-      border-radius: 10px;
+      padding: 11px 32px;
+      border-radius: 8px;
       font-weight: 700;
-      font-size: 1rem;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.1);
+      font-size: 0.95rem;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
       transition: all 0.3s ease;
     }
 
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    .product-block .btn:hover {
       background: #f0f0f0;
+      transform: translateY(-2px);
     }
 
-    /* --- SECTIONS --- */
     .content-section {
       max-width: 800px;
       margin: 50px auto;
@@ -166,10 +103,8 @@
     }
 
     h2 { font-size: 1.75rem; color: #0b3d3a; margin-bottom: 15px; font-weight: 700; }
-
     .content-section p { font-size: 1.05rem; color: #555; line-height: 1.8; }
 
-    /* --- FOOTER --- */
     footer {
       background: #0b3d3a;
       padding: 40px 20px;
@@ -203,23 +138,11 @@ if (ref) localStorage.setItem("affiliate", ref);
 
   <main>
     <section class="hero">
-      <div class="hero-inner">
-
-        <!-- Product Image -->
-        <div class="product-image-wrap">
-          <img src="images/product.png" alt="Arabic & Persian Vocabulary Package" />
-          <span class="product-badge">✦ New Release</span>
+      <div class="product-block">
+        <img src="images/product.png" alt="Arabic & Persian Vocabulary Package" />
+        <div class="btn-area">
+          <a href="product.html" class="btn" id="exploreBtn">Explore Product</a>
         </div>
-
-        <!-- CTA Button -->
-        <a href="product.html" class="btn" id="exploreBtn">Explore Product</a>
-
-        <script>
-          const btn = document.getElementById("exploreBtn");
-          const affiliate = localStorage.getItem("affiliate");
-          if (affiliate) btn.href = "product.html?ref=" + affiliate;
-        </script>
-
       </div>
     </section>
 
@@ -237,8 +160,12 @@ if (ref) localStorage.setItem("affiliate", ref);
   </footer>
 
 <script>
+const btn = document.getElementById("exploreBtn");
+const affiliate = localStorage.getItem("affiliate");
+if (affiliate) btn.href = "product.html?ref=" + affiliate;
+
 document.querySelectorAll(".btn").forEach(link => {
-  link.addEventListener("click", function(e) {
+  link.addEventListener("click", function() {
     const affiliateData = localStorage.getItem("affiliate");
     if (affiliateData) {
       const affiliate = JSON.parse(affiliateData);
@@ -251,3 +178,4 @@ document.querySelectorAll(".btn").forEach(link => {
 </script>
 </body>
 </html>
+
