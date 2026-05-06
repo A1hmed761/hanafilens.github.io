@@ -7,26 +7,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* -------------------- GLOBAL -------------------- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: "Inter", sans-serif;
       background: #f5f7fb;
       color: #333;
       line-height: 1.6;
-      overflow-x: hidden; /* Prevent horizontal scroll */
+      overflow-x: hidden;
     }
 
-    a {
-      text-decoration: none;
-    }
+    a { text-decoration: none; }
 
-    /* -------------------- HEADER -------------------- */
+    /* --- HEADER --- */
     header {
       background: #0b3d3a;
       padding: 15px 0;
@@ -40,49 +33,27 @@
       max-width: 1200px;
       margin: auto;
       display: flex;
-      flex-direction: column; /* Stack on mobile */
+      flex-direction: column;
       align-items: center;
       padding: 0 20px;
       gap: 15px;
     }
 
     @media (min-width: 768px) {
-      .nav-container {
-        flex-direction: row; /* Side-by-side on desktop */
-        justify-content: space-between;
-      }
+      .nav-container { flex-direction: row; justify-content: space-between; }
     }
 
-    .logo {
-      color: #fff;
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: .5px;
-    }
+    .logo { color: #fff; font-size: 1.5rem; font-weight: 700; letter-spacing: .5px; }
 
-    nav {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+    nav { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
 
-    nav a {
-      color: #d7ffef;
-      font-weight: 500;
-      font-size: 0.9rem;
-      padding: 5px 10px;
-      transition: 0.3s;
-    }
+    nav a { color: #d7ffef; font-weight: 500; font-size: 0.9rem; padding: 5px 10px; transition: 0.3s; }
+    nav a:hover { color: #2cb67d; }
 
-    nav a:hover {
-      color: #2cb67d;
-    }
-
-    /* -------------------- HERO -------------------- */
+    /* --- HERO --- */
     .hero {
       background: radial-gradient(circle at top left, #0b3d3a, #2cb67d);
-      padding: 60px 20px; /* Reduced for mobile */
+      padding: 60px 20px;
       color: white;
       text-align: center;
       display: flex;
@@ -90,9 +61,7 @@
     }
 
     @media (min-width: 768px) {
-      .hero {
-        padding: 100px 20px;
-      }
+      .hero { padding: 100px 20px; }
     }
 
     .hero-inner {
@@ -104,31 +73,72 @@
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .hero h1 {
-      font-size: 1.75rem; /* Smaller for mobile */
-      line-height: 1.2;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 1rem;
-      margin-bottom: 30px;
-      color: #eaffe7;
-      max-width: 550px;
-      margin-left: auto;
-      margin-right: auto;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
     }
 
     @media (min-width: 768px) {
-      .hero h1 { font-size: 2.8rem; }
-      .hero p { font-size: 1.2rem; }
       .hero-inner { padding: 50px; }
     }
 
+    /* --- PRODUCT IMAGE --- */
+    .product-image-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+    }
+
+    /* Decorative glow behind the image */
+    .product-image-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -18px;
+      border-radius: 22px;
+      background: radial-gradient(ellipse at center, rgba(255,255,255,0.18) 0%, transparent 70%);
+      z-index: 0;
+    }
+
+    .product-image-wrap img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow:
+        0 4px 15px rgba(0,0,0,0.25),
+        0 20px 60px rgba(0,0,0,0.3),
+        0 0 0 1px rgba(255,255,255,0.15);
+      display: block;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .product-image-wrap img:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow:
+        0 10px 30px rgba(0,0,0,0.3),
+        0 30px 80px rgba(0,0,0,0.35),
+        0 0 0 1px rgba(255,255,255,0.2);
+    }
+
+    /* Floating badge */
+    .product-badge {
+      position: absolute;
+      top: -14px;
+      right: -14px;
+      background: #fff;
+      color: #0b3d3a;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 20px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+      z-index: 2;
+      letter-spacing: 0.3px;
+    }
+
+    /* --- CTA BUTTON --- */
     .btn {
       display: inline-block;
       background: #ffffff;
@@ -147,7 +157,7 @@
       background: #f0f0f0;
     }
 
-    /* -------------------- SECTIONS -------------------- */
+    /* --- SECTIONS --- */
     .content-section {
       max-width: 800px;
       margin: 50px auto;
@@ -155,20 +165,11 @@
       text-align: center;
     }
 
-    h2 {
-      font-size: 1.75rem;
-      color: #0b3d3a;
-      margin-bottom: 15px;
-      font-weight: 700;
-    }
+    h2 { font-size: 1.75rem; color: #0b3d3a; margin-bottom: 15px; font-weight: 700; }
 
-    .content-section p {
-      font-size: 1.05rem;
-      color: #555;
-      line-height: 1.8;
-    }
+    .content-section p { font-size: 1.05rem; color: #555; line-height: 1.8; }
 
-    /* -------------------- FOOTER -------------------- */
+    /* --- FOOTER --- */
     footer {
       background: #0b3d3a;
       padding: 40px 20px;
@@ -177,11 +178,7 @@
       margin-top: 60px;
     }
 
-    footer p {
-      font-size: 0.9rem;
-      color: #d7ffef;
-      opacity: 0.8;
-    }
+    footer p { font-size: 0.9rem; color: #d7ffef; opacity: 0.8; }
   </style>
 </head>
 
@@ -189,12 +186,9 @@
 <script>
 const params = new URLSearchParams(window.location.search);
 const ref = params.get("ref");
-
-if (ref) {
-  localStorage.setItem("affiliate", ref);
-}
+if (ref) localStorage.setItem("affiliate", ref);
 </script>
-  
+
   <header>
     <div class="nav-container">
       <div class="logo">Hanafi Lens</div>
@@ -210,25 +204,29 @@ if (ref) {
   <main>
     <section class="hero">
       <div class="hero-inner">
-        <h1>Vocabulary Package Arabic & Persian</h1>
-        <p>1,500+ curated nouns, verbs, and adjectives with visual aids to bridge the gap from beginner to intermediate.</p>
+
+        <!-- Product Image -->
+        <div class="product-image-wrap">
+          <img src="images/product.png" alt="Arabic & Persian Vocabulary Package" />
+          <span class="product-badge">✦ New Release</span>
+        </div>
+
+        <!-- CTA Button -->
         <a href="product.html" class="btn" id="exploreBtn">Explore Product</a>
 
-<script>
-const btn = document.getElementById("exploreBtn");
-const affiliate = localStorage.getItem("affiliate");
+        <script>
+          const btn = document.getElementById("exploreBtn");
+          const affiliate = localStorage.getItem("affiliate");
+          if (affiliate) btn.href = "product.html?ref=" + affiliate;
+        </script>
 
-if (affiliate) {
-  btn.href = "product.html?ref=" + affiliate;
-}
-</script>
       </div>
     </section>
 
     <section class="content-section">
       <h2>About Hanafi Lens</h2>
       <p>
-        Hanafi Lens is a digital initiative to make Islamic learning simple, structured, and accessible. 
+        Hanafi Lens is a digital initiative to make Islamic learning simple, structured, and accessible.
         We combine classical Islamic scholarship with modern tools—ranging from comprehensive Arabic learning resources to advanced theological courses.
       </p>
     </section>
@@ -237,30 +235,19 @@ if (affiliate) {
   <footer>
     <p>© 2025 Hanafi Lens — All Rights Reserved.</p>
   </footer>
+
 <script>
 document.querySelectorAll(".btn").forEach(link => {
   link.addEventListener("click", function(e) {
     const affiliateData = localStorage.getItem("affiliate");
-
     if (affiliateData) {
       const affiliate = JSON.parse(affiliateData);
-
-      // Get original link
       let url = this.getAttribute("href");
-
-      // Add ?ref= if not already present
-      if (!url.includes("ref=")) {
-        url += "?ref=" + affiliate.id;
-      }
-
-      // Update link dynamically
+      if (!url.includes("ref=")) url += "?ref=" + affiliate.id;
       this.setAttribute("href", url);
     }
   });
 });
-  
 </script>
 </body>
-    </html>
-
-
+</html>
