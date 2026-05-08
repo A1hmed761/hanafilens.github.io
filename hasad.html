@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hasad</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f7f8f5;
+    color: #2c2c2c;
+    line-height: 1.8;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 38px;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #6b7280;
+    margin-bottom: 30px;
+}
+
+.section {
+    margin-top: 40px;
+}
+
+.section h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #1f3d2b;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #e5e7eb;
+}
+
+.example {
+    margin-bottom: 17px;
+    margin-top: 10px;
+    padding-left: 10px;
+}
+
+.example2 {
+    margin-top: 20px;
+    padding-left: 10px;
+}
+
+
+.quote-box {
+    background: #eef5f0;
+    border-left: 4px solid #4c7c59;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+/* Quran style */
+.quran {
+     background: #fff5f7;      /* very light pink */
+    border: 1px solid #f0d6dc; /* soft pink border */
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+.arabic {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: right;
+    direction: rtl;
+    margin-bottom: 10px;
+    line-height: 2;
+}
+
+.arabic2 {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: right;
+    direction: rtl;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    line-height: 2;
+}
+
+.translation {
+    font-size: 15px;
+    color: #374151;
+}
+
+.translation2 {
+    font-size: 15px;
+    color: #374151;
+    margin-bottom: 20px;
+}
+
+/* Hadith style */
+.hadith {
+   background: #fffbea;      /* very light yellow */
+    border: 1px solid #f3e7b3; /* soft yellow border */
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+.reference {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 12.5px;
+    color: #777;
+    margin-top: 3px;
+    font-style: italic;
+}
+
+
+/* tips */
+.tips li {
+    margin-bottom: 12px;
+}
+
+.highlight {
+    font-size: 20px;
+    color: #4c7c59;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+}
+/* Replace your existing .lang-toggle CSS with this */
+.lang-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+}
+
+.lang-dropdown-wrapper {
+    position: relative;
+}
+
+.lang-main-btn {
+    background: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    color: #2e7d32;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.lang-main-btn:hover {
+    background: #f2f2f2;
+}
+
+.lang-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    overflow: hidden;
+    min-width: 100px;
+}
+
+.lang-dropdown.open {
+    display: block;
+}
+
+.lang-dropdown button {
+    display: block;
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding: 10px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: right;
+    color: #444;
+    transition: background 0.2s;
+}
+
+.lang-dropdown button:hover {
+    background: #f5f5f5;
+}
+
+.lang-dropdown button.active {
+    background: #eef5f0;
+    color: #2e7d32;
+    font-weight: 600;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1 data-key="page-title">حَسَد</h1>
+<div class="subtitle">Hasad (Envy)</div>
+
+<!-- Replace your existing lang-toggle div with this -->
+<div class="lang-toggle">
+<div class="lang-dropdown-wrapper">
+<button class="lang-main-btn" onclick="toggleDropdown()">
+<span id="lang-label">Eng</span> ▾
+        </button>
+<div class="lang-dropdown" id="langDropdown">
+<button onclick="setLang('en', this)">Eng</button>
+<button onclick="setLang('ur', this)">اردو</button>
+<button onclick="setLang('ar', this)">عربی</button>
+</div>
+</div>
+</div>
+
+<!-- Definition -->
+<div class="section">
+<h2 data-key="def-heading">Definition</h2>
+<div class="card" data-key="def-body">
+To dislike a blessing that someone else has and wish that it be taken away from them — whether you want it for yourself or not. It is when your heart feels uneasy or upset seeing someone else’s نعمت (blessing), and you desire that they lose it.
+Wanting the blessing to disappear
+or Feeling disturbed by others’ success.
+
+        </div>
+</div>
+<!-- Common Practices -->
+<div class="section">
+<h2 data-key="practices-heading">Common Practices</h2>
+<div class="card">
+<b data-key="p1-title">1- Resentment of Others’ Happiness</b>
+<ul class="tips">
+<li data-key="p1-li1"> Feeling a pang of discomfort or annoyance when seeing someone else happy or hearing about their achievements, instead of feeling genuine happiness for them.
+</li>
+<li data-key="p1-li2">Speaking negatively about someone because of their blessings, Highlighting their faults to feel better</li>
+<li data-key="p1-li3">Doing it after watching or recalling something inappropriate</li>
+<li data-key="p1-li4">Staying silent when someone deserves appreciation, Feeling heavy or uncomfortable saying “MashaAllah”</li>
+</ul>
+</div>
+<div class="card">
+<b data-key="p2-title">2- Constantly Comparing and Counting</b>
+<div class="example" data-key="p2-body">
+               Habitually comparing one's own blessings with others, focusing entirely on what one lacks, and keeping a mental record of everyone else's successes.
+
+            </div>
+</div>
+<div class="card">
+<b data-key="p3-title">3- Sabotage by Neglect</b>
+<div class="example" data-key="p3-body">
+                Intentionally neglecting to help or support someone, or withholding information that could assist them in their success, hoping they fail or struggle.
+
+            </div>
+</div>
+<div class="card">
+<b data-key="p4-title">4- Schadenfreude (Rejoicing at Misfortune)</b>
+<div class="example" data-key="p4-body">
+                Secretly feeling relieved, pleased, or happy when a person who is deemed more successful or fortunate faces a setback, loss, or hardship.
+            </div>
+</div>
+<div class="card">
+<b data-key="p5-title">5- Justifying the "Deserving" Aspect</b>
+<div class="example" data-key="p5-body">
+                Telling oneself that the person with the blessing does not deserve it, or that they attained it through unfair means, to justify the envy. 
+            </div>
+</div>
+<!-- Why Dangerous -->
+<div class="section">
+<h2 data-key="danger-heading">Why Is It Dangerous?</h2>
+<div class="quote-box" data-key="danger-box">
+<b>Spiritual harm:</b> Hasad consumes a person's hasanat (good deeds) just as fire consumes dry wood or grass. The envier fundamentally objects to how Allah has divided His blessings, essentially questioning divine justice.
+<br/>
+<b>Societal and Behavioral Dangers:</b>It creates a toxic environment that leads to animosity, backbiting, slandering, lying, and abandonment of other Muslims. Hasad is the root of many sins, including oppression, injustice, and even physical harm or murder, as seen in the story of Qabil and Habil
+<br/>
+<b>Personal harm:</b>The envier lives in perpetual sadness and unrest because they are constantly focused on the blessings of others rather than their own, resulting in severe psychological torture. Hasad blinds the person to the virtues of the envied person and makes them see only faults. The jealous person does not progress, as they are focused on dragging others down rather than raising themselves up.
+
+        </div>
+</div>
+<!-- Tips -->
+<div class="section">
+<h2 data-key="tips-heading">How to leave this sin?</h2>
+<div class="card">
+<ul class="tips">
+<li><span class="highlight" data-key="tip1-title">Gratitude &amp; Humility</span><span data-key="tip1-body"> –  Hasad often stems from forgetting one's own blessings. Actively focus on what Allah has given you—health, faith, family—rather than looking at what others have. Envy comes from pride, thinking you deserve better than others. Humbly accept Allah's decree and focus on self-improvement. </span></li>
+<li><span class="highlight" data-key="tip2-title">Du‘ā &amp; Praise</span><span data-key="tip2-body"> – Make Du‘ā for the Person. Ask Allah to increase their blessing instead of wishing it away. This directly breaks the feeling of envy.Train your tongue to praise. Allah when you see someone’s blessing. It protects your heart from jealousy.
+</span></li>
+<li><span class="highlight" data-key="tip3-title">Avoid Comparison</span><span data-key="tip3-body"> – Avoid Comparison. Stop constantly looking at others’ lives (especially on social media). Clean the Heart. Remove hatred, arrogance, and حبّ الدنيا (love of worldly things)</span></li>
+<li><span class="highlight" data-key="tip4-title">Fear &amp; Awareness</span><span data-key="tip4-body"> – Fear Allah and beware of sin. Remember: حسد destroys your good deeds and corrupts your heart first—recognize its filth and how degrading it is. Envy is a punishment in itself, so keep the āyāt and sayings of the Prophet ﷺ in mind that condemn it (Given below). When the urge arises, recall them with understanding—this disciplines your mind, awakens your heart, and strengthens your fear of sin.</span></li>
+</ul>
+</div>
+<!-- Quran -->
+<div class="section">
+<h2>Qur’an</h2>
+<div class="quran">
+<div class="arabic">
+               وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ (5) 
+            </div>
+<div class="translation" data-key="q1-trans">
+               and from the evil of an envier when they envy.
+            </div>
+<div class="reference">
+<a data-key="q1-ref" href="https://quran.com/113?startingVerse=5" target="_blank">
+        Al-Falaq 113 : 5 (Click for Tafsir)
+    </a>
+</div>
+</div>
+<div class="quran">
+<div class="arabic">
+                ووَلَا تَتَمَنَّوْا۟ مَا فَضَّلَ ٱللَّهُ بِهِۦ بَعْضَكُمْ عَلَىٰ بَعْضٍۢ ۚ لِّلرِّجَالِ نَصِيبٌۭ مِّمَّا ٱكْتَسَبُوا۟ ۖ وَلِلنِّسَآءِ نَصِيبٌۭ مِّمَّا ٱكْتَسَبْنَ ۚ وَسْـَٔلُوا۟ ٱللَّهَ مِن فَضْلِهِۦٓ ۗ إِنَّ ٱللَّهَ كَانَ بِكُلِّ شَىْءٍ عَلِيمًۭاٍ  (32)
+            </div>
+<div class="translation" data-key="q2-trans">
+                And do not crave what Allah has given some of you over others. Men will be rewarded according to their deeds and women ˹equally˺ according to theirs. Rather, ask Allah for His bounties. Surely Allah has ˹perfect˺ knowledge of all things.
+            </div>
+<div class="reference">
+<a data-key="q2-ref" href="https://quran.com/an-nisa/32" target="_blank">
+        Surah An-Nisa 4 : 32 (Click for Tafsir)
+    </a>
+</div>
+</div>
+</div>
+<!-- Hadith -->
+<div class="section">
+<h2 data-key="hadith-heading">Hadith</h2>
+<div class="hadith">
+<div class="arabic">
+                "‏ ‏إِيَّاكُمْ وَالْحَسَدَ فَإِنَّ الْحَسَدَ يَأْكُلُ الْحَسَنَاتِ كَمَا تَأْكُلُ النَّارُ الْحَطَبَ ‏"‏ ‏.‏ أَوْ قَالَ ‏"‏ الْعُشْبَ‏
+            </div>
+<div class="translation" data-key="h1-trans">
+               Avoid envy, for envy devours good deeds just as fire devours fuel or (he said) "grass."
+            </div>
+<div class="reference">
+<a data-key="h1-ref" href="https://sunnah.com/abudawud:4903" target="_blank">
+        Sunan Abi Dawud 4903
+    </a>
+</div>
+</div>
+<div class="hadith">
+<div class="arabic">
+                إِيَّاكُمْ وَالظَّنَّ، فَإِنَّ الظَّنَّ أَكْذَبُ الْحَدِيثِ، وَلاَ تَحَسَّسُوا، وَلاَ تَجَسَّسُوا، وَلاَ تَحَاسَدُوا، وَلاَ تَدَابَرُوا، وَلاَ تَبَاغَضُوا، وَكُونُوا عِبَادَ اللَّهِ إِخْوَانًا ‏
+            </div>
+<div class="translation" data-key="h2-trans">
+              Beware of suspicion, for suspicion is the worst of false tales; and do not look for the others' faults and do not spy, and do not be jealous of one another, and do not desert (cut your relation with) one another, and do not hate one another; and O Allah's worshipers! Be brothers (as Allah has ordered you!")
+            </div>
+<div class="reference">
+<a data-key="h2-ref" href="https://sunnah.com/bukhari:6064" target="_blank">
+        Sahih al-Bukhari 6064
+    </a>
+</div>
+</div>
+<div class="hadith">
+<div class="arabic">
+                 وَلاَ يَجْتَمِعَانِ فِي قَلْبِ عَبْدٍ الإِيمَانُ وَالْحَسَدُ
+            </div>
+<div class="translation" data-key="h3-trans">
+           And two will never be gathered in the heart of a salve: Faith and envy.
+            </div>
+<div class="reference">
+<a data-key="h3-ref" href="https://sunnah.com/nasai:3109" target="_blank">
+       Sunan an-Nasa'i 3109/3111
+    </a>
+</div>
+</div>
+<!-- Hadith -->
+<div class="section">
+<div class="hadith">
+<div class="arabic">
+        عَنْ عَبْدِ اللَّهِ بْنِ عَمْرٍو، قَالَ قِيلَ لِرَسُولِ اللَّهِ ـ صلى الله عليه وسلم ـ أَىُّ النَّاسِ أَفْضَلُ قَالَ ‏"‏ كُلُّ مَخْمُومِ الْقَلْبِ صَدُوقِ اللِّسَانِ ‏"‏ ‏.‏ قَالُوا صَدُوقُ اللِّسَانِ نَعْرِفُهُ فَمَا مَخْمُومُ الْقَلْبِ قَالَ ‏"‏ هُوَ التَّقِيُّ النَّقِيُّ لاَ إِثْمَ فِيهِ وَلاَ بَغْىَ وَلاَ غِلَّ وَلاَ حَسَدَ ‏"‏
+            </div>
+<div class="translation" data-key="h4-trans">
+             It was narrated that ‘Abdullah bin ‘Amr said:
+“It was said to the Messenger of Allah (ﷺ): ‘Which of the people is best?’ He said: ‘Everyone who is pure of heart and sincere in speech.’ They said: ‘Sincere in speech, we know what this is, but what is pure of heart?’ He said: ‘It is (the heart) that is pious and pure, with no sin, injustice, rancor or envy in it.’”
+            </div>
+<div class="reference">
+<a data-key="h4-ref" href="https://sunnah.com/ibnmajah:4216" target="_blank">
+         Sunan Ibn Majah 4216
+    </a>
+</div>
+</div>
+<div class="hadith">
+<div class="arabic">
+                ودَبَّ إِلَيْكُمْ دَاءُ الأُمَمِ قَبْلَكُمُ الْحَسَدُ وَالْبَغْضَاءُ هِيَ الْحَالِقَةُ لاَ أَقُولُ تَحْلِقُ الشَّعْرَ وَلَكِنْ تَحْلِقُ الدِّينَ وَالَّذِي نَفْسِي بِيَدِهِ لاَ تَدْخُلُوا الْجَنَّةَ حَتَّى تُؤْمِنُوا وَلاَ تُؤْمِنُوا حَتَّى تَحَابُّوا أَفَلاَ أُنَبِّئُكُمْ بِمَا يُثَبِّتُ ذَاكُمْ لَكُمْ أَفْشُوا السَّلاَمَ بَيْنَكُمْ
+            </div>
+<div class="translation" data-key="h5-trans">
+             The disease of the nations before you is creeping towards you: Envy and hatred, it is the Haliqah. I do not speak of what cuts the hair, but what severs the religion. By the One in Whose Hand is my soul! You will not enter Paradise until you believe, and you will not believe until you love each other. Shall I tell you about what will strengthen that for you? Spread the Salam among each other.
+            </div>
+<div class="reference">
+<a data-key="h5-ref" href="https://sunnah.com/tirmidhi:2510" target="_blank">
+       Jami` at-Tirmidhi 2510
+    </a>
+</div>
+</div>
+<div class="hadith">
+<div class="arabic">
+                لا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ
+            </div>
+<div class="translation" data-key="h6-trans">
+            None of you will have faith till he wishes for his (Muslim) brother what he likes for himself.
+            </div>
+<div class="reference">
+<a data-key="h6-ref" href="https://sunnah.com/bukhari:13" target="_blank">
+      Sahih al-Bukhari 13
+    </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+let currentLang = 'en';
+
+function toggleDropdown() {
+  document.getElementById('langDropdown').classList.toggle('open');
+}
+
+document.addEventListener('click', function(e) {
+  const wrapper = document.querySelector('.lang-dropdown-wrapper');
+  if (!wrapper.contains(e.target)) {
+    document.getElementById('langDropdown').classList.remove('open');
+  }
+});
+
+function setLang(lang, btn) {
+  currentLang = lang;
+
+  // Update button label
+  const labels = { en: 'Eng', ur: 'اردو', ar: 'عربی' };
+  document.getElementById('lang-label').textContent = labels[lang];
+
+  // Mark active
+  document.querySelectorAll('.lang-dropdown button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  // Close dropdown
+  document.getElementById('langDropdown').classList.remove('open');
+
+  // Apply translations
+  applyLanguage(lang);
+}
+
+function applyLanguage(lang) {
+  const t = translations[lang];
+
+  // Swap all translatable elements
+  document.querySelectorAll('[data-key]').forEach(el => {
+    const key = el.getAttribute('data-key');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+
+  // RTL support for Urdu and Arabic
+  if (lang === 'ur' || lang === 'ar') {
+    document.body.style.direction = 'rtl';
+    document.body.style.fontFamily = "'Cairo', sans-serif";
+  } else {
+    document.body.style.direction = 'ltr';
+    document.body.style.fontFamily = "'Poppins', sans-serif";
+  }
+}
+
+const translations = {
+
+  // ─────────────────────────────────────────────
+  // ENGLISH (default)
+  // ─────────────────────────────────────────────
+  en: {
+    "page-title":    "حَسَد",
+    "page-subtitle": "Hasad (Envy)",
+
+    // Section headings
+    "def-heading":       "Definition",
+    "practices-heading": "Common Practices",
+    "danger-heading":    "Why Is It Dangerous?",
+    "tips-heading":      "How to leave this sin?",
+    "quran-heading":     "Qur'an",
+    "hadith-heading":    "Hadith",
+
+    // Definition
+    "def-body": `To dislike a blessing that someone else has and wish that it be taken away from them — whether you want it for yourself or not. It is when your heart feels uneasy or upset seeing someone else's نعمت (blessing), and you desire that they lose it. Wanting the blessing to disappear or Feeling disturbed by others' success.`,
+
+    // Practice 1
+    "p1-title": "1- Resentment of Others' Happiness",
+    "p1-li1":   "Feeling a pang of discomfort or annoyance when seeing someone else happy or hearing about their achievements, instead of feeling genuine happiness for them.",
+    "p1-li2":   "Speaking negatively about someone because of their blessings, Highlighting their faults to feel better",
+    "p1-li3":   "Doing it after watching or recalling something inappropriate",
+    "p1-li4":   `Staying silent when someone deserves appreciation, Feeling heavy or uncomfortable saying "MashaAllah"`,
+
+    // Practice 2
+    "p2-title": "2- Constantly Comparing and Counting",
+    "p2-body":  "Habitually comparing one's own blessings with others, focusing entirely on what one lacks, and keeping a mental record of everyone else's successes.",
+
+    // Practice 3
+    "p3-title": "3- Sabotage by Neglect",
+    "p3-body":  "Intentionally neglecting to help or support someone, or withholding information that could assist them in their success, hoping they fail or struggle.",
+
+    // Practice 4
+    "p4-title": "4- Schadenfreude (Rejoicing at Misfortune)",
+    "p4-body":  "Secretly feeling relieved, pleased, or happy when a person who is deemed more successful or fortunate faces a setback, loss, or hardship.",
+
+    // Practice 5
+    "p5-title": `5- Justifying the "Deserving" Aspect`,
+    "p5-body":  "Telling oneself that the person with the blessing does not deserve it, or that they attained it through unfair means, to justify the envy.",
+
+    // Danger box
+    "danger-box": `<b>Spiritual harm:</b> Hasad consumes a person's hasanat (good deeds) just as fire consumes dry wood or grass. The envier fundamentally objects to how Allah has divided His blessings, essentially questioning divine justice.<br><br>
+<b>Societal and Behavioral Dangers:</b> It creates a toxic environment that leads to animosity, backbiting, slandering, lying, and abandonment of other Muslims. Hasad is the root of many sins, including oppression, injustice, and even physical harm or murder, as seen in the story of Qabil and Habil.<br><br>
+<b>Personal harm:</b> The envier lives in perpetual sadness and unrest because they are constantly focused on the blessings of others rather than their own, resulting in severe psychological torture. Hasad blinds the person to the virtues of the envied person and makes them see only faults. The jealous person does not progress, as they are focused on dragging others down rather than raising themselves up.`,
+
+    // Tips
+    "tip1-title": "Gratitude & Humility",
+    "tip1-body":  ` - Hasad often stems from forgetting one's own blessings. Actively focus on what Allah has given you — health, faith, family — rather than looking at what others have. Envy comes from pride, thinking you deserve better than others. Humbly accept Allah's decree and focus on self-improvement.`,
+
+    "tip2-title": "Du'ā & Praise",
+    "tip2-body":  ` - Make Du'ā for the Person. Ask Allah to increase their blessing instead of wishing it away. This directly breaks the feeling of envy. Train your tongue to praise Allah when you see someone's blessing. It protects your heart from jealousy.`,
+
+    "tip3-title": "Avoid Comparison",
+    "tip3-body":  " - Stop constantly looking at others' lives (especially on social media). Clean the Heart. Remove hatred, arrogance, and حبّ الدنيا (love of worldly things).",
+
+    "tip4-title": "Fear & Awareness",
+    "tip4-body":  ` - Fear Allah and beware of sin. Remember: حسد destroys your good deeds and corrupts your heart first — recognize its filth and how degrading it is. Envy is a punishment in itself, so keep the āyāt and sayings of the Prophet ﷺ in mind that condemn it (given below). When the urge arises, recall them with understanding — this disciplines your mind, awakens your heart, and strengthens your fear of sin.`,
+
+    // Quran translations
+    "q1-trans": "and from the evil of an envier when they envy.",
+    "q1-ref":   "Al-Falaq 113 : 5 (Click for Tafsir)",
+
+    "q2-trans": "And do not crave what Allah has given some of you over others. Men will be rewarded according to their deeds and women ˹equally˺ according to theirs. Rather, ask Allah for His bounties. Surely Allah has ˹perfect˺ knowledge of all things.",
+    "q2-ref":   "Surah An-Nisa 4 : 32 (Click for Tafsir)",
+
+    // Hadith translations
+    "h1-trans": `Avoid envy, for envy devours good deeds just as fire devours fuel or (he said) "grass."`,
+    "h1-ref":   "Sunan Abi Dawud 4903",
+
+    "h2-trans": `Beware of suspicion, for suspicion is the worst of false tales; and do not look for the others' faults and do not spy, and do not be jealous of one another, and do not desert (cut your relation with) one another, and do not hate one another; and O Allah's worshipers! Be brothers (as Allah has ordered you!).`,
+    "h2-ref":   "Sahih al-Bukhari 6064",
+
+    "h3-trans": "And two will never be gathered in the heart of a slave: Faith and envy.",
+    "h3-ref":   "Sunan an-Nasa'i 3109/3111",
+
+    "h4-trans": `It was said to the Messenger of Allah (ﷺ): "Which of the people is best?" He said: "Everyone who is pure of heart and sincere in speech." They said: "Sincere in speech, we know what this is, but what is pure of heart?" He said: "It is (the heart) that is pious and pure, with no sin, injustice, rancor or envy in it."`,
+    "h4-ref":   "Sunan Ibn Majah 4216",
+
+    "h5-trans": "The disease of the nations before you is creeping towards you: Envy and hatred, it is the Haliqah. I do not speak of what cuts the hair, but what severs the religion. By the One in Whose Hand is my soul! You will not enter Paradise until you believe, and you will not believe until you love each other. Shall I tell you about what will strengthen that for you? Spread the Salam among each other.",
+    "h5-ref":   "Jami` at-Tirmidhi 2510",
+
+    "h6-trans": "None of you will have faith till he wishes for his (Muslim) brother what he likes for himself.",
+    "h6-ref":   "Sahih al-Bukhari 13",
+  },
+
+  // ─────────────────────────────────────────────
+  // URDU
+  // ─────────────────────────────────────────────
+  ur: {
+    "page-title":    "حَسَد",
+    "page-subtitle": "حسد (جلن / رشک)",
+
+    "def-heading":       "تعریف",
+    "practices-heading": "عام گناہ",
+    "danger-heading":    "یہ گناہ اتنا خطرناک کیوں ہے؟",
+    "tips-heading":      "اس گناہ سے کیسے بچیں؟",
+    "quran-heading":     "قرآنِ کریم",
+    "hadith-heading":    "احادیثِ مبارکہ",
+
+    // Definition
+    "def-body": `کسی دوسرے کی نعمت کو ناپسند کرنا اور یہ چاہنا کہ وہ نعمت اس سے چھن جائے — چاہے آپ وہ نعمت خود چاہتے ہوں یا نہیں۔ یہ وہ کیفیت ہے جب کسی اور کی نعمت دیکھ کر دل میں بے چینی یا تکلیف ہو اور آپ چاہیں کہ وہ نعمت ختم ہو جائے۔ یعنی دوسرے کی نعمت کا زوال چاہنا یا دوسروں کی کامیابی سے پریشان ہونا۔`,
+
+    // Practice 1
+    "p1-title": "۱- دوسروں کی خوشی پر تکلیف محسوس کرنا",
+    "p1-li1":   "کسی کو خوش دیکھ کر یا اس کی کامیابی سن کر دل میں کھچاؤ یا چڑچڑاہٹ محسوس کرنا — اس کے لیے سچی خوشی محسوس کرنے کی بجائے۔",
+    "p1-li2":   "کسی کی نعمتوں کی وجہ سے اس کے بارے میں منفی باتیں کرنا، خود کو بہتر محسوس کرانے کے لیے اس کے عیب نکالنا",
+    "p1-li3":   "کوئی غلط چیز دیکھنے یا یاد آنے کے بعد یہ کرنا",
+    "p1-li4":   `جب کوئی تعریف کا مستحق ہو تو خاموش رہنا، ''ماشاء اللہ'' کہتے وقت بھاری یا بے چین محسوس کرنا`,
+
+    // Practice 2
+    "p2-title": "۲- مسلسل موازنہ کرتے رہنا",
+    "p2-body":  "ہر وقت اپنی نعمتوں کا دوسروں سے موازنہ کرنا، صرف اس چیز پر توجہ دینا جو اپنے پاس نہیں ہے، اور دوسروں کی ہر کامیابی کا ذہنی حساب رکھنا۔",
+
+    // Practice 3
+    "p3-title": "۳- نظرانداز کر کے نقصان پہنچانا",
+    "p3-body":  "جان بوجھ کر کسی کی مدد یا حمایت نہ کرنا، یا وہ معلومات روکنا جو اس کی کامیابی میں مددگار ہو سکتی تھیں — اس امید پر کہ وہ ناکام ہو یا مشکل میں پڑے۔",
+
+    // Practice 4
+    "p4-title": "۴- دوسروں کی مصیبت پر خوشی",
+    "p4-body":  "جب کوئی زیادہ کامیاب یا خوش نصیب شخص کسی نقصان، پریشانی یا مشکل میں پڑے تو اندر سے سکون، خوشی یا اطمینان محسوس کرنا۔",
+
+    // Practice 5
+    "p5-title": "۵- ''وہ لائق ہی نہیں'' کا جواز بنانا",
+    "p5-body":  "اپنے حسد کو جائز ٹھہرانے کے لیے خود کو یہ یقین دلانا کہ جس کو نعمت ملی ہے وہ اس کا مستحق نہیں تھا، یا اس نے ناجائز طریقے سے حاصل کی۔",
+
+    // Danger
+    "danger-box": `<b>روحانی نقصان:</b> حسد انسان کی نیکیوں کو اس طرح کھا جاتا ہے جیسے آگ لکڑی یا گھاس کو کھا جاتی ہے۔ حسد کرنے والا بنیادی طور پر اللہ کی تقسیم پر اعتراض کرتا ہے اور عدلِ الہٰی پر سوال اٹھاتا ہے۔<br><br>
+<b>سماجی اور اخلاقی نقصانات:</b> یہ ایک زہریلا ماحول پیدا کرتا ہے جو دشمنی، غیبت، بہتان، جھوٹ اور مسلمان بھائیوں سے قطع تعلق کا باعث بنتا ہے۔ حسد بہت سے گناہوں کی جڑ ہے — ظلم، ناانصافی اور حتیٰ کہ قتل تک — جیسا کہ قابیل اور ہابیل کے واقعے سے ظاہر ہے۔<br><br>
+<b>ذاتی نقصان:</b> حاسد ہمیشہ غم اور بے سکونی میں مبتلا رہتا ہے کیونکہ وہ اپنی نعمتوں کی بجائے دوسروں کی نعمتوں پر نظر رکھتا ہے — یہ شدید ذہنی عذاب ہے۔ حسد انسان کو محسود کی خوبیاں دیکھنے سے اندھا کر دیتا ہے۔ حاسد ترقی نہیں کرتا کیونکہ وہ خود کو اوپر اٹھانے کی بجائے دوسروں کو نیچے کھینچنے میں لگا رہتا ہے۔`,
+
+    // Tips
+    "tip1-title": "شکر اور انکساری",
+    "tip1-body":  " - حسد اکثر اپنی نعمتوں کو بھول جانے سے پیدا ہوتا ہے۔ اللہ نے جو صحت، ایمان، اور خاندان دیا ہے اس پر توجہ دیں — دوسروں کے پاس کیا ہے اس کی بجائے۔ حسد غرور سے آتا ہے — یہ سوچنا کہ آپ دوسروں سے بہتر کے مستحق ہیں۔ اللہ کے فیصلے کو عاجزی سے قبول کریں اور اپنی اصلاح پر توجہ دیں۔",
+
+    "tip2-title": "دعا اور تعریف",
+    "tip2-body":  " - اس شخص کے لیے دعا کریں — اللہ سے مانگیں کہ اس کی نعمت میں اضافہ ہو نہ کہ وہ چھن جائے۔ یہ حسد کے جذبے کو براہِ راست توڑتا ہے۔ اپنی زبان کو کسی کی نعمت دیکھ کر اللہ کی تعریف کرنے کی عادت ڈالیں — یہ دل کو جلن سے بچاتا ہے۔",
+
+    "tip3-title": "موازنے سے بچیں",
+    "tip3-body":  " - دوسروں کی زندگیوں کو (خاص طور پر سوشل میڈیا پر) مسلسل دیکھنا بند کریں۔ دل کو صاف کریں — نفرت، غرور اور حبّ الدنیا کو نکال باہر کریں۔",
+
+    "tip4-title": "خوف اور آگاہی",
+    "tip4-body":  " - اللہ سے ڈریں اور گناہ سے بچیں۔ یاد رکھیں: حسد پہلے آپ کی نیکیاں تباہ کرتا ہے اور آپ کا دل بگاڑتا ہے — اس کی گندگی اور ذلت کو پہچانیں۔ حسد خود اپنے آپ میں ایک سزا ہے۔ حسد کی مذمت میں نازل آیات اور احادیث ذہن میں رکھیں۔ جب بھی یہ جذبہ اٹھے انہیں سمجھ کر یاد کریں — یہ ذہن کو تربیت دیتا ہے اور گناہ کا ڈر پیدا کرتا ہے۔",
+
+    // Quran (Urdu)
+    "q1-trans": "اور حاسد کے شر سے جب وہ حسد کرے۔",
+    "q1-ref":   "سورۃ الفلق ۱۱۳ : ۵ (تفسیر کے لیے کلک کریں)",
+
+    "q2-trans": "اور اس چیز کی تمنا نہ کرو جو اللہ نے تم میں سے بعض کو بعض پر فضیلت دے کر دی ہے۔ مردوں کے لیے اس میں سے حصہ ہے جو انہوں نے کمایا اور عورتوں کے لیے اس میں سے حصہ ہے جو انہوں نے کمایا۔ اللہ سے اس کا فضل مانگو — بے شک اللہ ہر چیز کا علم رکھتا ہے۔",
+    "q2-ref":   "سورۃ النساء ۴ : ۳۲ (تفسیر کے لیے کلک کریں)",
+
+    // Hadith (Urdu)
+    "h1-trans": "حسد سے بچو، کیونکہ حسد نیکیوں کو اس طرح کھا جاتا ہے جیسے آگ لکڑی کو — یا فرمایا: گھاس کو۔",
+    "h1-ref":   "سنن ابی داؤد ۴۹۰۳",
+
+    "h2-trans": "بدگمانی سے بچو کیونکہ بدگمانی سب سے جھوٹی بات ہے۔ اور ایک دوسرے کے عیب مت تلاش کرو، جاسوسی مت کرو، آپس میں حسد مت کرو، ایک دوسرے سے قطع تعلق مت کرو، ایک دوسرے سے بغض مت رکھو — اور اے اللہ کے بندو! آپس میں بھائی بھائی بن جاؤ۔",
+    "h2-ref":   "صحیح بخاری ۶۰۶۴",
+
+    "h3-trans": "کسی بندے کے دل میں ایمان اور حسد دونوں کبھی اکٹھے نہیں ہو سکتے۔",
+    "h3-ref":   "سنن نسائی ۳۱۰۹/۳۱۱۱",
+
+    "h4-trans": "رسول اللہ ﷺ سے پوچھا گیا: کون سا انسان سب سے بہتر ہے؟ آپ ﷺ نے فرمایا: وہ جس کا دل صاف اور زبان سچی ہو۔ صحابہ نے کہا: سچی زبان تو سمجھ آئی، لیکن صاف دل کیا ہے؟ آپ ﷺ نے فرمایا: وہ دل جو پرہیزگار اور پاکیزہ ہو، جس میں کوئی گناہ نہ ہو، نہ ظلم، نہ کینہ اور نہ حسد۔",
+    "h4-ref":   "سنن ابن ماجہ ۴۲۱۶",
+
+    "h5-trans": "تم میں پچھلی امتوں کی بیماری سرایت کر رہی ہے: حسد اور بغض — یہی ہے مونڈ دینے والی۔ میں یہ نہیں کہتا کہ یہ بالوں کو مونڈتی ہے بلکہ یہ دین کو مونڈ دیتی ہے۔ اس ذات کی قسم جس کے ہاتھ میں میری جان ہے! تم جنت میں نہیں جا سکتے جب تک ایمان نہ لاؤ، اور ایمان کامل نہیں ہو سکتا جب تک آپس میں محبت نہ ہو۔ کیا میں تمہیں وہ چیز نہ بتاؤں جو یہ محبت مضبوط کرے؟ آپس میں سلام پھیلاؤ۔",
+    "h5-ref":   "جامع ترمذی ۲۵۱۰",
+
+    "h6-trans": "تم میں سے کوئی اس وقت تک مومن نہیں ہو سکتا جب تک اپنے مسلمان بھائی کے لیے وہی پسند نہ کرے جو اپنے لیے پسند کرتا ہے۔",
+    "h6-ref":   "صحیح بخاری ۱۳",
+  },
+
+  // ─────────────────────────────────────────────
+  // ARABIC
+  // ─────────────────────────────────────────────
+  ar: {
+    "page-title":    "حَسَد",
+    "page-subtitle": "الحسد (تمنّي زوال نعمة الغير)",
+
+    "def-heading":       "التعريف",
+    "practices-heading": "الصور الشائعة",
+    "danger-heading":    "لماذا هذا الذنب خطير؟",
+    "tips-heading":      "كيف تترك هذا الذنب؟",
+    "quran-heading":     "القرآن الكريم",
+    "hadith-heading":    "الأحاديث النبوية الشريفة",
+
+    // Definition
+    "def-body": `الحسد هو كراهية نعمة الغير وتمني زوالها عنه — سواء أردتها لنفسك أم لا. وهو أن يضيق صدرك ويتألم قلبك حين ترى نعمة بيد غيرك، فتتمنى أن تُسلَب منه. بمعنى: تمني زوال النعمة عن صاحبها، أو الانزعاج من نجاح الآخرين.`,
+
+    // Practice 1
+    "p1-title": "١- الاستياء من سعادة الآخرين",
+    "p1-li1":   "الشعور بالانزعاج والضيق عند رؤية سعادة الآخرين أو سماع إنجازاتهم، عوضًا عن الفرح الحقيقي لأجلهم.",
+    "p1-li2":   "التحدث بسلبية عن شخص بسبب نعمه، وإبراز عيوبه لتشعر بتحسّن حالك.",
+    "p1-li3":   "فعل ذلك بعد مشاهدة شيء غير لائق أو تذكّره.",
+    "p1-li4":   `التزام الصمت حين يستحق أحدهم الثناء، والشعور بالثقل والحرج عند قول "ما شاء الله".`,
+
+    // Practice 2
+    "p2-title": "٢- المقارنة المستمرة وإحصاء المزايا",
+    "p2-body":  "المقارنة الاعتيادية بين نعمك ونعم الآخرين، والتركيز كليًا على ما تفتقر إليه، مع الاحتفاظ بسجل ذهني لكل نجاحات الآخرين.",
+
+    // Practice 3
+    "p3-title": "٣- التخريب بالإهمال المتعمد",
+    "p3-body":  "التقاعس عن مساعدة أحدهم أو دعمه عمدًا، أو حجب المعلومات التي قد تُعينه على النجاح، أملًا في إخفاقه أو وقوعه في عسر.",
+
+    // Practice 4
+    "p4-title": "٤- الشماتة (الفرح بمصيبة الغير)",
+    "p4-body":  "الشعور سرًا بالارتياح أو الرضا أو الفرح حين يتعرض الشخص الأكثر نجاحًا أو حظًا لنكسة أو خسارة أو شدة.",
+
+    // Practice 5
+    "p5-title": `٥- تبرير "عدم الاستحقاق"`,
+    "p5-body":  "إقناع النفس بأن صاحب النعمة لا يستحقها، أو أنه حصل عليها بطرق غير مشروعة، وذلك تبريرًا للحسد.",
+
+    // Danger
+    "danger-box": `<b>الضرر الروحي:</b> الحسد يأكل الحسنات كما تأكل النار الحطب أو العشب. والحاسد في جوهره يعترض على توزيع الله لنعمه، وكأنه يُشكّك في عدل الله سبحانه.<br><br>
+<b>الأضرار الاجتماعية والسلوكية:</b> يخلق بيئة مسمومة تُفضي إلى العداوة والغيبة والبهتان والكذب وهجر المسلمين. والحسد أصل كثير من الذنوب، منها: الظلم والجور وحتى الإيذاء الجسدي والقتل، كما يظهر في قصة قابيل وهابيل.<br><br>
+<b>الضرر الشخصي:</b> يعيش الحاسد في حزن دائم وقلق مستمر لأنه شاخص الأنظار إلى نعم الآخرين لا نعمه هو، فيعذّب نفسه عذابًا نفسيًا حادًا. والحسد يُعمي صاحبه عن فضائل المحسود فلا يرى إلا عيوبه. والحاسد لا يتقدم، لأنه منشغل بإنزال الآخرين لا برفع نفسه.`,
+
+    // Tips
+    "tip1-title": "الشكر والتواضع",
+    "tip1-body":  " - كثيرًا ما ينشأ الحسد من نسيان نعم الله عليك. ركّز بإيجابية على ما أعطاك الله — صحةً وإيمانًا وأهلًا — بدلًا من النظر إلى ما بيد الآخرين. والحسد وليد الكبر والشعور بأنك أجدر من غيرك. فاقبل قضاء الله بتواضع وانصرف إلى إصلاح نفسك.",
+
+    "tip2-title": "الدعاء والمديح",
+    "tip2-body":  " - ادعُ لذلك الشخص، واسأل الله أن يزيد في نعمته عوضًا عن تمني زوالها؛ فهذا يكسر شعور الحسد مباشرةً. ودرّب لسانك على حمد الله حين ترى نعمةً بيد أحد؛ فذلك يحصّن قلبك من الغيرة.",
+
+    "tip3-title": "اجتنب المقارنة",
+    "tip3-body":  " - كفّ عن المراقبة المستمرة لحياة الآخرين، ولا سيما على وسائل التواصل. طهّر قلبك من البغض والكبر وحب الدنيا",
+
+    "tip4-title": "الخشية واليقظة",
+    "tip4-body":  " - اخشَ الله واحذر الذنب. تذكّر: الحسد يُحرق حسناتك أولًا ويُفسد قلبك — فاعرف نجاسته وذلّه. والحسد عقوبة بذاته؛ لذا استحضر الآيات والأحاديث الواردة في ذمّه أدناه، وحين يدفعك إليه اتلُها بتدبر — فذلك يروّض عقلك ويُيقظ قلبك ويُقوّي خشيتك.",
+
+    // Quran (Arabic)
+    "q1-trans": "ومن شر حاسد إذا حسد.",
+    "q1-ref":   "سورة الفلق ١١٣ : ٥ (اضغط للتفسير)",
+
+    "q2-trans": "ولا تتمنوا ما فضّل الله به بعضكم على بعض، للرجال نصيب مما اكتسبوا وللنساء نصيب مما اكتسبن، واسألوا الله من فضله، إن الله كان بكل شيء عليمًا.",
+    "q2-ref":   "سورة النساء ٤ : ٣٢ (اضغط للتفسير)",
+
+    // Hadith (Arabic)
+    "h1-trans": "إياكم والحسد، فإن الحسد يأكل الحسنات كما تأكل النار الحطب — أو قال: العشب.",
+    "h1-ref":   "سنن أبي داود ٤٩٠٣",
+
+    "h2-trans": "إياكم والظن فإن الظن أكذب الحديث، ولا تحسسوا ولا تجسسوا ولا تحاسدوا ولا تدابروا ولا تباغضوا، وكونوا عباد الله إخوانًا.",
+    "h2-ref":   "صحيح البخاري ٦٠٦٤",
+
+    "h3-trans": "ولا يجتمعان في قلب عبد الإيمان والحسد.",
+    "h3-ref":   "سنن النسائي ٣١٠٩/٣١١١",
+
+    "h4-trans": `قيل لرسول الله ﷺ: أي الناس أفضل؟ قال: كل مخموم القلب صدوق اللسان. قالوا: صدوق اللسان نعرفه، فما مخموم القلب؟ قال: هو التقي النقي لا إثم فيه ولا بغي ولا غِلّ ولا حسد.`,
+    "h4-ref":   "سنن ابن ماجه ٤٢١٦",
+
+    "h5-trans": "دبّ إليكم داء الأمم قبلكم: الحسد والبغضاء، هي الحالقة، لا أقول تحلق الشعر ولكن تحلق الدين. والذي نفسي بيده لا تدخلوا الجنة حتى تؤمنوا، ولا تؤمنوا حتى تحابوا. أفلا أنبئكم بما يثبت ذلكم لكم؟ أفشوا السلام بينكم.",
+    "h5-ref":   "جامع الترمذي ٢٥١٠",
+
+    "h6-trans": "لا يؤمن أحدكم حتى يحب لأخيه ما يحب لنفسه.",
+    "h6-ref":   "صحيح البخاري ١٣",
+  }
+};
+</script>
+
+</body>
+</html>
