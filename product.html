@@ -145,5 +145,14 @@ if (ref) {
 }
 </script>
 
+<script>
+/* Redirect browser back button to homepage */
+history.pushState(null, null, location.href);
+
+window.addEventListener("popstate", function () {
+  window.location.href = "https://hanafilens.site/";
+});
+</script>
+
 </body>
 </html>
