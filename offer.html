@@ -1,212 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arabic & Persian Vocabulary Tool</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-.page { max-width: 420px; margin: 0 auto; padding: 0 0 2rem; direction: rtl; font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Arial Unicode MS', sans-serif; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #071426, #0f2d4d, #10263f);
+      color: white;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-.hero-band { background: #1a1a2e; padding: 2rem 1.25rem 1.5rem; text-align: center; }
-.hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.1); border: 0.5px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 5px 14px; font-size: 12px; color: #f0c040; margin-bottom: 1rem; }
-.hero-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: #f0c040; flex-shrink: 0; animation: pulse 1.5s infinite; }
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-.hero-band h1 { font-size: 22px; font-weight: 500; color: #ffffff; line-height: 1.9; margin-bottom: 0.5rem; }
-.hero-band p { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 2; }
+    .background-glow {
+      position: fixed;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(0, 183, 255, 0.15);
+      filter: blur(70px);
+      z-index: 0;
+    }
 
-.offer-band { background: linear-gradient(135deg, #f0c040 0%, #e8952a 100%); padding: 1.25rem; margin: 0; display: flex; justify-content: space-between; align-items: center; }
-.offer-left .label { font-size: 12px; font-weight: 500; color: #412402; margin-bottom: 2px; }
-.offer-left .sublabel { font-size: 12px; color: #633806; line-height: 1.8; }
-.offer-right { text-align: left; }
-.offer-right .original { font-size: 13px; color: #633806; text-decoration: line-through; direction: ltr; }
-.offer-right .price { font-size: 32px; font-weight: 500; color: #1a1a2e; line-height: 1; direction: ltr; font-family: sans-serif; }
-.offer-right .sub { font-size: 11px; color: #412402; margin-top: 3px; }
+    .glow1 {
+      top: -80px;
+      left: -80px;
+    }
 
-.timer-strip { background: #1a1a2e; padding: 0.65rem 1.25rem; display: flex; align-items: center; gap: 8px; }
-.timer-strip i { font-size: 15px; color: #f0c040; }
-.timer-strip .ttext { font-size: 12px; color: rgba(255,255,255,0.6); flex: 1; }
-.timer-strip .tval { font-size: 15px; font-weight: 500; color: #f0c040; direction: ltr; font-family: sans-serif; font-variant-numeric: tabular-nums; }
+    .glow2 {
+      bottom: -80px;
+      right: -80px;
+      background: rgba(0, 255, 174, 0.12);
+    }
 
-.body { padding: 1.25rem; }
-.section-title { font-size: 11px; font-weight: 500; letter-spacing: 0.04em; color: var(--color-text-secondary); margin: 0 0 0.85rem; }
-.feature-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 1.5rem; }
+    .container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 550px;
+      margin: auto;
+      padding: 20px 16px 50px;
+    }
 
-.feature-item { display: flex; align-items: flex-start; gap: 12px; border-radius: var(--border-radius-lg); padding: 1rem 1.1rem; border: 0.5px solid; }
-.fi-purple { background: #EEEDFE; border-color: #AFA9EC; }
-.fi-teal   { background: #E1F5EE; border-color: #5DCAA5; }
-.fi-blue   { background: #E6F1FB; border-color: #85B7EB; }
-.fi-amber  { background: #FAEEDA; border-color: #EF9F27; }
-.fi-pink   { background: #FBEAF0; border-color: #ED93B1; }
+    .hero {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(18px);
+      border-radius: 28px;
+      padding: 28px 22px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+      overflow: hidden;
+      position: relative;
+    }
 
-.feature-icon { width: 36px; height: 36px; border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.feature-icon i { font-size: 18px; }
-.fi-purple .feature-icon { background: #CECBF6; }
-.fi-teal   .feature-icon { background: #9FE1CB; }
-.fi-blue   .feature-icon { background: #B5D4F4; }
-.fi-amber  .feature-icon { background: #FAC775; }
-.fi-pink   .feature-icon { background: #F4C0D1; }
+    .tag {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4);
+    }
 
-.feature-body .ftitle { font-size: 14px; font-weight: 500; line-height: 1.8; }
-.fi-purple .ftitle { color: #3C3489; }
-.fi-teal   .ftitle { color: #085041; }
-.fi-blue   .ftitle { color: #0C447C; }
-.fi-amber  .ftitle { color: #633806; }
-.fi-pink   .ftitle { color: #72243E; }
+    h1 {
+      font-size: 34px;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
 
-.feature-body .fdesc { font-size: 12px; margin-top: 2px; line-height: 2; }
-.fi-purple .fdesc { color: #534AB7; }
-.fi-teal   .fdesc { color: #0F6E56; }
-.fi-blue   .fdesc { color: #185FA5; }
-.fi-amber  .fdesc { color: #854F0B; }
-.fi-pink   .fdesc { color: #993556; }
+    .subtitle {
+      color: rgba(255,255,255,0.82);
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
 
-.new-badge { display: inline-block; font-size: 10px; font-weight: 500; background: #9FE1CB; color: #085041; border-radius: 4px; padding: 1px 6px; margin-right: 5px; vertical-align: middle; font-family: sans-serif; direction: ltr; }
+    .price-box {
+      background: linear-gradient(135deg, #16a34a, #22c55e);
+      border-radius: 24px;
+      padding: 18px;
+      margin-bottom: 22px;
+      box-shadow: 0 10px 30px rgba(34,197,94,0.25);
+    }
 
-.cta-note { font-size: 13px; color: var(--color-text-secondary); text-align: center; line-height: 2; margin-bottom: 1rem; padding: 0.9rem 1rem; background: #FAEEDA; border-radius: var(--border-radius-md); border: 0.5px solid #FAC775; color: #633806; }
-.cta-note strong { color: #412402; font-weight: 500; }
+    .offer-text {
+      font-size: 13px;
+      font-weight: 500;
+      opacity: 0.95;
+      margin-bottom: 8px;
+      letter-spacing: 0.4px;
+    }
 
-.btn-trial { width: 100%; padding: 15px; background: #1a1a2e; color: #f0c040; border: none; border-radius: 30px; font-size: 15px; font-weight: 500; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 10px; font-family: 'Noto Nastaliq Urdu', sans-serif; }
-.btn-pay { width: 100%; padding: 14px; background: transparent; color: #1a1a2e; border: 1.5px solid #1a1a2e; border-radius: 30px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: 'Noto Nastaliq Urdu', sans-serif; }
+    .price {
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1;
+    }
 
-.trial-box { display: none; margin-top: 1.25rem; background: #1a1a2e; border-radius: var(--border-radius-lg); padding: 1.25rem; text-align: center; }
-.trial-box .countdown { font-size: 52px; font-weight: 500; color: #f0c040; font-variant-numeric: tabular-nums; line-height: 1; margin: 0.5rem 0; direction: ltr; font-family: sans-serif; }
-.trial-box .tsub { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 2; }
-.bar-wrap { background: rgba(255,255,255,0.1); border-radius: 6px; height: 6px; margin: 1rem 0; overflow: hidden; }
-.bar-fill { height: 100%; background: #f0c040; border-radius: 6px; width: 100%; transition: width 1s linear; }
-.btn-pay-light { width: 100%; padding: 13px; background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.85); border: 0.5px solid rgba(255,255,255,0.2); border-radius: 30px; font-size: 13px; cursor: pointer; margin-top: 0.75rem; font-family: 'Noto Nastaliq Urdu', sans-serif; }
-</style>
+    .validity {
+      margin-top: 10px;
+      font-size: 13px;
+      opacity: 0.95;
+      line-height: 1.5;
+    }
 
-<div class="page">
-  <h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden">عربی سیکھنے کا خصوصی آفر — اردو</h2>
+    .feature-section {
+      margin-top: 24px;
+    }
 
-  <div class="hero-band">
-    <div class="hero-badge"><span class="dot"></span> محدود وقت کا آفر</div>
-    <h1>عربی اور فارسی سیکھیں<br>زندگی بھر کی رسائی</h1>
-    <p>الفاظ، گرامر اور تلفظ — سب کچھ ایک جگہ</p>
+    .section-title {
+      font-size: 22px;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .features {
+      display: grid;
+      gap: 14px;
+    }
+
+    .feature-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      padding: 18px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      backdrop-filter: blur(12px);
+      transition: 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.1);
+    }
+
+    .icon {
+      min-width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 5px 18px rgba(0,114,255,0.35);
+    }
+
+    .feature-content h3 {
+      font-size: 16px;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .feature-content p {
+      font-size: 13px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .new-badge {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 4px 10px;
+      background: rgba(34,197,94,0.18);
+      color: #7dffaf;
+      border: 1px solid rgba(125,255,175,0.3);
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .trial-box {
+      margin-top: 28px;
+      background: linear-gradient(135deg, rgba(0,198,255,0.15), rgba(34,197,94,0.12));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 22px 18px;
+      text-align: center;
+    }
+
+    .trial-box h2 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .trial-box p {
+      color: rgba(255,255,255,0.85);
+      line-height: 1.7;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .cta-button {
+      width: 100%;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      color: white;
+      font-size: 17px;
+      font-weight: 600;
+      padding: 18px 20px;
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(0,114,255,0.35);
+      transition: 0.3s ease;
+    }
+
+    .cta-button:hover {
+      transform: scale(1.02);
+    }
+
+    .warning {
+      margin-top: 14px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.6;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 24px;
+      color: rgba(255,255,255,0.55);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 28px;
+      }
+
+      .price {
+        font-size: 36px;
+      }
+
+      .hero {
+        padding: 24px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="background-glow glow1"></div>
+  <div class="background-glow glow2"></div>
+
+  <div class="container">
+
+    <div class="hero">
+      <div class="tag">LIMITED TIME SPECIAL OFFER</div>
+
+      <h1>Master Arabic & Persian Vocabulary Easily</h1>
+
+      <p class="subtitle">
+        Unlock the premium learning experience with powerful vocabulary tools,
+        pronunciation, conjugations, plurals, sentences and much more.
+      </p>
+
+      <div class="price-box">
+        <div class="offer-text">SPECIAL OFFER ONLY FOR TODAY</div>
+        <div class="price">Rs 500</div>
+        <div class="validity">
+          Valid for 24 Hours only<br>
+          From 8:00 AM to next 8:00 AM
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-section">
+      <div class="section-title">Premium Features</div>
+
+      <div class="features">
+
+        <div class="feature-card">
+          <div class="icon">📚</div>
+          <div class="feature-content">
+            <h3>All Vocabulary Categories</h3>
+            <p>
+              Unlock all vocabulary categories and all tiers of nouns and verbs without restrictions.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="icon">🌍</div>
+          <div class="feature-content">
+            <h3>Arabic + Persian Access</h3>
+            <p>
+              Get complete access to both Arabic and Persian vocabulary collections.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="icon">🔊</div>
+          <div class="feature-content">
+            <h3>Pronunciation & Auto‑Play Arabic</h3>
+            <p>
+              Listen to pronunciations instantly and use auto‑play to continue learning smoothly.
+            </p>
+            <span class="new-badge">Recently Added Feature</span>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="icon">📝</div>
+          <div class="feature-content">
+            <h3>Plurals & Sentences</h3>
+            <p>
+              Learn plural forms and practical sentence usage for stronger understanding.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="icon">⚡</div>
+          <div class="feature-content">
+            <h3>Advanced Verb Details</h3>
+            <p>
+              Access conjugation (Gardaan), synonyms, sentences and grammatical details of verbs.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="icon">✨</div>
+          <div class="feature-content">
+            <h3>Upcoming Adjectives Access</h3>
+            <p>
+              Users joining now will also get access to the upcoming adjectives section.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="trial-box">
+      <h2>Try Full Access First</h2>
+
+      <p>
+        You can use the complete premium tool for 5–10 minutes before payment and check everything yourself.
+        After the trial ends, this page will automatically convert to the payment page.
+        <br><br>
+        Start the full access only when you are fully ready to explore the tool.
+      </p>
+
+      <button class="cta-button" onclick="startAccess()">
+        Give Me Full Access
+      </button>
+
+      <div class="warning">
+        Temporary full access starts immediately after clicking the button.
+      </div>
+    </div>
+
+    <div class="footer-note">
+      Built for serious Arabic & Persian learners with an easy mobile experience.
+    </div>
+
   </div>
 
-  <div class="offer-band">
-    <div class="offer-left">
-      <div class="label">صرف آج — خصوصی قیمت</div>
-      <div class="sublabel">صبح ۸ بجے تک آفر ختم</div>
-    </div>
-    <div class="offer-right">
-      <div class="original">Rs 1000</div>
-      <div class="price">Rs 500</div>
-      <div class="sub">زندگی بھر کی رسائی</div>
-    </div>
-  </div>
+  <script>
+    function startAccess() {
+      alert('Your temporary full access has started. Please explore the tool now. After the access duration ends, this page will convert to the payment page automatically.');
 
-  <div class="timer-strip">
-    <i class="ti ti-clock" aria-hidden="true"></i>
-    <span class="ttext">آفر ختم ہونے میں</span>
-    <span class="tval" id="offerTimer">--:--:--</span>
-  </div>
+      // Replace this with your real access page
+      window.location.href = 'index.html';
+    }
+  </script>
 
-  <div class="body">
-    <div class="section-title">آپ کو کیا ملے گا</div>
-
-    <div class="feature-list">
-
-      <div class="feature-item fi-purple">
-        <div class="feature-icon"><i class="ti ti-vocabulary" style="color:#534AB7;" aria-hidden="true"></i></div>
-        <div class="feature-body">
-          <div class="ftitle">مکمل لغت</div>
-          <div class="fdesc">اسماء اور افعال کی تمام اقسام — عربی اور فارسی دونوں</div>
-        </div>
-      </div>
-
-      <div class="feature-item fi-teal">
-        <div class="feature-icon"><i class="ti ti-volume" style="color:#0F6E56;" aria-hidden="true"></i></div>
-        <div class="feature-body">
-          <div class="ftitle"><span class="new-badge">نیا</span> تلفظ اور آٹو پلے</div>
-          <div class="fdesc">ہر لفظ کی آواز سنیں — خودکار چلنے کی سہولت کے ساتھ</div>
-        </div>
-      </div>
-
-      <div class="feature-item fi-blue">
-        <div class="feature-icon"><i class="ti ti-layers-intersect" style="color:#185FA5;" aria-hidden="true"></i></div>
-        <div class="feature-body">
-          <div class="ftitle">جمع اور جملے</div>
-          <div class="fdesc">الفاظ کی جمع اور حقیقی جملوں میں استعمال دیکھیں</div>
-        </div>
-      </div>
-
-      <div class="feature-item fi-amber">
-        <div class="feature-icon"><i class="ti ti-transform" style="color:#854F0B;" aria-hidden="true"></i></div>
-        <div class="feature-body">
-          <div class="ftitle">گردان (صرف)</div>
-          <div class="fdesc">مکمل گردان، مترادفات اور صرفی تفصیلات</div>
-        </div>
-      </div>
-
-      <div class="feature-item fi-pink">
-        <div class="feature-icon"><i class="ti ti-clock-plus" style="color:#993556;" aria-hidden="true"></i></div>
-        <div class="feature-body">
-          <div class="ftitle">صفات — جلد آ رہا ہے</div>
-          <div class="fdesc">ابھی ادائیگی کریں اور صفات شامل ہوتے ہی فوری رسائی پائیں</div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="cta-note">
-      <strong>پہلے آزمائیں، پھر ادائیگی کریں۔</strong> نیچے کا بٹن دبائیں اور <strong>۷ منٹ</strong> کے لیے مکمل رسائی پائیں — وقت ختم ہونے پر ادائیگی کا صفحہ کھل جائے گا۔
-    </div>
-
-    <button class="btn-trial" id="trialBtn" onclick="startTrial()">
-      <i class="ti ti-player-play" aria-hidden="true"></i>
-      مفت آزمائش شروع کریں — ۷ منٹ
-    </button>
-    <button class="btn-pay" onclick="goToPay()">ابھی Rs 500 ادا کریں ←</button>
-
-    <div class="trial-box" id="trialBox">
-      <div class="tsub">مکمل رسائی فعال ہے</div>
-      <div class="countdown" id="trialCountdown">7:00</div>
-      <div class="tsub">ابھی ٹول استعمال کریں۔ وقت ختم ہوتے ہی ادائیگی کا صفحہ کھلے گا۔</div>
-      <div class="bar-wrap"><div class="bar-fill" id="trialBar"></div></div>
-      <button class="btn-pay-light" onclick="goToPay()">ابھی ادا کریں اور رسائی برقرار رکھیں ←</button>
-    </div>
-
-  </div>
-</div>
-
-<script>
-function offerTimer() {
-  const end = new Date();
-  end.setHours(8, 0, 0, 0);
-  if (new Date().getHours() >= 8) end.setDate(end.getDate() + 1);
-  function tick() {
-    const diff = end - new Date();
-    if (diff <= 0) { document.getElementById('offerTimer').textContent = 'ختم'; return; }
-    const h = Math.floor(diff / 3600000);
-    const m = Math.floor((diff % 3600000) / 60000);
-    const s = Math.floor((diff % 60000) / 1000);
-    document.getElementById('offerTimer').textContent =
-      String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
-  }
-  tick(); setInterval(tick, 1000);
-}
-offerTimer();
-
-const TRIAL_SECS = 7 * 60;
-let trialInterval = null;
-
-function startTrial() {
-  document.getElementById('trialBtn').style.display = 'none';
-  document.getElementById('trialBox').style.display = 'block';
-  let rem = TRIAL_SECS;
-  const cd = document.getElementById('trialCountdown');
-  const bar = document.getElementById('trialBar');
-  function tick() {
-    const m = Math.floor(rem / 60);
-    const s = rem % 60;
-    cd.textContent = m + ':' + String(s).padStart(2,'0');
-    bar.style.width = (rem / TRIAL_SECS * 100) + '%';
-    if (rem <= 0) { clearInterval(trialInterval); goToPay(); }
-    rem--;
-  }
-  tick(); trialInterval = setInterval(tick, 1000);
-}
-
-function goToPay() {
-  if (trialInterval) clearInterval(trialInterval);
-  window.location.href = 'https://hanafilens.site/payment.html';
-}
-</script>
+</body>
+</html>
