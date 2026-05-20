@@ -344,15 +344,15 @@
   /* PRACTICE */
 
   .practice{
-    padding:120px 0;
-    background:#f8f7f3;
-  }
+  padding:80px 0;
+  background:#f8f7f3;
+}
 
   .section-top{
     display:flex;
     justify-content:space-between;
-    gap:40px;
-    margin-bottom:70px;
+    gap:30px;
+    margin-bottom:50px;
     align-items:end;
   }
 
@@ -365,12 +365,10 @@
   }
 
   .section-top h2{
-    font-size:50px;
-    line-height:1.2;
-    font-family:'Playfair Display', serif;
-    max-width:650px;
-    color:#1f2937;
-  }
+  font-size:40px;
+  line-height:1.2;
+  max-width:600px;
+}
 
   .section-top p{
     max-width:450px;
@@ -381,14 +379,14 @@
   .practice-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:30px;
+    gap:20px;
   }
 
   .practice-card{
     background:white;
     border:1px solid rgba(0,0,0,0.06);
-    border-radius:28px;
-    padding:35px;
+    border-radius:22px;
+    padding:24px;
     transition:0.35s;
     box-shadow:0 10px 25px rgba(0,0,0,0.04);
   }
@@ -399,27 +397,28 @@
   }
 
   .icon{
-    width:70px;
-    height:70px;
-    border-radius:18px;
+    width:55px;
+    height:55px;
+    border-radius:14px;
     background:rgba(184,134,43,0.12);
     display:flex;
     justify-content:center;
     align-items:center;
-    font-size:30px;
-    margin-bottom:25px;
+    font-size:24px;
+    margin-bottom:18px;
   }
 
   .practice-card h3{
-    font-size:28px;
-    margin-bottom:16px;
+    font-size:22px;
+    margin-bottom:10px;
     color:#1f2937;
   }
 
   .practice-card p{
+    font-size:15px;
     color:#5b6472;
-    line-height:1.8;
-    margin-bottom:25px;
+    line-height:1.7;
+    margin-bottom:18px;
   }
 
   .practice-card a{
@@ -427,51 +426,6 @@
     font-weight:600;
   }
 
-  /* CTA */
-
-  .cta{
-    padding:120px 0;
-    background:#ffffff;
-  }
-
-  .cta-box{
-    background:linear-gradient(135deg,#f0d39a,#d7a64b);
-    border-radius:35px;
-    padding:80px 60px;
-    text-align:center;
-    color:#1f2937;
-    box-shadow:0 20px 50px rgba(184,134,43,0.18);
-  }
-
-  .cta-box h2{
-    font-size:54px;
-    font-family:'Playfair Display', serif;
-    margin-bottom:20px;
-  }
-
-  .cta-box p{
-    max-width:700px;
-    margin:auto;
-    line-height:1.8;
-    font-size:18px;
-    margin-bottom:35px;
-  }
-
-  .cta-box button{
-    background:#1f2937;
-    color:white;
-    border:none;
-    padding:18px 34px;
-    border-radius:14px;
-    font-size:16px;
-    font-weight:600;
-    cursor:pointer;
-    transition:0.3s;
-  }
-
-  .cta-box button:hover{
-    transform:translateY(-3px);
-  }
 
   /* FOOTER */
 
@@ -552,14 +506,12 @@
       height:450px;
     }
 
-        .practice-grid,
     .stats-grid{
       grid-template-columns:1fr;
     }
 
-    .section-top h2,
-    .cta-box h2{
-      font-size:38px;
+    .section-top h2 {
+      font-size:20px;
     }
 
     .cta-box{
@@ -573,6 +525,33 @@
       padding:22px;
     }
 
+.practice{
+    padding:60px 0;
+  }
+
+.practice-card{
+    padding:18px;
+  }
+
+  .icon{
+    width:45px;
+    height:45px;
+    font-size:20px;
+    margin-bottom:14px;
+  }
+
+  .practice-card h3{
+    font-size:18px;
+  }
+
+  .practice-card p{
+    font-size:14px;
+  }
+
+  .practice-grid{
+    grid-template-columns:repeat(2,1fr); /* keep 2 per row */
+    gap:12px;
+  }
   }
 
 .view-all-link{
