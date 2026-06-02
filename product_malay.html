@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arabic and Persian Vocabulary</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Cairo", sans-serif;
+}
+
+body {
+  background: #f5f7fb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 10px;
+}
+
+/* Page Title */
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.container {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;   /* Arrange cards vertically */
+  gap: 30px;                /* Reduced gap for better mobile flow */
+  width: 100%;
+  max-width: 400px;         /* Keeps the column nicely centered */
+  align-items: center;
+}
+
+
+/* CARD DESIGN */
+.card {
+  width: 320px;
+  background: #fff;
+  padding: 30px 25px;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: 0.3s;
+  border-top: 5px solid #4a6cf7;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+/* Headings */
+.card h3 {
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+/* Text */
+.card p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+/* BUTTON */
+.btn {
+  text-decoration: none;
+  display: inline-block;
+  padding: 12px 22px;
+  background: #4a6cf7;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #354ee2;
+}
+
+/* Disabled Button */
+.btn.disabled {
+  background: #b7bfd8;
+  pointer-events: none;
+}
+  
+</style>
+</head>
+<body>
+
+<h1 class="title">Learning Resources</h1>
+  
+<div class="container">
+
+  <div class="card">
+    <h3>Nouns</h3>
+    <p>700+ Nouns with Images</p>
+    <a href="https://noun-a42d5.web.app/nouns_malay.html" class="btn aff-link">Explore Nouns</a>
+  </div>
+
+  <div class="card" style="border-top-color: #2ecc71;">
+    <h3>Verbs</h3>
+    <p>500+ Essential Verbs</p>
+    <a href="https://noun-a42d5.web.app/fael_malay.html" class="btn aff-link">Explore Verbs</a>
+  </div>
+
+  <div class="card" style="border-top-color: #95a5a6;">
+    <h3>Adjectives</h3>
+    <p><em>Coming soon...</em></p>
+    <a class="btn disabled">Coming Soon</a>
+  </div>
+
+</div>
+
+<script>
+// Handle Affiliate IDs for all active product links
+const affLinks = document.querySelectorAll(".aff-link");
+
+// 1. Check URL params
+const params = new URLSearchParams(window.location.search);
+let ref = params.get("ref");
+
+// 2. Fallback to localStorage
+if (!ref) {
+  ref = localStorage.getItem("affiliate");
+}
+
+// 3. Apply to all links if ref exists
+if (ref) {
+  affLinks.forEach(link => {
+    const currentUrl = new URL(link.href);
+    currentUrl.searchParams.set("ref", ref);
+    link.href = currentUrl.toString();
+  });
+}
+</script>
+
+<script>
+/* Redirect browser back button to homepage */
+history.pushState(null, null, location.href);
+
+window.addEventListener("popstate", function () {
+  window.location.href = "https://hanafilens.site/home.html";
+});
+</script>
+
+</body>
+</html>
