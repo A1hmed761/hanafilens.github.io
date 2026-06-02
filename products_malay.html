@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Products – Hanafi Lens</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+
+    *,
+    *::before,
+    *::after{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    :root{
+      --forest:#0b3d2e;
+      --forest2:#0e4f3b;
+      --emerald:#1a6b50;
+      --jade:#2cb67d;
+      --cream:#f5f0e8;
+      --parchment:#ede7d8;
+      --ink:#1c2a22;
+      --muted:#6b7f72;
+      --gold:#c8a85a;
+      --gold-lt:#e8d4a0;
+    }
+
+    html,
+    body{
+      width:100%;
+      overflow-x:hidden;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'DM Sans',sans-serif;
+      background:var(--cream);
+      color:var(--ink);
+      line-height:1.7;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    /* ───────── HEADER ───────── */
+
+    header{
+      background:var(--forest);
+      position:sticky;
+      top:0;
+      z-index:100;
+      border-bottom:1px solid rgba(200,168,90,0.18);
+      backdrop-filter:blur(10px);
+    }
+
+    .nav-inner{
+      max-width:1200px;
+      margin:auto;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      gap:18px;
+
+      padding:16px 24px;
+    }
+
+    .logo{
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.55rem;
+      font-weight:700;
+      color:var(--gold-lt);
+      letter-spacing:0.4px;
+      white-space:nowrap;
+    }
+
+    .logo span{
+      color:var(--jade);
+    }
+
+    nav{
+      display:flex;
+      gap:6px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    nav a{
+      font-size:0.82rem;
+      font-weight:500;
+      line-height:1;
+
+      color:rgba(255,255,255,0.68);
+
+      padding:9px 13px;
+      border-radius:8px;
+
+      transition:0.22s ease;
+
+      white-space:nowrap;
+    }
+
+    nav a:hover{
+      color:#fff;
+      background:rgba(255,255,255,0.08);
+    }
+
+    nav a.active{
+      color:var(--gold-lt);
+      background:rgba(44,182,125,0.16);
+      border:1px solid rgba(44,182,125,0.22);
+    }
+
+    /* ───────── HERO ───────── */
+
+    .hero{
+      background:linear-gradient(
+        180deg,
+        var(--forest) 0%,
+        var(--forest2) 100%
+      );
+
+      padding:90px 24px 80px;
+
+      text-align:center;
+
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:'';
+      position:absolute;
+      inset:0;
+
+      background:
+      radial-gradient(
+        ellipse 70% 60% at 50% 0%,
+        rgba(44,182,125,0.12) 0%,
+        transparent 70%
+      );
+
+      pointer-events:none;
+    }
+
+    .hero::after{
+      content:'﷽';
+
+      position:absolute;
+      bottom:-10px;
+      right:3%;
+
+      font-family:'Amiri',serif;
+      font-size:160px;
+
+      color:rgba(255,255,255,0.025);
+
+      line-height:1;
+      pointer-events:none;
+    }
+
+    .hero-eyebrow{
+      font-size:0.75rem;
+      font-weight:500;
+
+      color:var(--jade);
+
+      letter-spacing:3px;
+      text-transform:uppercase;
+
+      margin-bottom:18px;
+
+      position:relative;
+      z-index:1;
+    }
+
+    .hero h1{
+      font-family:'Cormorant Garamond',serif;
+
+      font-size:clamp(52px,8vw,90px);
+      font-weight:600;
+
+      color:#fff;
+
+      line-height:0.95;
+
+      margin-bottom:18px;
+
+      position:relative;
+      z-index:1;
+    }
+
+    .hero-desc{
+      font-size:1rem;
+      font-weight:300;
+
+      color:rgba(255,255,255,0.56);
+
+      max-width:470px;
+      margin:auto;
+
+      position:relative;
+      z-index:1;
+    }
+
+    /* ───────── PRODUCTS SECTION ───────── */
+
+    .products-section{
+      max-width:1200px;
+      margin:auto;
+
+      padding:75px 24px 100px;
+    }
+
+    .section-header{
+      text-align:center;
+      margin-bottom:55px;
+    }
+
+    .section-label{
+      font-size:0.72rem;
+      font-weight:600;
+
+      letter-spacing:3px;
+      text-transform:uppercase;
+
+      color:var(--jade);
+
+      margin-bottom:12px;
+    }
+
+    .section-title{
+      font-family:'Cormorant Garamond',serif;
+
+      font-size:clamp(30px,4vw,42px);
+      font-weight:600;
+
+      color:var(--ink);
+    }
+
+    .section-sub{
+      margin-top:10px;
+
+      font-size:0.95rem;
+      color:var(--muted);
+    }
+
+    /* ───────── PRODUCT GRID ───────── */
+
+    .products-grid{
+      display:grid;
+
+      grid-template-columns:
+      repeat(
+        auto-fit,
+        minmax(280px,1fr)
+      );
+
+      gap:30px;
+    }
+
+    /* ───────── PRODUCT CARD ───────── */
+
+    .product-card{
+      background:#fff;
+
+      border-radius:18px;
+      overflow:hidden;
+
+      border:1px solid rgba(27,42,34,0.08);
+
+      transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease;
+
+      display:flex;
+      flex-direction:column;
+    }
+
+    .product-card:hover{
+      transform:translateY(-6px);
+
+      box-shadow:
+      0 20px 55px rgba(11,61,46,0.12);
+    }
+
+    .product-img-wrap{
+      aspect-ratio:4 / 5;
+
+      overflow:hidden;
+      position:relative;
+
+      background:var(--parchment);
+    }
+
+    .product-img-wrap img{
+      width:100%;
+      height:100%;
+
+      object-fit:cover;
+      object-position:center;
+
+      display:block;
+
+      transition:transform 0.5s ease;
+    }
+
+    .product-card:hover .product-img-wrap img{
+      transform:scale(1.03);
+    }
+
+    .product-badge{
+      position:absolute;
+      top:16px;
+      left:16px;
+
+      background:var(--forest);
+      color:var(--gold-lt);
+
+      font-size:0.65rem;
+      font-weight:600;
+
+      letter-spacing:2px;
+      text-transform:uppercase;
+
+      padding:6px 12px;
+
+      border-radius:999px;
+    }
+
+    .product-body{
+      padding:26px 26px 30px;
+
+      display:flex;
+      flex-direction:column;
+      flex:1;
+    }
+
+    .product-tag{
+      font-size:0.68rem;
+      font-weight:600;
+
+      letter-spacing:2px;
+      text-transform:uppercase;
+
+      color:var(--jade);
+
+      margin-bottom:8px;
+    }
+
+    .product-title{
+      font-family:'Cormorant Garamond',serif;
+
+      font-size:1.75rem;
+      font-weight:600;
+
+      line-height:1.15;
+
+      color:var(--ink);
+
+      margin-bottom:12px;
+    }
+
+    .product-desc{
+      font-size:0.9rem;
+      color:#5c6f62;
+
+      line-height:1.75;
+
+      margin-bottom:22px;
+
+      flex:1;
+    }
+
+    /* FEATURES */
+
+    .product-features{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+
+      margin-bottom:24px;
+    }
+
+    .feature-pill{
+      font-size:0.68rem;
+      font-weight:600;
+
+      padding:5px 11px;
+
+      border-radius:999px;
+    }
+
+    .pill-green{
+      background:rgba(26,107,80,0.08);
+      color:var(--emerald);
+      border:1px solid rgba(26,107,80,0.18);
+    }
+
+    .pill-blue{
+      background:rgba(37,99,168,0.07);
+      color:#1a3a6b;
+      border:1px solid rgba(37,99,168,0.18);
+    }
+
+    .product-cta{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+
+      width:fit-content;
+
+      background:var(--forest);
+      color:#fff;
+
+      font-size:0.88rem;
+      font-weight:500;
+
+      padding:12px 22px;
+
+      border-radius:10px;
+
+      transition:0.25s ease;
+    }
+
+    .product-cta:hover{
+      background:var(--jade);
+      transform:translateY(-2px);
+    }
+
+    .product-cta::after{
+      content:'→';
+      transition:transform 0.2s ease;
+    }
+
+    .product-card:hover .product-cta::after{
+      transform:translateX(3px);
+    }
+
+    /* ───────── COMING CARD ───────── */
+
+    .coming-card{
+      background:var(--parchment);
+
+      border-radius:18px;
+
+      border:1px dashed rgba(27,42,34,0.18);
+
+      display:flex;
+      flex-direction:column;
+
+      align-items:center;
+      justify-content:center;
+
+      text-align:center;
+
+      min-height:320px;
+
+      padding:44px 28px;
+
+      gap:14px;
+    }
+
+    .coming-icon{
+      width:56px;
+      height:56px;
+
+      background:var(--forest);
+      color:#fff;
+
+      border-radius:50%;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      font-size:1.4rem;
+    }
+
+    .coming-title{
+      font-family:'Cormorant Garamond',serif;
+
+      font-size:1.55rem;
+      font-weight:600;
+
+      color:var(--ink);
+    }
+
+    .coming-desc{
+      font-size:0.88rem;
+      line-height:1.7;
+
+      color:var(--muted);
+
+      max-width:240px;
+    }
+
+    /* ───────── BOTTOM BANNER ───────── */
+
+    .coming-banner{
+      margin-top:55px;
+
+      background:var(--forest);
+
+      border-radius:18px;
+
+      padding:48px 40px;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      gap:28px;
+
+      border:1px solid rgba(200,168,90,0.16);
+
+      position:relative;
+      overflow:hidden;
+    }
+
+    .coming-banner::before{
+      content:'قريباً';
+
+      position:absolute;
+      right:-10px;
+      top:50%;
+
+      transform:translateY(-50%);
+
+      font-family:'Amiri',serif;
+
+      font-size:110px;
+
+      color:rgba(255,255,255,0.035);
+
+      line-height:1;
+
+      pointer-events:none;
+    }
+
+    .banner-text{
+      position:relative;
+      z-index:1;
+    }
+
+    .banner-eyebrow{
+      font-size:0.72rem;
+      font-weight:600;
+
+      letter-spacing:3px;
+      text-transform:uppercase;
+
+      color:var(--jade);
+
+      margin-bottom:10px;
+    }
+
+    .banner-title{
+      font-family:'Cormorant Garamond',serif;
+
+      font-size:clamp(24px,3vw,36px);
+      font-weight:600;
+
+      color:var(--gold-lt);
+
+      line-height:1.2;
+
+      margin-bottom:10px;
+    }
+
+    .banner-sub{
+      font-size:0.9rem;
+
+      color:rgba(255,255,255,0.5);
+    }
+
+    .banner-notify{
+      position:relative;
+      z-index:1;
+
+      flex-shrink:0;
+
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      gap:8px;
+
+      background:rgba(200,168,90,0.14);
+      color:var(--gold-lt);
+
+      border:1px solid rgba(200,168,90,0.25);
+
+      font-size:0.88rem;
+      font-weight:500;
+
+      padding:13px 24px;
+
+      border-radius:10px;
+
+      transition:0.25s ease;
+    }
+
+    .banner-notify:hover{
+      background:rgba(200,168,90,0.25);
+    }
+
+    /* ───────── ANIMATIONS ───────── */
+
+    .fade-up{
+      opacity:0;
+      transform:translateY(28px);
+
+      transition:
+      opacity 0.7s ease,
+      transform 0.7s ease;
+    }
+
+    .fade-up.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* ───────── MOBILE ───────── */
+
+    @media (max-width:640px){
+
+      .nav-inner{
+        flex-direction:column;
+        align-items:center;
+
+        padding:14px 16px;
+      }
+
+      nav{
+        justify-content:center;
+        gap:8px;
+      }
+
+      nav a{
+        font-size:0.76rem;
+        padding:8px 11px;
+      }
+
+      .hero{
+        padding:70px 18px 62px;
+      }
+
+      .hero::after,
+      .coming-banner::before{
+        display:none;
+      }
+
+      .products-section{
+        padding:55px 18px 75px;
+      }
+
+      .products-grid{
+        grid-template-columns:1fr;
+      }
+
+      .coming-banner{
+        flex-direction:column;
+        text-align:center;
+
+        padding:36px 24px;
+      }
+
+      .banner-notify{
+        width:100%;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="nav-inner">
+
+      <div class="logo">
+        Hanafi<span>.</span>Lens
+      </div>
+
+      <nav>
+        <a href="home.html">Home</a>
+        <a href="products_malay.html" class="active">Products</a>
+        <a href="blog.html">Blogs</a>
+        <a href="contact.html">Contact us</a>
+      </nav>
+
+    </div>
+
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-eyebrow">
+      Premium Resources
+    </div>
+
+    <h1>
+      Our Products
+    </h1>
+
+    <p class="hero-desc">
+      Carefully crafted learning materials for Arabic, Persian, and Islamic studies.
+    </p>
+
+  </section>
+
+  <!-- PRODUCTS -->
+
+  <section class="products-section">
+
+    <div class="section-header fade-up">
+
+      <div class="section-label">
+        Available Now
+      </div>
+
+      <h2 class="section-title">
+        Start your journey
+      </h2>
+
+      <p class="section-sub">
+        Handpicked resources to deepen your knowledge of the Islamic sciences.
+      </p>
+
+    </div>
+
+    <div class="products-grid">
+
+      <!-- PRODUCT -->
+
+      <div class="product-card fade-up">
+
+        <div class="product-img-wrap">
+
+          <div class="product-badge">
+            Featured
+          </div>
+
+          <img
+            src="images/product2.png"
+            alt="Arabic and Persian Vocabulary Package"
+          />
+
+        </div>
+
+        <div class="product-body">
+
+          <div class="product-tag">
+            Vocabulary · Language
+          </div>
+
+          <div class="product-title">
+            Arabic & Persian Vocabulary Package
+          </div>
+
+          <p class="product-desc">
+            A comprehensive vocabulary system built for students — covering vocabulary with visual, grammatical, and contextual aid.
+          </p>
+
+          <div class="product-features">
+            <span class="feature-pill pill-green">Arabic</span>
+            <span class="feature-pill pill-blue">Persian</span>
+          </div>
+
+          <a href="product.html" class="product-cta">
+            View Details
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- COMING SOON -->
+
+      <div class="coming-card fade-up">
+
+        <div class="coming-icon">
+          🕌
+        </div>
+
+        <div class="coming-title">
+          Something in the works
+        </div>
+
+        <p class="coming-desc">
+          More resources are being prepared with the same care and depth you expect.
+        </p>
+
+        <span style="
+          font-size:0.72rem;
+          letter-spacing:2px;
+          text-transform:uppercase;
+          color:var(--jade);
+          font-weight:600;
+        ">
+          Coming Soon
+        </span>
+
+      </div>
+
+    </div>
+
+    <!-- BANNER -->
+
+    <div class="coming-banner fade-up">
+
+      <div class="banner-text">
+
+        <div class="banner-eyebrow">
+          Stay in the loop
+        </div>
+
+        <div class="banner-title">
+          More products on the way, in sha Allah
+        </div>
+
+        <p class="banner-sub">
+          We're working on new materials for Arabic morphology, Hanafi fiqh, and more.
+        </p>
+
+      </div>
+
+      <a href="contact.html" class="banner-notify">
+        Get notified →
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- JS -->
+
+  <script>
+
+    const observer = new IntersectionObserver(entries => {
+
+      entries.forEach((entry, i) => {
+
+        if(entry.isIntersecting){
+
+          setTimeout(() => {
+
+            entry.target.classList.add('visible');
+
+          }, i * 100);
+
+          observer.unobserve(entry.target);
+
+        }
+
+      });
+
+    }, {
+      threshold:0.08
+    });
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+      observer.observe(el);
+    });
+
+  </script>
+
+</body>
+</html>
