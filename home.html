@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hanafi Lens – Learn. Understand. Live Islam Digitally.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: #f5f7fb;
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; }
+
+    header {
+      background: #0b3d3a;
+      padding: 15px 0;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px;
+      gap: 15px;
+    }
+
+    @media (min-width: 768px) {
+      .nav-container { flex-direction: row; justify-content: space-between; }
+    }
+
+    .logo { color: #fff; font-size: 1.5rem; font-weight: 700; letter-spacing: .5px; }
+    nav { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+    nav a { color: #d7ffef; font-weight: 500; font-size: 0.9rem; padding: 5px 10px; transition: 0.3s; }
+    nav a:hover { color: #2cb67d; }
+
+    .hero {
+      background: radial-gradient(circle at top left, #0b3d3a, #2cb67d);
+      padding: 70px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .product-block {
+      display: inline-block;
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.25), 0 30px 80px rgba(0,0,0,0.2);
+    }
+
+    .product-block img {
+      display: block;
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+    }
+
+    .product-block .btn-area {
+      padding: 16px 20px;
+      text-align: center;
+    }
+
+    .product-block .btn {
+      display: inline-block;
+      background: #ffffff;
+      color: #0b3d3a;
+      padding: 11px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+      transition: all 0.3s ease;
+    }
+
+    .product-block .btn:hover {
+      background: #f0f0f0;
+      transform: translateY(-2px);
+    }
+
+    .content-section {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 0 25px;
+      text-align: center;
+    }
+
+    h2 { font-size: 1.75rem; color: #0b3d3a; margin-bottom: 15px; font-weight: 700; }
+    .content-section p { font-size: 1.05rem; color: #555; line-height: 1.8; }
+
+    footer {
+      background: #0b3d3a;
+      padding: 40px 20px;
+      color: white;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    footer p { font-size: 0.9rem; color: #d7ffef; opacity: 0.8; }
+  </style>
+</head>
+
+<body>
+<script>
+const params = new URLSearchParams(window.location.search);
+const ref = params.get("ref");
+if (ref) localStorage.setItem("affiliate", ref);
+</script>
+
+  <header>
+    <div class="nav-container">
+      <div class="logo">Hanafi Lens</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="products_malay.html">Products</a>
+        <a href="blog.html">Blogs</a>
+        <a href="contact.html">Contact us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="product-block">
+        <img src="images/product2.png" alt="Arabic & Persian Vocabulary Package" />
+        <div class="btn-area">
+          <a href="product_malay.html" class="btn" id="exploreBtn">Explore Product</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>About Hanafi Lens</h2>
+      <p>
+        Hanafi Lens is a digital initiative to make Islamic learning simple, structured, and accessible.
+        We combine classical Islamic scholarship with modern tools—ranging from comprehensive Arabic learning resources to advanced theological courses.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Hanafi Lens — All Rights Reserved.</p>
+  </footer>
+
+<script>
+const btn = document.getElementById("exploreBtn");
+const affiliate = localStorage.getItem("affiliate");
+if (affiliate) btn.href = "product_malay.html?ref=" + affiliate;
+
+document.querySelectorAll(".btn").forEach(link => {
+  link.addEventListener("click", function() {
+    const affiliateData = localStorage.getItem("affiliate");
+    if (affiliateData) {
+      const affiliate = JSON.parse(affiliateData);
+      let url = this.getAttribute("href");
+      if (!url.includes("ref=")) url += "?ref=" + affiliate.id;
+      this.setAttribute("href", url);
+    }
+  });
+});
+</script>
+</body>
+</html>
