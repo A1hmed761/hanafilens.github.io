@@ -119,7 +119,13 @@ src="https://www.facebook.com/tr?id=1608121624075156&ev=PageView&noscript=1"
 <body>
 
 <script>
-  fbq('track', 'Purchase', {value: 500.00, currency: 'INR'});
+  fbq('track', 'Purchase', {
+    value: 500.00,
+    currency: 'INR',
+    contents: [
+        {}
+    ],
+  });
 </script>
 
 
