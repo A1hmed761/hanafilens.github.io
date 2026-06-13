@@ -1,0 +1,229 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .page { max-width: 420px; margin: 0 auto; padding: 0 0 2rem; font-family: var(--font-sans); }
+
+  .hero { background: #1a3a2a; color: #f5f0e8; padding: 2rem 1.25rem 1.5rem; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -40px; right: -40px; width: 160px; height: 160px; border-radius: 50%; background: rgba(212,170,80,0.08); }
+  .hero::after { content: ''; position: absolute; bottom: -30px; left: -30px; width: 120px; height: 120px; border-radius: 50%; background: rgba(212,170,80,0.06); }
+
+  .badge { display: inline-block; background: #d4aa50; color: #1a3a2a; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem; text-transform: uppercase; }
+  .hero h1 { font-size: 24px; font-weight: 500; line-height: 1.3; margin-bottom: 0.5rem; color: #f5f0e8; }
+  .hero h1 span { color: #d4aa50; }
+  .hero-sub { font-size: 14px; color: rgba(245,240,232,0.7); margin-bottom: 1.25rem; line-height: 1.6; }
+
+  .price-row { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 0.5rem; }
+  .price-old { font-size: 18px; color: rgba(245,240,232,0.4); text-decoration: line-through; }
+  .price-new { font-size: 38px; font-weight: 500; color: #d4aa50; }
+  .price-label { font-size: 12px; color: rgba(245,240,232,0.6); margin-bottom: 1.5rem; }
+
+  .countdown-wrap { background: rgba(255,255,255,0.07); border-radius: 12px; padding: 0.875rem 1rem; }
+  .countdown-label { font-size: 11px; color: rgba(245,240,232,0.55); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .countdown { display: flex; justify-content: center; gap: 8px; }
+  .cd-unit { text-align: center; }
+  .cd-num { font-size: 28px; font-weight: 500; color: #f5f0e8; line-height: 1; display: block; }
+  .cd-lbl { font-size: 10px; color: rgba(245,240,232,0.45); margin-top: 2px; display: block; }
+  .cd-sep { font-size: 24px; color: rgba(245,240,232,0.3); align-self: flex-start; padding-top: 4px; }
+
+  .section { padding: 1.5rem 1.25rem; }
+  .section-title { font-size: 13px; font-weight: 500; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; }
+
+  .feature-list { display: flex; flex-direction: column; gap: 10px; }
+  .feature { display: flex; align-items: flex-start; gap: 12px; background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: 12px; padding: 14px; }
+  .feature-icon { width: 36px; height: 36px; border-radius: 8px; background: #f0ebe0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .feature-text strong { display: block; font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 2px; }
+  .feature-text span { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; }
+
+  .divider { height: 0.5px; background: var(--color-border-tertiary); margin: 0 1.25rem; }
+
+  .trust-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 1.25rem; }
+  .trust-item { background: var(--color-background-secondary); border-radius: 10px; padding: 12px 8px; text-align: center; }
+  .trust-item .t-num { font-size: 18px; font-weight: 500; color: #1a3a2a; display: block; }
+  .trust-item .t-lbl { font-size: 11px; color: var(--color-text-secondary); margin-top: 2px; display: block; line-height: 1.4; }
+  @media (prefers-color-scheme: dark) {
+    .trust-item .t-num { color: #d4aa50; }
+    .feature-icon { background: #2a3a2a; }
+    .hero { background: #0f2218; }
+    .lang-pill.active { background: #2a3a2a; color: #d4aa50; border-color: #d4aa50; }
+  }
+
+  .lang-strip { display: flex; gap: 8px; padding: 0 1.25rem 1.25rem; flex-wrap: wrap; }
+  .lang-pill { font-size: 12px; padding: 5px 12px; border-radius: 20px; background: var(--color-background-secondary); color: var(--color-text-secondary); border: 0.5px solid var(--color-border-tertiary); }
+  .lang-pill.active { background: #f0ebe0; color: #1a3a2a; border-color: #d4aa50; }
+
+  .cta-section { padding: 0 1.25rem 1rem; }
+  .cta-note { font-size: 12px; color: var(--color-text-secondary); text-align: center; margin-bottom: 0.75rem; line-height: 1.5; }
+
+  .btn-try { display: block; width: 100%; background: #1a3a2a; color: #f5f0e8; font-size: 16px; font-weight: 500; padding: 16px; border-radius: 12px; text-align: center; text-decoration: none; border: none; cursor: pointer; }
+  .btn-try:hover { opacity: 0.88; }
+  .btn-try .btn-sub { display: block; font-size: 12px; color: #d4aa50; margin-top: 3px; font-weight: 400; }
+
+  .or-divider { display: flex; align-items: center; gap: 10px; margin: 12px 0; }
+  .or-divider::before, .or-divider::after { content: ''; flex: 1; height: 0.5px; background: var(--color-border-tertiary); }
+  .or-divider span { font-size: 12px; color: var(--color-text-secondary); white-space: nowrap; }
+
+  .access-info { display: flex; align-items: center; gap: 6px; justify-content: center; margin-bottom: 10px; }
+  .access-badge { display: inline-flex; align-items: center; gap: 5px; background: rgba(212,170,80,0.12); border: 0.5px solid rgba(212,170,80,0.4); border-radius: 20px; padding: 4px 12px; font-size: 12px; color: #8a6a10; font-weight: 500; }
+  @media (prefers-color-scheme: dark) {
+    .access-badge { background: rgba(212,170,80,0.15); color: #d4aa50; }
+  }
+
+  .btn-pay { display: block; width: 100%; background: #d4aa50; color: #1a3a2a; font-size: 16px; font-weight: 500; padding: 16px; border-radius: 12px; text-align: center; text-decoration: none; border: none; cursor: pointer; }
+  .btn-pay:hover { opacity: 0.9; }
+  .btn-pay .btn-sub { display: block; font-size: 12px; color: rgba(26,58,42,0.7); margin-top: 3px; font-weight: 400; }
+
+  .guarantee { display: flex; align-items: center; gap: 8px; background: var(--color-background-secondary); border-radius: 10px; padding: 12px 14px; margin-top: 10px; }
+  .guarantee i { color: #1a7a3a; font-size: 20px; flex-shrink: 0; }
+  .guarantee span { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; }
+  .guarantee strong { color: var(--color-text-primary); }
+</style>
+
+<div class="page">
+  <div class="hero">
+    <div class="badge">⏳ Sirf aaj — only today</div>
+    <h1>Arabic Vocabulary<br><span>Tool — صرف Rs 500</span></h1>
+    <p class="hero-sub">Pehle pura access lein aur check karen, baad mein payment karen.<br>Offer Fajr 4:00 AM tak hai.</p>
+    <div class="price-row">
+      <span class="price-old">Rs 1,000</span>
+      <span class="price-new">Rs 500</span>
+    </div>
+    <div class="price-label">Aadhi qeemat — ek martaba payment, lifetime access</div>
+   </div>
+
+  <div class="trust-row">
+    <div class="trust-item"><span class="t-num">700+</span><span class="t-lbl">Arabic nouns</span></div>
+    <div class="trust-item"><span class="t-num">500+</span><span class="t-lbl">Verb forms</span></div>
+    <div class="trust-item"><span class="t-num">Basic to Intermediate</span></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-title">Kya milega aapko</div>
+    <div class="feature-list">
+      <div class="feature">
+        <div class="feature-icon">📚</div>
+        <div class="feature-text">
+          <strong>Flashcards with images</strong>
+          <span>700+ nouns — flip karke plurals aur example sentences dekhein. Basic se intermediate tak.</span>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">⚙️</div>
+        <div class="feature-text">
+          <strong>Full verb conjugation (Gardaan)</strong>
+          <span>500+ verbs — roots, forms, Abwab/Tasrif, aur synonyms. Gardaan ki audio bhi sunein.</span>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🔊</div>
+        <div class="feature-text">
+          <strong>Native Arabic audio</strong>
+          <span>Har lafz ki sahi pronunciation — sentences ki audio bhi available hai.</span>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">▶️</div>
+        <div class="feature-text">
+          <strong>Auto-Play revision mode</strong>
+          <span>Hands-free seekhein — cards automatic chalte hain, aap sirf sunein aur yaad karen.</span>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🌐</div>
+        <div class="feature-text">
+          <strong>Urdu + English toggle</strong>
+          <span>Ek click mein dono languages switch karen — jo samajh aaye wohi istemal karen.</span>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🎁</div>
+        <div class="feature-text">
+          <strong>Farsi (Persian) mode — bonus</strong>
+          <span>1200+ words with the same full learning system. Arabic aur Farsi ek saath seekhein.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="section" style="padding-bottom: 0.75rem;">
+    <div class="section-title">Ye offer kyun special hai</div>
+    <div style="background: var(--color-background-secondary); border-radius: 12px; padding: 1rem 1.25rem;">
+      <p style="font-size: 14px; color: var(--color-text-primary); line-height: 1.7; margin-bottom: 0.75rem;">
+        Bina kisi risk ke pehle pura tool istemal karen. Saari vocabulary, audio, aur features khulti hain — phir aap decide karen ke worth hai ya nahi.
+      </p>
+      <p style="font-size: 13px; color: var(--color-text-secondary); line-height: 1.6;">
+        Quran aur Salaah mein alfaaz samajhna chahte hain? Yahi se shuruat karen. Ek martaba payment — koi subscription nahi, koi renewal nahi.
+      </p>
+    </div>
+  </div>
+
+  <div class="cta-section" style="padding-top: 1.25rem;">
+    <p class="cta-note">Offer Fajr 4:00 AM ke baad khatam ho jaegi.<br>Pehle try karen — pasand aaye to payment karen.</p>
+
+    <div class="access-info">
+      <span class="access-badge">⏱ 7–10 minute free access</span>
+    </div>
+
+    <a href="#" class="btn-try" id="ctaBtn">
+      Abhi Free Try Karen
+      <span class="btn-sub">Koi payment nahi — sirf try karen</span>
+    </a>
+
+    <div class="or-divider"><span>ya seedha khareedna chahte hain?</span></div>
+
+    <a href="#" class="btn-pay" id="payBtn">
+      Abhi Khareedein — Rs 500
+      <span class="btn-sub">Lifetime access · ek martaba payment</span>
+    </a>
+
+    </div>
+</div>
+
+<script>
+  (function() {
+    const params = new URLSearchParams(window.location.search);
+    const ref = params.get("ref") || localStorage.getItem("affiliate_ref");
+    if (ref) localStorage.setItem("affiliate_ref", ref);
+
+    const tryBase = "https://hanafilens.online/product1.html";
+    const payBase = "https://hanafilens.online/pay2.html";
+
+    function withRef(base) {
+      return ref ? base + "?ref=" + encodeURIComponent(ref) : base;
+    }
+
+    document.getElementById("ctaBtn").href = withRef(tryBase);
+    document.getElementById("payBtn").href = withRef(payBase);
+
+    function getFajrDeadline() {
+      const now = new Date();
+      const fajr = new Date(now);
+      fajr.setHours(4, 0, 0, 0);
+      if (now >= fajr) fajr.setDate(fajr.getDate() + 1);
+      return fajr.getTime();
+    }
+
+    const deadline = getFajrDeadline();
+
+    function tick() {
+      const left = deadline - Date.now();
+      if (left <= 0) {
+        document.getElementById("cd-h").textContent = "00";
+        document.getElementById("cd-m").textContent = "00";
+        document.getElementById("cd-s").textContent = "00";
+        return;
+      }
+      const h = Math.floor(left / 3600000);
+      const m = Math.floor((left % 3600000) / 60000);
+      const s = Math.floor((left % 60000) / 1000);
+      document.getElementById("cd-h").textContent = String(h).padStart(2, "0");
+      document.getElementById("cd-m").textContent = String(m).padStart(2, "0");
+      document.getElementById("cd-s").textContent = String(s).padStart(2, "0");
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+</script>
