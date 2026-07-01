@@ -1,180 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hanafi Lens – Learn. Understand. Live Islam Digitally.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>We've Moved — Hanafi Lens</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=DM+Sans:wght@400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest: #163527;
+    --forest-deep: #0e241a;
+    --cream: #F5F0E3;
+    --cream-soft: #EDE6D3;
+    --gold: #C4993E;
+    --gold-soft: #DCC488;
+    --ink: #2A2A22;
+  }
 
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+  *{box-sizing:border-box;margin:0;padding:0;}
 
-    body {
-      font-family: "Inter", sans-serif;
-      background: #f5f7fb;
-      color: #333;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+  html,body{
+    height:100%;
+    background: var(--forest);
+    font-family:'DM Sans', sans-serif;
+    color: var(--cream);
+  }
 
-    a { text-decoration: none; }
+  body{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 24px;
+    position:relative;
+    overflow:hidden;
+    background:
+      radial-gradient(circle at 50% -10%, rgba(196,153,62,0.10), transparent 55%),
+      linear-gradient(180deg, var(--forest) 0%, var(--forest-deep) 100%);
+  }
 
-    header {
-      background: #0b3d3a;
-      padding: 15px 0;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+  /* faint geometric star lattice, drawn once, quiet */
+  .lattice{
+    position:absolute;
+    inset:0;
+    opacity:0.05;
+    background-image:
+      repeating-linear-gradient(45deg, var(--gold) 0 1px, transparent 1px 64px),
+      repeating-linear-gradient(-45deg, var(--gold) 0 1px, transparent 1px 64px);
+    pointer-events:none;
+  }
 
-    .nav-container {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 0 20px;
-      gap: 15px;
-    }
+  .card{
+    position:relative;
+    width:100%;
+    max-width: 560px;
+    text-align:center;
+    padding: 64px 48px 52px;
+    border: 1px solid rgba(196,153,62,0.35);
+    background: rgba(245,240,227,0.02);
+    animation: rise 0.9s cubic-bezier(.2,.8,.2,1) both;
+  }
 
-    @media (min-width: 768px) {
-      .nav-container { flex-direction: row; justify-content: space-between; }
-    }
+  .card::before,
+  .card::after{
+    content:"";
+    position:absolute;
+    width:22px;
+    height:22px;
+    border: 1px solid var(--gold);
+  }
+  .card::before{ top:-1px; left:-1px; border-right:none; border-bottom:none; }
+  .card::after{ bottom:-1px; right:-1px; border-left:none; border-top:none; }
 
-    .logo { color: #fff; font-size: 1.5rem; font-weight: 700; letter-spacing: .5px; }
-    nav { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
-    nav a { color: #d7ffef; font-weight: 500; font-size: 0.9rem; padding: 5px 10px; transition: 0.3s; }
-    nav a:hover { color: #2cb67d; }
+  .kaf{
+    font-family:'Amiri', serif;
+    font-size: 30px;
+    color: var(--gold-soft);
+    line-height:1;
+    margin-bottom: 22px;
+    letter-spacing: 2px;
+  }
 
-    .hero {
-      background: radial-gradient(circle at top left, #0b3d3a, #2cb67d);
-      padding: 70px 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  .eyebrow{
+    font-size: 11px;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
 
-    .product-block {
-      display: inline-block;
-      border-radius: 18px;
-      overflow: hidden;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.25), 0 30px 80px rgba(0,0,0,0.2);
-    }
+  h1{
+    font-family:'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: clamp(34px, 5vw, 46px);
+    line-height: 1.15;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
 
-    .product-block img {
-      display: block;
-      width: 100%;
-      max-width: 420px;
-      height: auto;
-    }
+  h1 em{
+    font-style: italic;
+    color: var(--gold-soft);
+  }
 
-    .product-block .btn-area {
-      padding: 16px 20px;
-      text-align: center;
-    }
+  .divider{
+    width: 46px;
+    height: 1px;
+    background: var(--gold);
+    margin: 26px auto 26px;
+    opacity: 0.6;
+  }
 
-    .product-block .btn {
-      display: inline-block;
-      background: #ffffff;
-      color: #0b3d3a;
-      padding: 11px 32px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
-      transition: all 0.3s ease;
-    }
+  p.lede{
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(245,240,227,0.78);
+    max-width: 420px;
+    margin: 0 auto 34px;
+  }
 
-    .product-block .btn:hover {
-      background: #f0f0f0;
-      transform: translateY(-2px);
-    }
+  .destination{
+    display:inline-flex;
+    align-items:center;
+    gap: 10px;
+    padding: 15px 30px;
+    background: var(--gold);
+    color: var(--forest-deep);
+    text-decoration:none;
+    font-family:'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    transition: transform 0.25s ease, background 0.25s ease;
+  }
 
-    .content-section {
-      max-width: 800px;
-      margin: 50px auto;
-      padding: 0 25px;
-      text-align: center;
-    }
+  .destination:hover{
+    background: var(--gold-soft);
+    transform: translateY(-1px);
+  }
 
-    h2 { font-size: 1.75rem; color: #0b3d3a; margin-bottom: 15px; font-weight: 700; }
-    .content-section p { font-size: 1.05rem; color: #555; line-height: 1.8; }
+  .destination svg{ width:16px; height:16px; }
 
-    footer {
-      background: #0b3d3a;
-      padding: 40px 20px;
-      color: white;
-      text-align: center;
-      margin-top: 60px;
-    }
+  .url{
+    color: var(--gold-soft);
+    font-weight: 500;
+  }
 
-    footer p { font-size: 0.9rem; color: #d7ffef; opacity: 0.8; }
-  </style>
+  .notice{
+    margin-top: 38px;
+    padding: 20px 22px;
+    border: 1px solid rgba(196,153,62,0.3);
+    background: rgba(196,153,62,0.06);
+    text-align: left;
+  }
+
+  .notice-title{
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .notice-body{
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(245,240,227,0.7);
+  }
+
+  @keyframes rise{
+    from{ opacity:0; transform: translateY(14px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .card{ animation:none; }
+    .destination{ transition:none; }
+  }
+
+  @media (max-width: 480px){
+    .card{ padding: 48px 26px 40px; }
+  }
+</style>
 </head>
-
 <body>
-<script>
-const params = new URLSearchParams(window.location.search);
-const ref = params.get("ref");
-if (ref) localStorage.setItem("affiliate", ref);
-</script>
 
-  <header>
-    <div class="nav-container">
-      <div class="logo">Hanafi Lens</div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="blog.html">Blogs</a>
-        <a href="contact.html">Contact us</a>
-      </nav>
+  <div class="lattice"></div>
+
+  <main class="card">
+    <div class="kaf">﴾ ﻩ ﴿</div>
+    <div class="eyebrow">This Address Has Retired</div>
+    <h1>Hanafi Lens now lives<br><em>at a new home</em></h1>
+    <div class="divider"></div>
+    <p class="lede">
+      This page, along with the full library, the Arabic Vocabulary Tool, and every course, has moved to our new platform. Nothing has been lost — only relocated.
+    </p>
+
+    <a class="destination" href="https://hanafilens.online" id="go-link">
+      Visit hanafilens.online
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+    </a>
+
+    <div class="notice">
+      <p class="notice-title">Please save the new address</p>
+      <p class="notice-body">This link will be permanently discontinued in one week. After that, this page will no longer be reachable. Kindly update your bookmarks and any saved links to <span class="url">hanafilens.online</span> to avoid losing access.</p>
     </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="product-block">
-        <img src="images/product.png" alt="Arabic & Persian Vocabulary Package" />
-        <div class="btn-area">
-          <a href="product.html" class="btn" id="exploreBtn">Explore Product</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <h2>About Hanafi Lens</h2>
-      <p>
-        Hanafi Lens is a digital initiative to make Islamic learning simple, structured, and accessible.
-        We combine classical Islamic scholarship with modern tools—ranging from comprehensive Arabic learning resources to advanced theological courses.
-      </p>
-    </section>
   </main>
 
-  <footer>
-    <p>© 2025 Hanafi Lens — All Rights Reserved.</p>
-  </footer>
-
-<script>
-const btn = document.getElementById("exploreBtn");
-const affiliate = localStorage.getItem("affiliate");
-if (affiliate) btn.href = "product.html?ref=" + affiliate;
-
-document.querySelectorAll(".btn").forEach(link => {
-  link.addEventListener("click", function() {
-    const affiliateData = localStorage.getItem("affiliate");
-    if (affiliateData) {
-      const affiliate = JSON.parse(affiliateData);
-      let url = this.getAttribute("href");
-      if (!url.includes("ref=")) url += "?ref=" + affiliate.id;
-      this.setAttribute("href", url);
-    }
-  });
-});
-</script>
 </body>
 </html>
